@@ -1,8 +1,5 @@
 <script setup lang="ts">
 import { AyuButton } from '@ayu/common'
-
-console.log(1)
-console.log(22)
 </script>
 <template>
   <Ayu-button></Ayu-button>

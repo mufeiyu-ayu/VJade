@@ -12,13 +12,23 @@
     "prettier:fix": "prettier --write .",
     "clean": "rd/s/q node_modules",
     "precommit": "lint-staged",
-    "prepare": "husky"
+    "prepare": "husky",
+    "cmt": "git add . && git-cz"
+  },
+  "config": {
+    "commitizen": {
+      "path": "node_modules/cz-git"
+    }
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@commitlint/cli": "^19.3.0",
+    "@commitlint/config-conventional": "^19.2.2",
     "@configs/lint": "workspace:^",
+    "commitizen": "^4.3.0",
+    "cz-git": "^1.9.1",
     "eslint-plugin-import": "^2.29.1",
     "husky": "^9.0.11",
     "lint-staged": "^15.2.2"
