@@ -1,0 +1,26 @@
+{
+  "name": "ayu",
+  "version": "1.0.0",
+  "description": "",
+  "private": "true",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "eslint . --ext ts,tsx,vue --report-unused-disable-directives --max-warnings 0",
+    "lint:fix": "eslint --fix --ext ts,tsx,vue --ignore-path .eslintignore .",
+    "prettier": "prettier --check .",
+    "prettier:fix": "prettier --write .",
+    "clean": "rd/s/q node_modules",
+    "precommit": "lint-staged",
+    "prepare": "husky"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@configs/lint": "workspace:^",
+    "eslint-plugin-import": "^2.29.1",
+    "husky": "^9.0.11",
+    "lint-staged": "^15.2.2"
+  }
+}

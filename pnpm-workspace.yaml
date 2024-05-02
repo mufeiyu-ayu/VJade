@@ -1,0 +1,4 @@
+packages:
+  - packages/* # 工具包
+  - app/* # 项目
+  - configs/* # 配置

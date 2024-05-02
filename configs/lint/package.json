@@ -1,0 +1,28 @@
+{
+  "name": "@configs/lint",
+  "version": "1.0.1",
+  "private": "true",
+  "files": [
+    "eslint.js",
+    "prettier.js",
+    "lintstaged.js"
+  ],
+  "scripts": {
+    "clean": "rd/s/q node_modules",
+    "clean:mac": "rm -rf ./node_modules"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^7.5.0",
+    "@typescript-eslint/parser": "^7.5.0",
+    "commitizen": "^4.3.0",
+    "eslint": "^8.57.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-prettier": "^5.1.3",
+    "eslint-plugin-vue": "^9.24.0",
+    "lint-staged": "^15.2.2",
+    "prettier": "^3.2.5"
+  }
+}
