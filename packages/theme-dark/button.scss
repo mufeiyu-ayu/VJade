@@ -1,0 +1,105 @@
+@use 'common/var' as *;
+@use 'common/mixins' as *;
+.ayu-button {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  white-space: nowrap;
+  outline: none;
+  transition: 0.1s;
+  user-select: none;
+  vertical-align: middle;
+  padding:8px 15px;
+  color: #000;
+  border: 1px solid #dcdfe6;
+  line-height: 1;
+  text-align: center;
+  height: 32px;
+  font-size: $font-size;
+  border-radius: $border-radius;
+  &:active {
+    background-color: #337ecc;
+    color: #fff;
+  }
+  @each $type, $color in $color-map {
+    &--#{$type} {
+      border:0;
+      background-color: $color;
+      color: #fff;
+    }
+  }
+  @include when(circle) {
+    padding: 8px;
+    width: 32px;
+    border-radius: 50%;
+
+  }
+  @include when(round) {
+    border-radius: 20px;
+  }
+  @include when(disabled) {
+    cursor: not-allowed;
+    background-color: #a0cfff;
+    color: #fff;
+    border-color: #ebeef5;
+  }
+  @include when(plain) {
+    color: #409eff;
+    border:1px solid #dcdfe6;
+    background-color: #ecf5ff;
+    &:hover {
+      border-color: #c6e2ff;
+      background-color: #409eff;
+      color: #fff;
+    }
+    &:active {
+      color: #fff;
+      border-color: #3a8ee6;
+      background-color: #337ecc;
+    }
+  }
+  @include when(text) {
+    color: #409eff;
+    background-color: #fff;
+    border-color: transparent;
+    &:hover {
+      color: #66b1ff;
+      background-color: #f9f9f9;
+    }
+    &:active {
+      color: #3a8ee6;
+      background-color: #f0f5ff;
+    }
+  }
+  @include when(loading) {
+    position: relative;
+    pointer-events: none;
+    text-align: right;
+   >span {
+    padding-left: 10px;
+   }
+  }
+  @include when(active) {
+    background-color: #ecf5ff;
+    border-color: #c6e2ff;
+    color: #3a8ee6;
+    outline: none;
+  }
+  @include when(link) {
+    color: #409eff;
+    border: 0;
+    background-color:transparent ;
+    &:hover {
+     color: #66b1ff;
+
+    }
+    &:active {
+      color: #409eff;
+    }
+  }
+  span {
+    display: inline-flex;
+
+    align-items: center;
+  }
+}

@@ -1,7 +1,21 @@
 <script setup lang="ts">
 import { AyuButton } from '@ayu/common'
+import { ElButton } from 'element-plus'
+
+const handleClick = (event: MouseEvent) => {
+  console.log(event)
+}
 </script>
 <template>
-  <Ayu-button></Ayu-button>
-  <h1 class="text-3xl fontb-old underline text-blue-600">Hello world!</h1>
+  <div>
+    <Ayu-button circle aa>hello</Ayu-button>
+    <Ayu-button type="success" @click="handleClick">hello</Ayu-button>
+    <el-button @click="handleClick" ref="btn" type="primary">hello</el-button>
+  </div>
 </template>
+
+<style>
+div {
+  margin-left: 100px;
+}
+</style>

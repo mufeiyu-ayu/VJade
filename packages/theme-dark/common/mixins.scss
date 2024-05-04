@@ -1,0 +1,8 @@
+@use 'config.scss' as *;
+@mixin when($state) {
+  @at-root {
+    &.#{$state-prefix + $state} {
+      @content;
+    }
+  }
+}

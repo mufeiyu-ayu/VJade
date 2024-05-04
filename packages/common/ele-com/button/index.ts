@@ -1,1 +1,1 @@
-export { default as AyuButton } from './button.vue'
+export { default as AyuButton } from './src/button.vue'

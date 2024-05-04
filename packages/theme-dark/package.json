@@ -1,8 +1,9 @@
 {
-  "name": "packages",
+  "name": "@ayu/theme-chalk",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "index.scss",
+  "styles": "index.scss",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },

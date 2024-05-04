@@ -5,7 +5,7 @@
   "private": "true",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "pnpm -C app/vue-com dev ",
     "lint": "eslint . --ext ts,tsx,vue --report-unused-disable-directives --max-warnings 0",
     "lint:fix": "eslint --fix --ext ts,tsx,vue --ignore-path .eslintignore .",
     "prettier": "prettier --check .",
@@ -27,10 +27,18 @@
     "@commitlint/cli": "^19.3.0",
     "@commitlint/config-conventional": "^19.2.2",
     "@configs/lint": "workspace:^",
+    "@iconify/vue": "^4.1.2",
     "commitizen": "^4.3.0",
     "cz-git": "^1.9.1",
     "eslint-plugin-import": "^2.29.1",
     "husky": "^9.0.11",
-    "lint-staged": "^15.2.2"
+    "lint-staged": "^15.2.2",
+    "sass": "^1.76.0",
+    "vue": "3.2.37"
+  },
+  "dependencies": {
+    "@ayu/hooks": "workspace:^",
+    "@ayu/theme-chalk": "workspace:^",
+    "element-plus": "^2.7.2"
   }
 }

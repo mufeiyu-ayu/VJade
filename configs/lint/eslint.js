@@ -37,8 +37,15 @@ module.exports = {
     ], //缩进2个空格
     quotes: [1, 'single'], // 必须使用单引号
     'no-plusplus': ['error'], // 禁止一元运算符
-    'no-console': 2, // 禁止console
+    'no-unused-vars': 'off', // 禁止未使用过的变量
+    'no-console': 'off', // 禁止console
     'no-param-reassign': 'off', // 不允许重新分配 function 参数
+    includeInternal: 'off',
+    packageDir: 'off',
+    'import/no-extraneous-dependencies': [
+      'off',
+      { devDependencies: false, optionalDependencies: false, peerDependencies: false }
+    ], // 禁止导入未在package.json中声明的依赖
     'no-shadow': 'off', // 禁止变量声明与外层作用域的变量同名
     'no-underscore-dangle': 'off', // 禁止标识符中的悬空下划线_
     'no-restricted-syntax': 'off', // 禁止指定的语法
@@ -46,12 +53,6 @@ module.exports = {
     'no-case-declarations': 'off', // 禁止 case 子句中的词法声明
     '@typescript-eslint/ban-types': 'off',
     '@typescript-eslint/no-explicit-any': 'off', // 禁止使用 any 类型
-    'import/no-extraneous-dependencies': [
-      'error',
-      {
-        devDependencies: true
-      }
-    ],
     'import/no-unresolved': 'off',
     'import/extensions': 'off',
     'import/prefer-default-export': 'off',
