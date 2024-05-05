@@ -4,10 +4,12 @@
       <slot v-if="$slots.loading" name="loading" />
       <Icon v-else icon="line-md:loading-loop" :class="ns.is('loading')" />
     </template>
-    <span v-if="$slots.default">
+    <template v-else-if="icon">
+      <Icon :icon="icon"></Icon>
+    </template>
+    <span v-if="$slots.default" :class="ns.em('text')">
       <slot />
     </span>
-    <span v-else>内容不存在</span>
   </component>
 </template>
 <script setup lang="ts">
@@ -34,8 +36,6 @@ const buttonKls = computed(() => [
   ns.is('text', props.text),
   ns.is('link', props.link)
 ])
-console.log(buttonKls, 'buttonKls')
-console.log(props, 'props')
 </script>
 
 <style lang="scss" scoped>

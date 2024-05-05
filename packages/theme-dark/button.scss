@@ -9,7 +9,7 @@
   transition: 0.1s;
   user-select: none;
   vertical-align: middle;
-  padding:8px 15px;
+  padding: 8px 15px;
   color: #000;
   border: 1px solid #dcdfe6;
   line-height: 1;
@@ -23,7 +23,7 @@
   }
   @each $type, $color in $color-map {
     &--#{$type} {
-      border:0;
+      border: 0;
       background-color: $color;
       color: #fff;
     }
@@ -32,7 +32,6 @@
     padding: 8px;
     width: 32px;
     border-radius: 50%;
-
   }
   @include when(round) {
     border-radius: 20px;
@@ -45,7 +44,7 @@
   }
   @include when(plain) {
     color: #409eff;
-    border:1px solid #dcdfe6;
+    border: 1px solid #dcdfe6;
     background-color: #ecf5ff;
     &:hover {
       border-color: #c6e2ff;
@@ -75,9 +74,9 @@
     position: relative;
     pointer-events: none;
     text-align: right;
-   >span {
-    padding-left: 10px;
-   }
+    > span {
+      padding-left: 10px;
+    }
   }
   @include when(active) {
     background-color: #ecf5ff;
@@ -88,10 +87,9 @@
   @include when(link) {
     color: #409eff;
     border: 0;
-    background-color:transparent ;
+    background-color: transparent;
     &:hover {
-     color: #66b1ff;
-
+      color: #66b1ff;
     }
     &:active {
       color: #409eff;
