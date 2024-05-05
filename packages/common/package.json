@@ -5,29 +5,7 @@
   "description": "A common package for Ayu",
   "main": "index.ts",
   "type": "module",
-  "scripts": {
-    "dev": "vite",
-    "build": "run-p type-check \"build-only {@}\" --",
-    "preview": "vite preview",
-    "build-only": "vite build",
-    "type-check": "vue-tsc --build --force"
-  },
-  "dependencies": {
-    "@configs/css": "workspace:^",
-    "vue": "^3.4.21"
-  },
-  "devDependencies": {
-    "@tsconfig/node20": "^20.1.2",
-    "@types/node": "^20.11.28",
-    "@vitejs/plugin-vue": "^5.0.4",
-    "@vitejs/plugin-vue-jsx": "^3.1.0",
-    "@vue/tsconfig": "^0.5.1",
-    "autoprefixer": "^10.4.19",
-    "npm-run-all2": "^6.1.2",
-    "postcss": "^8.4.38",
-    "tailwindcss": "^3.4.3",
-    "typescript": "~5.4.4",
-    "vite": "^5.1.6",
-    "vue-tsc": "^2.0.6"
+  "peerDependencies": {
+    "vue": "^3.2.0"
   }
 }

@@ -22,7 +22,7 @@ defineOptions({
 })
 
 const props = defineProps(buttonProps)
-console.log(props)
+
 const ns = useNamespace('button')
 const buttonKls = computed(() => [
   ns.b(),
@@ -39,5 +39,5 @@ const buttonKls = computed(() => [
 </script>
 
 <style lang="scss" scoped>
-@use '@ayu/theme-chalk/button.scss';
+@use '@ayu/theme-chalk/src/button.scss';
 </style>

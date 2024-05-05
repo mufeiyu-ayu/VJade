@@ -2,7 +2,7 @@
   "name": "@ayu/theme-chalk",
   "version": "1.0.0",
   "description": "",
-  "main": "index.scss",
+  "main": "src/index.scss",
   "styles": "index.scss",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"

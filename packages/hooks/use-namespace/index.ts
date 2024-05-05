@@ -39,7 +39,7 @@ const useGetDerivedNamespace = (namespaceOverrides?: Ref<string | undefined>) =>
  */
 export const useNamespace = (block: string, namespaceOverrides?: Ref<string | undefined>) => {
   const namespace = useGetDerivedNamespace(namespaceOverrides)
-  console.log('namespace', namespace.value)
+
   const b = (blockSuffix = '') => _bem(namespace.value, block, blockSuffix, '', '')
   const e = (element?: string) => (element ? _bem(namespace.value, block, '', element, '') : '')
   const m = (modifier?: string) => (modifier ? _bem(namespace.value, block, '', '', modifier) : '')
