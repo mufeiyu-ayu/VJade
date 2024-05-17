@@ -41,6 +41,7 @@ module.exports = {
     'no-console': 'off', // 禁止console
     'no-param-reassign': 'off', // 不允许重新分配 function 参数
     includeInternal: 'off',
+    'vue/setup-compiler-macros': 'off',
     packageDir: 'off',
     'import/no-extraneous-dependencies': [
       'off',

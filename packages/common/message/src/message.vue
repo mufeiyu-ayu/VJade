@@ -26,7 +26,7 @@ const top = ref(0)
 const classes = computed(() => {
   return ['ayu-message', `ayu-message--${props.type}`]
 })
-const setVisibility = (val: boolean) => {
+const setVisibility = (val: boolean): Promise<string> => {
   return new Promise((resolve) => {
     visible.value = val
     setTimeout(() => {

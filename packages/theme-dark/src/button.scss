@@ -33,6 +33,7 @@
     width: 32px;
     border-radius: 50%;
   }
+
   @include when(round) {
     border-radius: 20px;
   }
