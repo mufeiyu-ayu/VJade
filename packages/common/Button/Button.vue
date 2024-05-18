@@ -21,11 +21,11 @@
 import { useNamespace } from '@ayu/hooks'
 import { computed, onMounted, ref } from 'vue'
 import { throttle } from 'lodash-es'
-import type { ButtonEmits, ButtonInstance, ButtonProps } from './button'
+import type { ButtonEmits, ButtonInstance, ButtonProps } from './Button.ts'
 import { Icon } from '@iconify/vue'
 
 defineOptions({
-  name: 'AyButton'
+  name: 'AyuButton'
 })
 const _ref = ref<HTMLButtonElement>()
 const props = withDefaults(defineProps<ButtonProps>(), {
@@ -70,5 +70,5 @@ defineExpose<ButtonInstance>({
 </script>
 
 <style lang="scss" scoped>
-@use '@ayu/theme-chalk/src/button.scss';
+@import '@ayu/theme-chalk/src/button.scss';
 </style>

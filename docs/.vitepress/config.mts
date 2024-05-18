@@ -1,31 +1,48 @@
-import { defineConfig } from 'vitepress'
+import {defineConfig} from 'vitepress'
+import {componentPreview, containerPreview} from '@vitepress-demo-preview/plugin'
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
-  title: 'AYuPlus',
+  title: 'AyuDesign',
   description: '基于Vue3定制的UI',
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
     nav: [
-      { text: 'Home', link: '/' },
-      { text: 'Examples', link: '/markdown-examples' }
+      { text: 'Docs', link: '/docs/projectStart' },
+      { text: 'components', link: '/components/button.md' }
     ],
 
-    sidebar: [
-      {
-        text: 'Examples',
-        items: [
-          { text: 'Markdown Examples', link: '/markdown-examples' },
-          { text: 'Runtime API Examples', link: '/api-examples' }
-        ]
-      }
-    ],
+    sidebar: {
+      '/docs/': [
+        {
+          text: 'start',
+          items: [
+            { text: '前言', link: '/docs/projectStart' },
 
-    socialLinks: [{ icon: 'github', link: 'https://github.com/vuejs/vitepress' }]
+          ],
+
+        },
+      ],
+      '/components/': [
+        {
+          text: '基础组件',
+          items: [
+            { text: 'button', link: '/components/basicCom/button.md' },
+          ],
+        },
+      ],
+    },
+    socialLinks: [{ icon: 'github', link: 'https://github.com/mufeiyu-ayu/web-build' }]
   },
   vite: {
     server: {
       port: 5179
+    }
+  },
+  markdown: {
+    config(md) {
+      md.use(containerPreview)
+      md.use(componentPreview)
     }
   }
 })

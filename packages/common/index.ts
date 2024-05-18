@@ -1,2 +1,2 @@
-export * from './button'
-export * from './message'
+export * from './Button'
+export * from './Message'

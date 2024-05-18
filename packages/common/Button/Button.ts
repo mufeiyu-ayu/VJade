@@ -1,8 +1,8 @@
 import type { Component, ComputedRef, Ref } from 'vue'
 
-type ButtonType = 'primary' | 'success' | 'warning' | 'danger' | 'info'
-type ButtonSize = 'large' | 'default' | 'small'
-type NativeType = 'button' | 'submit' | 'reset'
+export type ButtonType = 'primary' | 'success' | 'warning' | 'danger' | 'info'
+export type ButtonSize = 'large' | 'default' | 'small'
+export type NativeType = 'button' | 'submit' | 'reset'
 export interface ButtonProps {
   /** @description button类型 */
   type?: ButtonType

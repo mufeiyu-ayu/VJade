@@ -2,6 +2,9 @@
 import { computed, ref } from 'vue'
 import { types } from './types'
 
+defineOptions({
+  name: 'AyuMessage'
+})
 const props = defineProps({
   type: {
     type: String,

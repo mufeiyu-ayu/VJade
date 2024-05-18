@@ -9,12 +9,12 @@ hero:
   actions:
     - theme: brand
       text: 开始使用
-      link: /get-started
+      link: /docs/projectStart
 
 features:
   - icon: 📚
     title: 功能覆盖和兼容性
-    details: 组件库能够广泛覆盖 Element Plus 的功能，并且与 Element Plus 的 API 兼容。可以作为 Element Plus 的替代品，提供相同的功能和使用体验，方便用户迁移和使用。
+    details: 组件库能够广泛覆盖 Vue组件库热门 的功能，并且与 Element Plus 的 API 兼容。可以作为 Element Plus 的替代品，提供相同的功能和使用体验，方便用户迁移和使用。
   - icon: 📦
     title: 易用性和简化开发流程
     details: 组件库提供简洁明了的 API 和组件结构，使开发人员能够快速上手并高效构建界面，减少开发时间和工作量。部分组件兼容多种开发范式。

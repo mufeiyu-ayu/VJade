@@ -35,7 +35,7 @@ module.exports = {
         SwitchCase: 1
       }
     ], //缩进2个空格
-    quotes: [1, 'single'], // 必须使用单引号
+    quotes: 0, // 必须使用单引号
     'no-plusplus': ['error'], // 禁止一元运算符
     'no-unused-vars': 'off', // 禁止未使用过的变量
     'no-console': 'off', // 禁止console

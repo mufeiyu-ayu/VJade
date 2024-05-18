@@ -1,6 +1,6 @@
-import { createApp, ref, watch } from 'vue'
 import type { App } from 'vue'
-import MessageComponent from './message.vue'
+import { createApp, ref, watch } from 'vue'
+import MessageComponent from './Message.vue'
 import { types } from './types'
 
 type MessageType = InstanceType<typeof MessageComponent> & {
@@ -47,4 +47,4 @@ const setTop = (vm: MessageType) => {
   const currentIndex = messageArr.value.findIndex((item) => item === vm)
   setTop(margin * (currentIndex + 1) + height * currentIndex)
 }
-export { AyuMessage }
+export { AyuMessage as Message }
