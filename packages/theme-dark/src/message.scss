@@ -1,0 +1,46 @@
+.ayu-message {
+  position: fixed;
+  left: 50%;
+  width: 380px;
+  height: 40px;
+  //写translateX会让动画存在问题
+  margin-left: -190px;
+  font-size: 14px;
+  line-height: 40px;
+  text-align: center;
+  border-radius: 5px;
+  transition: top 0.3s ease-out;
+  color: #fff;
+  z-index: 9999;
+
+  &--success {
+    background-color: #67c23a;
+    color: #fff;
+  }
+
+  &--warning {
+    background-color: #e6a23c;
+    color: #fff;
+  }
+
+  &--error {
+    background-color: #f56c6c;
+  }
+
+  &--message {
+    background-color: #909399;
+    color: #fff;
+  }
+  &-fade-enter-active {
+    transition: all 0.3s ease-in;
+  }
+  &-fade-leave-active {
+    transition: all 0.3s ease-in;
+  }
+  &-fade-enter-from,
+  &-fade-leave-to {
+    transform: translateY(-20px);
+    opacity: 0;
+  }
+}
+

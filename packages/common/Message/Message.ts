@@ -4,7 +4,7 @@ import MessageComponent from './Message.vue'
 import { types } from './types'
 
 type MessageType = InstanceType<typeof MessageComponent> & {
-  timer: number
+  timer?: any
 }
 
 const messageArr = ref([])
@@ -13,8 +13,8 @@ const AyuMessage = async (options: any) => {
 
   await showMessage(messageApp, options.duration)
 }
-Object.values(types).forEach((type) => {
-  AyuMessage[type] = (options: any) => {
+Object.values(types).forEach((type: string) => {
+  AyuMessage[type] = (options: any): any => {
     options.type = type
     return AyuMessage(options)
   }
@@ -22,14 +22,14 @@ Object.values(types).forEach((type) => {
 
 const showMessage = async (app: App, duration: number) => {
   const container = document.createElement('div')
-  const vm = <MessageType>app.mount(container)
+  const vm: any = <MessageType>app.mount(container)
 
   messageArr.value.push(vm)
   document.body.appendChild(container)
   setTop(vm)
   await vm.setVisibility(true)
   watch(messageArr, () => setTop(vm))
-  hideMessage(app, vm, duration)
+  // hideMessage(app, vm, duration)
 }
 
 const hideMessage = (app: App, vm: MessageType, duration: number) => {

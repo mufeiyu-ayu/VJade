@@ -1,9 +1,21 @@
+//default
 $primary: #409eff;
 $success: #67c23a;
 $warning: #e6a23c;
 $danger: #f56c6c;
 $info: #909399;
 $error: #f56c6c;
+
+//default-active
+$primary-active: #337ecc;
+$success-active: #529b2e;
+$warning-active: #b88230;
+$danger-active: #c45656;
+$info-active: #73767a;
+$error-active: #c45656;
+
+$font-size: 14px;
+$border-radius: 4px;
 
 $color-map: (
   primary: $primary,
@@ -14,5 +26,31 @@ $color-map: (
   error: $error
 );
 
-$font-size: 14px;
-$border-radius: 4px;
+$color-active-map: (
+  primary: $primary-active,
+  success: $success-active,
+  warning: $warning-active,
+  danger: $danger-active,
+  info: $info-active,
+  error: $error-active
+);
+
+$size-map: (
+  small: (
+    padding: 5px 11px,
+    font-size: 12px,
+    border-radius: 4px,
+    height: 24px
+  ),
+  default: (
+    padding: 9px 15px,
+    font-size: 14px,
+    border-radius: 4px
+  ),
+  large: (
+    padding: 12px 19px,
+    height: 40px,
+    font-size: 16px,
+    border-radius: 4px
+  )
+);

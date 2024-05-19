@@ -1,6 +1,7 @@
 @use 'common/var' as *;
 @use 'common/mixins' as *;
 .ayu-button {
+  margin-right: 10px;
   display: inline-flex;
   justify-content: center;
   align-items: center;
@@ -18,14 +19,31 @@
   font-size: $font-size;
   border-radius: $border-radius;
   &:active {
-    background-color: #337ecc;
-    color: #fff;
+    background-color: #ecf5ff;
+    color: #409eff;
   }
   @each $type, $color in $color-map {
     &--#{$type} {
       border: 0;
       background-color: $color;
       color: #fff;
+    }
+    &--#{$type}:active {
+      background-color: red;
+      color: #409eff;
+    }
+  }
+  @each $type, $color in $color-active-map {
+    &--#{$type}:active {
+      background-color: $color;
+      color: #fff;
+    }
+  }
+  @each $size, $size-value in $size-map {
+    &--#{$size} {
+      @each $prop, $value in $size-value {
+        #{$prop}: $value;
+      }
     }
   }
   @include when(circle) {
@@ -39,9 +57,10 @@
   }
   @include when(disabled) {
     cursor: not-allowed;
-    background-color: #a0cfff;
+    pointer-events: none;
     color: #fff;
     border-color: #ebeef5;
+    //  点击不变色
   }
   @include when(plain) {
     color: #409eff;
@@ -72,7 +91,7 @@
     }
   }
   @include when(loading) {
-    position: relative;
+    cursor: pointer;
     pointer-events: none;
     text-align: right;
     > span {

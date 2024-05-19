@@ -1,25 +1,6 @@
-<template>
-  <component
-    :is="tag"
-    ref="_ref"
-    :class="buttonKls"
-    @click="(e: MouseEvent) => (useThrottle ? handleBtnCLickThrottle(e) : handleBtnClick(e))"
-  >
-    <template v-if="loading">
-      <slot v-if="$slots.loading" name="loading" />
-      <Icon v-else icon="line-md:loading-loop" :class="ns.is('loading')" />
-    </template>
-    <template v-else-if="icon">
-      <Icon :icon="icon"></Icon>
-    </template>
-    <span v-if="$slots.default" :class="ns.em('text')">
-      <slot />
-    </span>
-  </component>
-</template>
 <script setup lang="ts">
 import { useNamespace } from '@ayu/hooks'
-import { computed, onMounted, ref } from 'vue'
+import { computed, ref } from 'vue'
 import { throttle } from 'lodash-es'
 import type { ButtonEmits, ButtonInstance, ButtonProps } from './Button.ts'
 import { Icon } from '@iconify/vue'
@@ -34,9 +15,7 @@ const props = withDefaults(defineProps<ButtonProps>(), {
   throttleDuration: 1000,
   useThrottle: false
 })
-onMounted(() => {
-  console.log(props.useThrottle)
-})
+
 const emits = defineEmits<ButtonEmits>()
 const handleBtnClick = (e: MouseEvent) => {
   emits('click', e)
@@ -56,7 +35,6 @@ const buttonKls = computed(() => [
   ns.is('circle', props.circle),
   ns.is('link', props.link)
 ])
-console.log(buttonKls.value)
 defineExpose<ButtonInstance>({
   /** @description  获取当前组件的ref */
   ref: _ref,
@@ -68,6 +46,25 @@ defineExpose<ButtonInstance>({
   type
 })
 </script>
+<template>
+  <component
+    :is="tag"
+    ref="_ref"
+    :class="buttonKls"
+    @click="(e: MouseEvent) => (useThrottle ? handleBtnCLickThrottle(e) : handleBtnClick(e))"
+  >
+    <template v-if="loading">
+      <slot v-if="$slots.loading" name="loading" />
+      <Icon v-else icon="line-md:loading-loop" :class="ns.is('loading')" />
+    </template>
+    <template v-else-if="icon">
+      <Icon :icon="icon"></Icon>
+    </template>
+    <span v-if="$slots.default" :class="ns.em('text')">
+      <slot />
+    </span>
+  </component>
+</template>
 
 <style lang="scss" scoped>
 @import '@ayu/theme-chalk/src/button.scss';

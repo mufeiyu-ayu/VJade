@@ -1,0 +1,31 @@
+:root {
+  --vp-layout-max-width: 90vw;
+  .VPSidebar {
+    background-color: #fff !important;
+  }
+  .title {
+    font-weight: 800!important;
+    font-size: 30px  !important;
+    color: #409eff !important;
+    background-color: #fff !important;
+  }
+  .text {
+    font-size: 20px !important;
+  }
+  .content-container {
+    max-width: 50vw !important;
+  }
+  .aside {
+    padding-left: 350px !important;
+  }
+  .main {
+
+    width: 60vw;
+  }
+  .vp-doc td,th{
+    line-height: 50px!important;
+    font-size: 16px;
+
+    padding: .6em 1em;
+  }
+}
