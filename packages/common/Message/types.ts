@@ -15,7 +15,10 @@ export interface MessageOptions {
   message: string
   dangerouslyUseHTMLString?: boolean
   icon?: string | Component
+  customClass?: string
+  /** @description 基于浏览器偏移量 */
+  offset?: number
+  appendTo?: string | HTMLElement
 }
 
-export interface MessageProps {}
 export { types }

@@ -1,19 +1,23 @@
 <script lang="ts" setup="">
 import { AyuButton, AyuMessage } from '@ayu/common'
 
-console.log(typeof AyuMessage)
-const handleClick = () => {
+const handleClick = (type: string) => {
   AyuMessage({
-    type: 'success',
-
-    message: '<h1>这是一条成功的提示消息</h1>'
+    type,
+    message: '信息保存打就嗲家打开了骄傲快乐到',
+    icon: 'devicon:sqldeveloper',
+    customClass: 'aa',
+    offset: 100
   })
 }
 </script>
 <template>
   <div>
-    <ayu-button type="success" @click="handleClick">message</ayu-button>
+    <ayu-button type="primary" @click="handleClick('success')">success</ayu-button>
+    <ayu-button type="primary" @click="handleClick('warning')">warning</ayu-button>
+    <ayu-button type="primary" @click="handleClick('error')">error</ayu-button>
+    <ayu-button type="primary" @click="handleClick('message')">message</ayu-button>
   </div>
 </template>
 
-<style scoped></style>
+<style></style>

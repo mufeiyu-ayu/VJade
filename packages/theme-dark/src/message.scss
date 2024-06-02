@@ -1,36 +1,53 @@
 .ayu-message {
   position: fixed;
   left: 50%;
-  width: 380px;
-  height: 40px;
+  height: 50px;
   //写translateX会让动画存在问题
   margin-left: -190px;
   font-size: 14px;
-  line-height: 40px;
+  line-height: 50px;
   text-align: center;
   border-radius: 5px;
   transition: top 0.3s ease-out;
   color: #fff;
   z-index: 9999;
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+  padding: 10px 15px;
+  //最多展示一行，多出省略号显示
 
-  &--success {
-    background-color: #67c23a;
-    color: #fff;
-  }
-
-  &--warning {
-    background-color: #e6a23c;
-    color: #fff;
-  }
-
-  &--error {
-    background-color: #f56c6c;
+  &--success,
+  &--warning,
+  &--error,
+  {
+    background-color: #f0f9eb;
+    color: #b88230;
   }
 
   &--message {
-    background-color: #909399;
-    color: #fff;
+    background-color: #f5f5f6;
+    color: #a3a5aa;
   }
+
+  &__icon {
+    line-height: 40px;
+    font-size: 25px;
+    color: #67c23a;
+  }
+
+  &-icon--message {
+    color: #909399;
+  }
+
+  &__content {
+    text-indent: 0.6em;
+    font-size: 15px;
+    line-height: 50px;
+    font-weight: 500;
+  }
+
+
   &-fade-enter-active {
     transition: all 0.3s ease-in;
   }
