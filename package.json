@@ -5,7 +5,7 @@
   "private": "true",
   "main": "index.js",
   "scripts": {
-    "dev": "pnpm -C app/vue-com dev --open ",
+    "dev": "pnpm -C app/vue-com dev",
     "doc": "pnpm -C docs docs:dev --open ",
     "build": "pnpm --filter ayu-design build ",
     "lint": "eslint . --ext ts,tsx,vue --report-unused-disable-directives --max-warnings 0",
@@ -50,12 +50,16 @@
   },
   "dependencies": {
     "@ayu/common": "workspace:^",
+    "@ayu/common-state": "workspace:^",
     "@ayu/hooks": "workspace:^",
     "@ayu/theme-chalk": "workspace:^",
     "@ayu/utils": "workspace:^",
+    "@ayu/workflow": "workspace:^",
+    "@element-plus/icons-vue": "^2.3.1",
     "ayu-design": "workspace:^",
     "element-plus": "^2.7.2",
     "lodash-es": "^4.17.21",
+    "pinia": "^2.1.7",
     "vue": "^3.4.21"
   }
 }

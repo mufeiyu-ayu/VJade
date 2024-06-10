@@ -4,8 +4,8 @@
     background-color: #fff !important;
   }
   .title {
-    font-weight: 800!important;
-    font-size: 30px  !important;
+    font-weight: 800 !important;
+    font-size: 30px !important;
     color: #409eff !important;
     background-color: #fff !important;
   }
@@ -19,13 +19,13 @@
     padding-left: 350px !important;
   }
   .main {
-
     width: 60vw;
   }
-  .vp-doc td,th{
-    line-height: 50px!important;
+  .vp-doc td,
+  th {
+    line-height: 50px !important;
     font-size: 16px;
 
-    padding: .6em 1em;
+    padding: 0.6em 1em;
   }
 }

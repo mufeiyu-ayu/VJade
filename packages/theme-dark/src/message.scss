@@ -19,8 +19,7 @@
 
   &--success,
   &--warning,
-  &--error,
-  {
+  &--error {
     background-color: #f0f9eb;
     color: #b88230;
   }
@@ -47,7 +46,6 @@
     font-weight: 500;
   }
 
-
   &-fade-enter-active {
     transition: all 0.3s ease-in;
   }
@@ -60,4 +58,3 @@
     opacity: 0;
   }
 }
-
