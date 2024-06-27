@@ -1,0 +1,12 @@
+{
+  "name": "@ayu/core-common",
+  "version": "1.0.0",
+  "description": "业务组件",
+  "main": "src/index.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

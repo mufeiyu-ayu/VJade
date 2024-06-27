@@ -51,14 +51,18 @@
   "dependencies": {
     "@ayu/common": "workspace:^",
     "@ayu/common-state": "workspace:^",
+    "@ayu/core-common": "workspace:^",
     "@ayu/hooks": "workspace:^",
+    "@ayu/model": "workspace:^",
     "@ayu/theme-chalk": "workspace:^",
     "@ayu/utils": "workspace:^",
     "@ayu/workflow": "workspace:^",
     "@element-plus/icons-vue": "^2.3.1",
+    "axios": "^1.7.2",
     "ayu-design": "workspace:^",
     "element-plus": "^2.7.2",
     "lodash-es": "^4.17.21",
+    "mitt": "^3.0.1",
     "pinia": "^2.1.7",
     "vue": "^3.4.21"
   }

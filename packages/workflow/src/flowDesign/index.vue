@@ -33,7 +33,6 @@ const activeData = ref<FlowNode>({
   type: 'start'
 })
 
-/** @description 判断属性是否有值 */
 const flatFields = computed(() => {
   if (!props.fields || props.fields.length <= 0 || !Array.isArray(props.fields)) return []
   return props.fields
@@ -123,3 +122,4 @@ defineExpose({
   }
 }
 </style>
+dss

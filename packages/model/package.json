@@ -1,0 +1,12 @@
+{
+  "name": "@ayu/model",
+  "version": "1.0.0",
+  "description": "通用工具函数的类型声明",
+  "main": "src/index.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

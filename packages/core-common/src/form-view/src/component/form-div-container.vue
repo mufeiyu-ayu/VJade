@@ -1,7 +1,7 @@
 <script lang="ts" setup=""></script>
 
 <template>
-  <router-view></router-view>
+  <div>form-div-container</div>
 </template>
 
 <style lang="scss" scoped></style>
