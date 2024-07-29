@@ -25,7 +25,7 @@ import { ElMessageBox } from 'element-plus'
 export const useFormView = () => {
   const { props } = getCurrentInstance() as ComponentInternalInstance & { props: FormViewProps }
   const emit = getCurrentInstance()?.emit
-  const route = props.context?.meta
+  const route = (props.context as any).meta
   const attrs = useAttrs()
   const EventBus = useEventBus([
     `${props?.voName}:${EventTypeEnum.FORM_VIEW_ADD}`,

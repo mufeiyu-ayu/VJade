@@ -1,5 +1,5 @@
 import type { App, Directive, Plugin } from 'vue'
-import { noop } from 'lodash-es'
+import { noop, each } from 'lodash-es'
 
 type SFCWithInstall<T> = T & Plugin
 
@@ -28,4 +28,11 @@ export const withInstallDirective = <T extends Directive>(directive: T, name: st
 export const withNoopInstall = <T>(component: T) => {
   ;(component as SFCWithInstall<T>).install = noop
   return component as SFCWithInstall<T>
+}
+
+export function makeInstaller(components: Plugin[]) {
+  return (app: App) =>
+    each(components, (c) => {
+      app.use(c)
+    })
 }

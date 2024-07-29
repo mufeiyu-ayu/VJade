@@ -102,7 +102,6 @@ defineExpose({
       margin: 0 10px;
     }
   }
-
   .tool {
     position: absolute;
     z-index: 999;
@@ -122,4 +121,3 @@ defineExpose({
   }
 }
 </style>
-dss

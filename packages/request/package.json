@@ -1,0 +1,17 @@
+{
+  "name": "@ayu/request",
+  "version": "1.0.0",
+  "description": "",
+  "main": "./src/index.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^1.7.2",
+    "lodash-es": "^4.17.21",
+    "vue-request": "^2.0.4"
+  }
+}

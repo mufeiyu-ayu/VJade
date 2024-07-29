@@ -1,10 +1,5 @@
-import type { App, Plugin } from 'vue'
-import { each } from 'lodash-es'
-
-export function makeInstaller(components: Plugin[]) {
-  return (app: App) =>
-    each(components, (c) => {
-      app.use(c)
-    })
-}
+/* @description  组件注册相关 */
 export * from './install'
+
+/* @description  缓存相关 */
+export * from './webStorage'
