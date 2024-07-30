@@ -34,7 +34,6 @@ export class AyuAxios {
     this.options = options
     this.setupInterceptors()
   }
-
   /**
    * 获取 Axios 实例
    */
