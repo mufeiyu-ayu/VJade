@@ -15,3 +15,6 @@ export * from './menu'
 
 /* @description 缓存相关类型 */
 export * from './cache'
+
+/* @description OAuth2相关类型 */
+export * from './oauth2'

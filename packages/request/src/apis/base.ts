@@ -145,6 +145,7 @@ export class BaseApi {
   }
 
   /**
+   * @description 获取详情数据
    * 编辑
    * @param {String[]} ids 编辑IDs
    */

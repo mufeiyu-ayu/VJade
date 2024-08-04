@@ -1,7 +1,7 @@
 {
   "name": "@ayu/utils",
   "version": "1.0.0",
-  "main": "index.ts",
+  "main": "./src/index.ts",
   "dependencies": {
     "crypto-js": "^4.2.0"
   },

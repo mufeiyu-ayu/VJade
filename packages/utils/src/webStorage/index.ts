@@ -1,4 +1,4 @@
-import { encrypt, decrypt } from './encry'
+import { encrypt, decrypt } from '../encry'
 import type { globalConfig } from './interface'
 import type { StorageKeyType } from '@ayu/model'
 
