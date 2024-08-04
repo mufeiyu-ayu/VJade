@@ -13,7 +13,7 @@ import {
 } from 'vue'
 import { useEventBus } from '@ayu/hooks/use-EventBus'
 import { EventTypeEnum } from '@ayu/model'
-import { useFormStore } from './use-form-store'
+import { useFormStore } from './use-form-store.ts'
 import { FormStatusEnum } from '../types/enum.ts'
 import type { FormViewProps } from '../types/props.ts'
 import DialogContainer from '../component/form-dialog-container.vue'
@@ -37,7 +37,7 @@ export const useFormView = () => {
 
   const formStore = useFormStore()
 
-  // 表单引用
+  /* @description  表单载体组件 */
   const formContainer = ref<InstanceType<typeof DialogContainer>>()
 
   // 表单内容引用
@@ -164,12 +164,15 @@ export const useFormView = () => {
   })
 
   return {
+    formContainer,
+    formContent,
+    formTitle,
     state,
     formContentProps,
-    containerBindValue,
     currentComponent,
-    formTitle,
+    containerBindValue,
     fields,
+    close,
     formChange
   }
 }
