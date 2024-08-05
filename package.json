@@ -55,6 +55,7 @@
     "@ayu/theme-chalk": "workspace:^",
     "@ayu/utils": "workspace:^",
     "@ayu/workflow": "workspace:^",
+    "@changesets/cli": "^2.27.6",
     "@element-plus/icons-vue": "^2.3.1",
     "ayu-design": "workspace:^",
     "element-plus": "^2.7.2",
