@@ -1,7 +1,7 @@
-<!-- <script lang="ts" setup>
+<script lang="ts" setup>
 // import { FormStatusEnum } from '../types/enum.ts'
 import type { FormProps } from 'element-plus'
-import { ViewColumnType } from '@ayu/model'
+import { type ViewColumnType } from '@ayu/model'
 export interface FormContentPropsType {
   uploadRefs?: any
 
@@ -56,11 +56,11 @@ export interface FormContentPropsType {
   columnList?: Array<ViewColumnType>
 }
 
-const { slotList, children } = withDefaults(defineProps<FormContentPropsType>(), {
-  labelPosition: 'right',
-  autoCreate: true,
-  isChild: false
-})
+// const { slotList, children } = withDefaults(defineProps<FormContentPropsType>(), {
+//   labelPosition: 'right',
+//   autoCreate: true,
+//   isChild: false
+// })
 
 defineEmits<{
   /**
@@ -74,4 +74,4 @@ defineEmits<{
   <div>form-view-content</div>
 </template>
 
-<style lang="scss" scoped></style> -->
+<style lang="scss" scoped></style>

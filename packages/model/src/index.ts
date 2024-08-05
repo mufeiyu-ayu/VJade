@@ -18,3 +18,6 @@ export * from './cache'
 
 /* @description OAuth2相关类型 */
 export * from './oauth2'
+
+/* @description  基础类 */
+export * from './base'

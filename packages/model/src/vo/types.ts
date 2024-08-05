@@ -253,7 +253,13 @@ export type EditOptionCustomType =
 /**
  * 公用配置
  */
-export interface CommonOptionType {}
+export interface CommonOptionType {
+  minlength?: number
+  maxlength?: number
+  precision: number
+  scale: number
+  defaultValue: any
+}
 /**
  * 枚举配置
  */
