@@ -1,9 +1,7 @@
-<script lang="ts" setup="">
-import workflow from '@/components/workflow/index.vue'
-</script>
+<script lang="ts" setup=""></script>
 
 <template>
-  <workflow></workflow>
+  <router-view></router-view>
 </template>
 
-<style scoped></style>
+<style lang="scss" scoped></style>

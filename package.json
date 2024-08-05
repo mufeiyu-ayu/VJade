@@ -2,7 +2,7 @@
   "name": "ayu",
   "version": "1.0.0",
   "description": "",
-  "private": "true",
+  "private": true,
   "main": "index.js",
   "scripts": {
     "dev": "pnpm -C app/vue-com dev",
@@ -25,6 +25,9 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
+  "workspaces": [
+    "packages/*"
+  ],
   "devDependencies": {
     "@commitlint/cli": "^19.3.0",
     "@commitlint/config-conventional": "^19.2.2",
@@ -43,7 +46,7 @@
     "move-file-cli": "^3.0.0",
     "npm-run-all": "^4.1.5",
     "sass": "^1.76.0",
-    "typescript": "~5.4.0",
+    "typescript": "~5.5.0",
     "vite": "^5.1.6",
     "vite-plugin-dts": "^3.9.1",
     "vite-plugin-sass": "^0.1.0"
@@ -51,15 +54,20 @@
   "dependencies": {
     "@ayu/common": "workspace:^",
     "@ayu/common-state": "workspace:^",
+    "@ayu/core-common": "workspace:^",
     "@ayu/hooks": "workspace:^",
+    "@ayu/model": "workspace:^",
     "@ayu/theme-chalk": "workspace:^",
     "@ayu/utils": "workspace:^",
+    "@ayu/request": "workspace:^",
     "@ayu/workflow": "workspace:^",
     "@changesets/cli": "^2.27.6",
     "@element-plus/icons-vue": "^2.3.1",
+    "axios": "^1.7.2",
     "ayu-design": "workspace:^",
     "element-plus": "^2.7.2",
     "lodash-es": "^4.17.21",
+    "mitt": "^3.0.1",
     "pinia": "^2.1.7",
     "vue": "^3.4.21"
   }
