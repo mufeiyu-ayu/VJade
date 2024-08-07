@@ -104,15 +104,13 @@ export const useForm = () => {
    */
   const handleDefaultValue = (voColumn: ViewColumnType[]) => {
     const defaultValue: Record<string, any> = {}
+
     voColumn.forEach((item) => {
-      if (
-        item.editOption?.customs?.defaultValue !== undefined ||
-        item.editOption?.customs?.['defaultValue'] !== undefined
-      ) {
-        defaultValue[item.property] =
-          item.editOption?.customs?.defaultValue !== undefined
-            ? item.editOption?.customs?.defaultValue
-            : item.editOption?.customs?.['defaultValue']
+      const customs = item.editOption?.customs
+      const defaultVal = customs?.defaultValue ?? customs?.['defaultValue']
+
+      if (defaultVal !== undefined) {
+        defaultValue[item.property] = defaultVal
       } else {
         defaultValue[item.property] = defaultValueStrategies[item.editType]
       }
