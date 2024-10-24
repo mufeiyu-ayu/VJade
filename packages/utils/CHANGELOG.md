@@ -1,5 +1,11 @@
 # @ayu/utils
 
+## 2.1.2
+
+### Patch Changes
+
+- 测试发包
+
 ## 2.1.1
 
 ### Patch Changes

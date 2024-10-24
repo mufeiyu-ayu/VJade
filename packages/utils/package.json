@@ -1,12 +1,16 @@
 {
-  "name": "@mufeiyu/utils",
-  "version": "2.1.1",
+  "name": "@ayu/utils",
+  "version": "2.1.2",
   "main": "./src/index.ts",
   "exports": {
     "import": "./src/index.ts",
     "require": "./dist/ai-lowcode-utils.cjs"
   },
+  "private": true,
   "module": "./dist/ai-lowcode-utils.js",
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org"
+  },
   "type": "module",
   "files": [
     "dist"
