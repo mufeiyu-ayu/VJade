@@ -1,5 +1,5 @@
 <script lang="ts" setup="">
-import { AyuFlowDesign } from '@ayu/workflow'
+import { AyuFlowDesign } from '@ayu-mu/workflow'
 import { workflowHooks } from './data'
 
 const { fields } = workflowHooks()

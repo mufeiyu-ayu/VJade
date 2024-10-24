@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { useNamespace } from '@ayu/hooks'
+import { useNamespace } from '@ayu-mu/hooks'
 import { computed, ref } from 'vue'
 import { throttle } from 'lodash-es'
 import type { ButtonEmits, ButtonInstance, ButtonProps } from './Button.ts'
@@ -67,5 +67,5 @@ defineExpose<ButtonInstance>({
 </template>
 
 <style lang="scss" scoped>
-@import '@ayu/theme-chalk/src/button.scss';
+@import '@ayu-mu/theme-chalk/src/button.scss';
 </style>

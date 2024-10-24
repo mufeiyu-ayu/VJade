@@ -1,5 +1,5 @@
 {
-  "name": "@ayu/scripts",
+  "name": "@ayu-mu/scripts",
   "version": "1.0.0",
   "bin":{
     "rollup-dts":"rollup-dts.js"

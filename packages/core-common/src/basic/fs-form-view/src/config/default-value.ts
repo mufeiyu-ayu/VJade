@@ -1,4 +1,4 @@
-import { EditTypeEnums } from '@ayu/model'
+import { EditTypeEnums } from '@ayu-mu/model'
 
 // 表单默认策略
 export const defaultValueStrategies: Record<string, unknown> = {

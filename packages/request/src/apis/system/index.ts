@@ -1,7 +1,7 @@
 import { BaseApi } from '../base'
 import { http } from '../../'
-import { QueryCondition } from '@ayu/model'
-import { webStorage } from '@ayu/utils'
+import { QueryCondition } from '@ayu-mu/model'
+import { webStorage } from '@ayu-mu/utils'
 
 /**
  * @description:接口配置

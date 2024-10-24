@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 // import { ElSelect, ElOption } from 'element-plus'
-import type { ViewColumnType } from '@ayu/model'
+import type { ViewColumnType } from '@ayu-mu/model'
 
 export interface QueryBoolPropType {
   /* @description  */

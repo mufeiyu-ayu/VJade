@@ -1,5 +1,5 @@
 <script lang="ts" setup="">
-import { AyuFormView } from '@ayu/core-common'
+import { AyuFormView } from '@ayu-mu/core-common'
 </script>
 
 <template>

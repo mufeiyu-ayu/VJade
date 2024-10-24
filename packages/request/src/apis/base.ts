@@ -1,8 +1,8 @@
 import { http } from '../'
-import { type QueryParameter, type CommonResultType, SystemArchEnum } from '@ayu/model'
-import { webStorage } from '@ayu/utils'
+import { type QueryParameter, type CommonResultType, SystemArchEnum } from '@ayu-mu/model'
+import { webStorage } from '@ayu-mu/utils'
 
-/* 
+/*
   基础接口类
  */
 export class BaseApi {

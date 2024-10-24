@@ -1,6 +1,6 @@
 import DefaultTheme from 'vitepress/theme'
-import ayuDesign from 'ayu-design'
-import 'ayu-design/dist/index.css'
+import ayuDesign from '@ayu-mu/ayu-design'
+import '@ayu-mu/ayu-design/dist/index.css'
 import { type App } from 'vue'
 import './style.css'
 import { AntDesignContainer } from '@vitepress-demo-preview/component'

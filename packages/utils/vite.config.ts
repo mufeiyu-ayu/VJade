@@ -1,5 +1,5 @@
 import { defineConfig } from 'vite'
-import { definePkgConfig } from '@ayu/vite'
+import { definePkgConfig } from '@ayu-mu/vite'
 
 export default defineConfig(async () => {
   return definePkgConfig({

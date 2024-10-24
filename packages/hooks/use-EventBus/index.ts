@@ -1,6 +1,6 @@
 import { onUnmounted } from 'vue'
 import mitt, { type Emitter, type EventType } from 'mitt'
-import type { CustomEventBusCallbackType, CustomEventType, EventBusType } from '@ayu/model'
+import type { CustomEventBusCallbackType, CustomEventType, EventBusType } from '@ayu-mu/model'
 
 const emitter: Emitter<Record<EventType, unknown>> = mitt()
 export const useEventBus = (eventNames?: CustomEventType[]): EventBusType => {

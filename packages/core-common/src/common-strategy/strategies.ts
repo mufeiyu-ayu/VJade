@@ -1,5 +1,5 @@
-import { type EditOptionType, EditTypeEnums } from '@ayu/model'
-import { isFunction } from '@ayu/utils'
+import { type EditOptionType, EditTypeEnums } from '@ayu-mu/model'
+import { isFunction } from '@ayu-mu/utils'
 import { ElInput, ElInputNumber, ElSwitch } from 'element-plus'
 import { fsFormatStrategies } from '../index'
 import FsSelectOption from '../form/fs-select-option/index.vue'

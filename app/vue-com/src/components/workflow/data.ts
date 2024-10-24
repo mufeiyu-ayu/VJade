@@ -1,5 +1,5 @@
 import { ref } from 'vue'
-import { workflowStore } from '@ayu/common-state'
+import { workflowStore } from '@ayu-mu/common-state'
 
 export const workflowHooks = () => {
   const store = workflowStore()

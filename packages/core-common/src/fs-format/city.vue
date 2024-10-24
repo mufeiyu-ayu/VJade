@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 import { computed, onMounted, ref } from 'vue'
-import { http } from '@ayu/request'
-import { webStorage } from '@ayu/utils'
+import { http } from '@ayu-mu/request'
+import { webStorage } from '@ayu-mu/utils'
 
 const props = withDefaults(
   defineProps<{

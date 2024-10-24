@@ -9,9 +9,9 @@ import {
   type UploadFileParamsType,
   ResponseCodeEnum,
   SystemArchEnum
-} from '@ayu/model'
+} from '@ayu-mu/model'
 import { ElMessage, ElLoadingService, type UploadRawFile } from 'element-plus'
-import { webStorage } from '@ayu/utils'
+import { webStorage } from '@ayu-mu/utils'
 
 /**
  * 请求类

@@ -1,5 +1,5 @@
 {
-  "extends": "@ayu/tsconfig/tsconfig.base.json",
+  "extends": "@ayu-mu/tsconfig/tsconfig.base.json",
   "compilerOptions": {
     "outDir": "dist"
   },

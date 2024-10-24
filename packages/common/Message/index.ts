@@ -1,6 +1,6 @@
 import { Message } from './Message'
 
-import { withInstallFunction } from '@ayu/utils'
+import { withInstallFunction } from '@ayu-mu/utils'
 
 export const AyuMessage = withInstallFunction(Message, '$message')
 

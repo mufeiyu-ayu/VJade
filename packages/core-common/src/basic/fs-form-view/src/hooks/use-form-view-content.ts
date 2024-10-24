@@ -1,6 +1,6 @@
 import { ElLoading, type FormRules, ElMessage } from 'element-plus'
 import { computed, getCurrentInstance, inject, onMounted, reactive, ref, watch } from 'vue'
-import { useEventBus } from '@ayu/hooks'
+import { useEventBus } from '@ayu-mu/hooks'
 import { useFormStore } from './use-form-store'
 import { FormActionEnum, FormStatusEnum } from '../types/enum'
 import { type FormViewContentStateType } from '../types/typing'
@@ -11,9 +11,9 @@ import {
   type Recordable,
   ResponseCodeEnum,
   type ViewColumnType
-} from '@ayu/model'
+} from '@ayu-mu/model'
 import type { FormContentPropsType } from '../component/form-view-content.vue'
-import { BaseApi, http, useVoConfig } from '@ayu/request'
+import { BaseApi, http, useVoConfig } from '@ayu-mu/request'
 import { lengthStrategies } from '../../../../common-strategy/strategies'
 import { useFormViewContentComputed } from './use-form-view-content/use-form-view-content-computed'
 import { useFormViewContentEvent } from './use-form-view-content/use-form-view-content-event'

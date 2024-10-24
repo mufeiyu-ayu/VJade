@@ -1,8 +1,8 @@
 import { getCurrentInstance, reactive } from 'vue'
-import type { ViewColumnType, VoType } from '@ayu/model'
+import type { ViewColumnType, VoType } from '@ayu-mu/model'
 import { BaseApi, http, oauth2Api, useAyuRequest } from './'
 import { cloneDeep, isUndefined } from 'lodash-es'
-import { webStorage, isJsonStringTryCatch } from '@ayu/utils'
+import { webStorage, isJsonStringTryCatch } from '@ayu-mu/utils'
 
 // VO缓存数据
 

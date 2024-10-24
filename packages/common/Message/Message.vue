@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { computed, ref } from 'vue'
-import { useNamespace } from '@ayu/hooks'
+import { useNamespace } from '@ayu-mu/hooks'
 import type { MessageOptions } from './types'
 import AyuIcon from '../Icon/Icon.vue'
 
@@ -74,5 +74,5 @@ defineExpose({
 </template>
 
 <style lang="scss">
-@import '@ayu/theme-chalk/src/message.scss';
+@import '@ayu-mu/theme-chalk/src/message.scss';
 </style>

@@ -10,7 +10,7 @@
     "type-check": "vue-tsc --build --force"
   },
   "dependencies": {
-    "@ayu/utils": "workspace:^",
+    "@ayu-mu/utils": "workspace:^",
     "@configs/css": "workspace:^",
     "pinia": "^2.1.7",
     "sass": "^1.76.0",
@@ -18,7 +18,7 @@
     "vue-router": "^4.3.0"
   },
   "devDependencies": {
-    "@ayu/common": "workspace:^",
+    "@ayu-mu/common": "workspace:^",
     "@configs/lint": "workspace:^",
     "@tsconfig/node20": "^20.1.2",
     "@types/node": "^20.11.28",

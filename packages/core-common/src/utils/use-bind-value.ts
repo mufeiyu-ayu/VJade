@@ -1,4 +1,4 @@
-import type { ViewColumnType } from '@ayu/model'
+import type { ViewColumnType } from '@ayu-mu/model'
 import { computed } from 'vue'
 import { bindStrategy } from '../common-strategy/strategies'
 import { FormStatusEnum } from '../basic/fs-form-view/src/types/enum'

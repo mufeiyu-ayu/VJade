@@ -1,4 +1,4 @@
-# @ayu/utils
+# @ayu-mu/utils
 
 ## 2.1.2
 

@@ -1,4 +1,4 @@
-import type { Recordable } from '@ayu/model'
+import type { Recordable } from '@ayu-mu/model'
 import {
   EditTypeEnums,
   EventTypeEnum,
@@ -6,9 +6,9 @@ import {
   ResponseCodeEnum,
   type TreeOptionType,
   type ViewColumnType
-} from '@ayu/model'
+} from '@ayu-mu/model'
 
-import { BaseApi } from '@ayu/request'
+import { BaseApi } from '@ayu-mu/request'
 import { ElForm, ElMessage, ElMessageBox } from 'element-plus'
 import { type Ref, ref } from 'vue'
 import { handleFileRule } from '../../config/default-value'

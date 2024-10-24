@@ -1,4 +1,4 @@
-import type { ViewColumnType } from '@ayu/model'
+import type { ViewColumnType } from '@ayu-mu/model'
 
 /**
  * 表单内容状态

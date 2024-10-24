@@ -11,8 +11,8 @@ import {
   onActivated,
   onDeactivated
 } from 'vue'
-import { useEventBus } from '@ayu/hooks/use-EventBus'
-import { EventTypeEnum } from '@ayu/model'
+import { useEventBus } from '@ayu-mu/hooks/use-EventBus'
+import { EventTypeEnum } from '@ayu-mu/model'
 import { useFormStore } from './use-form-store.ts'
 import { FormStatusEnum } from '../types/enum.ts'
 import type { FormViewProps } from '../types/props.ts'

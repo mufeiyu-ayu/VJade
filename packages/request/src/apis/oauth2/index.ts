@@ -1,7 +1,7 @@
 import { BaseApi } from '../base'
 import { http } from '../../'
-import { type AuthType, type LoginParamType, type MenuType, SystemArchEnum, type VoType } from '@ayu/model'
-import { webStorage } from '@ayu/utils'
+import { type AuthType, type LoginParamType, type MenuType, SystemArchEnum, type VoType } from '@ayu-mu/model'
+import { webStorage } from '@ayu-mu/utils'
 
 const Api = () => {
   const envConfig = webStorage.getStorageFromKey('envConfig')

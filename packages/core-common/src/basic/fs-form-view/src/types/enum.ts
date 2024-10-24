@@ -1,4 +1,4 @@
-import { type ViewColumnType } from '@ayu/model'
+import { type ViewColumnType } from '@ayu-mu/model'
 
 /* @description  表单状态 */
 export enum FormStatusEnum {

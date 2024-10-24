@@ -1,6 +1,6 @@
 import { encrypt, decrypt } from '../encry'
 import type { globalConfig } from './interface'
-import type { StorageKeyType } from '@ayu/model'
+import type { StorageKeyType } from '@ayu-mu/model'
 
 const config: globalConfig = {
   type: 'localStorage',

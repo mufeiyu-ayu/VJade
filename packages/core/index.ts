@@ -1,4 +1,4 @@
-import { makeInstaller } from '@ayu/utils'
+import { makeInstaller } from '@ayu-mu/utils'
 import components from './components.ts'
 
 const installer = makeInstaller(components)

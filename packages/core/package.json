@@ -1,5 +1,5 @@
 {
-  "name": "ayu-design",
+  "name": "@ayu-mu/ayu-design",
   "version": "1.0.0",
   "description": "Components library bu Vue3 + TS",
   "type": "module",

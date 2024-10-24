@@ -1,5 +1,5 @@
 {
-  "name": "@ayu/vite",
+  "name": "@ayu-mu/vite",
   "version": "1.0.0",
   "description": "",
    "main": "./dist/index.cjs",
@@ -21,7 +21,7 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "@ayu/tsconfig": "workspace:^",
+    "@ayu-mu/tsconfig": "workspace:^",
     "unbuild": "^2.0.0"
   }
 }

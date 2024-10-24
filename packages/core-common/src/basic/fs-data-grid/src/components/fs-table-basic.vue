@@ -1,5 +1,5 @@
 <script setup lang="ts">
-// import { EditOptionType, EditTypeEnums } from '@ayu/model'
+// import { EditOptionType, EditTypeEnums } from '@ayu-mu/model'
 // import { ElButton, ElPagination } from 'element-plus'
 // import {bind}
 </script>

@@ -5,7 +5,7 @@ import { componentPreview, containerPreview } from '@vitepress-demo-preview/plug
 export default defineConfig({
   title: 'AyuDesign',
   description: '基于Vue3定制的UI',
-  base: '/ayu-design/',
+  base: '/@ayu-mu/ayu-design/',
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
     nav: [

@@ -1,4 +1,4 @@
-import { type ViewColumnType } from '@ayu/model'
+import { type ViewColumnType } from '@ayu-mu/model'
 
 import type { FormRules } from 'element-plus'
 import { defaultValueStrategies } from '../config/default-value.ts'

@@ -1,4 +1,4 @@
-import { type ViewColumnType } from '@ayu/model'
+import { type ViewColumnType } from '@ayu-mu/model'
 import { computed } from 'vue'
 import { lengthStrategies } from '../../../../../common-strategy/strategies'
 import { FormStatusEnum } from '../../types/enum'

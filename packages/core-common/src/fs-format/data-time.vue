@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 import { ref, watchEffect } from 'vue'
-import { formatDate } from '@ayu/utils'
+import { formatDate } from '@ayu-mu/utils'
 
 const props = defineProps<{
   modelValue: string | any

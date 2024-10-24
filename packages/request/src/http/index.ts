@@ -1,4 +1,4 @@
-import { type CreateAxiosOptionsType } from '@ayu/model'
+import { type CreateAxiosOptionsType } from '@ayu-mu/model'
 import { AyuAxios } from './Axios'
 import { useAyuRequest } from './hook'
 

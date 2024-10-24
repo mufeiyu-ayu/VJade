@@ -1,12 +1,12 @@
 {
-  "name": "@ayu/utils",
+  "name": "@ayu-mu/utils",
   "version": "2.1.2",
   "main": "./src/index.ts",
   "exports": {
     "import": "./src/index.ts",
     "require": "./dist/ai-lowcode-utils.cjs"
   },
-  "private": true,
+  "private": false,
   "module": "./dist/ai-lowcode-utils.js",
   "publishConfig": {
     "registry": "https://registry.npmjs.org"
@@ -20,12 +20,12 @@
     "dev": "rollup-dts"
   },
   "dependencies": {
-    "@ayu/scripts": "workspace:^",
+    "@ayu-mu/scripts": "workspace:^",
     "crypto-js": "^4.2.0"
   },
   "devDependencies": {
-    "@ayu/tsconfig": "workspace:^",
-    "@ayu/vite": "workspace:^",
+    "@ayu-mu/tsconfig": "workspace:^",
+    "@ayu-mu/vite": "workspace:^",
     "@types/crypto-js": "^4.2.2",
     "vite": "^5.1.6"
   }

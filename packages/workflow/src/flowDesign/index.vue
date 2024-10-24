@@ -5,7 +5,7 @@ import { computed, provide, ref } from 'vue'
 import { attrHooks } from './flowHooks.ts'
 import Panel from '../panels/index.vue'
 import TreeNode from '../nodes/TreeNode.vue'
-import { workflowStore } from '@ayu/common-state'
+import { workflowStore } from '@ayu-mu/common-state'
 const store = workflowStore()
 const props = withDefaults(
   defineProps<{

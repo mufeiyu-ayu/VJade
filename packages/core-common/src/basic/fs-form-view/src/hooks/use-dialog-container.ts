@@ -1,5 +1,5 @@
 import { type ComponentInternalInstance, computed, getCurrentInstance, ref } from 'vue'
-import { useEventBus } from '@ayu/hooks'
+import { useEventBus } from '@ayu-mu/hooks'
 import { useFormStore } from './use-form-store'
 import { FormActionEnum } from '../types/enum'
 

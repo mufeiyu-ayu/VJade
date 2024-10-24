@@ -1,8 +1,8 @@
 import { getCurrentInstance, onMounted, ref, useAttrs, computed, nextTick, reactive, toRefs } from 'vue'
-import { useVoConfig } from '@ayu/request'
-import { useEventBus } from '@ayu/hooks'
+import { useVoConfig } from '@ayu-mu/request'
+import { useEventBus } from '@ayu-mu/hooks'
 import { type DataGridProps } from '../index.vue'
-import { type ViewColumnType, EditTypeEnums, EventTypeEnum } from '@ayu/model'
+import { type ViewColumnType, EditTypeEnums, EventTypeEnum } from '@ayu-mu/model'
 
 export const useDataGrid = (closeSubTable: any) => {
   const props = getCurrentInstance()?.props as any as DataGridProps

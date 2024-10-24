@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 // import { FormStatusEnum } from '../types/enum.ts'
 import type { FormProps } from 'element-plus'
-import { type ViewColumnType } from '@ayu/model'
+import { type ViewColumnType } from '@ayu-mu/model'
 export interface FormContentPropsType {
   uploadRefs?: any
 

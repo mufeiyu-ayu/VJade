@@ -1,4 +1,4 @@
-import { webStorage } from '@ayu/utils'
+import { webStorage } from '@ayu-mu/utils'
 
 /* 文件在线地址 */
 export const createFileUrl = (file: any) => {
