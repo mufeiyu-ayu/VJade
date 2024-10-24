@@ -1,11 +1,28 @@
 {
-  "name": "@ayu/utils",
-  "version": "1.0.0",
+  "name": "@mufeiyu/utils",
+  "version": "2.1.1",
   "main": "./src/index.ts",
+  "exports": {
+    "import": "./src/index.ts",
+    "require": "./dist/ai-lowcode-utils.cjs"
+  },
+  "module": "./dist/ai-lowcode-utils.js",
+  "type": "module",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "vite build",
+    "dev": "rollup-dts"
+  },
   "dependencies": {
+    "@ayu/scripts": "workspace:^",
     "crypto-js": "^4.2.0"
   },
   "devDependencies": {
-    "@types/crypto-js": "^4.2.2"
+    "@ayu/tsconfig": "workspace:^",
+    "@ayu/vite": "workspace:^",
+    "@types/crypto-js": "^4.2.2",
+    "vite": "^5.1.6"
   }
 }

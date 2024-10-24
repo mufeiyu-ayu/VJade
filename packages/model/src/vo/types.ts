@@ -211,6 +211,8 @@ export interface EditOptionType {
     column?: Record<string, any>
     // 组件绑定属性
     component?: Record<string, any>
+    // 表单分组排列
+    colSpan: 6 | 12 | 18 | 24
   }
   /**
    * data-grid:column上绑定的通用配置

@@ -5,9 +5,13 @@
   "private": true,
   "main": "index.js",
   "scripts": {
+    "change":"changeset",
+    "vp":"pnpm changeset version",
+    "release":"pnpm changeset publish --registry=https://registry.npmjs.org",
     "dev": "pnpm -C app/vue-com dev",
     "doc": "pnpm -C docs docs:dev --open ",
     "build": "pnpm --filter ayu-design build ",
+    "start":"pnpm -C packages/utils build",
     "lint": "eslint . --ext ts,tsx,vue --report-unused-disable-directives --max-warnings 0",
     "lint:fix": "eslint --fix --ext ts,tsx,vue --ignore-path .eslintignore .",
     "prettier": "prettier --check .",
@@ -26,7 +30,8 @@
   "author": "",
   "license": "ISC",
   "workspaces": [
-    "packages/*"
+    "packages/*",
+    "scripts/*"
   ],
   "devDependencies": {
     "@commitlint/cli": "^19.3.0",
@@ -57,9 +62,11 @@
     "@ayu/core-common": "workspace:^",
     "@ayu/hooks": "workspace:^",
     "@ayu/model": "workspace:^",
-    "@ayu/theme-chalk": "workspace:^",
-    "@ayu/utils": "workspace:^",
     "@ayu/request": "workspace:^",
+    "@ayu/scripts": "workspace:^",
+    "@ayu/theme-chalk": "workspace:^",
+    "@ayu/tsconfig": "workspace:^",
+    "@ayu/utils": "workspace:^",
     "@ayu/workflow": "workspace:^",
     "@changesets/cli": "^2.27.6",
     "@element-plus/icons-vue": "^2.3.1",

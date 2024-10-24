@@ -5,3 +5,5 @@ export * from './install'
 export * from './webStorage'
 
 export * from './is'
+
+export * from './timeformat.ts'

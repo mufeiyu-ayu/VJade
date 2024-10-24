@@ -1,5 +1,6 @@
 packages:
   - packages/* # 工具包
+  - scripts # 脚本
   - app/* # 项目
   - configs/* # 配置
   - docs/* # 文档

@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json.schemastore.org/tsconfig",
+  "display": "Server",
+  "extends": "./tsconfig.base.json",
+  "compilerOptions": {
+    "target": "esnext",
+    "lib": ["ESNext", "DOM"],
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "module": "commonjs",
+    "typeRoots": ["node_modules/@types/", "types"],
+    "types": ["node"],
+    "declaration": true,
+    "sourceMap": false
+  }
+}

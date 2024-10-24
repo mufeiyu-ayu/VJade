@@ -1,2 +1,2 @@
 import FormView from './src/index.vue'
-export const AyuFormView = FormView
+export const FsFormView = FormView

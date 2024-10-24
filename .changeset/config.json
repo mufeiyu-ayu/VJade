@@ -1,11 +1,11 @@
-Failed to find where HEAD diverged from main. Does main exist?{
-  "$schema": "https://unpkg.com/@changesets/config@3.0.1/schema.json",
+{
+  "$schema": "https://unpkg.com/@changesets/config@3.0.2/schema.json",
   "changelog": "@changesets/cli/changelog",
   "commit": false,
   "fixed": [],
   "linked": [],
   "access": "restricted",
-  "baseBranch": "main",
+  "baseBranch": "master",
   "updateInternalDependencies": "patch",
   "ignore": []
 }

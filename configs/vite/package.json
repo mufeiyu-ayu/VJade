@@ -1,0 +1,27 @@
+{
+  "name": "@ayu/vite",
+  "version": "1.0.0",
+  "description": "",
+   "main": "./dist/index.cjs",
+   "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "types": "./dist/index.d.ts",
+  "scripts": {
+    "build": "pnpm unbuild --stub",
+    "clean": "rimraf node_modules",
+    "clean:dist": "rimraf dist"
+  },
+  "files": ["dist"],
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@ayu/tsconfig": "workspace:^",
+    "unbuild": "^2.0.0"
+  }
+}
