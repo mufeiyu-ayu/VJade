@@ -1,12 +1,12 @@
 {
   "name": "@ayu-mu/hooks",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "",
   "main": "index.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "private": false,
+  "private": true,
   "publishConfig": {
     "registry": "https://registry.npmjs.org"
   },

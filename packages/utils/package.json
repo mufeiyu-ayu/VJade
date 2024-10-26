@@ -1,6 +1,6 @@
 {
   "name": "@ayu-mu/utils",
-  "version": "2.1.4",
+  "version": "2.1.6",
   "main": "./src/index.ts",
   "exports": {
     "import": "./src/index.ts",

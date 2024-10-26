@@ -1,6 +1,6 @@
 {
   "name": "@ayu-mu/ayu-design",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "Components library bu Vue3 + TS",
   "type": "module",
   "files": [
@@ -9,6 +9,7 @@
   "sideEffects": [
     "./dist/index.css"
   ],
+  "private": true,
   "main": "./dist/umd/index.umd.cjs",
   "module": "./dist/es/index.js",
   "types": "./dist/types/core/index.d.ts",
@@ -29,7 +30,6 @@
     "build-umd": "vite build --config vite.umd.config.ts",
     "build-es": "vite build --config vite.es.config.ts",
     "move-style": "move-file dist/es/index.css dist/index.css"
-
   },
   "keywords": [],
   "author": "",

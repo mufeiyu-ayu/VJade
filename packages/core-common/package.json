@@ -1,6 +1,6 @@
 {
   "name": "@ayu-mu/core-common",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "业务组件",
   "main": "src/index.ts",
   "scripts": {
@@ -16,7 +16,7 @@
   ],
   "keywords": [],
   "author": "",
-  "private": false,
+  "private": true,
   "publishConfig": {
     "registry": "https://registry.npmjs.org"
   },

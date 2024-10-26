@@ -1,6 +1,6 @@
 {
   "name": "@ayu-mu/common",
-  "version": "0.0.0",
+  "version": "0.0.2",
   "private": true,
   "description": "A common package for Ayu",
   "main": "index.ts",
