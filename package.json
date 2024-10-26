@@ -10,7 +10,8 @@
   "scripts": {
     "change":"changeset",
     "vp":"pnpm changeset version",
-    "release":"pnpm changeset publish --access public",
+    "release":"pnpm changeset publish --access restricted",
+    "preinstall": "npx only-allow pnpm",
     "dev": "pnpm -C app/vue-com dev",
     "doc": "pnpm -C docs docs:dev --open ",
     "build": "pnpm --filter @ayu-mu/ayu-design build ",

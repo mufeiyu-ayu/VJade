@@ -62,6 +62,7 @@ export const bindStrategy = <T extends Record<'type' | 'format' | 'class', any>>
 
   // 执行函数为 bindData 赋值
   isFunction(strategy[editType]) && strategy[editType]()
+
   return bindData
 }
 

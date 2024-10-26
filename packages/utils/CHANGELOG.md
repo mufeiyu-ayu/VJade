@@ -1,5 +1,17 @@
 # @ayu-mu/utils
 
+## 2.1.4
+
+### Patch Changes
+
+- 发布私有包
+
+## 2.1.3
+
+### Patch Changes
+
+- 测试
+
 ## 2.1.2
 
 ### Patch Changes
