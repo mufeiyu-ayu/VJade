@@ -1,6 +1,7 @@
 {
-  "extends":"@al-config/tsconfig/tsconfig.base.json",
+  "extends":"@ayu-mu/tsconfig/tsconfig.base.json",
   "compilerOptions": {
+    "moduleResolution": "bundler",
     "baseUrl": ".",
     "rootDir": ".",
     "paths": {

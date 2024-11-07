@@ -1,7 +1,7 @@
 {
   "name": "@ayu-mu/request",
   "version": "1.0.2",
-  "private": true,
+  "private": false,
   "description": "",
   "main": "./src/index.ts",
   "scripts": {

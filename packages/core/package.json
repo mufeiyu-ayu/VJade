@@ -9,7 +9,7 @@
   "sideEffects": [
     "./dist/index.css"
   ],
-  "private": true,
+   "private": false,
   "main": "./dist/umd/index.umd.cjs",
   "module": "./dist/es/index.js",
   "types": "./dist/types/core/index.d.ts",

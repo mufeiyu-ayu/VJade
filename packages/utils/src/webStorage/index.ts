@@ -1,8 +1,10 @@
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-nocheck
 import { encrypt, decrypt } from '../encry'
-import type { globalConfig } from './interface'
-import type { StorageKeyType } from '@ayu-mu/model'
+// import type { globalConfig } from './interface'
+// import type { StorageKeyType } from '@ayu-mu/model'
 
-const config: globalConfig = {
+const config: any = {
   type: 'localStorage',
   prefix: 'ayu-',
   expire: 24 * 60, // 过期时间，单位位分钟(默认过期时间为 1 天)
@@ -11,7 +13,7 @@ const config: globalConfig = {
 
 class WebStorage {
   /* @description 存储 */
-  setStorage = (key: keyof StorageKeyType, value: any, expire: number = 24 * 60): boolean => {
+  setStorage = (key: any, value: any, expire: number = 24 * 60): boolean => {
     if (value === '' || value === null || value === undefined) {
       value = null
     }
@@ -52,9 +54,9 @@ class WebStorage {
   }
 
   /* @description  获取指定值 */
-  getStorageFromKey = (key: keyof StorageKeyType) => {
+  getStorageFromKey = (key: any) => {
     if (config.prefix) {
-      key = this.autoAddPreFix(key) as keyof StorageKeyType
+      key = this.autoAddPreFix(key)
     }
 
     if (typeof window !== 'undefined') {
@@ -80,10 +82,10 @@ class WebStorage {
   }
 
   /* @description  指定 key删除换成 */
-  removeStorageFromKey = (key: keyof StorageKeyType) => {
+  removeStorageFromKey = (key: any) => {
     //删除值
     if (config.prefix) {
-      key = this.autoAddPreFix(key) as keyof StorageKeyType
+      key = this.autoAddPreFix(key)
     }
     if (typeof window !== 'undefined') window[config.type].removeItem(key)
   }
@@ -99,10 +101,10 @@ class WebStorage {
   }
 
   /* @description 移除前缀 */
-  autoRemovePreFix = (key: string): keyof StorageKeyType => {
+  autoRemovePreFix = (key: string): any => {
     //删除前缀，进行增删改查
     const lineIndex = config.prefix.length + 1
-    return key.substr(lineIndex) as keyof StorageKeyType
+    return key.substr(lineIndex)
   }
 }
 

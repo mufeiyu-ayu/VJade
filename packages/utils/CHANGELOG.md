@@ -1,5 +1,41 @@
 # @ayu-mu/utils
 
+## 2.1.12
+
+### Patch Changes
+
+- teste
+
+## 2.1.11
+
+### Patch Changes
+
+- test
+
+## 2.1.10
+
+### Patch Changes
+
+- test
+
+## 2.1.9
+
+### Patch Changes
+
+- 测试
+
+## 2.1.8
+
+### Patch Changes
+
+- 测试发包忽略src
+
+## 2.1.7
+
+### Patch Changes
+
+- 测试忽略src文件
+
 ## 2.1.6
 
 ### Patch Changes

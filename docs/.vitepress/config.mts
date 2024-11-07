@@ -6,10 +6,13 @@ export default defineConfig({
   title: 'AyuDesign',
   description: '基于Vue3定制的UI',
   base: '/@ayu-mu/ayu-design/',
+  base: '/',
+  srcDir: '../',
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
     nav: [
       { text: 'Docs', link: '/docs/projectStart' },
+      { text: '包文件', link: '/packages/utils/markdown/index.md' },
       { text: 'components', link: '/components/button.md' }
     ],
 
@@ -24,6 +27,12 @@ export default defineConfig({
         {
           text: '基础组件',
           items: [{ text: 'button', link: '/components/button.md' }]
+        }
+      ],
+      packages: [
+        {
+          text: 'utils',
+          link: '/packages/utils/markdown/index.md'
         }
       ]
     },

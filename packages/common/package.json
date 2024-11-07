@@ -1,7 +1,7 @@
 {
   "name": "@ayu-mu/common",
-  "version": "0.0.2",
-  "private": true,
+  "version": "0.0.3",
+  "private": false,
   "description": "A common package for Ayu",
   "main": "index.ts",
   "type": "module",

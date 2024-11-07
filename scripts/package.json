@@ -1,8 +1,9 @@
 {
   "name": "@ayu-mu/scripts",
   "version": "1.0.0",
-  "bin":{
-    "rollup-dts":"rollup-dts.js"
+  "type": "module",
+  "bin": {
+    "rollup-dts": "rollup-dts.js"
   },
   "description": "",
   "main": "index.js",
@@ -11,5 +12,9 @@
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "@microsoft/api-extractor": "^7.47.11",
+    "execa": "^9.5.1"
+  }
 }
