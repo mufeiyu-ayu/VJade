@@ -8,19 +8,24 @@ export default defineConfig({
   base: '/@ayu-mu/ayu-design/',
   base: '/',
   srcDir: '../',
+  rewrites: {
+    // 指南映射
+    'docs/index.md': 'index.md'
+  },
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
     nav: [
-      { text: 'Docs', link: '/docs/projectStart' },
+      { text: '首页', link: '/docs' },
+      { text: 'Docs', link: '/docs/docs/projectStart.md' },
       { text: '包文件', link: '/packages/utils/markdown/index.md' },
       { text: 'components', link: '/components/button.md' }
     ],
 
     sidebar: {
-      '/docs/': [
+      docs: [
         {
           text: 'start',
-          items: [{ text: '前言', link: '/docs/projectStart' }]
+          items: [{ text: '前言', link: '/docs/docs/projectStart' }]
         }
       ],
       '/components/': [

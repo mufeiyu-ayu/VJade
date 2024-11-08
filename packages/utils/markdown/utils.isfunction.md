@@ -18,36 +18,29 @@ isFunction: (val: unknown) => boolean
 
 Parameter
 
-
 </th><th>
 
 Type
 
-
 </th><th>
 
 Description
-
 
 </th></tr></thead>
 <tbody><tr><td>
 
 val
 
-
 </td><td>
 
 unknown
 
-
 </td><td>
 
 目标
-
 
 </td></tr>
 </tbody></table>
 **Returns:**
 
 boolean
-

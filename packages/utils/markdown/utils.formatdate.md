@@ -4,7 +4,7 @@
 
 ## formatDate() function
 
- 时间格式化
+时间格式化
 
 **Signature:**
 
@@ -18,50 +18,40 @@ formatDate: (date: Date, format?: string) => string
 
 Parameter
 
-
 </th><th>
 
 Type
 
-
 </th><th>
 
 Description
-
 
 </th></tr></thead>
 <tbody><tr><td>
 
 date
 
-
 </td><td>
 
 Date
 
-
 </td><td>
-
 
 </td></tr>
 <tr><td>
 
 format
 
-
 </td><td>
 
 string
 
-
 </td><td>
 
-_(Optional)_ 时间格式  {<!-- -->\*<!-- -->} {<!-- -->string<!-- -->}<!-- -->1211
-
+_(Optional)_ 时间格式 {<!-- -->\*<!-- -->} {<!-- -->string<!-- -->}<!-- -->1211
 
 </td></tr>
 </tbody></table>
 **Returns:**
 
 string
-
