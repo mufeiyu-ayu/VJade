@@ -66,7 +66,6 @@
   "dependencies": {
     "@ayu-mu/ayu-design": "workspace:^",
     "@ayu-mu/common": "workspace:^",
-    "@ayu-mu/common-state": "workspace:^",
     "@ayu-mu/core-common": "workspace:^",
     "@ayu-mu/hooks": "workspace:^",
     "@ayu-mu/model": "workspace:^",

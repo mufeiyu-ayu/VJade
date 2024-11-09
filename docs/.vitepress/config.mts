@@ -5,7 +5,6 @@ import { componentPreview, containerPreview } from '@vitepress-demo-preview/plug
 export default defineConfig({
   title: 'AyuDesign',
   description: '基于Vue3定制的UI',
-  base: '/@ayu-mu/ayu-design/',
   base: '/',
   srcDir: '../',
   rewrites: {
@@ -38,6 +37,10 @@ export default defineConfig({
         {
           text: 'utils',
           link: '/packages/utils/markdown/index.md'
+        },
+        {
+          text: 'common',
+          link: '/packages/common/markdown/index.md'
         }
       ]
     },

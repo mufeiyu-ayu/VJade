@@ -12,11 +12,12 @@ const libPath = env.PWD
 // 获取当前路径下 temp 目录下所有文件名
 const packages = readdirSync(join(libPath, 'temp'))
 
-// console.log(packages, 'packages')
-// console.log(argv, 'argv')
+console.log(packages, 'packages')
+console.log(argv, 'argv')
 const apiExtratorPath = argv?.find((i) => i.includes('rollup-dts'))?.replace('rollup-dts.js', 'api-extractor.json')
 // console.log(apiExtratorPath, 'apiExtratorPath')
 
+// 获取 temp 目录下的 src 下的 index.d.ts
 const typeTempIndexPath = join(
   libPath,
   'temp',

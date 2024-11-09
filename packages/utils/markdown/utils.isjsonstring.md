@@ -18,29 +18,36 @@ isJsonString: (target: string) => boolean
 
 Parameter
 
+
 </th><th>
 
 Type
 
+
 </th><th>
 
 Description
+
 
 </th></tr></thead>
 <tbody><tr><td>
 
 target
 
+
 </td><td>
 
 string
 
+
 </td><td>
 
 目标字符串
+
 
 </td></tr>
 </tbody></table>
 **Returns:**
 
 boolean
+

@@ -10,78 +10,98 @@
 
 Function
 
+
 </th><th>
 
 Description
+
 
 </th></tr></thead>
 <tbody><tr><td>
 
 [formatDate(date, format)](./utils.formatdate.md)
 
+
 </td><td>
 
-时间格式化
+ 时间格式化
+
 
 </td></tr>
 <tr><td>
 
 [isFunction(val)](./utils.isfunction.md)
 
+
 </td><td>
 
 判断目标是否是函数
+
 
 </td></tr>
 <tr><td>
 
 [isJsonString(target)](./utils.isjsonstring.md)
 
+
 </td><td>
 
 判断目标字符串是否是JSON字符串形式
+
 
 </td></tr>
 <tr><td>
 
 [isJsonStringTryCatch(str)](./utils.isjsonstringtrycatch.md)
 
+
 </td><td>
+
 
 </td></tr>
 <tr><td>
 
 [makeInstaller(components)](./utils.makeinstaller.md)
 
+
 </td><td>
+
 
 </td></tr>
 <tr><td>
 
 [withInstall(component)](./utils.withinstall.md)
 
+
 </td><td>
+
 
 </td></tr>
 <tr><td>
 
 [withInstallDirective(directive, name)](./utils.withinstalldirective.md)
 
+
 </td><td>
+
 
 </td></tr>
 <tr><td>
 
 [withInstallFunction(fn, name)](./utils.withinstallfunction.md)
 
+
 </td><td>
+
 
 </td></tr>
 <tr><td>
 
 [withNoopInstall(component)](./utils.withnoopinstall.md)
 
+
 </td><td>
+
 
 </td></tr>
 </tbody></table>
@@ -92,16 +112,20 @@ Description
 
 Variable
 
+
 </th><th>
 
 Description
+
 
 </th></tr></thead>
 <tbody><tr><td>
 
 [webStorage](./utils.webstorage.md)
 
+
 </td><td>
+
 
 </td></tr>
 </tbody></table>

@@ -1,13 +1,15 @@
 {
   "name": "@ayu-mu/utils",
   "version": "2.1.12",
-  "main": "dist/ayu-web-build-utils.js",
+  "main": "dist/ayu-web-build-utils.cjs",
   "exports": {
     "import": "./dist/ayu-web-build-utils.js",
-    "require": "./dist/ayu-web-build-utils.cjs"
+    "require": "./dist/ayu-web-build-utils.cjs",
+    "types": "./dist/index.d.ts"
   },
+  "types": "./dist/ayu-web-build-utils.d.ts",
   "private": false,
-  "module": "./dist/ai-lowcode-utils.js",
+  "module": "./dist/ayu-web-build-utils.js",
   "publishConfig": {
     "registry": "https://registry.npmjs.org"
   },
