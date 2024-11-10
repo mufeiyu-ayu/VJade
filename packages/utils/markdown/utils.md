@@ -24,7 +24,7 @@ Description
 
 </td><td>
 
- 时间格式化
+格式化日期
 
 
 </td></tr>

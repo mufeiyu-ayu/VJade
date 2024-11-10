@@ -83,5 +83,6 @@
     "mitt": "^3.0.1",
     "pinia": "^2.1.7",
     "vue": "^3.5.12"
-  }
+  },
+  "packageManager": "pnpm@9.4.0"
 }

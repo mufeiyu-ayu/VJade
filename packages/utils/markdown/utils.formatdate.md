@@ -4,7 +4,7 @@
 
 ## formatDate() function
 
- 时间格式化
+格式化日期
 
 **Signature:**
 
@@ -42,6 +42,8 @@ Date
 
 </td><td>
 
+要格式化的日期对象
+
 
 </td></tr>
 <tr><td>
@@ -56,7 +58,7 @@ string
 
 </td><td>
 
-_(Optional)_ 时间格式  {<!-- -->\*<!-- -->} {<!-- -->string<!-- -->}<!-- -->1211
+_(Optional)_ 目标格式的字符串，支持 yyyy, MM, dd, HH, mm, ss
 
 
 </td></tr>
@@ -64,4 +66,6 @@ _(Optional)_ 时间格式  {<!-- -->\*<!-- -->} {<!-- -->string<!-- -->}<!-- -->
 **Returns:**
 
 string
+
+格式化后的日期字符串
 

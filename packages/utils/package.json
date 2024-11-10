@@ -1,11 +1,13 @@
 {
   "name": "@ayu-mu/utils",
-  "version": "2.1.12",
+  "version": "2.1.13",
   "main": "dist/ayu-web-build-utils.cjs",
   "exports": {
-    "import": "./dist/ayu-web-build-utils.js",
-    "require": "./dist/ayu-web-build-utils.cjs",
-    "types": "./dist/index.d.ts"
+   ".": {
+     "import": "./dist/ayu-web-build-utils.js",
+     "require": "./dist/ayu-web-build-utils.cjs",
+     "types": "./dist/index.d.ts"
+   }
   },
   "types": "./dist/ayu-web-build-utils.d.ts",
   "private": false,

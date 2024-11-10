@@ -1,6 +1,6 @@
 {
   "name": "@ayu-mu/common",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "private": false,
   "description": "A common package for Ayu",
   "scripts": {
@@ -10,16 +10,19 @@
   },
   "main": "./dist/ayu-web-build-component.cjs",
   "module": "./dist/ayu-web-build-component.js",
-  "files": ["dist"],
+  "files": [
+    "dist"
+  ],
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
       "import": "./dist/ayu-web-build-component.js",
       "require": "./dist/ayu-web-build-component.cjs"
     },
-    "./style": "./dist/index.css",
+    "./style": "./dist/style.css",
     "./dist/style.css": "./dist/style.css"
   },
+  "types": "./dist/index.d.ts",
   "type": "module",
   "peerDependencies": {
     "vue": "^3.4.21"

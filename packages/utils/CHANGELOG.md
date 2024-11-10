@@ -1,5 +1,11 @@
 # @ayu-mu/utils
 
+## 2.1.13
+
+### Patch Changes
+
+- 新添打包
+
 ## 2.1.12
 
 ### Patch Changes
