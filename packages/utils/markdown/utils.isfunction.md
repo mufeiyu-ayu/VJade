@@ -4,7 +4,7 @@
 
 ## isFunction() function
 
-判断目标是否是函数
+检查目标是否为函数类型。
 
 **Signature:**
 
@@ -42,7 +42,7 @@ unknown
 
 </td><td>
 
-目标
+要检查的目标值。
 
 
 </td></tr>
@@ -50,4 +50,18 @@ unknown
 **Returns:**
 
 boolean
+
+如果目标值为函数类型，返回 `true`<!-- -->；否则返回 `false`<!-- -->。
+
+## Remarks
+
+- 通过 `typeof` 运算符判断传入的值是否为函数。 - 可用于类型检查，以确保传入参数是一个函数。
+
+## Example
+
+
+```typescript
+isFunction(() => {});  // 返回 true
+isFunction(123);       // 返回 false
+```
 

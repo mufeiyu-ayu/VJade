@@ -5,7 +5,7 @@ import { join } from 'node:path'
 import { Extractor, ExtractorConfig } from '@microsoft/api-extractor'
 import { execa } from 'execa'
 import { rimraf } from 'rimraf'
-
+import chalk from 'chalk'
 //当前目录路径
 const libPath = env.PWD
 
@@ -25,20 +25,21 @@ const typeTempIndexPath = join(
 
 //如果没有则退出进程
 if (!existsSync(typeTempIndexPath)) {
-  console.error('🚨未在 temp 目录下找到 src 下的 index.d.ts文件哦')
+  console.error(chalk.red('🚨未在 temp 目录下找到 src 下的 index.d.ts文件哦'))
   exit(1)
 }
 
 //如果没有则退出进程
 if (!existsSync(apiExtratorPath)) {
-  console.error('🚨未在指定 目录下找到 api-extractor.json 文件哦')
+  console.error(chalk.red('🚨未在指定 目录下找到 api-extractor.json 文件哦'))
   exit(1)
 }
 
 async function run() {
   const configObj = ExtractorConfig.loadFile(apiExtratorPath)
-  //console.log(configObj.mainEntryPointFilePath) // <projectFolder>/temp/index.d.ts
+  // console.log(configObj.mainEntryPointFilePath, 333) // <projectFolder>/temp/index.d.ts
   // 自定义类型入口地址
+  // console.log(typeTempIndexPath, 'path')
   configObj.mainEntryPointFilePath = typeTempIndexPath
 
   // 设置配置对象
@@ -58,14 +59,16 @@ async function run() {
   })
 
   if (extractorResult.succeeded) {
-    console.log('🚀类型声明文件生成成功！！！')
+    console.log(chalk.blue(`🎉类型声明文件生成成功！`))
     await execa('npx', ['api-documenter', 'markdown', '-i', 'temp'], {
       stdio: 'inherit'
     })
     await rimraf(join(libPath, 'temp'))
   } else {
     console.error(
-      `🚨类型声明文件生成失败：${+`\n\t${extractorResult.errorCount} errors`}\n\tand ${extractorResult.warningCount} warnings`
+      chalk.red(
+        `🚨类型声明文件生成失败：${+`\n\t${extractorResult.errorCount} errors`}\n\tand ${extractorResult.warningCount} warnings`
+      )
     )
     exit(1)
   }

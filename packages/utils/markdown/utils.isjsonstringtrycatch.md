@@ -4,6 +4,8 @@
 
 ## isJsonStringTryCatch() function
 
+使用 `try-catch` 判断字符串是否是 JSON 格式。
+
 **Signature:**
 
 ```typescript
@@ -40,10 +42,26 @@ string
 
 </td><td>
 
+要检查的目标字符串。
+
 
 </td></tr>
 </tbody></table>
 **Returns:**
 
 boolean
+
+如果字符串是有效的 JSON 格式，返回 `true`<!-- -->；否则返回 `false`<!-- -->。
+
+## Remarks
+
+- 通过尝试解析字符串来判断是否为 JSON 字符串。 - 该方法适合更精确的 JSON 检查，因为它直接解析字符串。
+
+## Example
+
+
+```typescript
+isJsonStringTryCatch('{"name": "John", "age": 30}');  // 返回 true
+isJsonStringTryCatch('Hello World');                   // 返回 false
+```
 

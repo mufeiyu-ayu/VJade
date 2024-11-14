@@ -8,6 +8,7 @@
     "registry": "https://registry.npmjs.org"
   },
   "scripts": {
+    "pge-init": "packages-init",
     "change": "changeset",
     "vp": "pnpm changeset version",
     "release": "pnpm changeset publish --access public",
@@ -33,10 +34,6 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "workspaces": [
-    "packages/*",
-    "scripts/*"
-  ],
   "devDependencies": {
     "@commitlint/cli": "^19.3.0",
     "@commitlint/config-conventional": "^19.2.2",

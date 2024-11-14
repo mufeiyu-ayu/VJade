@@ -4,7 +4,7 @@
 
 ## MessageOptions.offset property
 
- 基于浏览器偏移量
+基于浏览器偏移量
 
 **Signature:**
 

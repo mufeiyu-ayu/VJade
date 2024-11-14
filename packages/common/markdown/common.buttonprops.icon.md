@@ -4,7 +4,7 @@
 
 ## ButtonProps.icon property
 
- 图标
+图标
 
 **Signature:**
 

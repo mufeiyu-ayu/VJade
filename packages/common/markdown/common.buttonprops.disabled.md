@@ -4,7 +4,7 @@
 
 ## ButtonProps.disabled property
 
- 是否为禁用状态
+是否为禁用状态
 
 **Signature:**
 

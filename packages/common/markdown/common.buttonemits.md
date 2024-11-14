@@ -7,5 +7,5 @@
 **Signature:**
 
 ```typescript
-export interface ButtonEmits 
+export interface ButtonEmits
 ```

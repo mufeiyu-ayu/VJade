@@ -4,7 +4,7 @@
 
 ## IconProps.color property
 
- 颜色
+颜色
 
 **Signature:**
 

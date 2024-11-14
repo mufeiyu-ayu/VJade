@@ -4,8 +4,27 @@
 
 ## webStorage variable
 
+`webStorage` 是一个用于浏览器 Web 存储操作的单例对象，封装了对 `localStorage` 和 `sessionStorage` 的常见操作。 它提供了存储、获取、删除、清除数据的功能，支持数据过期时间管理和加密。
+
+该实例允许你通过统一的接口操作不同类型的 Web 存储，同时确保存储的数据能够加密和管理过期时间。
+
 **Signature:**
 
 ```typescript
 webStorage: WebStorage
 ```
+
+## Remarks
+
+- `webStorage` 实例是通过 `new WebStorage()` 创建的，并且是一个全局唯一的对象。 - 支持两种存储类型：`localStorage` 和 `sessionStorage`<!-- -->，可以通过配置文件进行选择。 - 支持加密存储的数据，具体加密方式由配置文件决定。 - 存储的数据包括有效期，存储的数据会在过期后自动删除。
+
+## Example
+
+设置存储的数据，过期时间为 60 分钟 webStorage.setStorage('user', { name: 'Alice' }<!-- -->, 60);
+
+获取存储的数据 const user = webStorage.getStorageFromKey('user'); console.log(user); // 输出：<!-- -->{ name: 'Alice'<!-- -->}
+
+删除指定的存储项 webStorage.removeStorageFromKey('user');
+
+清空所有存储的数据 webStorage.clearStorage();
+

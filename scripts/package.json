@@ -1,9 +1,14 @@
 {
   "name": "@ayu-mu/scripts",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "type": "module",
+  "private": false,
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org"
+  },
   "bin": {
-    "rollup-dts": "rollup-dts.js"
+    "rollup-dts": "rollup-dts.js",
+    "packages-init": "package-init.js"
   },
   "description": "",
   "main": "index.js",
@@ -16,5 +21,8 @@
   "devDependencies": {
     "@microsoft/api-extractor": "^7.47.11",
     "execa": "^9.5.1"
+  },
+  "dependencies": {
+    "chalk": "^5.3.0"
   }
 }

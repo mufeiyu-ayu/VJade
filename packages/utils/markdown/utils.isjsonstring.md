@@ -4,7 +4,7 @@
 
 ## isJsonString() function
 
-判断目标字符串是否是JSON字符串形式
+检查字符串是否为符合 JSON 格式的字符串。
 
 **Signature:**
 
@@ -42,7 +42,7 @@ string
 
 </td><td>
 
-目标字符串
+要检查的目标字符串。
 
 
 </td></tr>
@@ -50,4 +50,18 @@ string
 **Returns:**
 
 boolean
+
+如果字符串符合 JSON 格式，返回 `true`<!-- -->，否则返回 `false`<!-- -->。
+
+## Remarks
+
+- 此函数使用正则表达式来检查字符串是否符合 JSON 格式。 - 适合用于简单的 JSON 格式检查，但可能不适用于所有复杂的 JSON 场景。
+
+## Example
+
+
+```typescript
+isJsonString('{"name": "John", "age": 30}');  // 返回 true
+isJsonString('Hello World');                   // 返回 false
+```
 

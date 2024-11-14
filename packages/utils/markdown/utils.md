@@ -35,7 +35,7 @@ Description
 
 </td><td>
 
-判断目标是否是函数
+检查目标是否为函数类型。
 
 
 </td></tr>
@@ -46,7 +46,7 @@ Description
 
 </td><td>
 
-判断目标字符串是否是JSON字符串形式
+检查字符串是否为符合 JSON 格式的字符串。
 
 
 </td></tr>
@@ -56,6 +56,8 @@ Description
 
 
 </td><td>
+
+使用 `try-catch` 判断字符串是否是 JSON 格式。
 
 
 </td></tr>
@@ -125,6 +127,10 @@ Description
 
 
 </td><td>
+
+`webStorage` 是一个用于浏览器 Web 存储操作的单例对象，封装了对 `localStorage` 和 `sessionStorage` 的常见操作。 它提供了存储、获取、删除、清除数据的功能，支持数据过期时间管理和加密。
+
+该实例允许你通过统一的接口操作不同类型的 Web 存储，同时确保存储的数据能够加密和管理过期时间。
 
 
 </td></tr>

@@ -1,5 +1,18 @@
 # @ayu-mu/utils
 
+## 2.1.15
+
+### Patch Changes
+
+- Updated dependencies
+  - @ayu-mu/scripts@1.0.1
+
+## 2.1.14
+
+### Patch Changes
+
+- 测试tsdoc
+
 ## 2.1.13
 
 ### Patch Changes
