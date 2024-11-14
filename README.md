@@ -19,9 +19,11 @@ Web Build 是一个基于 monorepo + workspace + turbo 架构的前端开发工�
 
 ### 技术栈
 
-- 🚀 Vue 3：构建现代化的用户界面。<br/>
-- 🖥️ Element Plus：基于 Vue 3 的桌面端组件库，提供丰富的 UI 组件。<br/>3212
-- ⚙️ Vite：极速构建工具，提升开发与构建体验。<br/>
+- **Vue 3**: 🚀 现代化的前端框架，提供了更强的响应式系统和更清晰的组件化结构。
+- **Element Plus**: 🎨 优雅的 Vue 3 UI 组件库，快速构建美观的用户界面。
+- **TypeScript**: 🔤 提升开发效率和代码质量的强类型语言。
+- **Vite**: ⚡ 极速的构建工具，提供开箱即用的开发环境。
+- **TailwindCSS**: 💅 低代码、灵活的 CSS 框架，帮助你快速构建定制化的页面设计。
 
 ### 安装
 
@@ -38,8 +40,6 @@ pnpm install
 ```
 
 3. 初始化项目：
-   bash
-
 ```bash
 pnpm pge-init
 ```
