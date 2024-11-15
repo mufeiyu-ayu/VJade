@@ -15,3 +15,4 @@ Dockerfile
 pnpm-lock.yaml
 /cli/template
 
+/.turbo/

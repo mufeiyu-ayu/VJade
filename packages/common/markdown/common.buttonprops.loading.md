@@ -4,7 +4,7 @@
 
 ## ButtonProps.loading property
 
- 是否为加载中状态
+是否为加载中状态
 
 **Signature:**
 

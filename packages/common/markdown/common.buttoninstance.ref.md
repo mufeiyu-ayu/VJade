@@ -4,10 +4,10 @@
 
 ## ButtonInstance.ref property
 
- button实例
+button实例
 
 **Signature:**
 
 ```typescript
-ref: Ref<HTMLButtonElement | void>;
+ref: Ref<HTMLButtonElement | void>
 ```

@@ -4,7 +4,7 @@
 
 ## ButtonProps.tag property
 
- 自定义按钮标签
+自定义按钮标签
 
 **Signature:**
 

@@ -4,7 +4,7 @@
 
 ## IconProps.inline property
 
- 是否内联
+是否内联
 
 **Signature:**
 

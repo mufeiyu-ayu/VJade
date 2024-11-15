@@ -4,7 +4,7 @@
 
 ## ButtonProps.size property
 
- button大小
+button大小
 
 **Signature:**
 

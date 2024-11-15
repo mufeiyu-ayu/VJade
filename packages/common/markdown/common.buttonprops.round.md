@@ -4,7 +4,7 @@
 
 ## ButtonProps.round property
 
- 是否为圆角按钮
+是否为圆角按钮
 
 **Signature:**
 

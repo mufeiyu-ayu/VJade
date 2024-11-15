@@ -4,7 +4,7 @@
 
 ## ButtonProps.bg property
 
- 是否显示文字按钮背景颜色
+是否显示文字按钮背景颜色
 
 **Signature:**
 
