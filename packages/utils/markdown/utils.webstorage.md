@@ -27,3 +27,4 @@ webStorage: WebStorage
 删除指定的存储项 webStorage.removeStorageFromKey('user');
 
 清空所有存储的数据 webStorage.clearStorage();
+

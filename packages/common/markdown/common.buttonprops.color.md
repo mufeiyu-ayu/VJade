@@ -4,7 +4,7 @@
 
 ## ButtonProps.color property
 
-自定义按钮颜色
+ 自定义按钮颜色
 
 **Signature:**
 

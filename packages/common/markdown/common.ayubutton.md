@@ -59,10 +59,10 @@ AyuButton: {
     nativeType: import("./Button.ts").NativeType;
     throttleDuration: number;
     useThrottle: boolean;
-}, {}, string, {}, import("vue").GlobalComponents, import("vue").GlobalDirectives, string, import("vue").ComponentProvideOptions> & (import("vue").VNodeProps & (import("vue").AllowedComponentProps & import("vue").ComponentCustomProps & ((new () => {
+}, {}, string, {}, import("vue").GlobalComponents, import("vue").GlobalDirectives, string, import("vue").ComponentProvideOptions> & import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps & (new () => {
     $slots: {
         loading?(_: {}): any;
         default?(_: {}): any;
     };
-}) & import("vue").Plugin)))
+}) & import("vue").Plugin
 ```

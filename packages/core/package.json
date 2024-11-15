@@ -9,7 +9,7 @@
   "sideEffects": [
     "./dist/index.css"
   ],
-   "private": false,
+  "private": false,
   "main": "./dist/umd/index.umd.cjs",
   "module": "./dist/es/index.js",
   "types": "./dist/types/core/index.d.ts",
@@ -35,6 +35,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@ayu-mu/common": "workspace:^",
+    "@ayu-mu/utils": "workspace:^",
     "@iconify/vue": "^4.1.2"
   },
   "devDependencies": {

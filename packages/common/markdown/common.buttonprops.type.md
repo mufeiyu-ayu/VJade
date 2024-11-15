@@ -4,7 +4,7 @@
 
 ## ButtonProps.type property
 
-button类型
+ button类型
 
 **Signature:**
 

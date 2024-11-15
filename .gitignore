@@ -34,3 +34,4 @@ coverage
 /docs/.vitepress/cache/
 
 *storybook.log
+ .turbo

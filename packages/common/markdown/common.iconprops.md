@@ -7,7 +7,7 @@
 **Signature:**
 
 ```typescript
-export interface IconProps
+export interface IconProps 
 ```
 
 ## Properties
@@ -16,152 +16,192 @@ export interface IconProps
 
 Property
 
+
 </th><th>
 
 Modifiers
+
 
 </th><th>
 
 Type
 
+
 </th><th>
 
 Description
+
 
 </th></tr></thead>
 <tbody><tr><td>
 
 [color?](./common.iconprops.color.md)
 
+
 </td><td>
+
 
 </td><td>
 
 string
 
+
 </td><td>
 
-_(Optional)_ 颜色
+_(Optional)_  颜色
+
 
 </td></tr>
 <tr><td>
 
 [flip?](./common.iconprops.flip.md)
 
+
 </td><td>
+
 
 </td><td>
 
 string
 
+
 </td><td>
 
-_(Optional)_ 旋转方向
+_(Optional)_  旋转方向
+
 
 </td></tr>
 <tr><td>
 
 [height?](./common.iconprops.height.md)
 
+
 </td><td>
+
 
 </td><td>
 
 number
 
+
 </td><td>
 
-_(Optional)_ 高度
+_(Optional)_  高度
+
 
 </td></tr>
 <tr><td>
 
 [icon?](./common.iconprops.icon.md)
 
+
 </td><td>
+
 
 </td><td>
 
 string
 
+
 </td><td>
 
-_(Optional)_ 图标名称
+_(Optional)_  图标名称
+
 
 </td></tr>
 <tr><td>
 
 [inline?](./common.iconprops.inline.md)
 
+
 </td><td>
+
 
 </td><td>
 
 boolean
 
+
 </td><td>
 
-_(Optional)_ 是否内联
+_(Optional)_  是否内联
+
 
 </td></tr>
 <tr><td>
 
 [onLoad?](./common.iconprops.onload.md)
 
+
 </td><td>
+
 
 </td><td>
 
 () =&gt; void
 
+
 </td><td>
 
-_(Optional)_ 点击事件
+_(Optional)_  点击事件
+
 
 </td></tr>
 <tr><td>
 
 [rotate?](./common.iconprops.rotate.md)
 
+
 </td><td>
+
 
 </td><td>
 
 number
 
+
 </td><td>
 
-_(Optional)_ 旋转角度
+_(Optional)_  旋转角度
+
 
 </td></tr>
 <tr><td>
 
 [size?](./common.iconprops.size.md)
 
+
 </td><td>
+
 
 </td><td>
 
 number
 
+
 </td><td>
 
-_(Optional)_ 大小
+_(Optional)_  大小
+
 
 </td></tr>
 <tr><td>
 
 [width?](./common.iconprops.width.md)
 
+
 </td><td>
+
 
 </td><td>
 
 number
 
+
 </td><td>
 
 _(Optional)_
+
 
 </td></tr>
 </tbody></table>

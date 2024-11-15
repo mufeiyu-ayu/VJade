@@ -7,5 +7,5 @@
 **Signature:**
 
 ```typescript
-export type NativeType = 'button' | 'submit' | 'reset'
+export type NativeType = 'button' | 'submit' | 'reset';
 ```

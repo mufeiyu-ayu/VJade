@@ -1,5 +1,5 @@
 import type { ButtonProps, PaginationProps, TableColumnCtx } from 'element-plus'
-import { QueryAttribute, QueryCondition, SortParameter, SummaryParameter, ViewColumnType } from '@ayu-mu/model'
+import { QueryAttribute, QueryCondition, SortParameter, SummaryParameter, type ViewColumnType } from '@ayu-mu/model'
 import { type VxeTableProps } from 'vxe-table'
 
 /**

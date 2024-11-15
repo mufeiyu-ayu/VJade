@@ -3,4 +3,4 @@ import components from './components.ts'
 
 const installer = makeInstaller(components)
 export default installer
-export * from '../common/index'
+export * from '../common/src/index.ts'

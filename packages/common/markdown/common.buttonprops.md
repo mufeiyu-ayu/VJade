@@ -7,7 +7,7 @@
 **Signature:**
 
 ```typescript
-export interface ButtonProps
+export interface ButtonProps 
 ```
 
 ## Properties
@@ -16,257 +16,325 @@ export interface ButtonProps
 
 Property
 
+
 </th><th>
 
 Modifiers
+
 
 </th><th>
 
 Type
 
+
 </th><th>
 
 Description
+
 
 </th></tr></thead>
 <tbody><tr><td>
 
 [bg?](./common.buttonprops.bg.md)
 
+
 </td><td>
+
 
 </td><td>
 
 boolean
 
+
 </td><td>
 
-_(Optional)_ 是否显示文字按钮背景颜色
+_(Optional)_  是否显示文字按钮背景颜色
+
 
 </td></tr>
 <tr><td>
 
 [circle?](./common.buttonprops.circle.md)
 
+
 </td><td>
+
 
 </td><td>
 
 boolean
 
+
 </td><td>
 
-_(Optional)_ 是否使用节流
+_(Optional)_  是否使用节流
+
 
 </td></tr>
 <tr><td>
 
 [color?](./common.buttonprops.color.md)
 
+
 </td><td>
+
 
 </td><td>
 
 string
 
+
 </td><td>
 
-_(Optional)_ 自定义按钮颜色
+_(Optional)_  自定义按钮颜色
+
 
 </td></tr>
 <tr><td>
 
 [disabled?](./common.buttonprops.disabled.md)
 
+
 </td><td>
+
 
 </td><td>
 
 boolean
 
+
 </td><td>
 
-_(Optional)_ 是否为禁用状态
+_(Optional)_  是否为禁用状态
+
 
 </td></tr>
 <tr><td>
 
 [icon?](./common.buttonprops.icon.md)
 
+
 </td><td>
+
 
 </td><td>
 
 any
 
+
 </td><td>
 
-_(Optional)_ 图标
+_(Optional)_  图标
+
 
 </td></tr>
 <tr><td>
 
 [link?](./common.buttonprops.link.md)
 
+
 </td><td>
+
 
 </td><td>
 
 boolean
 
+
 </td><td>
 
-_(Optional)_ 是否为链接按钮
+_(Optional)_  是否为链接按钮
+
 
 </td></tr>
 <tr><td>
 
 [loading?](./common.buttonprops.loading.md)
 
+
 </td><td>
+
 
 </td><td>
 
 boolean
 
+
 </td><td>
 
-_(Optional)_ 是否为加载中状态
+_(Optional)_  是否为加载中状态
+
 
 </td></tr>
 <tr><td>
 
 [loadingIcon?](./common.buttonprops.loadingicon.md)
 
+
 </td><td>
+
 
 </td><td>
 
 String \| Component
 
+
 </td><td>
 
-_(Optional)_ 加载中图标
+_(Optional)_  加载中图标
+
 
 </td></tr>
 <tr><td>
 
 [nativeType?](./common.buttonprops.nativetype.md)
 
+
 </td><td>
+
 
 </td><td>
 
 [NativeType](./common.nativetype.md)
 
+
 </td><td>
 
 _(Optional)_
+
 
 </td></tr>
 <tr><td>
 
 [plain?](./common.buttonprops.plain.md)
 
+
 </td><td>
+
 
 </td><td>
 
 boolean
 
+
 </td><td>
 
-_(Optional)_ 是否为朴素按钮
+_(Optional)_  是否为朴素按钮
+
 
 </td></tr>
 <tr><td>
 
 [round?](./common.buttonprops.round.md)
 
+
 </td><td>
+
 
 </td><td>
 
 boolean
 
+
 </td><td>
 
-_(Optional)_ 是否为圆角按钮
+_(Optional)_  是否为圆角按钮
+
 
 </td></tr>
 <tr><td>
 
 [size?](./common.buttonprops.size.md)
 
+
 </td><td>
+
 
 </td><td>
 
 [ButtonSize](./common.buttonsize.md)
 
+
 </td><td>
 
-_(Optional)_ button大小
+_(Optional)_  button大小
+
 
 </td></tr>
 <tr><td>
 
 [tag?](./common.buttonprops.tag.md)
 
+
 </td><td>
+
 
 </td><td>
 
 string \| Component
 
+
 </td><td>
 
-_(Optional)_ 自定义按钮标签
+_(Optional)_  自定义按钮标签
+
 
 </td></tr>
 <tr><td>
 
 [throttleDuration?](./common.buttonprops.throttleduration.md)
 
+
 </td><td>
+
 
 </td><td>
 
 number
 
+
 </td><td>
 
-_(Optional)_ 节流时长
+_(Optional)_  节流时长
+
 
 </td></tr>
 <tr><td>
 
 [type?](./common.buttonprops.type.md)
 
+
 </td><td>
+
 
 </td><td>
 
 [ButtonType](./common.buttontype.md)
 
+
 </td><td>
 
-_(Optional)_ button类型
+_(Optional)_  button类型
+
 
 </td></tr>
 <tr><td>
 
 [useThrottle?](./common.buttonprops.usethrottle.md)
 
+
 </td><td>
+
 
 </td><td>
 
 boolean
 
+
 </td><td>
 
-_(Optional)_ 是否节流
+_(Optional)_  是否节流
+
 
 </td></tr>
 </tbody></table>

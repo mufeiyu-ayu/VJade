@@ -4,7 +4,7 @@
 
 ## ButtonProps.loadingIcon property
 
-加载中图标
+ 加载中图标
 
 **Signature:**
 

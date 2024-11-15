@@ -10,80 +10,100 @@
 
 Function
 
+
 </th><th>
 
 Description
+
 
 </th></tr></thead>
 <tbody><tr><td>
 
 [formatDate(date, format)](./utils.formatdate.md)
 
+
 </td><td>
 
 格式化日期
+
 
 </td></tr>
 <tr><td>
 
 [isFunction(val)](./utils.isfunction.md)
 
+
 </td><td>
 
 检查目标是否为函数类型。
+
 
 </td></tr>
 <tr><td>
 
 [isJsonString(target)](./utils.isjsonstring.md)
 
+
 </td><td>
 
 检查字符串是否为符合 JSON 格式的字符串。
+
 
 </td></tr>
 <tr><td>
 
 [isJsonStringTryCatch(str)](./utils.isjsonstringtrycatch.md)
 
+
 </td><td>
 
 使用 `try-catch` 判断字符串是否是 JSON 格式。
+
 
 </td></tr>
 <tr><td>
 
 [makeInstaller(components)](./utils.makeinstaller.md)
 
+
 </td><td>
+
 
 </td></tr>
 <tr><td>
 
 [withInstall(component)](./utils.withinstall.md)
 
+
 </td><td>
+
 
 </td></tr>
 <tr><td>
 
 [withInstallDirective(directive, name)](./utils.withinstalldirective.md)
 
+
 </td><td>
+
 
 </td></tr>
 <tr><td>
 
 [withInstallFunction(fn, name)](./utils.withinstallfunction.md)
 
+
 </td><td>
+
 
 </td></tr>
 <tr><td>
 
 [withNoopInstall(component)](./utils.withnoopinstall.md)
 
+
 </td><td>
+
 
 </td></tr>
 </tbody></table>
@@ -94,20 +114,24 @@ Description
 
 Variable
 
+
 </th><th>
 
 Description
+
 
 </th></tr></thead>
 <tbody><tr><td>
 
 [webStorage](./utils.webstorage.md)
 
+
 </td><td>
 
 `webStorage` 是一个用于浏览器 Web 存储操作的单例对象，封装了对 `localStorage` 和 `sessionStorage` 的常见操作。 它提供了存储、获取、删除、清除数据的功能，支持数据过期时间管理和加密。
 
 该实例允许你通过统一的接口操作不同类型的 Web 存储，同时确保存储的数据能够加密和管理过期时间。
+
 
 </td></tr>
 </tbody></table>
