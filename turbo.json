@@ -3,15 +3,17 @@
   "tasks": {
     "build": {
       "dependsOn": ["^build"],
-      "outputs": ["dist/**"]
+      "outputs": ["dist/**"],
+      "inputs": ["src/**"],
+      "cache": true
     },
     "build:dts": {
       "dependsOn": ["^build:dts"],
-      "outputs": ["dist/**"]
+      "outputs": ["dist/**","temp/**"]
     },
     "build:all": {
       "dependsOn": ["^build:all"],
-      "outputs": ["dist/**"]
+      "outputs": ["dist/**","temp/**"]
     },
     "check-types": {
       "dependsOn": ["^check-types"]
@@ -19,6 +21,18 @@
     "dev": {
       "persistent": true,
       "cache": false
+    },
+    "check": {
+      "dependsOn": ["^build"],
+      "inputs": [
+        "src/**",
+        "tsconfig.json"
+      ]
+    },
+    "format:check": {
+      "inputs": [
+        "src/**/*.{ts,tsx,.vue}"
+      ]
     }
   }
 }
