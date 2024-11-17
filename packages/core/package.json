@@ -1,48 +1,48 @@
 {
   "name": "@ayu-mu/ayu-design",
   "version": "1.0.2",
-  "description": "Components library bu Vue3 + TS",
+  "private": false,
   "type": "module",
+  "module": "./dist/es/index.js",
+  "main": "./dist/umd/index.umd.cjs",
   "files": [
     "dist"
   ],
-  "sideEffects": [
-    "./dist/index.css"
-  ],
-  "private": false,
-  "main": "./dist/umd/index.umd.cjs",
-  "module": "./dist/es/index.js",
-  "types": "./dist/types/core/index.d.ts",
   "exports": {
     ".": {
+      "types": "./dist/types/core/index.d.ts",
       "import": "./dist/es/index.js",
-      "require": "./dist/umd/index.umd.cjs",
-      "types": "./dist/types/core/index.d.ts"
+      "require": "./dist/umd/index.umd.cjs"
     },
     "./dist/": {
       "import": "./dist/",
       "require": "./dist/"
     }
   },
-  "scripts": {
-    "build": "run-s build-only move-style",
-    "build-only": "run-p build-es build-umd",
-    "build-umd": "vite build --config vite.umd.config.ts",
-    "build-es": "vite build --config vite.es.config.ts",
-    "move-style": "move-file dist/es/index.css dist/index.css"
-  },
-  "keywords": [],
   "author": "",
-  "license": "ISC",
   "dependencies": {
     "@ayu-mu/common": "workspace:^",
     "@ayu-mu/utils": "workspace:^",
     "@iconify/vue": "^4.1.2"
   },
+  "description": "Components library bu Vue3 + TS",
   "devDependencies": {
     "vite-plugin-dts": "^3.9.1"
   },
+  "keywords": [],
+  "license": "ISC",
   "peerDependencies": {
     "vue": "^3.4.21"
-  }
+  },
+  "scripts": {
+    "build": "run-s build-only move-style",
+    "build-es": "vite build --config vite.es.config.ts",
+    "build-only": "run-p build-es build-umd",
+    "build-umd": "vite build --config vite.umd.config.ts",
+    "move-style": "move-file dist/es/index.css dist/index.css"
+  },
+  "sideEffects": [
+    "./dist/index.css"
+  ],
+  "types": "./dist/types/core/index.d.ts"
 }

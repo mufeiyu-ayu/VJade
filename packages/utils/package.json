@@ -1,28 +1,19 @@
 {
   "name": "@ayu-mu/utils",
   "version": "2.1.15",
-  "main": "dist/ayu-web-build-utils.cjs",
-  "exports": {
-    ".": {
-      "import": "./dist/ayu-web-build-utils.js",
-      "require": "./dist/ayu-web-build-utils.cjs",
-      "types": "./dist/index.d.ts"
-    }
-  },
-  "types": "./dist/ayu-web-build-utils.d.ts",
   "private": false,
-  "module": "./dist/ayu-web-build-utils.js",
-  "publishConfig": {
-    "registry": "https://registry.npmjs.org"
-  },
   "type": "module",
+  "module": "./dist/ayu-web-build-utils.js",
+  "main": "dist/ayu-web-build-utils.cjs",
   "files": [
     "dist"
   ],
-  "scripts": {
-    "build": "vite build",
-    "build:all": "vite build && pnpm build:dts",
-    "build:dts": "rimraf temp && tsc -p tsconfig.declaration.json && rollup-dts"
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/ayu-web-build-utils.js",
+      "require": "./dist/ayu-web-build-utils.cjs"
+    }
   },
   "dependencies": {
     "@ayu-mu/scripts": "workspace:^",
@@ -33,5 +24,14 @@
     "@ayu-mu/vite": "workspace:^",
     "@types/crypto-js": "^4.2.2",
     "vite": "^5.1.6"
-  }
+  },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org"
+  },
+  "scripts": {
+    "build": "vite build",
+    "build:all": "vite build && pnpm build:dts",
+    "build:dts": "rimraf temp && tsc -p tsconfig.declaration.json && rollup-dts"
+  },
+  "types": "./dist/ayu-web-build-utils.d.ts"
 }

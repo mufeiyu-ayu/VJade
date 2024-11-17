@@ -1,12 +1,12 @@
 {
   "name": "@ayu-mu/model",
   "version": "1.0.2",
-  "description": "通用工具函数的类型声明",
   "main": "src/index.ts",
+  "author": "",
+  "description": "通用工具函数的类型声明",
+  "keywords": [],
+  "license": "ISC",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC"
+  }
 }

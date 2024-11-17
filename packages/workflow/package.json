@@ -1,16 +1,16 @@
 {
   "name": "@ayu-mu/workflow",
   "version": "1.0.2",
-  "description": "",
-  "main": "src/index.ts",
   "private": "true",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "keywords": [],
+  "main": "src/index.ts",
   "author": "",
+  "description": "",
+  "keywords": [],
   "license": "ISC",
   "peerDependencies": {
     "vue": "^3.4.21"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
   }
 }

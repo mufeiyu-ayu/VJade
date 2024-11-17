@@ -1,16 +1,16 @@
 {
   "name": "@ayu-mu/hooks",
   "version": "1.0.2",
-  "description": "",
+  "private": false,
   "main": "index.ts",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-   "private": false,
+  "author": "",
+  "description": "",
+  "keywords": [],
+  "license": "ISC",
   "publishConfig": {
     "registry": "https://registry.npmjs.org"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC"
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
 }

@@ -1,0 +1,22 @@
+{
+  "dependencyTypes": ["prod", "dev"],
+  "sortFirst": ["name", "version", "private", "type", "module", "main", "files","exports"],
+  "formatRepository": true,
+  "formatBugs": true,
+  "semverGroups": [
+    {
+      "label": "use caret ranges for all packages",
+      "packages": ["**"],
+      "dependencyTypes": ["prod", "dev"],
+      "dependencies": ["**"],
+      "range": "^"
+    },
+    {
+      "label": "workspace packages use workspace protocol",
+      "packages": ["**"],
+      "dependencies": ["@ayu-mu/*"],
+      "dependencyTypes": ["prod", "dev"],
+      "range": "workspace:^"
+    }
+  ]
+}

@@ -2,14 +2,9 @@
   "name": "@ayu-mu/common",
   "version": "0.0.4",
   "private": false,
-  "description": "A common package for Ayu",
-  "scripts": {
-    "build": "vite build",
-    "build:all": "vite build && pnpm build:dts",
-    "build:dts": "rimraf temp && vue-tsc -p tsconfig.declaration.json && rollup-dts"
-  },
-  "main": "./dist/ayu-web-build-component.cjs",
+  "type": "module",
   "module": "./dist/ayu-web-build-component.js",
+  "main": "./dist/ayu-web-build-component.cjs",
   "files": [
     "dist"
   ],
@@ -22,11 +17,10 @@
     "./style": "./dist/style.css",
     "./dist/style.css": "./dist/style.css"
   },
-  "types": "./dist/index.d.ts",
-  "type": "module",
-  "peerDependencies": {
-    "vue": "^3.4.21"
+  "dependencies": {
+    "@iconify/vue": "^4.1.2"
   },
+  "description": "A common package for Ayu",
   "devDependencies": {
     "@ayu-mu/scripts": "workspace:^",
     "@ayu-mu/tsconfig": "workspace:^",
@@ -36,7 +30,13 @@
     "vite": "^5.1.6",
     "vue-tsc": "^2.0.6"
   },
-  "dependencies": {
-    "@iconify/vue": "^4.1.2"
-  }
+  "peerDependencies": {
+    "vue": "^3.4.21"
+  },
+  "scripts": {
+    "build": "vite build",
+    "build:all": "vite build && pnpm build:dts",
+    "build:dts": "rimraf temp && vue-tsc -p tsconfig.declaration.json && rollup-dts"
+  },
+  "types": "./dist/index.d.ts"
 }

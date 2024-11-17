@@ -1,19 +1,19 @@
 {
   "name": "@ayu-mu/core-common",
   "version": "1.0.2",
-  "description": "业务组件",
+  "private": false,
   "main": "src/index.ts",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "keywords": [],
   "author": "",
-   "private": false,
+  "dependencies": {
+    "vxe-table": "^4.6.6"
+  },
+  "description": "业务组件",
+  "keywords": [],
+  "license": "ISC",
   "publishConfig": {
     "registry": "https://registry.npmjs.org"
   },
-  "license": "ISC",
-  "dependencies": {
-    "vxe-table": "4.6.6"
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
   }
 }
