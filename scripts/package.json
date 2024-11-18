@@ -4,6 +4,9 @@
   "private": false,
   "type": "module",
   "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
   "author": "",
   "bin": {
     "packages-init": "package-init.js",
@@ -21,8 +24,5 @@
   "license": "ISC",
   "publishConfig": {
     "registry": "https://registry.npmjs.org"
-  },
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
   }
 }

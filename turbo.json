@@ -8,12 +8,14 @@
       "cache": true
     },
     "build:dts": {
-      "dependsOn": ["^build:dts"],
-      "outputs": ["dist/**","temp/**"]
+      "dependsOn": ["^build","^build:dts"],
+      "outputs": ["dist/**","temp/**"],
+      "cache": true
     },
     "build:all": {
-      "dependsOn": ["^build:all"],
-      "outputs": ["dist/**","temp/**"]
+      "dependsOn": ["^build","^build:dts","^build:all"],
+      "outputs": ["dist/**","temp/**"],
+      "cache": true
     },
     "check-types": {
       "dependsOn": ["^check-types"]

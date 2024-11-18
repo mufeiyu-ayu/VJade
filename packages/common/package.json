@@ -17,6 +17,11 @@
     "./style": "./dist/style.css",
     "./dist/style.css": "./dist/style.css"
   },
+  "scripts": {
+    "build": "vite build",
+    "build:all": "vite build && pnpm build:dts",
+    "build:dts": "rimraf temp && vue-tsc -p tsconfig.declaration.json && rollup-dts"
+  },
   "dependencies": {
     "@iconify/vue": "^4.1.2"
   },
@@ -32,11 +37,6 @@
   },
   "peerDependencies": {
     "vue": "^3.4.21"
-  },
-  "scripts": {
-    "build": "vite build",
-    "build:all": "vite build && pnpm build:dts",
-    "build:dts": "rimraf temp && vue-tsc -p tsconfig.declaration.json && rollup-dts"
   },
   "types": "./dist/index.d.ts"
 }

@@ -3,6 +3,9 @@
   "version": "1.0.2",
   "private": false,
   "main": "src/index.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
   "author": "",
   "dependencies": {
     "vxe-table": "^4.6.6"
@@ -12,8 +15,5 @@
   "license": "ISC",
   "publishConfig": {
     "registry": "https://registry.npmjs.org"
-  },
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
   }
 }

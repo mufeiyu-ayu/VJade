@@ -3,6 +3,27 @@
   "version": "1.0.0",
   "private": false,
   "main": "index.js",
+  "scripts": {
+    "build": "turbo build",
+    "build:all": "turbo build:all",
+    "build:dts": "turbo build:dts",
+    "change": "changeset",
+    "clean": "rd/s/q node_modules",
+    "cmt": "git add . && git-cz",
+    "dev": "pnpm -C app/admin dev",
+    "doc": "pnpm -C docs docs:dev --open ",
+    "lint": "eslint . --ext ts,tsx,vue --report-unused-disable-directives --max-warnings 0",
+    "lint:fix": "eslint --fix --ext ts,tsx,vue --ignore-path .eslintignore .",
+    "pge-init": "packages-init",
+    "precommit": "lint-staged",
+    "preinstall": "npx only-allow pnpm",
+    "prepare": "husky",
+    "prettier": "prettier --check .",
+    "prettier:fix": "prettier --write .",
+    "release": "pnpm changeset publish --access public",
+    "start": "pnpm -C packages/utils build",
+    "vp": "pnpm changeset version"
+  },
   "author": "",
   "config": {
     "commitizen": {
@@ -64,26 +85,5 @@
   "packageManager": "pnpm@9.4.0",
   "publishConfig": {
     "registry": "https://registry.npmjs.org"
-  },
-  "scripts": {
-    "build": "turbo build",
-    "build:all": "turbo build:all",
-    "build:dts": "turbo build:dts",
-    "change": "changeset",
-    "clean": "rd/s/q node_modules",
-    "cmt": "git add . && git-cz",
-    "dev": "pnpm -C app/admin dev",
-    "doc": "pnpm -C docs docs:dev --open ",
-    "lint": "eslint . --ext ts,tsx,vue --report-unused-disable-directives --max-warnings 0",
-    "lint:fix": "eslint --fix --ext ts,tsx,vue --ignore-path .eslintignore .",
-    "pge-init": "packages-init",
-    "precommit": "lint-staged",
-    "preinstall": "npx only-allow pnpm",
-    "prepare": "husky",
-    "prettier": "prettier --check .",
-    "prettier:fix": "prettier --write .",
-    "release": "pnpm changeset publish --access public",
-    "start": "pnpm -C packages/utils build",
-    "vp": "pnpm changeset version"
   }
 }

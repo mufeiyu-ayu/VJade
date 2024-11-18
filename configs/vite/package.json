@@ -12,6 +12,11 @@
       "require": "./dist/index.cjs"
     }
   },
+  "scripts": {
+    "build": "pnpm unbuild --stub",
+    "clean": "rimraf node_modules",
+    "clean:dist": "rimraf dist"
+  },
   "author": "",
   "description": "",
   "devDependencies": {
@@ -20,10 +25,5 @@
   },
   "keywords": [],
   "license": "ISC",
-  "scripts": {
-    "build": "pnpm unbuild --stub",
-    "clean": "rimraf node_modules",
-    "clean:dist": "rimraf dist"
-  },
   "types": "./dist/index.d.ts"
 }

@@ -18,39 +18,48 @@ formatDate: (date: Date, format?: string) => string
 
 Parameter
 
+
 </th><th>
 
 Type
 
+
 </th><th>
 
 Description
+
 
 </th></tr></thead>
 <tbody><tr><td>
 
 date
 
+
 </td><td>
 
 Date
 
+
 </td><td>
 
 要格式化的日期对象
+
 
 </td></tr>
 <tr><td>
 
 format
 
+
 </td><td>
 
 string
 
+
 </td><td>
 
 _(Optional)_ 目标格式的字符串，支持 yyyy, MM, dd, HH, mm, ss
+
 
 </td></tr>
 </tbody></table>
@@ -59,3 +68,4 @@ _(Optional)_ 目标格式的字符串，支持 yyyy, MM, dd, HH, mm, ss
 string
 
 格式化后的日期字符串
+
