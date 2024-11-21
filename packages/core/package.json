@@ -19,6 +19,13 @@
       "require": "./dist/"
     }
   },
+  "scripts": {
+    "build": "run-s build-only move-style",
+    "build-es": "vite build --config vite.es.config.ts",
+    "build-only": "run-p build-es build-umd",
+    "build-umd": "vite build --config vite.umd.config.ts",
+    "move-style": "move-file dist/es/index.css dist/index.css"
+  },
   "author": "",
   "dependencies": {
     "@ayu-mu/common": "workspace:^",
@@ -33,13 +40,6 @@
   "license": "ISC",
   "peerDependencies": {
     "vue": "^3.4.21"
-  },
-  "scripts": {
-    "build": "run-s build-only move-style",
-    "build-es": "vite build --config vite.es.config.ts",
-    "build-only": "run-p build-es build-umd",
-    "build-umd": "vite build --config vite.umd.config.ts",
-    "move-style": "move-file dist/es/index.css dist/index.css"
   },
   "sideEffects": [
     "./dist/index.css"

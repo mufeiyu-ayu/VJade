@@ -6,6 +6,9 @@
     "tailwind.js",
     "postcss.js"
   ],
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
   "author": "",
   "description": "",
   "devDependencies": {
@@ -14,8 +17,5 @@
     "tailwindcss": "^3.4.3"
   },
   "keywords": [],
-  "license": "ISC",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  }
+  "license": "ISC"
 }

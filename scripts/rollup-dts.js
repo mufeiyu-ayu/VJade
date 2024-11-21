@@ -7,8 +7,7 @@ import { execa } from 'execa'
 import { rimraf } from 'rimraf'
 import chalk from 'chalk'
 //当前目录路径
-const libPath = env.PWD
-
+const libPath = env.PWD || process.cwd()
 // 获取当前路径下 temp 目录下所有文件名
 const packages = readdirSync(join(libPath, 'temp'))
 
