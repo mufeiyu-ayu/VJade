@@ -62,6 +62,7 @@ defineExpose<ButtonInstance>({
     </template>
     <span v-if="$slots.default" :class="ns.em('text')">
       <slot />
+      1212121112121121
     </span>
   </component>
 </template>

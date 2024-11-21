@@ -7,6 +7,11 @@
       "inputs": ["src/**"],
       "cache": true
     },
+    "build:watch": {
+      "dependsOn": ["^build"],
+      "cache": true,
+      "persistent": true
+    },
     "build:dts": {
       "dependsOn": ["^build:dts"],
       "outputs": ["dist/**","temp/**"]

@@ -69,6 +69,7 @@
     "build": "turbo build",
     "build:all": "turbo build:all",
     "build:dts": "turbo build:dts",
+    "build:watch": "turbo build:watch",
     "change": "changeset",
     "clean": "rd/s/q node_modules",
     "cmt": "git add . && git-cz",

@@ -35,6 +35,7 @@
   },
   "scripts": {
     "build": "vite build",
+    "build:watch": "vite build -w",
     "build:all": "vite build && pnpm build:dts",
     "build:dts": "rimraf temp && vue-tsc -p tsconfig.declaration.json && rollup-dts"
   },
