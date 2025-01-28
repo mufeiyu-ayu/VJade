@@ -1,2 +1,1 @@
-export * from './fs-form-view'
-export * from './fs-data-grid'
+export * from './ayu-form'

@@ -26,21 +26,21 @@
     "build-umd": "vite build --config vite.umd.config.ts",
     "move-style": "move-file dist/es/index.css dist/index.css"
   },
-  "author": "",
   "dependencies": {
     "@ayu-mu/common": "workspace:^",
     "@ayu-mu/utils": "workspace:^",
     "@iconify/vue": "^4.1.2"
   },
-  "description": "Components library bu Vue3 + TS",
   "devDependencies": {
     "vite-plugin-dts": "^3.9.1"
   },
-  "keywords": [],
-  "license": "ISC",
   "peerDependencies": {
     "vue": "^3.4.21"
   },
+  "author": "",
+  "description": "Components library bu Vue3 + TS",
+  "keywords": [],
+  "license": "ISC",
   "sideEffects": [
     "./dist/index.css"
   ],

@@ -18,26 +18,32 @@ isFunction: (val: unknown) => boolean
 
 Parameter
 
+
 </th><th>
 
 Type
 
+
 </th><th>
 
 Description
+
 
 </th></tr></thead>
 <tbody><tr><td>
 
 val
 
+
 </td><td>
 
 unknown
 
+
 </td><td>
 
 要检查的目标值。
+
 
 </td></tr>
 </tbody></table>
@@ -53,7 +59,9 @@ boolean
 
 ## Example
 
+
 ```typescript
-isFunction(() => {}) // 返回 true
-isFunction(123) // 返回 false
+isFunction(() => {});  // 返回 true
+isFunction(123);       // 返回 false
 ```
+

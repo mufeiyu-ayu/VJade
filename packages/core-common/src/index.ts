@@ -1,2 +1,2 @@
+import './tailwind.css'
 export * from './basic'
-export * from './fs-format'

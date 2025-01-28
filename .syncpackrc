@@ -1,6 +1,6 @@
 {
   "dependencyTypes": ["prod", "dev"],
-  "sortFirst": ["name", "version", "private", "type", "module", "main", "files","exports","scripts"],
+  "sortFirst": ["name", "version", "private", "type", "module", "main", "files","exports","scripts","dependencies","devDependencies","peerDependencies"],
   "formatRepository": true,
   "formatBugs": true,
   "semverGroups": [

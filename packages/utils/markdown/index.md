@@ -10,16 +10,20 @@
 
 Package
 
+
 </th><th>
 
 Description
+
 
 </th></tr></thead>
 <tbody><tr><td>
 
 [@ayu-mu/utils](./utils.md)
 
+
 </td><td>
+
 
 </td></tr>
 </tbody></table>

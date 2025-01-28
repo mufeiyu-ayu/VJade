@@ -1,22 +1,22 @@
 {
   "name": "docs",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
   "scripts": {
     "dev": "vitepress dev",
-    "docs:dev": "vitepress dev",
     "docs:build": "vitepress build",
+    "docs:dev": "vitepress dev",
     "docs:preview": "vitepress preview"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "devDependencies": {
-    "vitepress": "^1.1.4"
   },
   "dependencies": {
     "@vitepress-demo-preview/component": "^2.3.2",
     "@vitepress-demo-preview/plugin": "^1.2.3"
-  }
+  },
+  "devDependencies": {
+    "vitepress": "^1.1.4"
+  },
+  "author": "",
+  "description": "",
+  "keywords": [],
+  "license": "ISC"
 }

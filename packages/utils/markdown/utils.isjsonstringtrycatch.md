@@ -18,26 +18,32 @@ isJsonStringTryCatch: (str: string) => boolean
 
 Parameter
 
+
 </th><th>
 
 Type
 
+
 </th><th>
 
 Description
+
 
 </th></tr></thead>
 <tbody><tr><td>
 
 str
 
+
 </td><td>
 
 string
 
+
 </td><td>
 
 要检查的目标字符串。
+
 
 </td></tr>
 </tbody></table>
@@ -53,7 +59,9 @@ boolean
 
 ## Example
 
+
 ```typescript
-isJsonStringTryCatch('{"name": "John", "age": 30}') // 返回 true
-isJsonStringTryCatch('Hello World') // 返回 false
+isJsonStringTryCatch('{"name": "John", "age": 30}');  // 返回 true
+isJsonStringTryCatch('Hello World');                   // 返回 false
 ```
+

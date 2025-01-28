@@ -4,7 +4,7 @@
 
 ## IconProps.icon property
 
-图标名称
+ 图标名称
 
 **Signature:**
 

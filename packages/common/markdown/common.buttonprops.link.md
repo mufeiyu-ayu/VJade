@@ -4,7 +4,7 @@
 
 ## ButtonProps.link property
 
-是否为链接按钮
+ 是否为链接按钮
 
 **Signature:**
 

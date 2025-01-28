@@ -4,10 +4,10 @@
 
 ## ButtonInstance.disabled property
 
-是否禁用
+ 是否禁用
 
 **Signature:**
 
 ```typescript
-disabled: ComputedRef<boolean>
+disabled: ComputedRef<boolean>;
 ```

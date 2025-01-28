@@ -1,7 +1,7 @@
 import { createApp } from 'vue'
 // import { createPinia } from 'pinia'
 import 'element-plus/dist/index.css'
-import '@ayu-mu/common/dist/style.css'
+import '@ayu-mu/core-common/style.css'
 import App from './App.vue'
 import { createPinia } from 'pinia'
 import router from './router'

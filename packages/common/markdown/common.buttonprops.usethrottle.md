@@ -4,7 +4,7 @@
 
 ## ButtonProps.useThrottle property
 
-是否节流
+ 是否节流
 
 **Signature:**
 

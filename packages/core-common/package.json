@@ -2,14 +2,45 @@
   "name": "@ayu-mu/core-common",
   "version": "1.0.2",
   "private": false,
-  "main": "src/index.ts",
+  "main": "./src/index.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./src/index.ts",
+      "require": "./dist/ayu-basic-component.mjs"
+    },
+    "./style.css": {
+      "import": "./dist/style.css",
+      "require": "./dist/style.css"
+    }
+  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "vite build",
+    "build:all": "vite build && pnpm build:dts",
+    "build:dts": "rimraf temp && vue-tsc -p tsconfig.declaration.json && rollup-dts",
+    "build:watch": "vite build -w"
+  },
+  "dependencies": {
+    "@configs/css": "workspace:^",
+    "element-plus": "^2.7.2",
+    "vxe-table": "^4.6.6",
+    "postcss": "^8.4.38",
+    "tailwindcss": "^3.4.3",
+    "autoprefixer": "^10.4.19"
+  },
+  "devDependencies": {
+    "@ayu-mu/scripts": "workspace:^",
+    "@ayu-mu/tsconfig": "workspace:^",
+    "@ayu-mu/utils": "workspace:^",
+    "@ayu-mu/vite": "workspace:^",
+    "@vitejs/plugin-vue": "^5.0.4",
+    "vite": "^5.1.6",
+    "vue-tsc": "^2.0.6"
+  },
+  "peerDependencies": {
+    "vue": "^3.4.21"
   },
   "author": "",
-  "dependencies": {
-    "vxe-table": "^4.6.6"
-  },
   "description": "业务组件",
   "keywords": [],
   "license": "ISC",
