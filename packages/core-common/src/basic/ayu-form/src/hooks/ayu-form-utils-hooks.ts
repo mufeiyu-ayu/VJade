@@ -2,10 +2,15 @@
 import type { FormProps } from '../types'
 
 export function useFormUtils() {
-  const initFormData = (props: FormProps) => {
+  /**
+   * 初始化表单数据
+   * @param props
+   * @returns
+   */
+  function initFormData(props: FormProps) {
     const formData: Record<string, any> = {}
     props.fieldConfig.forEach((field) => {
-      formData[field.field] = '' // 初始化每个字段为空字符串
+      formData[field.field] = field.defaultValue || '' // 初始化每个字段为空字符串
     })
     return formData
   }

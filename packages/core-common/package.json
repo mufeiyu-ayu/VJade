@@ -5,7 +5,7 @@
   "main": "./src/index.ts",
   "exports": {
     ".": {
-      "types": "./dist/index.d.ts",
+      "types": "./src/index.ts",
       "import": "./src/index.ts",
       "require": "./dist/ayu-basic-component.mjs"
     },
@@ -21,12 +21,13 @@
     "build:watch": "vite build -w"
   },
   "dependencies": {
+    "@ayu-mu/common": "workspace:^",
     "@configs/css": "workspace:^",
+    "autoprefixer": "^10.4.19",
     "element-plus": "^2.7.2",
-    "vxe-table": "^4.6.6",
     "postcss": "^8.4.38",
     "tailwindcss": "^3.4.3",
-    "autoprefixer": "^10.4.19"
+    "vxe-table": "^4.6.6"
   },
   "devDependencies": {
     "@ayu-mu/scripts": "workspace:^",

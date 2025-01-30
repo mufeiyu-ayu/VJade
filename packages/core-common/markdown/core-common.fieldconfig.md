@@ -7,7 +7,7 @@
 **Signature:**
 
 ```typescript
-export interface FieldConfig 
+export interface FieldConfig
 ```
 
 ## Properties
@@ -16,110 +16,86 @@ export interface FieldConfig
 
 Property
 
-
 </th><th>
 
 Modifiers
-
 
 </th><th>
 
 Type
 
-
 </th><th>
 
 Description
-
 
 </th></tr></thead>
 <tbody><tr><td>
 
 [field](./core-common.fieldconfig.field.md)
 
-
 </td><td>
-
 
 </td><td>
 
 string
 
-
 </td><td>
-
 
 </td></tr>
 <tr><td>
 
 [group?](./core-common.fieldconfig.group.md)
 
-
 </td><td>
-
 
 </td><td>
 
 string
 
-
 </td><td>
 
 _(Optional)_
-
 
 </td></tr>
 <tr><td>
 
 [label](./core-common.fieldconfig.label.md)
 
-
 </td><td>
-
 
 </td><td>
 
 string
 
-
 </td><td>
-
 
 </td></tr>
 <tr><td>
 
 [rules?](./core-common.fieldconfig.rules.md)
 
-
 </td><td>
-
 
 </td><td>
 
 FormRules\[string\]
 
-
 </td><td>
 
 _(Optional)_
-
 
 </td></tr>
 <tr><td>
 
 [type](./core-common.fieldconfig.type.md)
 
-
 </td><td>
-
 
 </td><td>
 
 string
 
-
 </td><td>
-
 
 </td></tr>
 </tbody></table>

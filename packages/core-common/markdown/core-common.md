@@ -10,29 +10,23 @@
 
 Interface
 
-
 </th><th>
 
 Description
-
 
 </th></tr></thead>
 <tbody><tr><td>
 
 [FieldConfig](./core-common.fieldconfig.md)
 
-
 </td><td>
-
 
 </td></tr>
 <tr><td>
 
 [FormProps](./core-common.formprops.md)
 
-
 </td><td>
-
 
 </td></tr>
 </tbody></table>
@@ -43,20 +37,16 @@ Description
 
 Variable
 
-
 </th><th>
 
 Description
-
 
 </th></tr></thead>
 <tbody><tr><td>
 
 [AyuForm](./core-common.ayuform.md)
 
-
 </td><td>
-
 
 </td></tr>
 </tbody></table>

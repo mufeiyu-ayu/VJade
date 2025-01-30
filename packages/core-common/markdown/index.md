@@ -10,20 +10,16 @@
 
 Package
 
-
 </th><th>
 
 Description
-
 
 </th></tr></thead>
 <tbody><tr><td>
 
 [@ayu-mu/core-common](./core-common.md)
 
-
 </td><td>
-
 
 </td></tr>
 </tbody></table>

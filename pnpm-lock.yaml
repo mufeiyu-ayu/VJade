@@ -336,6 +336,9 @@ importers:
 
   packages/core-common:
     dependencies:
+      '@ayu-mu/common':
+        specifier: workspace:^
+        version: link:../common
       '@configs/css':
         specifier: workspace:^
         version: link:../../configs/css-propress
@@ -419,6 +422,9 @@ importers:
       vite:
         specifier: ^5.1.6
         version: 5.4.10(@types/node@20.17.6)(less@4.2.0)(sass@1.80.6)
+      vue-tsc:
+        specifier: ^2.2.0
+        version: 2.2.0(typescript@5.6.3)
 
   packages/workflow:
     dependencies:
