@@ -4,7 +4,7 @@
 
 ## IconProps.rotate property
 
- 旋转角度
+旋转角度
 
 **Signature:**
 

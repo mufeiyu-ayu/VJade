@@ -7,7 +7,7 @@
 **Signature:**
 
 ```typescript
-export interface ButtonInstance 
+export interface ButtonInstance
 ```
 
 ## Properties
@@ -16,97 +16,77 @@ export interface ButtonInstance
 
 Property
 
-
 </th><th>
 
 Modifiers
-
 
 </th><th>
 
 Type
 
-
 </th><th>
 
 Description
-
 
 </th></tr></thead>
 <tbody><tr><td>
 
 [disabled](./common.buttoninstance.disabled.md)
 
-
 </td><td>
-
 
 </td><td>
 
 ComputedRef&lt;boolean&gt;
 
-
 </td><td>
 
- 是否禁用
-
+是否禁用
 
 </td></tr>
 <tr><td>
 
 [ref](./common.buttoninstance.ref.md)
 
-
 </td><td>
-
 
 </td><td>
 
 Ref&lt;HTMLButtonElement \| void&gt;
 
-
 </td><td>
 
- button实例
-
+button实例
 
 </td></tr>
 <tr><td>
 
 [size](./common.buttoninstance.size.md)
 
-
 </td><td>
-
 
 </td><td>
 
 ComputedRef&lt;string&gt;
 
-
 </td><td>
 
- 按钮大小
-
+按钮大小
 
 </td></tr>
 <tr><td>
 
 [type](./common.buttoninstance.type.md)
 
-
 </td><td>
-
 
 </td><td>
 
 ComputedRef&lt;string&gt;
 
-
 </td><td>
 
- 按钮类型
-
+按钮类型
 
 </td></tr>
 </tbody></table>

@@ -4,10 +4,10 @@
 
 ## ButtonInstance.type property
 
- 按钮类型
+按钮类型
 
 **Signature:**
 
 ```typescript
-type: ComputedRef<string>;
+type: ComputedRef<string>
 ```

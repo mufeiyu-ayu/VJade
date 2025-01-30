@@ -4,7 +4,7 @@
 
 ## ButtonProps.throttleDuration property
 
- 节流时长
+节流时长
 
 **Signature:**
 

@@ -7,7 +7,7 @@
 **Signature:**
 
 ```typescript
-export declare function lo(...args: any[]): void;
+export declare function lo(...args: any[]): void
 ```
 
 ## Parameters
@@ -16,34 +16,27 @@ export declare function lo(...args: any[]): void;
 
 Parameter
 
-
 </th><th>
 
 Type
 
-
 </th><th>
 
 Description
-
 
 </th></tr></thead>
 <tbody><tr><td>
 
 args
 
-
 </td><td>
 
 any\[\]
 
-
 </td><td>
-
 
 </td></tr>
 </tbody></table>
 **Returns:**
 
 void
-

@@ -4,7 +4,7 @@
 
 ## IconProps.onLoad property
 
- 点击事件
+点击事件
 
 **Signature:**
 

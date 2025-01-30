@@ -4,7 +4,7 @@
 
 ## IconProps.flip property
 
- 旋转方向
+旋转方向
 
 **Signature:**
 
