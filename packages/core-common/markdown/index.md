@@ -10,22 +10,18 @@
 
 Package
 
-
 </th><th>
 
 Description
-
 
 </th></tr></thead>
 <tbody><tr><td>
 
 [@ayu-mu/core-common](./core-common.md)
 
-
 </td><td>
 
 AYU 业务组件库，提供了一系列高度封装的业务组件，用于快速构建企业级应用。
-
 
 </td></tr>
 </tbody></table>

@@ -4,12 +4,12 @@
 
 ## FormProps type
 
-表单属性联合类型  可以是分组表单或普通表单
+表单属性联合类型 可以是分组表单或普通表单
 
 **Signature:**
 
 ```typescript
-export type FormProps = GroupFormProps | NormalFormProps;
+export type FormProps = GroupFormProps | NormalFormProps
 ```
-**References:** [GroupFormProps](./core-common.groupformprops.md)<!-- -->, [NormalFormProps](./core-common.normalformprops.md)
 
+**References:** [GroupFormProps](./core-common.groupformprops.md)<!-- -->, [NormalFormProps](./core-common.normalformprops.md)

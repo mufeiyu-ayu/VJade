@@ -7,5 +7,5 @@
 **Signature:**
 
 ```typescript
-_default: __VLS_WithTemplateSlots<typeof __VLS_component, __VLS_TemplateResult["slots"]>
+_default: __VLS_WithTemplateSlots<typeof __VLS_component, __VLS_TemplateResult['slots']>
 ```
