@@ -41,7 +41,11 @@ export default defineConfig({
         {
           text: 'common',
           link: '/packages/common/markdown/index.md'
-        }
+        },
+        {
+          text: 'core-common',
+          link: '/packages/core-common/markdown/index.md'
+        }, 
       ]
     },
     socialLinks: [{ icon: 'github', link: 'https://github.com/mufeiyu-ayu/web-build' }]

@@ -7,7 +7,7 @@
 **Signature:**
 
 ```typescript
-export declare function makeInstaller(components: Plugin[]): (app: App) => Plugin[]
+export declare function makeInstaller(components: Plugin[]): (app: App) => Plugin[];
 ```
 
 ## Parameters
@@ -16,27 +16,34 @@ export declare function makeInstaller(components: Plugin[]): (app: App) => Plugi
 
 Parameter
 
+
 </th><th>
 
 Type
 
+
 </th><th>
 
 Description
+
 
 </th></tr></thead>
 <tbody><tr><td>
 
 components
 
+
 </td><td>
 
 Plugin\[\]
 
+
 </td><td>
+
 
 </td></tr>
 </tbody></table>
 **Returns:**
 
 (app: App) =&gt; Plugin\[\]
+

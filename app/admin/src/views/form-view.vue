@@ -44,7 +44,7 @@ const formProps = reactive<FormProps>({
       type: 'input',
       group: '垃圾信息',
       colSize: 8,
-      rules: [{ required: true, message: '请输入手机号', trigger: 'blur' }]
+      rules: [{ message: '请输入手机号', trigger: 'blur' }]
     },
     {
       label: '备注',
@@ -59,7 +59,7 @@ const formProps = reactive<FormProps>({
       field: 'remark1',
       type: 'input',
       group: '补充信息',
-      colSize: 24,
+      colSize: 8,
       rules: [{ required: true, message: '请输入备注', trigger: 'blur' }]
     },
     {
@@ -67,7 +67,7 @@ const formProps = reactive<FormProps>({
       field: 'remark2',
       type: 'input',
       group: '补充信息',
-      colSize: 24,
+      colSize: 8,
       rules: [{ required: true, message: '请输入备注', trigger: 'blur' }]
     },
     {
@@ -75,12 +75,13 @@ const formProps = reactive<FormProps>({
       field: 'remark3',
       type: 'input',
       group: '补充信息',
-      colSize: 24,
+      colSize: 8,
       rules: [{ required: true, message: '请输入备注', trigger: 'blur' }]
     }
   ],
   isGroup: true,
-  groupType: 'default',
+  isExpand: false,
+  groupType: 'collapse',
   onSubmit: async (params: any) => {
     console.log('submit111111!', params)
   }
@@ -92,8 +93,10 @@ onMounted(() => {
 </script>
 
 <template>
-  <div class="w-screen">
-    <AyuForm ref="formRef" v-bind="formProps"></AyuForm>
+  <div class="w-screen h-screen flex justify-center items-center">
+    <div class="w-[800px]">
+      <AyuForm ref="formRef" v-bind="formProps"></AyuForm>
+    </div>
   </div>
 </template>
 

@@ -13,11 +13,16 @@ export function useForm() {
   const { initFormData } = useFormUtils()
   const formRef = ref<FormInstance>()
   const formData = ref<Record<string, any>>({})
-  const { submitForm, resetForm } = useFormAction(formRef, formData, props)
   const { rules } = useFormRules(props)
-  const { colSize, groupComponent, formGroupConfig } = useFormComputed(props)
+  const { colSize, groupComponent, groupItemConfig, formGroupConfig, allActiveName } = useFormComputed(props)
+  const { submitForm, resetForm, handleCollapseChange, isExpandSet } = useFormAction(
+    formRef,
+    formData,
+    props,
+    formGroupConfig
+  )
+  console.log(formGroupConfig.value, 'formGroupConfig')
   onMounted(() => {
-    console.log(props, 'colSize')
     formData.value = initFormData(props)
   })
   return {
@@ -26,8 +31,12 @@ export function useForm() {
     rules,
     submitForm,
     resetForm,
+    handleCollapseChange,
     colSize,
     groupComponent,
-    formGroupConfig
+    groupItemConfig,
+    formGroupConfig,
+    allActiveName,
+    isExpandSet
   }
 }

@@ -1,6 +1,6 @@
 import { computed } from 'vue'
-import type { FormProps, NormalFormProps, GroupFormProps } from '../types'
-import { ElCollapse, ElCard } from 'element-plus'
+import type { FormProps, NormalFormProps, GroupFormProps, FormGroupConfig, GroupFieldConfig } from '../types'
+import { ElCollapse, ElCard, ElCollapseItem } from 'element-plus'
 export function useFormComputed(props: FormProps) {
   // 未分组模式
   const colSize = computed(() => {
@@ -32,11 +32,25 @@ export function useFormComputed(props: FormProps) {
     return 'div'
   })
 
-  const formGroupConfig = computed(() => {
-    let groupListConfig: Record<string, any>[] = []
+  // 分组item
+  const groupItemConfig = computed(() => {
+    if ((props as GroupFormProps).isGroup) {
+      switch ((props as GroupFormProps).groupType) {
+        case 'collapse':
+          return ElCollapseItem
+        case 'card':
+          return ElCard
+        default:
+          return 'div'
+      }
+    }
+    return 'div'
+  })
+  const formGroupConfig = computed<FormGroupConfig[]>(() => {
+    let groupListConfig: FormGroupConfig[]
     const arr: string[] = []
     props.fieldConfig.forEach((item) => {
-      if (item.group) {
+      if (item.group && props.isGroup) {
         arr.push(item.group)
       }
     })
@@ -44,24 +58,29 @@ export function useFormComputed(props: FormProps) {
       groupListConfig = [...new Set(arr)].map((item) => {
         return {
           groupTitle: item,
-          fieldConfig: props.fieldConfig.filter((field) => field.group === item)
+          fieldConfig: props.fieldConfig.filter((field) => field.group === item) as GroupFieldConfig[]
         }
       })
     } else {
       groupListConfig = [
         {
-          groupTitle: null,
-          fieldConfig: props.fieldConfig
+          groupTitle: null as unknown as string,
+          fieldConfig: props.fieldConfig as GroupFieldConfig[]
         }
       ]
     }
-    console.log(groupListConfig, 'groupListConfig')
     return groupListConfig
   })
 
+  // 所有展开的组名
+  const allActiveName = computed(() => {
+    return (props as GroupFormProps).isExpand ? formGroupConfig.value.map((item) => item.groupTitle) : []
+  })
   return {
     colSize,
     groupComponent,
-    formGroupConfig
+    groupItemConfig,
+    formGroupConfig,
+    allActiveName
   }
 }

@@ -2,104 +2,14 @@
 
 [Home](./index.md) &gt; [@ayu-mu/core-common](./core-common.md) &gt; [FormProps](./core-common.formprops.md)
 
-## FormProps interface
+## FormProps type
+
+表单属性联合类型  可以是分组表单或普通表单
 
 **Signature:**
 
 ```typescript
-export interface FormProps
+export type FormProps = GroupFormProps | NormalFormProps;
 ```
+**References:** [GroupFormProps](./core-common.groupformprops.md)<!-- -->, [NormalFormProps](./core-common.normalformprops.md)
 
-## Properties
-
-<table><thead><tr><th>
-
-Property
-
-</th><th>
-
-Modifiers
-
-</th><th>
-
-Type
-
-</th><th>
-
-Description
-
-</th></tr></thead>
-<tbody><tr><td>
-
-[colSize?](./core-common.formprops.colsize.md)
-
-</td><td>
-
-</td><td>
-
-1 \| 2 \| 3 \| 4
-
-</td><td>
-
-_(Optional)_
-
-</td></tr>
-<tr><td>
-
-[fieldConfig](./core-common.formprops.fieldconfig.md)
-
-</td><td>
-
-</td><td>
-
-[FieldConfig](./core-common.fieldconfig.md)<!-- -->\[\]
-
-</td><td>
-
-</td></tr>
-<tr><td>
-
-[isGroup?](./core-common.formprops.isgroup.md)
-
-</td><td>
-
-</td><td>
-
-boolean
-
-</td><td>
-
-_(Optional)_
-
-</td></tr>
-<tr><td>
-
-[layout?](./core-common.formprops.layout.md)
-
-</td><td>
-
-</td><td>
-
-'horizontal' \| 'vertical' \| 'default'
-
-</td><td>
-
-_(Optional)_
-
-</td></tr>
-<tr><td>
-
-[onSubmit?](./core-common.formprops.onsubmit.md)
-
-</td><td>
-
-</td><td>
-
-(params: any) =&gt; void
-
-</td><td>
-
-_(Optional)_
-
-</td></tr>
-</tbody></table>
