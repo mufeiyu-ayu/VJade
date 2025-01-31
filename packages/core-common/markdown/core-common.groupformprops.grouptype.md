@@ -4,7 +4,7 @@
 
 ## GroupFormProps.groupType property
 
-分组类型  'default'
+分组类型 'default'
 
 **Signature:**
 

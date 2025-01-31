@@ -6,10 +6,10 @@
 
 表单分组类型
 
- {<!-- -->'default' \| 'card' \| 'collapse' \| 'tabs' \| 'steps'<!-- -->}  GroupType
+{<!-- -->'default' \| 'card' \| 'collapse' \| 'tabs' \| 'steps'<!-- -->} GroupType
 
 **Signature:**
 
 ```typescript
-export type GroupType = 'default' | 'card' | 'collapse';
+export type GroupType = 'default' | 'card' | 'collapse'
 ```

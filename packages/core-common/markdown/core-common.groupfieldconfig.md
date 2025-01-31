@@ -10,9 +10,9 @@
 
 ```typescript
 export type GroupFieldConfig = BaseFieldConfig & {
-    group: string;
-    colSize?: ColSize;
-};
+  group: string
+  colSize?: ColSize
+}
 ```
-**References:** [BaseFieldConfig](./core-common.basefieldconfig.md)<!-- -->, [ColSize](./core-common.colsize.md)
 
+**References:** [BaseFieldConfig](./core-common.basefieldconfig.md)<!-- -->, [ColSize](./core-common.colsize.md)

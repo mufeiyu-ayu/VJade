@@ -4,13 +4,14 @@
 
 ## NormalFormProps interface
 
-未分组表单属性接口  普通表单属性接口  NormalFormProps  {<!-- -->BaseFormProps<!-- -->}  {<!-- -->boolean<!-- -->} isGroup - 是否启用分组模式  {<!-- -->NormalFieldConfig\[\]<!-- -->} fieldConfig - 表单项配置数组  {<!-- -->never<!-- -->} colSize - 列大小在普通模式下不可用
+未分组表单属性接口 普通表单属性接口 NormalFormProps {<!-- -->BaseFormProps<!-- -->} {<!-- -->boolean<!-- -->} isGroup - 是否启用分组模式 {<!-- -->NormalFieldConfig\[\]<!-- -->} fieldConfig - 表单项配置数组 {<!-- -->never<!-- -->} colSize - 列大小在普通模式下不可用
 
 **Signature:**
 
 ```typescript
-export interface NormalFormProps extends BaseFormProps 
+export interface NormalFormProps extends BaseFormProps
 ```
+
 **Extends:** BaseFormProps
 
 ## Properties
@@ -19,97 +20,77 @@ export interface NormalFormProps extends BaseFormProps
 
 Property
 
-
 </th><th>
 
 Modifiers
-
 
 </th><th>
 
 Type
 
-
 </th><th>
 
 Description
-
 
 </th></tr></thead>
 <tbody><tr><td>
 
 [colSize?](./core-common.normalformprops.colsize.md)
 
-
 </td><td>
-
 
 </td><td>
 
 [ColSize](./core-common.colsize.md)
 
-
 </td><td>
 
-_(Optional)_ 列大小  控制表单项占据的列数
-
+_(Optional)_ 列大小 控制表单项占据的列数
 
 </td></tr>
 <tr><td>
 
 [fieldConfig](./core-common.normalformprops.fieldconfig.md)
 
-
 </td><td>
-
 
 </td><td>
 
 NormalFieldConfig\[\]
 
-
 </td><td>
 
 表单项配置数组
-
 
 </td></tr>
 <tr><td>
 
 [isGroup?](./core-common.normalformprops.isgroup.md)
 
-
 </td><td>
-
 
 </td><td>
 
 false \| undefined
 
-
 </td><td>
 
 _(Optional)_ 是否启用分组模式
-
 
 </td></tr>
 <tr><td>
 
 [layout?](./core-common.normalformprops.layout.md)
 
-
 </td><td>
-
 
 </td><td>
 
 'horizontal' \| 'vertical' \| 'default'
 
-
 </td><td>
 
-_(Optional)_ 表单布局方式  'default'
-
+_(Optional)_ 表单布局方式 'default'
 
 </td></tr>
 </tbody></table>

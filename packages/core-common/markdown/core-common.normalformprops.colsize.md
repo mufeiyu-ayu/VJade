@@ -4,7 +4,7 @@
 
 ## NormalFormProps.colSize property
 
-列大小  控制表单项占据的列数
+列大小 控制表单项占据的列数
 
 **Signature:**
 

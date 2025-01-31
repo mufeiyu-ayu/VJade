@@ -6,10 +6,10 @@
 
 表单列数
 
- {<!-- -->24 \| 12 \| 8 \| 6<!-- -->}  ColSize
+{<!-- -->24 \| 12 \| 8 \| 6<!-- -->} ColSize
 
 **Signature:**
 
 ```typescript
-export type ColSize = 24 | 12 | 8 | 6;
+export type ColSize = 24 | 12 | 8 | 6
 ```

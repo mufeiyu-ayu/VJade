@@ -4,7 +4,7 @@
 
 ## NormalFormProps.layout property
 
-表单布局方式  'default'
+表单布局方式 'default'
 
 **Signature:**
 

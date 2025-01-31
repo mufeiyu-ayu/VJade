@@ -9,5 +9,5 @@
 **Signature:**
 
 ```typescript
-isGroup: true;
+isGroup: true
 ```
