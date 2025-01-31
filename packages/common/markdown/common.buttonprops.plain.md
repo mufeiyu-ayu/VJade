@@ -4,7 +4,7 @@
 
 ## ButtonProps.plain property
 
-是否为朴素按钮
+ 是否为朴素按钮
 
 **Signature:**
 

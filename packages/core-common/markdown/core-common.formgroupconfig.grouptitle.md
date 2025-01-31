@@ -9,5 +9,5 @@
 **Signature:**
 
 ```typescript
-groupTitle: string
+groupTitle: string;
 ```

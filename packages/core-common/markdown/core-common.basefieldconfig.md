@@ -4,16 +4,16 @@
 
 ## BaseFieldConfig type
 
-基础字段配置 基础字段配置 BaseFieldConfig {<!-- -->string<!-- -->} label - 表单项标签 {<!-- -->string<!-- -->} field - 表单项字段名 {<!-- -->string<!-- -->} type - 表单项类型 {<!-- -->any<!-- -->} defaultValue - 表单项默认值 {<!-- -->FormItemRule\[\]<!-- -->} rules - 表单项验证规则
+基础字段配置
 
 **Signature:**
 
 ```typescript
 export type BaseFieldConfig = {
-  label: string
-  field: string
-  type: string
-  defaultValue?: any
-  rules?: FormItemRule[]
-}
+    label: string;
+    field: string;
+    type: string;
+    defaultValue?: any;
+    rules?: FormItemRule[];
+};
 ```

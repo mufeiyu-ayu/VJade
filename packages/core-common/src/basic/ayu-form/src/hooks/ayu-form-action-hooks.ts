@@ -2,6 +2,13 @@ import type { FormInstance } from 'element-plus'
 import { ref, type Ref } from 'vue'
 import type { FormProps, FormGroupConfig } from '../types'
 
+/**
+ * 表单操作相关的 hook
+ * @param formRef - 表单实例引用
+ * @param formData - 表单数据引用
+ * @param props - 表单属性
+ * @param formGroupConfig - 表单分组配置引用
+ */
 export function useFormAction(
   formRef: Ref<FormInstance | undefined>,
   formData: Ref<Record<string, any>>,

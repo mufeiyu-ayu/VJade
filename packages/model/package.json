@@ -1,12 +1,28 @@
 {
   "name": "@ayu-mu/model",
   "version": "1.0.2",
-  "main": "src/index.ts",
+  "main": "./dist/ayu-model-type.mjs",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "vite build",
+    "build:all": "vite build && pnpm build:dts",
+    "build:dts": "rimraf temp && vue-tsc -p tsconfig.declaration.json && rollup-dts",
+    "build:watch": "vite build -w"
+  },
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/ayu-model-type.mjs"
+    }
   },
   "author": "",
   "description": "通用工具函数的类型声明",
   "keywords": [],
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "@ayu-mu/scripts": "workspace:^",
+    "@ayu-mu/tsconfig": "workspace:^",
+    "@ayu-mu/vite": "workspace:^",
+    "vite": "^5.1.6",
+    "vue-tsc": "^2.0.6"
+  }
 }

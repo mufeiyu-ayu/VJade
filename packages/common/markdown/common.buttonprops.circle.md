@@ -4,7 +4,7 @@
 
 ## ButtonProps.circle property
 
-是否使用节流
+ 是否使用节流
 
 **Signature:**
 

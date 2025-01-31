@@ -4,7 +4,7 @@
 
 ## IconProps.size property
 
-大小
+ 大小
 
 **Signature:**
 

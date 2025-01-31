@@ -38,8 +38,7 @@
  * - Element Plus >= 2.7.0
  * - TypeScript >= 5.x
  *
- * @version 1.0.2
- * @license MIT
+
  */
 
 import './tailwind.css'

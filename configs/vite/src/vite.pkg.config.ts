@@ -45,7 +45,25 @@ export async function definePkgConfig({
       minify: isProduction,
       sourcemap: isProduction ? false : 'inline',
       rollupOptions: {
-        external: [...externals, ...modifyExternal]
+        external: [
+          'vue',
+          /^element-plus/,
+          'crypto-js',
+          /^crypto-js\/.*/,
+          '@element-plus/icons-vue',
+          '@iconify/vue',
+          /^@ayu-mu\/.*/,
+          /^lodash-es/,
+          ...modifyExternal
+        ],
+        output: {
+          globals: {
+            vue: 'Vue',
+            'element-plus': 'ElementPlus',
+            'lodash-es': 'lodashEs',
+            '@iconify/vue': 'IconifyVue'
+          }
+        }
       }
     },
     ...options

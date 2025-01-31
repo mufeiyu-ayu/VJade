@@ -4,7 +4,7 @@
 
 ## IconProps.height property
 
-高度
+ 高度
 
 **Signature:**
 

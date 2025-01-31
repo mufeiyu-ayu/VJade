@@ -1,15 +1,5 @@
-/**
- * 表单列数
- *
- * @type {24 | 12 | 8 | 6}
- * @memberof ColSize
- */
+/** 表单列数 */
 export type ColSize = 24 | 12 | 8 | 6
 
-/**
- * 表单分组类型
- *
- * @type {'default' | 'card' | 'collapse' | 'tabs' | 'steps'}
- * @memberof GroupType
- */
+/** 表单分组类型 */
 export type GroupType = 'default' | 'card' | 'collapse'

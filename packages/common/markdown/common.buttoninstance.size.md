@@ -4,10 +4,10 @@
 
 ## ButtonInstance.size property
 
-按钮大小
+ 按钮大小
 
 **Signature:**
 
 ```typescript
-size: ComputedRef<string>
+size: ComputedRef<string>;
 ```

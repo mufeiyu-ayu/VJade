@@ -1,7 +1,7 @@
 {
   "name": "@ayu-mu/vite",
   "version": "1.0.0",
-  "main": "./dist/index.cjs",
+  "main": "./dist/index.mjs",
   "files": [
     "dist"
   ],

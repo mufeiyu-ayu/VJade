@@ -17,14 +17,12 @@ npm install @ayu-mu/core-common
 # 使用 pnpm
 pnpm add @ayu-mu/core-common
 ```
-
 基础使用:
 
 ```typescript
 import { AyuForm } from '@ayu-mu/core-common'
 import '@ayu-mu/core-common/style.css'
 ```
-
 \#\#\# 主要功能
 
 \#\#\#\# AyuForm 表单组件 - 支持分组和未分组两种模式 - 提供多种分组展示方式（默认、折叠面板、卡片） - 自动表单验证 - 灵活的布局配置 - 支持自定义表单项
@@ -33,44 +31,50 @@ import '@ayu-mu/core-common/style.css'
 
 \#\#\# 版本要求 - Vue &gt;<!-- -->= 3.4.0 - Element Plus &gt;<!-- -->= 2.7.0 - TypeScript &gt;<!-- -->= 5.x
 
-1.0.2 MIT
-
 ## Interfaces
 
 <table><thead><tr><th>
 
 Interface
 
+
 </th><th>
 
 Description
+
 
 </th></tr></thead>
 <tbody><tr><td>
 
 [FormGroupConfig](./core-common.formgroupconfig.md)
 
+
 </td><td>
 
-表单分组配置 表单分组配置 FormGroupConfig {<!-- -->string<!-- -->} groupTitle - 分组标题 {<!-- -->GroupFieldConfig\[\]<!-- -->} fieldConfig - 表单项配置数组
+表单分组配置
+
 
 </td></tr>
 <tr><td>
 
 [GroupFormProps](./core-common.groupformprops.md)
 
+
 </td><td>
 
-分组表单属性接口 分组表单属性接口 GroupFormProps {<!-- -->BaseFormProps<!-- -->} {<!-- -->boolean<!-- -->} isGroup - 是否启用分组模式 {<!-- -->GroupFieldConfig\[\]<!-- -->} fieldConfig - 表单项配置数组 {<!-- -->GroupType<!-- -->} groupType - 分组类型 {<!-- -->never<!-- -->} colSize - 列大小在分组模式下不可用
+分组表单属性接口
+
 
 </td></tr>
 <tr><td>
 
 [NormalFormProps](./core-common.normalformprops.md)
 
+
 </td><td>
 
-未分组表单属性接口 普通表单属性接口 NormalFormProps {<!-- -->BaseFormProps<!-- -->} {<!-- -->boolean<!-- -->} isGroup - 是否启用分组模式 {<!-- -->NormalFieldConfig\[\]<!-- -->} fieldConfig - 表单项配置数组 {<!-- -->never<!-- -->} colSize - 列大小在普通模式下不可用
+未分组表单属性接口
+
 
 </td></tr>
 </tbody></table>
@@ -81,16 +85,20 @@ Description
 
 Variable
 
+
 </th><th>
 
 Description
+
 
 </th></tr></thead>
 <tbody><tr><td>
 
 [AyuForm](./core-common.ayuform.md)
 
+
 </td><td>
+
 
 </td></tr>
 </tbody></table>
@@ -101,58 +109,66 @@ Description
 
 Type Alias
 
+
 </th><th>
 
 Description
+
 
 </th></tr></thead>
 <tbody><tr><td>
 
 [BaseFieldConfig](./core-common.basefieldconfig.md)
 
+
 </td><td>
 
-基础字段配置 基础字段配置 BaseFieldConfig {<!-- -->string<!-- -->} label - 表单项标签 {<!-- -->string<!-- -->} field - 表单项字段名 {<!-- -->string<!-- -->} type - 表单项类型 {<!-- -->any<!-- -->} defaultValue - 表单项默认值 {<!-- -->FormItemRule\[\]<!-- -->} rules - 表单项验证规则
+基础字段配置
+
 
 </td></tr>
 <tr><td>
 
 [ColSize](./core-common.colsize.md)
 
+
 </td><td>
 
 表单列数
 
-{<!-- -->24 \| 12 \| 8 \| 6<!-- -->} ColSize
 
 </td></tr>
 <tr><td>
 
 [FormProps](./core-common.formprops.md)
 
+
 </td><td>
 
-表单属性联合类型 可以是分组表单或普通表单
+表单属性联合类型，可以是分组表单或普通表单
+
 
 </td></tr>
 <tr><td>
 
 [GroupFieldConfig](./core-common.groupfieldconfig.md)
 
+
 </td><td>
 
 分组模式下的字段配置
+
 
 </td></tr>
 <tr><td>
 
 [GroupType](./core-common.grouptype.md)
 
+
 </td><td>
 
 表单分组类型
 
-{<!-- -->'default' \| 'card' \| 'collapse' \| 'tabs' \| 'steps'<!-- -->} GroupType
 
 </td></tr>
 </tbody></table>

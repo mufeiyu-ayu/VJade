@@ -2,9 +2,18 @@
   "name": "@ayu-mu/hooks",
   "version": "1.0.2",
   "private": false,
-  "main": "index.ts",
+  "main": "./dist/ayu-hook.mjs",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "vite build",
+    "build:all": "vite build && pnpm build:dts",
+    "build:dts": "rimraf temp && vue-tsc -p tsconfig.declaration.json && rollup-dts",
+    "build:watch": "vite build -w"
+  },
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/ayu-hook.mjs"
+    }
   },
   "author": "",
   "description": "",
@@ -12,5 +21,20 @@
   "license": "ISC",
   "publishConfig": {
     "registry": "https://registry.npmjs.org"
+  },
+  "dependencies": {
+    "mitt": "^3.0.1"
+  },
+  "devDependencies": {
+    "@ayu-mu/scripts": "workspace:^",
+    "@ayu-mu/tsconfig": "workspace:^",
+    "@ayu-mu/vite": "workspace:^",
+    "@ayu-mu/model": "workspace:^",
+    "vite": "^5.1.6",
+    "vue-tsc": "^2.0.6",
+    "@vitejs/plugin-vue": "^5.0.4"
+  },
+  "peerDependencies": {
+    "vue": "^3.4.21"
   }
 }

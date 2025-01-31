@@ -4,14 +4,13 @@
 
 ## GroupFormProps interface
 
-分组表单属性接口 分组表单属性接口 GroupFormProps {<!-- -->BaseFormProps<!-- -->} {<!-- -->boolean<!-- -->} isGroup - 是否启用分组模式 {<!-- -->GroupFieldConfig\[\]<!-- -->} fieldConfig - 表单项配置数组 {<!-- -->GroupType<!-- -->} groupType - 分组类型 {<!-- -->never<!-- -->} colSize - 列大小在分组模式下不可用
+分组表单属性接口
 
 **Signature:**
 
 ```typescript
-export interface GroupFormProps extends BaseFormProps
+export interface GroupFormProps extends BaseFormProps 
 ```
-
 **Extends:** BaseFormProps
 
 ## Properties
@@ -20,92 +19,116 @@ export interface GroupFormProps extends BaseFormProps
 
 Property
 
+
 </th><th>
 
 Modifiers
+
 
 </th><th>
 
 Type
 
+
 </th><th>
 
 Description
+
 
 </th></tr></thead>
 <tbody><tr><td>
 
 [colSize?](./core-common.groupformprops.colsize.md)
 
+
 </td><td>
+
 
 </td><td>
 
 never
 
+
 </td><td>
 
 _(Optional)_ 列大小在分组模式下不可用
+
 
 </td></tr>
 <tr><td>
 
 [fieldConfig](./core-common.groupformprops.fieldconfig.md)
 
+
 </td><td>
+
 
 </td><td>
 
 [GroupFieldConfig](./core-common.groupfieldconfig.md)<!-- -->\[\]
 
+
 </td><td>
 
 表单项配置数组
+
 
 </td></tr>
 <tr><td>
 
 [groupType?](./core-common.groupformprops.grouptype.md)
 
+
 </td><td>
+
 
 </td><td>
 
 [GroupType](./core-common.grouptype.md)
 
+
 </td><td>
 
-_(Optional)_ 分组类型 'default'
+_(Optional)_ 分组类型
+
 
 </td></tr>
 <tr><td>
 
 [isExpand?](./core-common.groupformprops.isexpand.md)
 
+
 </td><td>
+
 
 </td><td>
 
 boolean
 
+
 </td><td>
 
 _(Optional)_ 分组是否展开
+
 
 </td></tr>
 <tr><td>
 
 [isGroup](./core-common.groupformprops.isgroup.md)
 
+
 </td><td>
+
 
 </td><td>
 
 true
 
+
 </td><td>
 
 是否启用分组模式
+
 
 </td></tr>
 </tbody></table>

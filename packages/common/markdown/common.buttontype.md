@@ -7,5 +7,5 @@
 **Signature:**
 
 ```typescript
-export type ButtonType = 'primary' | 'success' | 'warning' | 'error' | 'info'
+export type ButtonType = 'primary' | 'success' | 'warning' | 'error' | 'info';
 ```

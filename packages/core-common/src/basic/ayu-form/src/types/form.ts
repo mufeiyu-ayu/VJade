@@ -1,14 +1,8 @@
 import type { FormItemRule } from 'element-plus'
 import type { ColSize, GroupType } from './enum'
 
-/** 基础字段配置
- * @description 基础字段配置
- * @interface BaseFieldConfig
- * @property {string} label - 表单项标签
- * @property {string} field - 表单项字段名
- * @property {string} type - 表单项类型
- * @property {any} defaultValue - 表单项默认值
- * @property {FormItemRule[]} rules - 表单项验证规则
+/**
+ * 基础字段配置
  */
 export type BaseFieldConfig = {
   /** 表单项标签 */
@@ -43,7 +37,7 @@ type NormalFieldConfig = BaseFieldConfig & {
 interface BaseFormProps {
   /**
    * 表单布局方式
-   * @default 'default'
+   * @defaultValue 'default'
    */
   layout?: 'horizontal' | 'vertical' | 'default'
 
@@ -62,13 +56,6 @@ interface BaseFormProps {
 
 /**
  * 分组表单属性接口
- * @description 分组表单属性接口
- * @interface GroupFormProps
- * @extends {BaseFormProps}
- * @property {boolean} isGroup - 是否启用分组模式
- * @property {GroupFieldConfig[]} fieldConfig - 表单项配置数组
- * @property {GroupType} groupType - 分组类型
- * @property {never} colSize - 列大小在分组模式下不可用
  */
 export interface GroupFormProps extends BaseFormProps {
   /** 是否启用分组模式 */
@@ -78,7 +65,7 @@ export interface GroupFormProps extends BaseFormProps {
 
   /**
    * 分组类型
-   * @default 'default'
+   * @defaultValue 'default'
    */
   groupType?: GroupType
   /** 分组是否展开 */
@@ -89,12 +76,6 @@ export interface GroupFormProps extends BaseFormProps {
 
 /**
  * 未分组表单属性接口
- * @description 普通表单属性接口
- * @interface NormalFormProps
- * @extends {BaseFormProps}
- * @property {boolean} isGroup - 是否启用分组模式
- * @property {NormalFieldConfig[]} fieldConfig - 表单项配置数组
- * @property {never} colSize - 列大小在普通模式下不可用
  */
 export interface NormalFormProps extends BaseFormProps {
   /** 是否启用分组模式 */
@@ -105,28 +86,22 @@ export interface NormalFormProps extends BaseFormProps {
 
   /**
    * 表单布局方式
-   * @default 'default'
+   * @defaultValue 'default'
    */
   layout?: 'horizontal' | 'vertical' | 'default'
 
   /**
    * 列大小
-   * @description 控制表单项占据的列数
+   * 控制表单项占据的列数
    */
   colSize?: ColSize
 }
 
-/**
- * 表单属性联合类型
- * @description 可以是分组表单或普通表单
- */
+/** 表单属性联合类型，可以是分组表单或普通表单 */
 export type FormProps = GroupFormProps | NormalFormProps
 
-/** 表单分组配置
- * @description 表单分组配置
- * @interface FormGroupConfig
- * @property {string} groupTitle - 分组标题
- * @property {GroupFieldConfig[]} fieldConfig - 表单项配置数组
+/**
+ * 表单分组配置
  */
 export interface FormGroupConfig {
   /** 分组标题 */

@@ -4,12 +4,12 @@
 
 ## FormGroupConfig interface
 
-表单分组配置 表单分组配置 FormGroupConfig {<!-- -->string<!-- -->} groupTitle - 分组标题 {<!-- -->GroupFieldConfig\[\]<!-- -->} fieldConfig - 表单项配置数组
+表单分组配置
 
 **Signature:**
 
 ```typescript
-export interface FormGroupConfig
+export interface FormGroupConfig 
 ```
 
 ## Properties
@@ -18,47 +18,59 @@ export interface FormGroupConfig
 
 Property
 
+
 </th><th>
 
 Modifiers
+
 
 </th><th>
 
 Type
 
+
 </th><th>
 
 Description
+
 
 </th></tr></thead>
 <tbody><tr><td>
 
 [fieldConfig](./core-common.formgroupconfig.fieldconfig.md)
 
+
 </td><td>
+
 
 </td><td>
 
 [GroupFieldConfig](./core-common.groupfieldconfig.md)<!-- -->\[\]
 
+
 </td><td>
 
 表单项配置数组
+
 
 </td></tr>
 <tr><td>
 
 [groupTitle](./core-common.formgroupconfig.grouptitle.md)
 
+
 </td><td>
+
 
 </td><td>
 
 string
 
+
 </td><td>
 
 分组标题
+
 
 </td></tr>
 </tbody></table>

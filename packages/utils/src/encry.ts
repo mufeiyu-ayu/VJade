@@ -1,9 +1,7 @@
-import CryptoJS from 'crypto-js'
+import { AES, mode, pad, enc } from 'crypto-js'
 
-import UTF8 from 'crypto-js/enc-utf8'
-
-const SECRET_KEY = UTF8.parse('3333e6e143439161') // 十六位进制数作为密钥
-const SECRET_TV = UTF8.parse('e3bbe7e3ba84431a') // 十六位 进制数作为偏移量
+const SECRET_KEY = enc.Utf8.parse('3333e6e143439161') // 十六位进制数作为密钥
+const SECRET_TV = enc.Utf8.parse('e3bbe7e3ba84431a') // 十六位 进制数作为偏移量
 
 /**
  * @description 加密
@@ -20,11 +18,11 @@ const encrypt = (data: object | string): string => {
     }
   }
 
-  const dataHex = CryptoJS.enc.Utf8.parse(data)
-  const encrypted = CryptoJS.AES.encrypt(dataHex, SECRET_KEY, {
+  const dataHex = enc.Utf8.parse(data)
+  const encrypted = AES.encrypt(dataHex, SECRET_KEY, {
     iv: SECRET_TV,
-    mode: CryptoJS.mode.CBC,
-    padding: CryptoJS.pad.Pkcs7
+    mode: mode.CBC,
+    padding: pad.Pkcs7
   })
   return encrypted.ciphertext.toString()
 }
@@ -35,15 +33,15 @@ const encrypt = (data: object | string): string => {
  * @returns string
  */
 const decrypt = (data: string): string => {
-  const encryptedHexStr = CryptoJS.enc.Hex.parse(data)
-  const encryptedBase64Str = CryptoJS.enc.Base64.stringify(encryptedHexStr)
-  const decrypt = CryptoJS.AES.decrypt(encryptedBase64Str, SECRET_KEY, {
+  const encryptedHexStr = enc.Hex.parse(data)
+  const encryptedBase64Str = enc.Base64.stringify(encryptedHexStr)
+  const decrypt = AES.decrypt(encryptedBase64Str, SECRET_KEY, {
     iv: SECRET_TV,
-    mode: CryptoJS.mode.CBC,
-    padding: CryptoJS.pad.Pkcs7
+    mode: mode.CBC,
+    padding: pad.Pkcs7
   })
 
-  const decryptedStr = decrypt.toString(CryptoJS.enc.Utf8)
+  const decryptedStr = decrypt.toString(enc.Utf8)
   return decryptedStr.toString()
 }
 

@@ -4,8 +4,8 @@ import type { FormProps } from '../types'
 export function useFormUtils() {
   /**
    * 初始化表单数据
-   * @param props
-   * @returns
+   * @param props - 表单属性
+   * @returns 初始化后的表单数据对象
    */
   function initFormData(props: FormProps) {
     const formData: Record<string, any> = {}

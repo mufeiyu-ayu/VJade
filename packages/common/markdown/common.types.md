@@ -8,9 +8,9 @@
 
 ```typescript
 types: {
-  SUCCESS: string
-  ERROR: string
-  WARNING: string
-  MESSAGE: string
+    SUCCESS: string;
+    ERROR: string;
+    WARNING: string;
+    MESSAGE: string;
 }
 ```

@@ -7,6 +7,10 @@ import { useFormComputed } from './ayu-form-computed-hooks'
 import type { FormProps } from '../types'
 import { ref, onMounted } from 'vue'
 
+/**
+ * 表单主要功能的 hook
+ * @returns 表单相关的状态和方法
+ */
 export function useForm() {
   const instance = getCurrentInstance() as ComponentInternalInstance
   const props = instance.props as unknown as FormProps

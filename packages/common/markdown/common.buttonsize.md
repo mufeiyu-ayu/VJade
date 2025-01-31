@@ -7,5 +7,5 @@
 **Signature:**
 
 ```typescript
-export type ButtonSize = 'large' | 'default' | 'small'
+export type ButtonSize = 'large' | 'default' | 'small';
 ```
