@@ -58,8 +58,12 @@ interface BaseFormProps {
  * 分组表单属性接口
  */
 export interface GroupFormProps extends BaseFormProps {
+  /** 列大小在分组模式下不可用 */
+  colSize?: never
+
   /** 是否启用分组模式 */
   isGroup: true
+
   /** 表单项配置数组 */
   fieldConfig: GroupFieldConfig[]
 
@@ -68,10 +72,15 @@ export interface GroupFormProps extends BaseFormProps {
    * @defaultValue 'default'
    */
   groupType?: GroupType
-  /** 分组是否展开 */
+
+  /**分组类型为 collapse 时 分组是否展开 */
   isExpand?: boolean
-  /** 列大小在分组模式下不可用 */
-  colSize?: never
+
+  /** 分组类型为 tab时指定的content 高度*/
+  maxPaneHeight?: string
+
+  /** 分组类型为 tab时指定tabs 风格 类型*/
+  tabType?: '' | 'card' | 'border-card'
 }
 
 /**
@@ -84,6 +93,7 @@ export interface NormalFormProps extends BaseFormProps {
   /** 表单项配置数组 */
   fieldConfig: NormalFieldConfig[]
 
+  groupType: undefined | null
   /**
    * 表单布局方式
    * @defaultValue 'default'
@@ -95,6 +105,10 @@ export interface NormalFormProps extends BaseFormProps {
    * 控制表单项占据的列数
    */
   colSize?: ColSize
+  /** 分组类型为 tab时指定的content 高度*/
+  maxPaneHeight?: never
+
+  tabType: never
 }
 
 /** 表单属性联合类型，可以是分组表单或普通表单 */

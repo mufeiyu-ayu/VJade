@@ -1,12 +1,20 @@
 import { computed } from 'vue'
 import type { FormProps, NormalFormProps, GroupFormProps, FormGroupConfig, GroupFieldConfig } from '../types'
-import { ElCollapse, ElCard, ElCollapseItem } from 'element-plus'
+import { ElCollapse, ElTabs, ElCollapseItem, ElTabPane } from 'element-plus'
 
 /**
  * 表单计算属性相关的 hook
  * @param props - 表单属性
  */
-export function useFormComputed(props: FormProps) {
+export function useFormComputedHooks(props: FormProps) {
+  /** 计算表单验证规则 */
+  const formRules = computed(() => {
+    const rules: Record<string, any> = {}
+    props.fieldConfig.forEach((item) => {
+      rules[item.field] = item.rules
+    })
+    return rules
+  })
   /** 计算列大小 */
   const colSize = computed(() => {
     if (props.colSize) {
@@ -28,8 +36,8 @@ export function useFormComputed(props: FormProps) {
       switch ((props as GroupFormProps).groupType) {
         case 'collapse':
           return ElCollapse
-        case 'card':
-          return ElCard
+        case 'tab':
+          return ElTabs
         default:
           return 'div'
       }
@@ -43,8 +51,8 @@ export function useFormComputed(props: FormProps) {
       switch ((props as GroupFormProps).groupType) {
         case 'collapse':
           return ElCollapseItem
-        case 'card':
-          return ElCard
+        case 'tab':
+          return ElTabPane
         default:
           return 'div'
       }
@@ -81,14 +89,29 @@ export function useFormComputed(props: FormProps) {
 
   /** 计算所有展开的组名 */
   const allActiveName = computed(() => {
-    return (props as GroupFormProps).isExpand ? formGroupConfig.value.map((item) => item.groupTitle) : []
+    const activeName: string[] = formGroupConfig.value.map((item) => item.groupTitle)
+    switch ((props as GroupFormProps).groupType) {
+      case 'tab':
+        return activeName[0]
+      case 'collapse':
+        return (props as GroupFormProps).isExpand ? activeName : []
+      default:
+        return '3'
+    }
   })
 
+  /** 计算tabs的overflowY */
+  const tabsOverflowY = computed(() => {
+    const bol = props.isGroup && props.groupType === 'tab' && props.maxPaneHeight
+    return bol && `overflow-y-auto h-[${props.maxPaneHeight}]`
+  })
   return {
+    formRules,
     colSize,
     groupComponent,
     groupItemConfig,
     formGroupConfig,
-    allActiveName
+    allActiveName,
+    tabsOverflowY
   }
 }

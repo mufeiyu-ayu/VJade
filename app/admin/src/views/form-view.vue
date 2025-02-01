@@ -75,13 +75,39 @@ const formProps = reactive<FormProps>({
       field: 'remark3',
       type: 'input',
       group: '补充信息',
-      colSize: 8,
+      colSize: 24,
+      rules: [{ required: true, message: '请输入备注', trigger: 'blur' }]
+    },
+    {
+      label: '备注3',
+      field: 'remark3',
+      type: 'input',
+      group: '补充信息',
+      colSize: 24,
+      rules: [{ required: true, message: '请输入备注', trigger: 'blur' }]
+    },
+    {
+      label: '备注3',
+      field: 'remark3',
+      type: 'input',
+      group: '补充信息',
+      colSize: 24,
+      rules: [{ required: true, message: '请输入备注', trigger: 'blur' }]
+    },
+    {
+      label: '备注3',
+      field: 'remark3',
+      type: 'input',
+      group: '补充信息',
+      colSize: 24,
       rules: [{ required: true, message: '请输入备注', trigger: 'blur' }]
     }
   ],
   isGroup: true,
   isExpand: false,
-  groupType: 'collapse',
+  groupType: 'tab',
+  tabType: 'border-card',
+  maxPaneHeight: '200px',
   onSubmit: async (params: any) => {
     console.log('submit111111!', params)
   }

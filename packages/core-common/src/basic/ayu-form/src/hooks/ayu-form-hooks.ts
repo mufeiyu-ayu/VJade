@@ -1,11 +1,9 @@
-import { getCurrentInstance, type ComponentInternalInstance } from 'vue'
+import { getCurrentInstance, type ComponentInternalInstance, ref, onMounted } from 'vue'
 import type { FormInstance } from 'element-plus'
 import { useFormUtils } from './ayu-form-utils-hooks'
-import { useFormAction } from './ayu-form-action-hooks'
-import { useFormRules } from './ayu-form-rules-hooks'
-import { useFormComputed } from './ayu-form-computed-hooks'
+import { useFormActionHooks } from './ayu-form-action-hooks'
+import { useFormComputedHooks } from './ayu-form-computed-hooks'
 import type { FormProps } from '../types'
-import { ref, onMounted } from 'vue'
 
 /**
  * 表单主要功能的 hook
@@ -17,22 +15,25 @@ export function useForm() {
   const { initFormData } = useFormUtils()
   const formRef = ref<FormInstance>()
   const formData = ref<Record<string, any>>({})
-  const { rules } = useFormRules(props)
-  const { colSize, groupComponent, groupItemConfig, formGroupConfig, allActiveName } = useFormComputed(props)
-  const { submitForm, resetForm, handleCollapseChange, isExpandSet } = useFormAction(
+
+  const { formRules, colSize, groupComponent, groupItemConfig, formGroupConfig, allActiveName, tabsOverflowY } =
+    useFormComputedHooks(props)
+
+  const { submitForm, resetForm, handleCollapseChange, collapseIsExpand } = useFormActionHooks(
     formRef,
     formData,
     props,
     formGroupConfig
   )
-  console.log(formGroupConfig.value, 'formGroupConfig')
+
   onMounted(() => {
     formData.value = initFormData(props)
   })
+
   return {
     formRef,
     formData,
-    rules,
+    formRules,
     submitForm,
     resetForm,
     handleCollapseChange,
@@ -41,6 +42,7 @@ export function useForm() {
     groupItemConfig,
     formGroupConfig,
     allActiveName,
-    isExpandSet
+    collapseIsExpand,
+    tabsOverflowY
   }
 }

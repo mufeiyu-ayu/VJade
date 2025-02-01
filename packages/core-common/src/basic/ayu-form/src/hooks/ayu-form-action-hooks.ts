@@ -9,13 +9,13 @@ import type { FormProps, FormGroupConfig } from '../types'
  * @param props - 表单属性
  * @param formGroupConfig - 表单分组配置引用
  */
-export function useFormAction(
+export function useFormActionHooks(
   formRef: Ref<FormInstance | undefined>,
   formData: Ref<Record<string, any>>,
   props: FormProps,
   formGroupConfig: Ref<FormGroupConfig[]>
 ) {
-  const isExpandSet = ref<string[]>([])
+  const collapseIsExpand = ref<string[]>([])
 
   /**
    * 提交表单
@@ -43,11 +43,11 @@ export function useFormAction(
    */
   const handleCollapseChange = (val: string[]) => {
     const groupSetTitle = formGroupConfig.value.map((item) => item.groupTitle)
-    isExpandSet.value = groupSetTitle.filter((item) => !val.includes(item))
+    collapseIsExpand.value = groupSetTitle.filter((item) => !val.includes(item))
   }
 
   return {
-    isExpandSet,
+    collapseIsExpand,
     submitForm,
     resetForm,
     handleCollapseChange

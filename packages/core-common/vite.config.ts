@@ -10,7 +10,7 @@ export default defineConfig(async () => {
       plugins: [
         vue(),
         visualizer({
-          open: true, // 自动打开分析页面
+          open: false, // 自动打开分析页面
           filename: 'dist/stats.html', // 分析文件名
           gzipSize: true, // 显示 gzip 大小
           brotliSize: true, // 显示 brotli 大小

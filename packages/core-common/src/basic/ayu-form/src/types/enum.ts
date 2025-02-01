@@ -2,4 +2,4 @@
 export type ColSize = 24 | 12 | 8 | 6
 
 /** 表单分组类型 */
-export type GroupType = 'default' | 'card' | 'collapse'
+export type GroupType = 'default' | 'tab' | 'collapse'

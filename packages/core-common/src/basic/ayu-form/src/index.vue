@@ -9,15 +9,15 @@ const {
   formRef,
   formData,
   resetForm,
-  rules,
+  formRules,
   submitForm,
   groupComponent,
   groupItemConfig,
   formGroupConfig,
-
   allActiveName,
   handleCollapseChange,
-  isExpandSet
+  collapseIsExpand,
+  tabsOverflowY
 } = useForm()
 
 defineExpose({
@@ -31,33 +31,35 @@ defineExpose({
 
 <template>
   <div class="w-full">
-    <el-form ref="formRef" label-position="right" label-width="auto" :rules="rules" :model="formData">
-      <component :is="groupComponent" v-model="allActiveName" @change="handleCollapseChange">
+    <el-form ref="formRef" label-position="right" label-width="auto" :rules="formRules" :model="formData">
+      <component :is="groupComponent" :type="tabType" v-model="allActiveName" @change="handleCollapseChange">
         <template v-for="group in formGroupConfig" :key="group.groupTitle">
-          <component :is="groupItemConfig" :title="group.groupTitle" :name="group.groupTitle">
+          <component :is="groupItemConfig" :label="group.groupTitle" :title="group.groupTitle" :name="group.groupTitle">
             <div class="flex justify-start items-center p-4 mb-[10px]" v-if="groupComponent === 'div' && isGroup">
               <div class="w-[5px] h-[20px] bg-[#409EFF]"></div>
               <div class="text-[18px] font-bold ml-[15px]">{{ group.groupTitle }}</div>
             </div>
+            <!-- todo collapse-item icon -->
             <template #icon>
               <div class="ml-1"></div>
-              <AyuIcon :icon="isExpandSet.includes(group.groupTitle) ? 'mdi:chevron-down' : 'mdi:chevron-up'" />
+              <AyuIcon :icon="collapseIsExpand.includes(group.groupTitle) ? 'mdi:chevron-down' : 'mdi:chevron-up'" />
             </template>
-
-            <el-row>
-              <el-col v-for="field in group.fieldConfig" :key="field.field" :span="colSize || field.colSize">
-                <el-form-item :label="field.label" :prop="field.field">
-                  <el-input v-model="formData[field.field]" :placeholder="'请输入' + field.label" v-bind="field" />
-                </el-form-item>
-              </el-col>
-            </el-row>
+            <div :class="tabsOverflowY">
+              <el-row>
+                <el-col v-for="field in group.fieldConfig" :key="field.field" :span="colSize || field.colSize">
+                  <el-form-item :label="field.label" :prop="field.field">
+                    <el-input v-model="formData[field.field]" :placeholder="'请输入' + field.label" v-bind="field" />
+                  </el-form-item>
+                </el-col>
+              </el-row>
+            </div>
           </component>
         </template>
       </component>
       <slot>
         <div class="w-full mt-10 flex justify-center">
           <el-button type="primary" @click="submitForm">提交</el-button>
-          <el-button @click="resetForm">重置</el-button>
+          <el-button @click="resetForm">重置33</el-button>
         </div>
       </slot>
     </el-form>
