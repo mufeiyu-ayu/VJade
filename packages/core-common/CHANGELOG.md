@@ -1,5 +1,23 @@
 # @ayu-mu/core-common
 
+## 1.0.12
+
+### Patch Changes
+
+- 测试打包
+
+## 1.0.11
+
+### Patch Changes
+
+- 测试打包
+
+## 1.0.10
+
+### Patch Changes
+
+- 完善 ts类型以及新加 tab 分组类型
+
 ## 1.0.9
 
 ### Patch Changes
