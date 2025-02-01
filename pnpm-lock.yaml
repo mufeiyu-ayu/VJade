@@ -367,6 +367,9 @@ importers:
         specifier: ^3.4.21
         version: 3.5.12(typescript@5.6.3)
     devDependencies:
+      '@ayu-mu/model':
+        specifier: workspace:^
+        version: link:../model
       '@ayu-mu/scripts':
         specifier: workspace:^
         version: link:../../scripts

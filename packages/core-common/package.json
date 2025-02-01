@@ -29,6 +29,7 @@
     "@ayu-mu/utils": "workspace:^"
   },
   "devDependencies": {
+    "@ayu-mu/model": "workspace:^",
     "@ayu-mu/scripts": "workspace:^",
     "@ayu-mu/tsconfig": "workspace:^",
     "@ayu-mu/vite": "workspace:^",

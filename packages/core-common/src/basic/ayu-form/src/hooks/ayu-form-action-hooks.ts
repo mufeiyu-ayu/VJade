@@ -21,6 +21,7 @@ export function useFormActionHooks(
    * 提交表单
    */
   const submitForm = async () => {
+    console.log(formData.value)
     if (!formRef.value) return
     await formRef.value.validate((valid: boolean) => {
       if (valid) {

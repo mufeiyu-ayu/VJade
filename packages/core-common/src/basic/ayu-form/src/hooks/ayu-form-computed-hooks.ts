@@ -105,6 +105,7 @@ export function useFormComputedHooks(props: FormProps) {
     const bol = props.isGroup && props.groupType === 'tab' && props.maxPaneHeight
     return bol && `overflow-y-auto h-[${props.maxPaneHeight}]`
   })
+
   return {
     formRules,
     colSize,

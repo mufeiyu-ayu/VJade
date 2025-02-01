@@ -1,5 +1,6 @@
 <script setup lang="ts">
-import { ElForm, ElFormItem, ElInput, ElButton, ElRow, ElCol } from 'element-plus'
+import { ElForm, ElFormItem, ElButton, ElRow, ElCol } from 'element-plus'
+
 import { AyuIcon } from '@ayu-mu/common'
 import type { FormProps } from './types'
 import { useForm } from './hooks/ayu-form-hooks'
@@ -17,7 +18,8 @@ const {
   allActiveName,
   handleCollapseChange,
   collapseIsExpand,
-  tabsOverflowY
+  tabsOverflowY,
+  componentRender
 } = useForm()
 
 defineExpose({
@@ -48,7 +50,14 @@ defineExpose({
               <el-row>
                 <el-col v-for="field in group.fieldConfig" :key="field.field" :span="colSize || field.colSize">
                   <el-form-item :label="field.label" :prop="field.field">
-                    <el-input v-model="formData[field.field]" :placeholder="'请输入' + field.label" v-bind="field" />
+                    <component
+                      v-model="formData[field.field]"
+                      :is="componentRender(field.type)"
+                      v-bind="{
+                        ...field.componentProps,
+                        ...field
+                      }"
+                    ></component>
                   </el-form-item>
                 </el-col>
               </el-row>

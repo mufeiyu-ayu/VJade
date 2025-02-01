@@ -12,7 +12,7 @@ import type { FormProps } from '../types'
 export function useForm() {
   const instance = getCurrentInstance() as ComponentInternalInstance
   const props = instance.props as unknown as FormProps
-  const { initFormData } = useFormUtils()
+  const { initFormData, componentRender } = useFormUtils()
   const formRef = ref<FormInstance>()
   const formData = ref<Record<string, any>>({})
 
@@ -43,6 +43,7 @@ export function useForm() {
     formGroupConfig,
     allActiveName,
     collapseIsExpand,
-    tabsOverflowY
+    tabsOverflowY,
+    componentRender
   }
 }

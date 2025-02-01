@@ -12,15 +12,24 @@ const formProps = reactive<FormProps>({
       type: 'input',
       group: '基础信息',
       colSize: 12,
-      rules: [{ required: true, message: '请输入用户名', trigger: 'blur' }]
+      rules: [{ required: true, message: '请输入用户名', trigger: 'blur' }],
+      componentProps: {
+        disabled: true,
+        validateEvent: true,
+        placeholder: 'hello world'
+      }
     },
     {
       label: '密码',
       field: 'password',
-      type: 'input',
+      type: 'select',
       group: '基础信息',
       colSize: 12,
-      rules: [{ required: true, message: '请输入密码', trigger: 'blur' }]
+      rules: [{ required: true, message: '请输入密码', trigger: 'blur' }],
+      componentProps: {
+        placeholder: 'demaxiya',
+        loading: true
+      }
     },
     {
       label: '邮箱',

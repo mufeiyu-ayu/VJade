@@ -1,24 +1,27 @@
 import type { FormItemRule } from 'element-plus'
 import type { ColSize, GroupType } from './enum'
+import type { ComponentPropsMapping } from './utils'
 
-/**
- * 基础字段配置
- */
-export type BaseFieldConfig = {
-  /** 表单项标签 */
-  label: string
-  /** 表单项字段名 */
-  field: string
-  /** 表单项类型 */
-  type: string
-  /** 表单项默认值 */
-  defaultValue?: any
-  /** 表单项验证规则 */
-  rules?: FormItemRule[]
+// 限制 FormType 只能是 ComponentPropsMapping 的键
+export type FormType = keyof ComponentPropsMapping
+
+// 为每个组件类型创建专门的配置类型
+export type FieldConfigMap = {
+  [K in FormType]: {
+    label: string
+    field: string
+    type: K
+    defaultValue?: any
+    rules?: FormItemRule[]
+    componentProps?: ComponentPropsMapping[K]
+  }
 }
 
+/** 表单项配置 */
+export type BaseFieldConfig<T extends FormType> = FieldConfigMap[T]
+
 /** 分组模式下的字段配置 */
-export type GroupFieldConfig = BaseFieldConfig & {
+export type GroupFieldConfig<T extends FormType = FormType> = BaseFieldConfig<T> & {
   /** 表单项分组（分组模式下必填） */
   group: string
   /** 表单项列数 */
@@ -26,7 +29,7 @@ export type GroupFieldConfig = BaseFieldConfig & {
 }
 
 /** 普通模式下的字段配置 */
-type NormalFieldConfig = BaseFieldConfig & {
+type NormalFieldConfig<T extends FormType = FormType> = BaseFieldConfig<T> & {
   /** 表单项分组（普通模式下不可用） */
   group?: never
   /** 表单项列数 */
