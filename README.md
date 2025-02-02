@@ -47,13 +47,8 @@ pnpm install
 3. 初始化项目：
 
 ```bash
-pnpm pge-init
+pnpm build:all
 ```
-
-### 使用步骤
-
-在项目根目录执行 pnpm i 安装依赖。
-执行 pnpm pge-init 初始化项目设置。
 
 ### 功能模块
 
