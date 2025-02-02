@@ -13,12 +13,12 @@
       "persistent": true
     },
     "build:dts": {
-      "dependsOn": ["^build","^build:dts"],
+      "dependsOn": ["^build:dts"],
       "outputs": ["dist/**","temp/**"],
       "cache": true
     },
     "build:all": {
-      "dependsOn": ["^build","^build:dts","^build:all"],
+      "dependsOn": ["^build:all"],
       "outputs": ["dist/**","temp/**"],
       "cache": true
     },
