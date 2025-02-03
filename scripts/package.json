@@ -22,7 +22,6 @@
   "author": "",
   "bin": {
     "packages-init": "package-init.js",
-    "generate-attributes": "generate-attributes.js",
     "rollup-dts": "rollup-dts.js"
   },
   "description": "",
