@@ -1,10 +1,9 @@
 import { readFile } from 'node:fs/promises'
-import { resolve } from 'node:path'
+import { dirname, resolve, join } from 'node:path'
 import { cwd, env } from 'node:process'
-
+import { findUp } from 'find-up'
 import { type UserConfig, defineConfig } from 'vite'
 import type { LibraryFormats } from 'vite'
-
 interface Options {
   name: string
   entry?: string
@@ -15,7 +14,6 @@ interface Options {
 }
 
 const resolvePath = (path: string) => resolve(cwd(), path)
-const isProduction = !!env.PROD
 
 export async function definePkgConfig({
   name,
@@ -26,14 +24,13 @@ export async function definePkgConfig({
   modifyExternal = []
 }: Options) {
   const formats = (env.FORMATS?.split(',') ?? defaultFormats) as LibraryFormats[]
-
   const { peerDependencies = {}, dependencies = {} } = await getPackageJson(resolvePath('package.json'))
   const externals: string[] = [...Object.keys(peerDependencies)]
-
+  const envFile = await getEnvFile(process.env.VITE_MODE as string)
+  console.log(envFile, '-------------------')
   if (externalDeps) {
     externals.push(...Object.keys(dependencies))
   }
-
   return defineConfig({
     build: {
       lib: {
@@ -42,8 +39,8 @@ export async function definePkgConfig({
         fileName: camelCaseToKebabCase(name),
         formats
       },
-      minify: isProduction,
-      sourcemap: isProduction ? false : 'inline',
+      minify: envFile.isProd ? 'esbuild' : false,
+      sourcemap: envFile.isProd ? false : 'inline',
       rollupOptions: {
         external: [
           'vue',
@@ -78,4 +75,11 @@ function camelCaseToKebabCase(str: string) {
 async function getPackageJson(path: string) {
   const content = await readFile(path, 'utf-8')
   return JSON.parse(content)
+}
+
+async function getEnvFile(path = 'dev') {
+  const filePath = await findUp('pnpm-lock.yaml')
+  const envFilePath = join(dirname(filePath as string), `config.${path}.json`)
+  const envFile = await readFile(envFilePath, 'utf-8')
+  return JSON.parse(envFile)
 }
