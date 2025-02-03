@@ -20,6 +20,9 @@
     "build:all": "vite build && pnpm build:dts",
     "build:dts": "rimraf temp && vue-tsc -p tsconfig.declaration.json && rollup-dts"
   },
+  "dependencies": {
+    "@ayu-mu/model": "workspace:^"
+  },
   "devDependencies": {
     "@ayu-mu/scripts": "workspace:^",
     "@ayu-mu/tsconfig": "workspace:^",
@@ -34,6 +37,5 @@
   },
   "publishConfig": {
     "registry": "https://registry.npmjs.org"
-  },
-  "types": "./dist/index.d.ts"
+  }
 }

@@ -1,6 +1,6 @@
 {
   "name": "@ayu-mu/ayu-design",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "private": false,
   "type": "module",
   "module": "./dist/es/index.js",

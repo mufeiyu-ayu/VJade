@@ -19,6 +19,7 @@
   },
   "devDependencies": {
     "@ayu-mu/tsconfig": "workspace:^",
+    "find-up": "^7.0.0",
     "unbuild": "^2.0.0"
   },
   "author": "",

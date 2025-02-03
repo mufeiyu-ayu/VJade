@@ -1,6 +1,6 @@
 {
   "name": "@ayu-mu/common",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "private": false,
   "type": "module",
   "module": "./dist/ayu-web-build-component.js",
@@ -23,11 +23,13 @@
     "build": "vite build",
     "build:all": "vite build && pnpm build:dts",
     "build:dts": "rimraf temp && vue-tsc -p tsconfig.declaration.json && rollup-dts",
-    "build:watch": "vite build -w"
+    "build:watch": "vite build -w",
+    "generate-attributes": "generate-attributes"
   },
   "dependencies": {
     "@iconify/vue": "^4.1.2",
-    "@ayu-mu/utils": "workspace:^"
+    "@ayu-mu/utils": "workspace:^",
+    "@ayu-mu/hooks": "workspace:^"
   },
   "devDependencies": {
     "@ayu-mu/scripts": "workspace:^",

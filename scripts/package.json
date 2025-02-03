@@ -8,7 +8,12 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
-    "chalk": "^5.3.0"
+    "chalk": "^5.3.0",
+    "glob": "^11.0.1",
+    "remark-gfm": "^4.0.0",
+    "remark-parse": "^11.0.0",
+    "unified": "^11.0.5",
+    "unist-util-visit": "^5.0.0"
   },
   "devDependencies": {
     "@microsoft/api-extractor": "^7.47.11",
@@ -17,6 +22,7 @@
   "author": "",
   "bin": {
     "packages-init": "package-init.js",
+    "generate-attributes": "generate-attributes.js",
     "rollup-dts": "rollup-dts.js"
   },
   "description": "",
