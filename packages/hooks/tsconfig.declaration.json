@@ -3,7 +3,7 @@
   "compilerOptions": {
     "moduleResolution": "bundler",
     "baseUrl": ".",
-    "rootDir": ".",
+    "rootDir": "src",
     "paths": {
       "@/*": [
         "src/*"
@@ -11,8 +11,9 @@
     },
     "declaration": true,
     "emitDeclarationOnly": true,
-    "outDir": "temp",
+    "outDir": "temp/src",
     "stripInternal": true
   },
-  "include": ["./**/.vue", "./**/*.ts"],
+  "include": ["src/**/*.ts", "src/**/*.vue"],
+  "exclude": ["dist", "node_modules", "**/*.test.ts", "**/__tests__/*"]
 }

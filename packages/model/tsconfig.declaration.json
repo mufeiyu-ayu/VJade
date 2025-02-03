@@ -14,5 +14,5 @@
     "outDir": "temp",
     "stripInternal": true
   },
-  "include": ["./**/.vue", "./**/*.ts"],
+  "include": ["./**/.vue", "./src/**/*.ts"]
 }
