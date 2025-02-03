@@ -27,7 +27,6 @@ export async function definePkgConfig({
   const { peerDependencies = {}, dependencies = {} } = await getPackageJson(resolvePath('package.json'))
   const externals: string[] = [...Object.keys(peerDependencies)]
   const envFile = await getEnvFile(process.env.VITE_MODE as string)
-  console.log(envFile, '-------------------')
   if (externalDeps) {
     externals.push(...Object.keys(dependencies))
   }
