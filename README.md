@@ -77,6 +77,10 @@ if (isJsonString(jsonString)) {
 2. 创建 Issue 或 Pull Request
 3. 提交 bug 或功能需求
 
+**注意**
+在开发调试包的过程中只需在各个包的路径下执行打包命令即可
+在发布包的时，我们建议使用 cross-env指定参数来加载根目录下的 cofig.[env].json文件来决定是否开启压缩以及是否生成 map 文件
+
 ### 许可证
 
 本项目使用 MIT 许可证。
