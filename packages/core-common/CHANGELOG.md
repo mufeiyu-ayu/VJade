@@ -1,5 +1,12 @@
 # @ayu-mu/core-common
 
+## 1.0.13
+
+### Patch Changes
+
+- Updated dependencies
+  - @ayu-mu/common@0.0.5
+
 ## 1.0.12
 
 ### Patch Changes

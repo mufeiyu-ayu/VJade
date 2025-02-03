@@ -8,27 +8,22 @@ const formProps = reactive<FormProps>({
     {
       label: '用户名',
       field: 'username',
-      defaultValue: 'ayu',
       type: 'input',
       group: '基础信息',
       colSize: 12,
       rules: [{ required: true, message: '请输入用户名', trigger: 'blur' }],
-      componentProps: {
-        disabled: true,
-        validateEvent: true,
-        placeholder: 'hello world'
-      }
+      componentProps: {}
     },
     {
       label: '密码',
       field: 'password',
-      type: 'select',
+      type: 'input',
       group: '基础信息',
       colSize: 12,
       rules: [{ required: true, message: '请输入密码', trigger: 'blur' }],
       componentProps: {
-        placeholder: 'demaxiya',
-        loading: true
+        placeholder: '请输入密码',
+        showPassword: true
       }
     },
     {
@@ -68,7 +63,7 @@ const formProps = reactive<FormProps>({
       field: 'remark1',
       type: 'input',
       group: '补充信息',
-      colSize: 8,
+      colSize: 12,
       rules: [{ required: true, message: '请输入备注', trigger: 'blur' }]
     },
     {
@@ -76,31 +71,7 @@ const formProps = reactive<FormProps>({
       field: 'remark2',
       type: 'input',
       group: '补充信息',
-      colSize: 8,
-      rules: [{ required: true, message: '请输入备注', trigger: 'blur' }]
-    },
-    {
-      label: '备注3',
-      field: 'remark3',
-      type: 'input',
-      group: '补充信息',
-      colSize: 24,
-      rules: [{ required: true, message: '请输入备注', trigger: 'blur' }]
-    },
-    {
-      label: '备注3',
-      field: 'remark3',
-      type: 'input',
-      group: '补充信息',
-      colSize: 24,
-      rules: [{ required: true, message: '请输入备注', trigger: 'blur' }]
-    },
-    {
-      label: '备注3',
-      field: 'remark3',
-      type: 'input',
-      group: '补充信息',
-      colSize: 24,
+      colSize: 12,
       rules: [{ required: true, message: '请输入备注', trigger: 'blur' }]
     },
     {
@@ -113,10 +84,10 @@ const formProps = reactive<FormProps>({
     }
   ],
   isGroup: true,
-  isExpand: false,
-  groupType: 'tab',
-  tabType: 'border-card',
-  maxPaneHeight: '200px',
+  // isExpand: false,
+  // groupType: 'tab',
+  // tabType: 'border-card',
+  // maxPaneHeight: '200px',
   onSubmit: async (params: any) => {
     console.log('submit111111!', params)
   }

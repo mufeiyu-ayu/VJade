@@ -1,15 +1,14 @@
 import { onUnmounted } from 'vue'
 import mitt, { type Emitter, type EventType } from 'mitt'
-import type { CustomEventBusCallbackType, CustomEventType, EventBusType } from '@ayu-mu/model'
 
 const emitter: Emitter<Record<EventType, unknown>> = mitt()
-export const useEventBus = (eventNames?: CustomEventType[]): EventBusType => {
+export const useEventBus = (eventNames?: string[]) => {
   /**
    * 触发器
-   * @param { CustomEventType} eventName 事件名称
+   * @param { string} eventName 事件名称
    * @param { *[]} args 参数
    */
-  const emit = <T = any>(eventName: CustomEventType, ...args: T[]) => {
+  const emit = <T = any>(eventName: string, ...args: T[]) => {
     emitter.emit(eventName, args)
   }
 
@@ -19,7 +18,7 @@ export const useEventBus = (eventNames?: CustomEventType[]): EventBusType => {
    * @param {CustomEventBusCallbackType} callback 回调函数
    */
 
-  const on = (eventName: CustomEventType, callback: CustomEventBusCallbackType) => {
+  const on = (eventName: string, callback: (...args: any[]) => void) => {
     emitter.on(eventName, callback)
   }
 
@@ -28,7 +27,7 @@ export const useEventBus = (eventNames?: CustomEventType[]): EventBusType => {
    * @param {CustomEventBusCallbackType} eventName 事件名称
    */
 
-  const off = (eventName: CustomEventType) => {
+  const off = (eventName: string) => {
     emitter.off(eventName)
   }
 

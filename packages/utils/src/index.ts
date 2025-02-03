@@ -6,6 +6,6 @@ export * from './webStorage'
 
 export * from './is'
 
-export * from './timeformat.ts'
+export * from './timeformat'
 
 export * from './log'

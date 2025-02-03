@@ -125,7 +125,7 @@ const meta: Meta<typeof AyuButton> = {
       control: 'number',
       table: {
         category: '高级',
-        defaultValue: { summary: 300 }
+        defaultValue: { summary: '300' }
       }
     },
     onClick: {

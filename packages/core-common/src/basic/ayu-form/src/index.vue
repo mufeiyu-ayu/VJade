@@ -5,7 +5,7 @@ import { AyuIcon } from '@ayu-mu/common'
 import type { FormProps } from './types'
 import { useForm } from './hooks/ayu-form-hooks'
 defineProps<FormProps>()
-
+console.log(11)
 const {
   formRef,
   formData,
@@ -42,7 +42,7 @@ defineExpose({
               <div class="text-[18px] font-bold ml-[15px]">{{ group.groupTitle }}</div>
             </div>
             <!-- todo collapse-item icon -->
-            <template #icon>
+            <template #icon v-if="groupType === 'collapse'">
               <div class="ml-1"></div>
               <AyuIcon :icon="collapseIsExpand.includes(group.groupTitle) ? 'mdi:chevron-down' : 'mdi:chevron-up'" />
             </template>
@@ -54,8 +54,7 @@ defineExpose({
                       v-model="formData[field.field]"
                       :is="componentRender(field.type)"
                       v-bind="{
-                        ...field.componentProps,
-                        ...field
+                        ...field.componentProps
                       }"
                     ></component>
                   </el-form-item>
@@ -68,7 +67,7 @@ defineExpose({
       <slot>
         <div class="w-full mt-10 flex justify-center">
           <el-button type="primary" @click="submitForm">提交</el-button>
-          <el-button @click="resetForm">重置33</el-button>
+          <el-button @click="resetForm">重置11</el-button>
         </div>
       </slot>
     </el-form>

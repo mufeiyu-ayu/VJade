@@ -43,8 +43,10 @@ export function useFormActionHooks(
    * @param val - 当前展开的面板名称数组
    */
   const handleCollapseChange = (val: string[]) => {
-    const groupSetTitle = formGroupConfig.value.map((item) => item.groupTitle)
-    collapseIsExpand.value = groupSetTitle.filter((item) => !val.includes(item))
+    if (props.groupType === 'collapse') {
+      const groupSetTitle = formGroupConfig.value.map((item) => item.groupTitle)
+      collapseIsExpand.value = groupSetTitle.filter((item) => !val.includes(item))
+    }
   }
 
   return {
