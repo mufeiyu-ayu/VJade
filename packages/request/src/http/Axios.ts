@@ -124,6 +124,7 @@ export class AyuAxios {
 
       // 响应拦截器配置处理
       this.axiosInstance.interceptors.response.use((response: AxiosResponse<CommonResultType<any>>) => {
+        console.log(response, 'response')
         const { isShowSuccessMessage, isShowErrorMessage, successMessageText, errorMessageText } = this.currentOptions
 
         // 关闭loading

@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 import { AyuForm, type FormProps } from '@ayu-mu/core-common'
 import { ref, onMounted, reactive } from 'vue'
-import { testApi } from '@/apis'
+import { postFormData } from '@/apis'
 import { ElButton } from 'element-plus'
 const formRef = ref<InstanceType<typeof AyuForm>>()
 const formProps = reactive<FormProps>({
@@ -95,7 +95,18 @@ const formProps = reactive<FormProps>({
 })
 
 const onClick = async () => {
-  const res = await testApi()
+  const res = await postFormData({
+    name: '张三',
+    age: 18,
+    email: 'zhangsan',
+    phone: '13812345678',
+    address: '北京市海淀区',
+    money: 1000,
+    sex: '男',
+    status: '启用',
+    remark: '备注',
+    isEnable: true
+  })
   console.log(res, 'res')
 }
 onMounted(() => {

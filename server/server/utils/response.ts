@@ -8,7 +8,7 @@ import type { EventHandlerRequest, H3Event } from 'h3'
 export function useResponseSuccess<T = any>(data: T) {
   return {
     code: 0,
-    data,
+    ...data,
     error: null,
     message: 'ok'
   }
