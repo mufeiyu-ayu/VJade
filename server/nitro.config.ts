@@ -4,6 +4,7 @@ export default defineNitroConfig({
   experimental: {
     asyncContext: true
   },
+
   compatibilityDate: '2025-02-04',
   // 路由配置
   routeRules: {

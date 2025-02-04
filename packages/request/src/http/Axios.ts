@@ -1,3 +1,5 @@
+/* eslint-disable */
+// @ts-nocheck
 import axios from 'axios'
 import type { AxiosInstance, AxiosResponse, InternalAxiosRequestConfig } from 'axios'
 import {
@@ -77,17 +79,17 @@ export class AyuAxios {
         // 合并请求头
         config.headers = Object.assign(config.headers, headers)
 
-        const envConfig = webStorage.getStorageFromKey('envConfig')
-        const appConfig = webStorage.getStorageFromKey('app')
-        const IsSingle =
-          envConfig?.SYSTEM_ARCH === SystemArchEnum.ZSINGLE || appConfig?.appForm === SystemArchEnum.ZSINGLE
-        // 处理请求路径(适配单体地址情况)
-        const regex = /^(http|https):\/\//i
-        config.url = regex.test(config.url!)
-          ? config.url
-          : IsSingle && envConfig.TENANT_ID !== 'application'
-            ? (appConfig?.serverAddress || envConfig.BASE_URL) + config.url
-            : envConfig.BASE_URL + config.url
+        // const envConfig = webStorage.getStorageFromKey('envConfig')
+        // const appConfig = webStorage.getStorageFromKey('app')
+        // const IsSingle =
+        //   envConfig?.SYSTEM_ARCH === SystemArchEnum.ZSINGLE || appConfig?.appForm === SystemArchEnum.ZSINGLE
+        // // 处理请求路径(适配单体地址情况)
+        // const regex = /^(http|https):\/\//i
+        // config.url = regex.test(config.url!)
+        //   ? config.url
+        //   : IsSingle && envConfig.TENANT_ID !== 'application'
+        //     ? (appConfig?.serverAddress || envConfig.BASE_URL) + config.url
+        //     : envConfig.BASE_URL + config.url
 
         // 将请求参数处理成为params形式
         if (joinParamsToUrl) {
@@ -97,25 +99,25 @@ export class AyuAxios {
           delete config.data
         }
 
-        // 处理token
-        withToken &&
-          (config.headers['Authorization'] =
-            config.headers['Authorization'] ||
-            `Bearer ${IsSingle && envConfig.TENANT_ID !== 'application' ? appConfig?.token || webStorage.getStorageFromKey('token') : webStorage.getStorageFromKey('token')}`)
-        // 处理 X-App-Id
-        withXAppId &&
-          (config.headers['X-App-Id'] =
-            config.headers['X-App-Id'] ||
-            (IsSingle && envConfig.TENANT_ID !== 'application'
-              ? appConfig?.code || envConfig.APP_ID
-              : envConfig.APP_ID))
-        // 处理 X-Tenant-Id
-        withTenantId &&
-          (config.headers['X-Tenant-Id'] =
-            config.headers['X-Tenant-Id'] ||
-            (IsSingle && envConfig.TENANT_ID !== 'application'
-              ? appConfig?.code || envConfig.TENANT_ID
-              : envConfig.TENANT_ID))
+        // // 处理token
+        // withToken &&
+        //   (config.headers['Authorization'] =
+        //     config.headers['Authorization'] ||
+        //     `Bearer ${IsSingle && envConfig.TENANT_ID !== 'application' ? appConfig?.token || webStorage.getStorageFromKey('token') : webStorage.getStorageFromKey('token')}`)
+        // // 处理 X-App-Id
+        // withXAppId &&
+        //   (config.headers['X-App-Id'] =
+        //     config.headers['X-App-Id'] ||
+        //     (IsSingle && envConfig.TENANT_ID !== 'application'
+        //       ? appConfig?.code || envConfig.APP_ID
+        //       : envConfig.APP_ID))
+        // // 处理 X-Tenant-Id
+        // withTenantId &&
+        //   (config.headers['X-Tenant-Id'] =
+        //     config.headers['X-Tenant-Id'] ||
+        //     (IsSingle && envConfig.TENANT_ID !== 'application'
+        //       ? appConfig?.code || envConfig.TENANT_ID
+        //       : envConfig.TENANT_ID))
 
         return config
       }, undefined)

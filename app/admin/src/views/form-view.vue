@@ -1,7 +1,8 @@
 <script lang="ts" setup>
 import { AyuForm, type FormProps } from '@ayu-mu/core-common'
 import { ref, onMounted, reactive } from 'vue'
-
+import { testApi } from '@/apis'
+import { ElButton } from 'element-plus'
 const formRef = ref<InstanceType<typeof AyuForm>>()
 const formProps = reactive<FormProps>({
   fieldConfig: [
@@ -92,6 +93,11 @@ const formProps = reactive<FormProps>({
     console.log('submit111111!', params)
   }
 })
+
+const onClick = async () => {
+  const res = await testApi()
+  console.log(res, 'res')
+}
 onMounted(() => {
   // 应该能看到表单数据
   // console.log(formRef.value?.resetForm, 'formRef.value?.formData')
@@ -99,11 +105,12 @@ onMounted(() => {
 </script>
 
 <template>
-  <div class="w-screen h-screen flex justify-center items-center">
+  <div class="w-screen flex justify-center items-center">
     <div class="w-[800px]">
       <AyuForm ref="formRef" v-bind="formProps"></AyuForm>
     </div>
   </div>
+  <el-button @click="onClick" type="primary">发送请求</el-button>
 </template>
 
 <style lang="scss" scoped></style>

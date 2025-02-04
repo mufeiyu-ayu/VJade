@@ -10,6 +10,7 @@
     "type-check": "vue-tsc --build --force"
   },
   "dependencies": {
+    "@ayu-mu/request": "workspace:^",
     "@ayu-mu/utils": "workspace:^",
     "@configs/css": "workspace:^",
     "pinia": "^2.1.7",

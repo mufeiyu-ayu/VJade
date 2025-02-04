@@ -2,7 +2,7 @@
   "private": true,
   "scripts": {
     "build": "nitro build",
-    "dev": "nitro dev",
+    "dev": "nitro dev --port 5177",
     "prepare": "nitro prepare",
     "preview": "node .output/server/index.mjs"
   },
