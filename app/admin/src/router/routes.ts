@@ -1,14 +1,7 @@
-import { type RouteRecordRaw } from 'vue-router'
+import type { RouteRecordRaw } from 'vue-router'
+import { HOME_ROUTE } from './modules/home'
 
-export const routes: RouteRecordRaw[] = [
-  {
-    path: '/formView',
-    name: 'formView',
-    component: () => import('@/views/form-view.vue')
-  },
-  {
-    path: '/test',
-    name: 'test',
-    component: () => import('@/views/test.vue')
-  }
-]
+import { EXCEPTION_ROUTE, LOGIN_ROUTE, NOT_FOUND_ROUTE } from './modules/base'
+
+// 路由信息
+export const routes: Readonly<RouteRecordRaw[]> = [HOME_ROUTE, LOGIN_ROUTE, NOT_FOUND_ROUTE, EXCEPTION_ROUTE]
