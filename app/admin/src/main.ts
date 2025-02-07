@@ -1,19 +1,22 @@
 import { createApp } from 'vue'
-// import { createPinia } from 'pinia'
 import 'element-plus/dist/index.css'
-
+import { setupStore } from '@/stores'
 import '@ayu-mu/core-common/style.css'
 import App from './App.vue'
-import { createPinia } from 'pinia'
-import router from './router'
+import { setupRouter } from '@/router'
 import './styles.css'
-import { setupComponents } from '@/init/setupCommonState'
+import { setupIconComponents } from '@/init/setupCommonState'
 
-const app = createApp(App)
-const pinia = createPinia()
-app.use(pinia)
-setupComponents(app)
-app.use(router)
-// app.use(AyuDesign)
+const setupApp = () => {
+  const app = createApp(App)
+  // 初始化store
+  setupStore(app)
+  // 初始化组件
+  setupIconComponents(app)
+  // 初始化路由
+  setupRouter(app)
+  // 挂载
+  app.mount('#app')
+}
 
-app.mount('#app')
+setupApp()

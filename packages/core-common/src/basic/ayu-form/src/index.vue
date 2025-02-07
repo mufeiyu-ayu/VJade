@@ -5,7 +5,7 @@ import { AyuIcon } from '@ayu-mu/common'
 import type { FormProps } from './types'
 import { useForm } from './hooks/ayu-form-hooks'
 defineProps<FormProps>()
-console.log(11)
+
 const {
   formRef,
   formData,

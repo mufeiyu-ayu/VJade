@@ -10,6 +10,8 @@
     "type-check": "vue-tsc --build --force"
   },
   "dependencies": {
+    "@ayu-mu/common": "workspace:^",
+    "@ayu-mu/core-common": "workspace:^",
     "@ayu-mu/request": "workspace:^",
     "@ayu-mu/utils": "workspace:^",
     "@configs/css": "workspace:^",
@@ -19,8 +21,6 @@
     "vue-router": "^4.3.0"
   },
   "devDependencies": {
-    "@ayu-mu/common": "workspace:^",
-    "@ayu-mu/core-common": "workspace:^",
     "@configs/lint": "workspace:^",
     "@tsconfig/node20": "^20.1.2",
     "@types/node": "^20.11.28",
@@ -29,12 +29,14 @@
     "@volar-plugins/vetur": "^2.0.0",
     "@vue/tsconfig": "^0.5.1",
     "autoprefixer": "^10.4.19",
-    "element-plus": "^2.7.2",
+    "element-plus": "^2.9.3",
     "less": "^4.2.0",
     "npm-run-all2": "^6.1.2",
     "postcss": "^8.4.38",
     "tailwindcss": "^3.4.3",
     "typescript": "^5.5.0",
+    "unplugin-auto-import": "^19.0.0",
+    "unplugin-vue-components": "^28.0.0",
     "vite": "^5.4.10",
     "vue-tsc": "^2.0.6"
   }
