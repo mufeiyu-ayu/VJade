@@ -2,6 +2,7 @@
     配置编译器选项和指定要包含或排除的文件。
 */
 {
+  "extends": "@ayu-mu/tsconfig/tsconfig.base.json",
   "compilerOptions": {
     "target": "esnext", //目标语言的版本
     "useDefineForClassFields": true, //是否使用类字段初始化器语法
@@ -11,7 +12,7 @@
     "jsx": "preserve", //JSX 代码的处理方式。
 
     /* Bundler mode */
-    "moduleResolution": "node", // 模块解析策略
+    "moduleResolution": "bundler", // 模块解析策略
     "allowSyntheticDefaultImports": true, // 允许从没有默认导出的模块中导入类型。
     "resolveJsonModule": true, // 是否解析 JSON 模块。
     "isolatedModules": true, // 是否将每个模块单独编译。
@@ -24,7 +25,7 @@
     "experimentalDecorators": false,
     "noImplicitAny": false,
     "suppressImplicitAnyIndexErrors": false,
-    "allowJs": true, // 是否允许编译器编译 JS 文件。
+    // "allowJs": true, // 是否允许编译器编译 JS 文件。
     "baseUrl": ".",
     "paths": {
       "@/*": ["./src/*"]

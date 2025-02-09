@@ -7,7 +7,7 @@
     // 用于解析非绝对模块名的基本目录
     "baseUrl": ".",
     // 生成代码的模板标准
-    "module": "esnext",
+    "module": "ESNext",
 
     // 指定模块解析策略
     "moduleResolution": "Bundler",
