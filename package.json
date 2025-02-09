@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build": "turbo build",
-    "build:all": "cross-env VITE_MODE=dev turbo build:all",
+    "build:all": "cross-env VITE_MODE=prod turbo build:all",
     "build:dts": "turbo build:dts",
     "build:watch": "turbo build:watch",
     "change": "changeset",

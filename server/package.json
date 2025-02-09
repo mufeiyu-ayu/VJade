@@ -1,4 +1,5 @@
 {
+  "name": "@ayu-mu/server",
   "private": true,
   "scripts": {
     "build": "nitro build",

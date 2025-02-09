@@ -1,10 +1,10 @@
 <script lang="ts" setup>
-import { AyuForm, type FormProps } from '@ayu-mu/core-common'
+import { AyuForm, type GroupFormProps } from '@ayu-mu/core-common'
 import { ref, onMounted, reactive } from 'vue'
 import { postFormData } from '@/apis'
 import { ElButton } from 'element-plus'
 const formRef = ref<InstanceType<typeof AyuForm>>()
-const formProps = reactive<FormProps>({
+const formProps = reactive<GroupFormProps>({
   fieldConfig: [
     {
       label: '用户名',
@@ -12,8 +12,7 @@ const formProps = reactive<FormProps>({
       type: 'input',
       group: '基础信息',
       colSize: 12,
-      rules: [{ required: true, message: '请输入用户名', trigger: 'blur' }],
-      componentProps: {}
+      rules: [{ required: true, message: '请输入用户名', trigger: 'blur' }]
     },
     {
       label: '密码',
@@ -86,7 +85,7 @@ const formProps = reactive<FormProps>({
   ],
   isGroup: true,
   // isExpand: false,
-  // groupType: 'tab',
+  groupType: 'collapse' as const,
   // tabType: 'border-card',
   // maxPaneHeight: '200px',
   onSubmit: async (params: any) => {

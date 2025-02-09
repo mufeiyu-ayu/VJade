@@ -1,6 +1,6 @@
 {
   "name": "@ayu-mu/core-common",
-  "version": "1.0.13",
+  "version": "1.0.14",
   "private": false,
   "main": "./dist/ayu-basic-component.mjs",
   "module": "./dist/ayu-basic-component.mjs",
@@ -64,5 +64,6 @@
     "*.css",
     "*.scss",
     "*.vue"
-  ]
+  ],
+  "types": "./dist/types/index.d.ts"
 }
