@@ -12,3 +12,6 @@ export * from './base'
 
 /* @description 工具类 */
 export * from './utils'
+
+/* @description 菜单相关类型 */
+export * from './menu'
