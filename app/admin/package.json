@@ -21,6 +21,7 @@
     "vue-router": "^4.3.0"
   },
   "devDependencies": {
+    "@ayu-mu/model": "workspace:^",
     "@configs/lint": "workspace:^",
     "@tsconfig/node20": "^20.1.2",
     "@types/node": "^20.11.28",

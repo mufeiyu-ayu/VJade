@@ -8,6 +8,7 @@
     "preview": "node .output/server/index.mjs"
   },
   "devDependencies": {
+    "@ayu-mu/model": "workspace:^",
     "@faker-js/faker": "^9.4.0",
     "@types/jsonwebtoken": "^9.0.8",
     "h3": "^1.14.0",
