@@ -1,6 +1,6 @@
 import { RouteNameEnum } from '../type'
 import RedirectPage from '@/views/system/redurect/index.vue'
-import HomeLayout from '@/views/layout/home.vue'
+import HomeLayout from '@/layout/home.vue'
 import HomePage from '@/views/system/home/index.vue'
 /**
  * 首页路由信息

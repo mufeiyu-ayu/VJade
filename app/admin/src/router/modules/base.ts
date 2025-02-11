@@ -1,7 +1,7 @@
 import type { RouteRecordRaw } from 'vue-router'
 import NotFoundPage from '@/views/system/exception/404.vue'
 import ForbiddenPage from '@/views/system/exception/403.vue'
-import HomeLayout from '@/views/layout/home.vue'
+import HomeLayout from '@/layout/home.vue'
 import { RouteNameEnum } from '../type'
 import LoginPage from '@/views/system/login/index.vue'
 
