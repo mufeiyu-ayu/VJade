@@ -1,4 +1,4 @@
-import { createRouter, createWebHashHistory } from 'vue-router'
+import { createRouter, createWebHistory } from 'vue-router'
 // import { createPermissionGuard } from './guard'
 // import { ROUTER_WHITE_LIST } from './types'
 import { routes } from './routes'
@@ -8,7 +8,7 @@ import type { App } from 'vue'
  * 创建路由器实例
  */
 const router = createRouter({
-  history: createWebHashHistory(), // 基于 hash 的路由历史记录。
+  history: createWebHistory(), // 基于 hash 的路由历史记录。
   routes,
   scrollBehavior: () => ({ top: 0 }) // 定义页面切换时的滚动行为，这里设置为始终回到顶部。
 })

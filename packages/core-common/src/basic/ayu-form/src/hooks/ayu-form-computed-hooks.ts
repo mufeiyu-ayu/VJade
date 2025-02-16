@@ -17,8 +17,8 @@ export function useFormComputedHooks(props: FormProps) {
   })
   /** 计算列大小 */
   const colSize = computed(() => {
-    if (props.colSize) {
-      return props.colSize
+    if ((props as NormalFormProps).colSize) {
+      return (props as NormalFormProps).colSize
     }
     switch ((props as NormalFormProps).layout) {
       case 'horizontal':
