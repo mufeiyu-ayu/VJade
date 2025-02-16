@@ -1,5 +1,5 @@
 import { defineEventHandler, readBody } from 'h3'
-import { type MockFormData } from '~/utils/mock'
+
 export default defineEventHandler(async (event) => {
   try {
     // 读取请求体数据

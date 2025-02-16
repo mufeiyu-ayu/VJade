@@ -4,6 +4,8 @@ export interface UserInfo {
   realName: string
   roles: string[]
   username: string
+  createdAt: string
+  updatedAt: string
 }
 
 export interface MockFormData {

@@ -1,19 +1,25 @@
 export default defineEventHandler(async (event) => {
   const { password, username } = await readBody(event)
-  console.log(password, username, 333)
+
   if (!username || !password) {
     return useResponseError('用户名或密码不能为空')
   }
-  const findUser = MOCK_USERS.find((item) => item.username === username && item.password === password)
-  if (!findUser) {
-    return useResponseError('暂无此用户')
-  }
 
-  const accessToken = generateAccessToken(findUser)
-  // const refreshToken = generateRefreshToken(findUser)
+  // 从数据库查询用户
+  const { rows } = await db.sql`SELECT * FROM users WHERE username = ${username} AND password = ${password}`
+  if (!rows.length) return
+  console.log(rows)
+
+  // 解析 JSON 字符串格式的 roles
+  const userWithParsedRoles = {
+    ...rows[0],
+    roles: JSON.parse(rows[0].roles as string)
+  } as UserInfo
+
+  const accessToken = generateAccessToken(userWithParsedRoles)
 
   return useResponseSuccess({
-    ...findUser,
+    ...userWithParsedRoles,
     accessToken
   })
 })
