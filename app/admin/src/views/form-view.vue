@@ -12,7 +12,10 @@ const formProps = reactive<GroupFormProps>({
       type: 'input',
       group: '基础信息',
       colSize: 12,
-      rules: [{ required: true, message: '请输入用户名', trigger: 'blur' }]
+      rules: [{ required: true, message: '请输入用户名', trigger: 'blur' }],
+      componentProps: {
+        placeholder: '请输入用户名'
+      }
     },
     {
       label: '密码',
