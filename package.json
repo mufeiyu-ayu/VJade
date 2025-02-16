@@ -12,6 +12,7 @@
     "clean": "rd/s/q node_modules",
     "cmt": "git add . && git-cz",
     "dev": "pnpm -C app/admin dev",
+    "dev:server": "pnpm -C server dev",
     "dev:all": "turbo dev",
     "doc": "pnpm -C docs docs:dev --open ",
     "lint": "eslint . --ext ts,tsx,vue --report-unused-disable-directives --max-warnings 0",
