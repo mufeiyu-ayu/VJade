@@ -2,38 +2,35 @@
 import { reactive, ref } from 'vue'
 import { View, Hide } from '@element-plus/icons-vue'
 import { login as userLogin } from '@/apis'
-
+import type { FormInstance, FormRules } from 'element-plus'
+import { ElMessage } from 'element-plus'
+const formRef = ref<FormInstance>()
 const form = reactive({
   username: 'admin',
   password: '123456'
 })
 
-const errors = reactive({
-  username: '',
-  password: ''
+const rules = reactive<FormRules>({
+  username: [{ required: true, message: '请输入用户名', trigger: 'blur' }],
+  password: [{ required: true, message: '请输入密码', trigger: 'blur' }]
 })
 
 const passwordVisible = ref(false)
+const rememberPassword = ref(false)
 
-const login = async () => {
-  // 重置错误信息
-  errors.username = ''
-  errors.password = ''
+const login = async (formEl: FormInstance | undefined) => {
+  if (!formEl) return
+  await formEl.validate(async (valid) => {
+    if (valid) {
+      const { code } = await userLogin(form)
+      if (code !== 0) return
+      ElMessage.success('登录成功')
+    }
+  })
+}
 
-  // 校验用户名
-  if (!form.username.trim()) {
-    errors.username = '请输入用户名'
-    return
-  }
-
-  // 校验密码
-  if (!form.password) {
-    errors.password = '请输入密码'
-    return
-  }
-  const res = await userLogin(form)
-  console.log(res, 'res')
-  // 通过校验，继续登录逻辑...
+const register = async () => {
+  console.log('注册')
 }
 </script>
 
@@ -54,59 +51,37 @@ const login = async () => {
           <p class="text-gray-500 text-sm mt-2">欢迎回来！请输入您的账号信息</p>
         </div>
 
-        <div class="space-y-4">
-          <div class="relative">
-            <input
-              v-model="form.username"
-              type="text"
-              class="w-full h-9 px-4 border rounded-lg outline-none transition-all"
-              :class="
-                errors.username
-                  ? 'border-red-500 focus:border-red-500 focus:ring-red-500'
-                  : 'border-gray-200 focus:border-blue-400 focus:ring-blue-400'
-              "
-              placeholder="请输入用户名"
-            />
-            <div v-if="errors.username" class="text-red-500 text-sm mt-1">{{ errors.username }}</div>
-          </div>
+        <el-form ref="formRef" :model="form" :rules="rules" class="space-y-4">
+          <el-form-item prop="username">
+            <el-input v-model="form.username" placeholder="请输入用户名" :prefix-icon="User" class="h-9" />
+          </el-form-item>
 
-          <div class="relative">
-            <input
+          <el-form-item prop="password">
+            <el-input
               v-model="form.password"
               :type="passwordVisible ? 'text' : 'password'"
-              class="w-full h-9 px-4 pr-10 border rounded-lg outline-none transition-all"
-              :class="
-                errors.password
-                  ? 'border-red-500 focus:border-red-500 focus:ring-red-500'
-                  : 'border-gray-200 focus:border-blue-400 focus:ring-blue-400'
-              "
               placeholder="请输入密码"
-            />
-            <el-icon
-              class="absolute right-3 top-[7px] text-gray-400 cursor-pointer hover:text-gray-600"
-              @click="passwordVisible = !passwordVisible"
+              class="h-9"
             >
-              <View v-if="passwordVisible" />
-              <Hide v-else />
-            </el-icon>
-            <div v-if="errors.password" class="text-red-500 text-sm mt-1">{{ errors.password }}</div>
-          </div>
+              <template #suffix>
+                <el-icon class="cursor-pointer" @click="passwordVisible = !passwordVisible">
+                  <View v-if="passwordVisible" />
+                  <Hide v-else />
+                </el-icon>
+              </template>
+            </el-input>
+          </el-form-item>
 
           <div class="flex items-center justify-between text-sm">
-            <label class="flex items-center text-gray-600 cursor-pointer">
-              <input type="checkbox" class="w-4 h-4 mr-2 border-gray-300 rounded text-blue-500" />
-              记住密码
-            </label>
-            <a href="#" class="text-blue-500 hover:text-blue-600">忘记密码？</a>
+            <el-checkbox v-model="rememberPassword" class="text-gray-600">记住密码</el-checkbox>
+            <el-link type="primary" :underline="false">忘记密码？</el-link>
           </div>
 
-          <button
-            @click="login"
-            class="w-full h-10 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-colors"
-          >
-            登 录
-          </button>
-        </div>
+          <div class="flex gap-4">
+            <el-button type="primary" class="w-full h-10" @click="login(formRef)">登 录</el-button>
+            <el-button type="danger" class="w-full h-10" @click="register">注 册</el-button>
+          </div>
+        </el-form>
       </div>
     </div>
   </div>
@@ -129,15 +104,15 @@ const login = async () => {
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-input::placeholder {
-  color: #94a3b8;
+:deep(.el-input__wrapper) {
+  background-color: white;
 }
 
-/* 去除 Chrome 浏览器下的自动填充背景色 */
-input:-webkit-autofill,
-input:-webkit-autofill:hover,
-input:-webkit-autofill:focus {
-  -webkit-box-shadow: 0 0 0px 1000px white inset;
-  transition: background-color 5000s ease-in-out 0s;
+:deep(.el-form-item__error) {
+  margin-top: 2px;
+}
+
+:deep(.el-button) {
+  height: 40px;
 }
 </style>
