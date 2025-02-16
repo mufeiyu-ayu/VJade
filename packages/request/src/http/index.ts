@@ -1,6 +1,5 @@
 import { type CreateAxiosOptionsType } from '@ayu-mu/model'
 import { AyuAxios } from './Axios'
-import { useAyuRequest } from './hook'
 
 // 全局请求默认配置
 
@@ -25,4 +24,4 @@ const createAxios = (options: Partial<CreateAxiosOptionsType> = {}) => {
 
 const http = createAxios()
 
-export { http, createAxios, useAyuRequest }
+export { http, createAxios }
