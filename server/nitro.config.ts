@@ -2,9 +2,15 @@
 export default defineNitroConfig({
   srcDir: 'server',
   experimental: {
-    asyncContext: true
+    asyncContext: true,
+    database: true
   },
-
+  database: {
+    default: {
+      connector: 'sqlite',
+      options: { name: 'db' }
+    }
+  },
   compatibilityDate: '2025-02-04',
   // 路由配置
   routeRules: {
