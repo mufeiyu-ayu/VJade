@@ -9,7 +9,6 @@ const SECRET_TV = enc.Utf8.parse('e3bbe7e3ba84431a') // 十六位 进制数作�
  * @returns string
  */
 const encrypt = (data: object | string): string => {
-  console.log('hello 22111')
   if (typeof data === 'object') {
     try {
       data = JSON.stringify(data)
