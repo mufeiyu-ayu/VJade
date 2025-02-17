@@ -1,3 +1,5 @@
+import type { EventHandlerRequest, H3Event } from 'h3'
+
 import jwt from 'jsonwebtoken'
 export interface UserPayload extends UserInfo {
   iat: number
@@ -26,4 +28,34 @@ export function generateRefreshToken(user: UserInfo) {
   return jwt.sign(user, REFRESH_TOKEN_SECRET, {
     expiresIn: '30d'
   })
+}
+
+export function verifyAccessToken(event: H3Event<EventHandlerRequest>): null | Omit<UserInfo, 'password'> {
+  const authHeader = getHeader(event, 'Authorization')
+  if (!authHeader?.startsWith('Bearer')) {
+    return null
+  }
+
+  const token = authHeader.split(' ')[1]
+  try {
+    const decoded = jwt.verify(token, ACCESS_TOKEN_SECRET) as UserPayload
+
+    const username = decoded.username
+    const user = MOCK_USERS.find((item) => item.username === username)
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    const { password: _pwd, ...userinfo } = user
+    return userinfo
+  } catch {
+    return null
+  }
+}
+
+/**
+ * 未授权响应
+ * @param event 事件
+ * @returns 未授权响应
+ */
+export function unAuthorizedResponse(event: H3Event<EventHandlerRequest>) {
+  setResponseStatus(event, 401)
+  return useResponseError('您没有权限访问该资源，请先登录')
 }
