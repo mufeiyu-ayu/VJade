@@ -1,15 +1,19 @@
 <script lang="ts" setup>
 import { reactive, ref } from 'vue'
 import { View, Hide } from '@element-plus/icons-vue'
-import { login as userLogin } from '@/apis'
+import { useRouter } from 'vue-router'
 import type { FormInstance, FormRules } from 'element-plus'
 import { ElMessage } from 'element-plus'
+import { useUserStore } from '@/stores/modules/user'
+import { RouteNameEnum } from '@/router/type'
+const userStore = useUserStore()
+const router = useRouter()
 const formRef = ref<FormInstance>()
 const form = reactive({
   username: 'admin',
   password: '123456'
 })
-
+const loading = ref(false)
 const rules = reactive<FormRules>({
   username: [{ required: true, message: '请输入用户名', trigger: 'blur' }],
   password: [{ required: true, message: '请输入密码', trigger: 'blur' }]
@@ -19,12 +23,20 @@ const passwordVisible = ref(false)
 const rememberPassword = ref(false)
 
 const login = async (formEl: FormInstance | undefined) => {
+  loading.value = true
   if (!formEl) return
   await formEl.validate(async (valid) => {
     if (valid) {
-      const { code } = await userLogin(form)
-      if (code !== 0) return
-      ElMessage.success('登录成功')
+      try {
+        const code = await userStore.userLogin(form)
+
+        if (code !== 0) return
+        ElMessage.success('登录成功')
+        loading.value = false
+        router.push({ name: RouteNameEnum.LAYOUT })
+      } catch (error) {
+        loading.value = false
+      }
     }
   })
 }
@@ -53,7 +65,7 @@ const register = async () => {
 
         <el-form ref="formRef" :model="form" :rules="rules" class="space-y-4">
           <el-form-item prop="username">
-            <el-input v-model="form.username" placeholder="请输入用户名" :prefix-icon="User" class="h-9" />
+            <el-input v-model="form.username" placeholder="请输入用户名" prefix-icon="User" class="h-9" />
           </el-form-item>
 
           <el-form-item prop="password">
@@ -78,7 +90,7 @@ const register = async () => {
           </div>
 
           <div class="flex gap-4">
-            <el-button type="primary" class="w-full h-10" @click="login(formRef)">登 录</el-button>
+            <el-button type="primary" :loading="loading" class="w-full h-10" @click="login(formRef)">登 录</el-button>
             <el-button type="danger" class="w-full h-10" @click="register">注 册</el-button>
           </div>
         </el-form>
