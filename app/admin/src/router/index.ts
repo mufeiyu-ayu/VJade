@@ -1,5 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router'
-// import { createPermissionGuard } from './guard'
+import { createPermissionGuard } from './guard'
 // import { ROUTER_WHITE_LIST } from './types'
 import { routes } from './routes'
 import type { App } from 'vue'
@@ -19,7 +19,7 @@ const router = createRouter({
  */
 const setupRouter = (app: App) => {
   app.use(router)
-  // createPermissionGuard(app, router)
+  createPermissionGuard(router)
 }
 
 /**
