@@ -18,8 +18,12 @@ export default defineEventHandler(async (event) => {
 
   const accessToken = generateAccessToken(userWithParsedRoles)
 
+  // 延迟 3 秒返回
+  await new Promise((resolve) => setTimeout(resolve, 300))
   return useResponseSuccess({
-    ...userWithParsedRoles,
-    accessToken
+    data: {
+      ...userWithParsedRoles,
+      accessToken
+    }
   })
 })

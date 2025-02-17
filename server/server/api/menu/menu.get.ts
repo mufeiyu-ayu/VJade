@@ -1,5 +1,10 @@
-export default defineEventHandler(() => {
-  return useResponseSuccess({
-    data: menuList
-  })
+export default defineEventHandler(async (event) => {
+  const userinfo = verifyAccessToken(event)
+  if (!userinfo) {
+    return unAuthorizedResponse(event)
+  }
+
+  // return useResponseSuccess({
+  //   data: menuList
+  // })
 })
