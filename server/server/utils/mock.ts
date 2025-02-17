@@ -6,21 +6,27 @@ export const MOCK_USERS: UserInfo[] = [
     password: '123456',
     realName: 'ayu',
     roles: ['super'],
-    username: 'ayu'
+    username: 'ayu',
+    createdAt: '2021-01-01 12:00:00',
+    updatedAt: '2021-01-01 12:00:00'
   },
   {
     id: 1,
     password: '123456',
     realName: 'Admin',
     roles: ['admin'],
-    username: 'admin'
+    username: 'admin',
+    createdAt: '2021-01-01 12:00:00',
+    updatedAt: '2021-01-01 12:00:00'
   },
   {
     id: 2,
     password: '123456',
     realName: 'Jack',
     roles: ['user'],
-    username: 'jack'
+    username: 'jack',
+    createdAt: '2021-01-01 12:00:00',
+    updatedAt: '2021-01-01 12:00:00'
   }
 ]
 
