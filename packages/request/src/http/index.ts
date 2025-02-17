@@ -6,9 +6,12 @@ import { AyuAxios } from './Axios'
 const defualtOptions: CreateAxiosOptionsType = {
   timeout: 100000,
   requestOptions: {
-    withXAppId: true,
+    withXAppId: false,
+    // 是否携带token
     withToken: true,
+    // 是否携带tenantId
     withTenantId: true,
+    // 是否显示错误信息
     isShowErrorMessage: true
   }
 }

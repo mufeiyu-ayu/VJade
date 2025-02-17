@@ -98,12 +98,12 @@ export class AyuAxios {
           }
           delete config.data
         }
-
         // // 处理token
         // withToken &&
         //   (config.headers['Authorization'] =
         //     config.headers['Authorization'] ||
         //     `Bearer ${IsSingle && envConfig.TENANT_ID !== 'application' ? appConfig?.token || webStorage.getStorageFromKey('token') : webStorage.getStorageFromKey('token')}`)
+        withToken && (config.headers['Authorization'] = `Bearer ${webStorage.getStorageFromKey('token')}`)
         // // 处理 X-App-Id
         // withXAppId &&
         //   (config.headers['X-App-Id'] =
@@ -124,7 +124,6 @@ export class AyuAxios {
 
       // 响应拦截器配置处理
       this.axiosInstance.interceptors.response.use((response: AxiosResponse<CommonResultType<any>>) => {
-        console.log(response, 'response')
         const { isShowSuccessMessage, isShowErrorMessage, successMessageText, errorMessageText } = this.currentOptions
 
         // 关闭loading
