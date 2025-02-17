@@ -15,6 +15,7 @@
     "@ayu-mu/request": "workspace:^",
     "@ayu-mu/utils": "workspace:^",
     "@configs/css": "workspace:^",
+    "nprogress": "^0.2.0",
     "pinia": "^2.1.7",
     "sass": "^1.76.0",
     "vue": "^3.5.12",
