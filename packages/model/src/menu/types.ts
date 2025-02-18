@@ -1,10 +1,18 @@
 export interface MenuItem {
+  /** 菜单ID */
+  id: number
+  /** 父级ID */
+  parentId: number
+  /** 角色 */
+  roles?: string[]
   /** 标题 */
   menuTitle: string
   /** 图标*/
   icon: string
   /** 菜单索引 */
   menuIndex: string
+  /**路由 name */
+  menuCode: string
   /** 是否为管理员 */
   isAdmin?: boolean
   /** 链接 */

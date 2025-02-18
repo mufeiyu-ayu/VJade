@@ -43,6 +43,27 @@ export async function initDatabase() {
     )
   `)
 
+  // 创建菜单表
+  await db.exec(`
+    CREATE TABLE IF NOT EXISTS menus (
+      id INTEGER PRIMARY KEY,
+      parentId INTEGER,
+      menuTitle TEXT NOT NULL,
+      icon TEXT,
+      menuIndex TEXT,
+      isAdmin INTEGER DEFAULT 0,
+      roles TEXT NOT NULL,
+      link TEXT,
+      menuCode TEXT,
+      show INTEGER DEFAULT 1,
+      type INTEGER,
+      routePath TEXT,
+      uri TEXT,
+      pageName TEXT,
+      sort INTEGER
+    )
+  `)
+
   // 插入默认用户
   const defaultUsers = [
     {
@@ -63,6 +84,33 @@ export async function initDatabase() {
     await db.exec(`
       INSERT OR IGNORE INTO users (username, password, realName, roles) 
       VALUES ('${user.username}', '${user.password}', '${user.realName}', '${user.roles}')
+    `)
+  }
+
+  for (const menu of flatMenuList) {
+    await db.exec(`
+      INSERT OR IGNORE INTO menus (
+        id, parentId, menuTitle, icon, menuIndex, 
+        isAdmin, roles, link,menuCode, show, type, 
+        routePath, uri, pageName, sort
+      ) 
+      VALUES (
+        ${menu.id},
+        ${menu.parentId === null ? 'NULL' : menu.parentId},
+        '${menu.menuTitle}',
+        '${menu.icon}',
+        '${menu.menuIndex}',
+        ${menu.isAdmin ? 1 : 0},
+        '${JSON.stringify(menu.roles)}',
+        '${menu.link}',
+        '${menu.menuCode}',
+        ${menu.show ? 1 : 0},
+        ${menu.type},
+        '${menu.routePath}',
+        '${menu.uri}',
+        '${menu.pageName}',
+        ${menu.sort}
+      )
     `)
   }
 }

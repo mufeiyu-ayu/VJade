@@ -49,13 +49,3 @@ export function verifyAccessToken(event: H3Event<EventHandlerRequest>): null | O
     return null
   }
 }
-
-/**
- * 未授权响应
- * @param event 事件
- * @returns 未授权响应
- */
-export function unAuthorizedResponse(event: H3Event<EventHandlerRequest>) {
-  setResponseStatus(event, 401)
-  return useResponseError('您没有权限访问该资源，请先登录')
-}

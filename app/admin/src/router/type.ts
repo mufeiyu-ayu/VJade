@@ -33,6 +33,18 @@ export enum RouteNameEnum {
   CHILD_TABLE = 'childTable'
 }
 
+export interface ResultRoute {
+  path: string
+  name: string
+  component: any
+  meta: {
+    id: number
+    parentId: number
+    icon: string
+    title: string
+  }
+  children?: ResultRoute[]
+}
 /**
  * 路由白名单
  */

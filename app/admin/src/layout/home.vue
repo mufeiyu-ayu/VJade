@@ -1,5 +1,8 @@
 <script lang="ts" setup>
+import { useRouter } from 'vue-router'
 import Menu from './components/menu.vue'
+const router = useRouter()
+console.log(router.getRoutes(), 'router')
 </script>
 
 <template>

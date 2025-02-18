@@ -27,6 +27,11 @@ export const createPermissionGuard = (router: Router) => {
         // const hasRoute = router.hasRoute(to.name)
         // 当没有菜单表时
         if (userStore.userMenu && userStore.userMenu.length === 0) {
+          try {
+            await userStore.initRouter()
+          } catch (error) {
+            return next({ name: RouteNameEnum.LOGIN })
+          }
           return next()
         } else {
           return next()

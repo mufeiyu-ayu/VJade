@@ -1,6 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import { createPermissionGuard } from './guard'
-// import { ROUTER_WHITE_LIST } from './types'
+import { ROUTER_WHITE_LIST } from './type'
 import { routes } from './routes'
 import type { App } from 'vue'
 
@@ -29,11 +29,10 @@ const setupRouter = (app: App) => {
 export const resetRouter = () => {
   router.getRoutes().forEach((route) => {
     const { name } = route
-    console.log(name, 'name')
-    // if (name && !ROUTER_WHITE_LIST.some((n) => n === name)) {
-    //   router.hasRoute(name) && router.removeRoute(name)
-    // }
+    //删除白名单以外的所有路由
+    if (name && !ROUTER_WHITE_LIST.some((n) => n === name)) {
+      router.hasRoute(name) && router.removeRoute(name)
+    }
   })
 }
-
 export { router, setupRouter }
