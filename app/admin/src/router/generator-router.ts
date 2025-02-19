@@ -3,6 +3,7 @@ import { RouteNameEnum, ResultRoute } from './type'
 import { resetRouter } from './index'
 import { routes } from './routes'
 import { router } from './index'
+import Test from '@/views/Test/index.vue'
 import type { RouteRecordRaw } from 'vue-router'
 const resolveRouter = (routes: ResultRoute[], parentId: number | null = null) => {
   // 过滤出当前 parentId 的所有路由
@@ -32,7 +33,7 @@ export const generatorRouter = (menu: MenuItem[]) => {
     menuList.push({
       path: item.link,
       name: item.menuCode,
-      component: () => import('@/views/Test/index.vue'),
+      component: Test,
       meta: {
         id: item.id,
         parentId: item.parentId,
@@ -42,10 +43,11 @@ export const generatorRouter = (menu: MenuItem[]) => {
     })
   })
   const layout = routes.find((item) => item.name === RouteNameEnum.LAYOUT)
+  console.log(layout, 'layout')
   const tree = resolveRouter(menuList) as RouteRecordRaw[]
 
-  layout.children = [...layout.children, ...tree]
-
+  layout.children = [...tree, ...layout.children]
   resetRouter()
   router.addRoute(layout)
+  console.log(router.getRoutes(), 'router.getRoutes()')
 }

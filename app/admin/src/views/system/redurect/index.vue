@@ -10,7 +10,8 @@ export default defineComponent({
 
     onMounted(() => {
       const path = route.params.path as string
-      router.replace({ path })
+      console.log(path, 'path')
+      router.replace({ path: `/${path}` })
     })
 
     return () => null

@@ -56,10 +56,10 @@ export const flatMenuList: MenuItem[] = [
     menuIndex: '1',
     isAdmin: false,
     roles: ['admin'],
-    link: '/dashboard',
+    link: 'dashboard',
     show: true,
     type: 1,
-    routePath: 'dashboard',
+    routePath: '/dashboard',
     uri: '/dashboard',
     pageName: 'Dashboard',
     sort: 1

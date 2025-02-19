@@ -12,7 +12,8 @@ export const useUserStore = defineStore('user', () => {
   const userInfo = ref<LoginResult>()
   // 是否登录
   const isLogin = ref(false)
-  const userMenu = ref<MenuItem[]>([])
+  // 从 localStorage 初始化 userMenu
+  const userMenu = ref<MenuItem[]>(webStorage.getStorageFromKey('menu') || [])
   /**
    * 用户登录
    * @param form 登录表单
@@ -32,6 +33,7 @@ export const useUserStore = defineStore('user', () => {
    * @param menu
    */
   const setMenuList = (menu?: Array<MenuItem | any>) => {
+    alert(`${menu}设置菜单了`)
     webStorage.setStorage('menu', menu ?? null)
     userMenu.value = menu ?? []
   }
@@ -41,6 +43,7 @@ export const useUserStore = defineStore('user', () => {
    */
   const loginOut = () => {
     setAuthInfo({ clear: true, data: null })
+    setMenuList()
   }
   /**
    * 初始化路由
@@ -51,13 +54,14 @@ export const useUserStore = defineStore('user', () => {
       // token 过期 需清除本地缓存用户信息
       ElMessage.warning('登录已过期，请重新登录')
       loginOut()
+      return
     }
     if (data && Array.isArray(data)) {
       const menuDataSort = data.sort((a, b) => a.sort - b.sort)
       // 将菜单信息缓存到本地
       setMenuList(menuDataSort)
       // 生成路由
-      generatorRouter(menuDataSort)
+      await generatorRouter(menuDataSort)
     }
   }
 
@@ -74,7 +78,6 @@ export const useUserStore = defineStore('user', () => {
     }
     isLogin.value = data?.accessToken ? true : false
     userInfo.value = data
-    setMenuList()
   }
   return {
     loginOut,

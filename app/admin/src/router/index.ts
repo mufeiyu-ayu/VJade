@@ -29,10 +29,10 @@ const setupRouter = (app: App) => {
 export const resetRouter = () => {
   router.getRoutes().forEach((route) => {
     const { name } = route
-    //删除白名单以外的所有路由
     if (name && !ROUTER_WHITE_LIST.some((n) => n === name)) {
       router.hasRoute(name) && router.removeRoute(name)
     }
   })
 }
+
 export { router, setupRouter }

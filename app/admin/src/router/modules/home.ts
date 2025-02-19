@@ -18,7 +18,7 @@ export const HOME_ROUTE_INFO = {
  * 重定向路由信息
  */
 export const REDIRECT_ROUTE_INFO = {
-  path: '/redirect/:path(.*)',
+  path: '/redirect/:path',
   name: RouteNameEnum.REDIRECT,
   component: RedirectPage,
   meta: {
