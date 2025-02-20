@@ -33,7 +33,6 @@ export const useUserStore = defineStore('user', () => {
    * @param menu
    */
   const setMenuList = (menu?: Array<MenuItem | any>) => {
-    alert(`${menu}设置菜单了`)
     webStorage.setStorage('menu', menu ?? null)
     userMenu.value = menu ?? []
   }

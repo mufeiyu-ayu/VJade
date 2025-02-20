@@ -2,8 +2,14 @@
 import { useRouter } from 'vue-router'
 import Menu from './components/menu.vue'
 const router = useRouter()
-// console.log(router.getRoutes(), 'router')
-console.log(router.hasRoute('common'))
+
+const getRoute = () => {
+  console.log(router.getRoutes(), 'router')
+}
+const handleRoute = () => {
+  console.log(router.getRoutes(), 'router')
+  router.push('/system')
+}
 </script>
 
 <template>
@@ -30,7 +36,9 @@ console.log(router.hasRoute('common'))
         </div>
         <div class="h-10 bg-[#b1b1b1]">面包屑</div>
         <div class="flex-1">
-          <el-button @click="$router.push({ name: 'system' })">点击</el-button>
+          <el-button @click="handleRoute">点击</el-button>
+          <el-button @click="$router.push('/system/user')">点击</el-button>
+          <el-button @click="getRoute">点击</el-button>
           <router-view />
         </div>
       </div>
