@@ -5,6 +5,7 @@ import { routes } from './routes'
 import { router } from './index'
 import Test from '@/views/Test/index.vue'
 import type { RouteRecordRaw } from 'vue-router'
+import { NOT_FOUND_ROUTE } from './modules/base'
 const resolveRouter = (routes: ResultRoute[], parentId: number | null = null) => {
   // 过滤出当前 parentId 的所有路由
   const currentRoutes = routes.filter((route) => route.meta.parentId === parentId)
@@ -27,7 +28,7 @@ const resolveRouter = (routes: ResultRoute[], parentId: number | null = null) =>
  * 生成路由
  * @param menu 后端返回的路由表
  */
-export const generatorRouter = (menu: MenuItem[]) => {
+export const generatorRouter = async (menu: MenuItem[]) => {
   const menuList: ResultRoute[] = []
   menu.forEach((item) => {
     menuList.push({
@@ -43,11 +44,12 @@ export const generatorRouter = (menu: MenuItem[]) => {
     })
   })
   const layout = routes.find((item) => item.name === RouteNameEnum.LAYOUT)
-  console.log(layout, 'layout')
+
   const tree = resolveRouter(menuList) as RouteRecordRaw[]
 
   layout.children = [...tree, ...layout.children]
   resetRouter()
+  router.removeRoute('pathMatch')
+  router.addRoute(NOT_FOUND_ROUTE)
   router.addRoute(layout)
-  console.log(router.getRoutes(), 'router.getRoutes()')
 }
