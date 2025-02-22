@@ -2,9 +2,9 @@
 import { ElForm, ElFormItem, ElButton, ElRow, ElCol } from 'element-plus'
 
 import { AyuIcon } from '@ayu-mu/common'
-import type { FormProps } from './types'
+import type { FormProps, NormalFormProps } from './types'
 import { useForm } from './hooks/ayu-form-hooks'
-defineProps<FormProps>()
+const props = defineProps<FormProps>()
 
 const {
   formRef,
@@ -48,7 +48,11 @@ defineExpose({
             </template>
             <div :class="tabsOverflowY">
               <el-row>
-                <el-col v-for="field in group.fieldConfig" :key="field.field" :span="colSize || field.colSize">
+                <el-col
+                  v-for="field in group.fieldConfig"
+                  :key="field.field"
+                  :span="isGroup ? field.colSize : (props as NormalFormProps).colSize || field.colSize"
+                >
                   <el-form-item :label="field.label" :prop="field.field">
                     <component
                       v-model="formData[field.field]"

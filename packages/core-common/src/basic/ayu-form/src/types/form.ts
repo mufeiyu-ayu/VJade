@@ -83,8 +83,6 @@ export interface GroupFormProps extends BaseFormProps {
 
   /** 分组类型为 tab时指定tabs 风格 类型*/
   tabType?: '' | 'card' | 'border-card'
-  /** 分组时 colsize */
-  colSize: never
 }
 
 /**

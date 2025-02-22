@@ -3,6 +3,7 @@ import { AyuForm, type GroupFormProps } from '@ayu-mu/core-common'
 import { ref, onMounted, reactive } from 'vue'
 import { postFormData } from '@/apis'
 import { ElButton } from 'element-plus'
+// import { FormParams } from '@/apis/types.ts'
 const formRef = ref<InstanceType<typeof AyuForm>>()
 const formProps = reactive<GroupFormProps>({
   fieldConfig: [
@@ -88,7 +89,7 @@ const formProps = reactive<GroupFormProps>({
   ],
   isGroup: true,
   // isExpand: false,
-  groupType: 'collapse' as const,
+  groupType: 'collapse',
   // tabType: 'border-card',
   // maxPaneHeight: '200px',
   onSubmit: async (params: any) => {

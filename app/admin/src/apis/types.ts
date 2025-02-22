@@ -10,3 +10,15 @@ export interface LoginResult {
   error: string | null
   message: string
 }
+
+export interface FormParams {
+  username: string
+  password: string
+  email: string
+  phone: string
+  phone1: string
+  remark: string
+  remark1: string
+  remark2: string
+  remark3: string
+}
