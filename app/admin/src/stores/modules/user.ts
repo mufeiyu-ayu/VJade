@@ -2,7 +2,7 @@ import { defineStore } from 'pinia'
 import { webStorage } from '@ayu-mu/utils'
 import { ref } from 'vue'
 import { generatorRouter } from '@/router/generator-router'
-// import { router } from '@/router'
+import { router } from '@/router'
 import { login, getMenuList } from '@/apis'
 import type { MenuItem } from '@ayu-mu/model'
 import type { LoginResult } from '@/apis/types'
@@ -11,9 +11,10 @@ export const useUserStore = defineStore('user', () => {
   // 用户信息
   const userInfo = ref<LoginResult>()
   // 是否登录
-  const isLogin = ref(false)
+  const isLogin = ref(webStorage.getStorageFromKey('isLogin') || false)
   // 从 localStorage 初始化 userMenu
   const userMenu = ref<MenuItem[]>(webStorage.getStorageFromKey('menu') || [])
+  const routeLen = ref(webStorage.getStorageFromKey('routeLen') || [])
   /**
    * 用户登录
    * @param form 登录表单
@@ -78,6 +79,10 @@ export const useUserStore = defineStore('user', () => {
     isLogin.value = data?.accessToken ? true : false
     userInfo.value = data
   }
+  const setRouteLen = () => {
+    webStorage.setStorage('routeLen', router.getRoutes().length)
+    routeLen.value = router.getRoutes().length
+  }
   return {
     loginOut,
     userLogin,
@@ -85,6 +90,8 @@ export const useUserStore = defineStore('user', () => {
     userInfo,
     isLogin,
     userMenu,
-    setMenuList
+    setMenuList,
+    routeLen,
+    setRouteLen
   }
 })

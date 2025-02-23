@@ -5,7 +5,7 @@ import { routes } from './routes'
 import { router } from './index'
 import Test from '@/views/Test/index.vue'
 import type { RouteRecordRaw } from 'vue-router'
-import { NOT_FOUND_ROUTE } from './modules/base'
+import { useUserStore } from '@/stores/modules/user'
 const resolveRouter = (routes: ResultRoute[], parentId: number | null = null) => {
   // 过滤出当前 parentId 的所有路由
   const currentRoutes = routes.filter((route) => route.meta.parentId === parentId)
@@ -29,6 +29,7 @@ const resolveRouter = (routes: ResultRoute[], parentId: number | null = null) =>
  * @param menu 后端返回的路由表
  */
 export const generatorRouter = async (menu: MenuItem[]) => {
+  const { setRouteLen } = useUserStore()
   const menuList: ResultRoute[] = []
   menu.forEach((item) => {
     menuList.push({
@@ -47,9 +48,11 @@ export const generatorRouter = async (menu: MenuItem[]) => {
 
   const tree = resolveRouter(menuList) as RouteRecordRaw[]
 
-  layout.children = [...tree, ...layout.children]
+  // 重置路由
   resetRouter()
-  router.removeRoute('pathMatch')
-  router.addRoute(NOT_FOUND_ROUTE)
-  router.addRoute(layout)
+
+  // 添加布局路由
+  const newLayout = { ...layout, children: [...tree] }
+  router.addRoute(newLayout)
+  setRouteLen()
 }

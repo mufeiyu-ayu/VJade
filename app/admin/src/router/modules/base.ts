@@ -1,7 +1,7 @@
 import type { RouteRecordRaw } from 'vue-router'
 import NotFoundPage from '@/views/system/exception/404.vue'
 import ForbiddenPage from '@/views/system/exception/403.vue'
-import HomeLayout from '@/layout/home.vue'
+
 import { RouteNameEnum } from '../type'
 import LoginPage from '@/views/system/login/index.vue'
 
@@ -30,7 +30,6 @@ export const NOT_FOUND_ROUTE: RouteRecordRaw = {
  */
 export const EXCEPTION_ROUTE: RouteRecordRaw = {
   path: '/exception',
-  component: HomeLayout,
   redirect: '/exception/404',
   meta: {
     title: '异常页'

@@ -1,4 +1,4 @@
-import { type Router } from 'vue-router'
+import { type Router, type RouteRecordNormalized } from 'vue-router'
 import NProgress from 'nprogress'
 import 'nprogress/nprogress.css'
 
@@ -7,22 +7,14 @@ import { webStorage } from '@ayu-mu/utils'
 
 import { RouteNameEnum, ROUTER_WHITE_LIST } from '@/router/type'
 import { ElMessage } from 'element-plus'
-// import type { RouteLocationNormalized, NavigationGuardNext } from 'vue-router'
-// const through = (to: RouteLocationNormalized, next: NavigationGuardNext) => {
-//   // console.log(to, 'to')
-//   // 如果当前路由是由于重定向而来的，则使用redirectedFrom属性提供的原
-//   if (to.redirectedFrom) {
-//     next(to.redirectedFrom.fullPath)
-//     return
-//   }
-//   // 如果查询参数中包含redirect字段，则使用该字段的值进行导航。
-//   if (to.query.redirect) {
-//     next(to.query.redirect as string)
-//     return
-//   }
-//   // 如果以上条件都不满足，则继续正常的路由导航。
-//   next()
-// }
+
+const hasRouteName = (path: string, arr: RouteRecordNormalized[]) => {
+  const route = arr.find((item) => item.path === path)
+  if (route) {
+    return route
+  }
+  return false
+}
 /**
  * 创建权限守卫
  * @param router 路由
@@ -31,7 +23,7 @@ export const createPermissionGuard = (router: Router) => {
   //前置路由守卫
   router.beforeEach(async (to, from, next) => {
     NProgress.start() // 开启进度条
-    const { userMenu, initRouter } = useUserStore()
+    const { userMenu, initRouter, routeLen } = useUserStore()
 
     const isLogin = webStorage.getStorageFromKey('isLogin')
 
@@ -41,34 +33,30 @@ export const createPermissionGuard = (router: Router) => {
         // 如果已登录，访问登录页则重定向到首页，并终止执行
         return next({ name: RouteNameEnum.LAYOUT })
       } else {
-        // const hasRoute = router.hasRoute(to.name)
-
-        // 当没有菜单表时或者用户刷新网页时
-
+        const hasRoute = router.hasRoute(to.name)
         if (userMenu && userMenu.length === 0) {
           try {
             await initRouter()
           } catch (error) {
-            alert('获取菜单失败')
-
             return next({ name: RouteNameEnum.LOGIN })
           }
 
           return next()
         }
-
-        if (userMenu.length > 0 && router.getRoutes.length < 10) {
+        // 主要针对的是在浏览器地址栏输入地址的情况，此时动态添加的路由会消失
+        if (userMenu.length > 0 && router.getRoutes().length < routeLen) {
           await initRouter()
-
-          console.log(to, 'to')
-          return next()
+          const path = to?.redirectedFrom?.fullPath
+          const route = hasRouteName(path, router.getRoutes())
+          if (path && route) {
+            return next({ ...route, replace: true })
+          }
         }
-        ElMessage.error('走着了')
-
+        if (!hasRoute) {
+          // 导航到 404
+          return next({ name: RouteNameEnum.NOT_FOUND, replace: true })
+        }
         return next()
-
-        // // 如果已登录，访问其他页面则正常放行
-        // return next()
       }
     } else {
       // 如果用户未登录，则只能跳转到白名单
