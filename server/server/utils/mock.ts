@@ -56,7 +56,7 @@ export const flatMenuList: MenuItem[] = [
     menuIndex: '1',
     isAdmin: false,
     roles: ['admin'],
-    link: 'dashboard',
+    link: '/dashboard',
     show: true,
     type: 1,
     routePath: '/dashboard',
@@ -199,6 +199,23 @@ export const flatMenuList: MenuItem[] = [
     uri: '/content',
     pageName: 'ContentManage',
     sort: 3
+  },
+  {
+    id: 1000131,
+    parentId: 10003,
+    menuTitle: '测试页面',
+    menuCode: 'article1',
+    icon: 'Files',
+    menuIndex: '4-1',
+    isAdmin: false,
+    roles: ['admin'],
+    link: '/content/article1',
+    show: true,
+    type: 1,
+    routePath: 'content/article1',
+    uri: '/content/article1',
+    pageName: 'ArticleManage',
+    sort: 1
   },
   {
     id: 1000031,

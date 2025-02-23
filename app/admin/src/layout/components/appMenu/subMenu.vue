@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import { MenuItem } from '@ayu-mu/model'
 import { ref, onMounted } from 'vue'
-import { useRoute } from 'vue-router'
-
+import { useRoute, useRouter } from 'vue-router'
+const router = useRouter()
 const props = defineProps<{
   menuList: MenuItem[]
 }>()
@@ -42,15 +42,20 @@ onMounted(() => {
 })
 
 // 处理菜单选中
-const handleSelect = (index: string) => {
-  activeIndex.value = index
-  localStorage.setItem('activeMenuIndex', index)
+const handleSelect = (item: MenuItem) => {
+  activeIndex.value = item.menuIndex
+  localStorage.setItem('activeMenuIndex', item.menuIndex)
+  router.push(item.link)
 }
 </script>
 
 <template>
   <template v-for="item in menuList" :key="item.menuIndex">
-    <el-sub-menu v-if="item.children" :index="item.menuIndex" :class="{ 'is-active': activeIndex === item.menuIndex }">
+    <el-sub-menu
+      v-if="item.children.length > 0"
+      :index="item.menuIndex"
+      :class="{ 'is-active': activeIndex === item.menuIndex }"
+    >
       <template #title>
         <el-icon>
           <component :is="item.icon" />
@@ -59,7 +64,7 @@ const handleSelect = (index: string) => {
       </template>
       <subMenu :menuList="item.children" />
     </el-sub-menu>
-    <el-menu-item v-else :index="item.menuIndex" @click="handleSelect(item.menuIndex)">
+    <el-menu-item v-else :index="item.menuIndex" @click="handleSelect(item)">
       <el-icon>
         <component :is="item.icon" />
       </el-icon>

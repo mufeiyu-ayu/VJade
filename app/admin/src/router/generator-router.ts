@@ -3,10 +3,10 @@ import { RouteNameEnum, ResultRoute } from './type'
 import { resetRouter } from './index'
 import { routes } from './routes'
 import { router } from './index'
-import Test from '@/views/Test/index.vue'
+// import Test from '@/views/Test/index.vue'
 import type { RouteRecordRaw } from 'vue-router'
 import { useUserStore } from '@/stores/modules/user'
-const resolveRouter = (routes: ResultRoute[], parentId: number | null = null) => {
+export const resolveRouter = (routes: ResultRoute[], parentId: number | null = null) => {
   // 过滤出当前 parentId 的所有路由
   const currentRoutes = routes.filter((route) => route.meta.parentId === parentId)
 
@@ -31,11 +31,28 @@ const resolveRouter = (routes: ResultRoute[], parentId: number | null = null) =>
 export const generatorRouter = async (menu: MenuItem[]) => {
   const { setRouteLen } = useUserStore()
   const menuList: ResultRoute[] = []
+  // 获取 src/page/在所有文件路径以及 vue 文件
+  // 转换为数组格式
+  const pagePath = import.meta.glob('@/views/page/**/*.vue')
+
+  const pagePathList: any[] = Object.entries(pagePath).map(([path, value]) => ({
+    path: path
+      .replace('/src/views/page', '') // 移除前缀
+      .replace('/index.vue', '') // 移除 /index.vue 后缀
+      .replace('.vue', ''), // 移除其他 .vue 后缀
+    value: value as () => Promise<unknown>
+  }))
+
   menu.forEach((item) => {
+    const pagePath = pagePathList.find((pageItem) => pageItem.path === item.link) || {
+      path: item.link,
+      value: () => import('@/views/Test/index.vue')
+    }
+
     menuList.push({
       path: item.link,
       name: item.menuCode,
-      component: Test,
+      component: pagePath.value,
       meta: {
         id: item.id,
         parentId: item.parentId,
@@ -45,14 +62,14 @@ export const generatorRouter = async (menu: MenuItem[]) => {
     })
   })
   const layout = routes.find((item) => item.name === RouteNameEnum.LAYOUT)
-
   const tree = resolveRouter(menuList) as RouteRecordRaw[]
-
+  console.log(tree, 'tree')
   // 重置路由
   resetRouter()
 
   // 添加布局路由
   const newLayout = { ...layout, children: [...tree] }
   router.addRoute(newLayout)
-  setRouteLen()
+  console.log(router.getRoutes(), 'router.getRoutes()')
+  setRouteLen(tree)
 }

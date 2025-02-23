@@ -7,6 +7,7 @@ import { login, getMenuList } from '@/apis'
 import type { MenuItem } from '@ayu-mu/model'
 import type { LoginResult } from '@/apis/types'
 import { ElMessage } from 'element-plus'
+import type { RouteRecordRaw } from 'vue-router'
 export const useUserStore = defineStore('user', () => {
   // 用户信息
   const userInfo = ref<LoginResult>()
@@ -15,6 +16,7 @@ export const useUserStore = defineStore('user', () => {
   // 从 localStorage 初始化 userMenu
   const userMenu = ref<MenuItem[]>(webStorage.getStorageFromKey('menu') || [])
   const routeLen = ref(webStorage.getStorageFromKey('routeLen') || [])
+  const menuList = ref<RouteRecordRaw[]>([])
   /**
    * 用户登录
    * @param form 登录表单
@@ -79,9 +81,10 @@ export const useUserStore = defineStore('user', () => {
     isLogin.value = data?.accessToken ? true : false
     userInfo.value = data
   }
-  const setRouteLen = () => {
+  const setRouteLen = (arr: RouteRecordRaw[]) => {
     webStorage.setStorage('routeLen', router.getRoutes().length)
     routeLen.value = router.getRoutes().length
+    menuList.value = arr
   }
   return {
     loginOut,

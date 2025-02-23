@@ -56,6 +56,7 @@ export const createPermissionGuard = (router: Router) => {
           // 导航到 404
           return next({ name: RouteNameEnum.NOT_FOUND, replace: true })
         }
+        // console.log(to, 'to')
         return next()
       }
     } else {

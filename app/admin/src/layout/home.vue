@@ -1,12 +1,12 @@
 <script lang="ts" setup>
-import { useRouter } from 'vue-router'
+// import { useRouter } from 'vue-router'
 import Menu from './components/menu.vue'
-const router = useRouter()
+// const router = useRouter()
 
-const handleRoute = () => {
-  // console.log(router.getRoutes(), 'router')
-  router.push('/system')
-}
+// const handleRoute = () => {
+//   // console.log(router.getRoutes(), 'router')
+//   router.push('/system')
+// }
 </script>
 
 <template>
@@ -33,11 +33,8 @@ const handleRoute = () => {
         </div>
         <div class="h-10 bg-[#b1b1b1]">面包屑</div>
         <div class="flex-1">
-          <el-button @click="handleRoute">点击</el-button>
-          <el-button @click="$router.push('/system/user1')">点击</el-button>
-          <el-button @click="$router.push('/')">点击/</el-button>
-
           <!-- <el-button @click="getRoute">点击</el-button> -->
+          <el-button @click="$router.push('/hello')">link</el-button>
           <router-view />
         </div>
       </div>
