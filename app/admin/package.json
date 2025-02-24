@@ -3,8 +3,7 @@
   "version": "0.0.2",
   "private": true,
   "scripts": {
-    "build": "run-s build-only",
-    "build-only": "vite build",
+    "build": "vite build",
     "dev": "vite",
     "preview": "vite preview",
     "type-check": "vue-tsc --build --force"
@@ -16,6 +15,7 @@
     "@ayu-mu/utils": "workspace:^",
     "@configs/css": "workspace:^",
     "nprogress": "^0.2.0",
+    "element-plus": "^2.9.3",
     "pinia": "^2.1.7",
     "sass": "^1.76.0",
     "vue": "^3.5.12",
@@ -31,7 +31,6 @@
     "@volar-plugins/vetur": "^2.0.0",
     "@vue/tsconfig": "^0.5.1",
     "autoprefixer": "^10.4.19",
-    "element-plus": "^2.9.3",
     "less": "^4.2.0",
     "npm-run-all2": "^6.1.2",
     "postcss": "^8.4.38",

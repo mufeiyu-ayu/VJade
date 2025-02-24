@@ -2,7 +2,7 @@ import { RouteNameEnum } from '../type'
 import RedirectPage from '@/views/system/redurect/index.vue'
 import HomeLayout from '@/layout/home.vue'
 import HomePage from '@/views/system/home/index.vue'
-import SystemPermission from '@/views/Test/index2.vue'
+
 /**
  * 首页路由信息
  */
@@ -12,17 +12,7 @@ export const HOME_ROUTE_INFO = {
   component: HomePage,
   meta: {
     title: '应用首页'
-  },
-  children: [
-    {
-      path: 'hello',
-      name: 'hello',
-      component: SystemPermission,
-      meta: {
-        title: '系统管理111'
-      }
-    }
-  ]
+  }
 }
 
 /**
@@ -43,6 +33,7 @@ export const REDIRECT_ROUTE_INFO = {
 export const HOME_ROUTE = {
   path: '/',
   name: RouteNameEnum.LAYOUT,
+
   component: HomeLayout,
   children: [HOME_ROUTE_INFO, REDIRECT_ROUTE_INFO]
 }
