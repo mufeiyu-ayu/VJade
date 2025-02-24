@@ -3,7 +3,7 @@ import { RouteNameEnum, ResultRoute } from './type'
 import { resetRouter } from './index'
 import { routes } from './routes'
 import { router } from './index'
-// import Test from '@/views/Test/index.vue'
+import Test from '@/views/Test/index.vue'
 import type { RouteRecordRaw } from 'vue-router'
 import { useUserStore } from '@/stores/modules/user'
 export const resolveRouter = (routes: ResultRoute[], parentId: number | null = null) => {
@@ -30,7 +30,7 @@ export const resolveRouter = (routes: ResultRoute[], parentId: number | null = n
  */
 export const generatorRouter = async (menu: MenuItem[]) => {
   const { setRouteLen } = useUserStore()
-  const menuList: ResultRoute[] = []
+  const menuList: RouteRecordRaw[] = []
   // 获取 src/page/在所有文件路径以及 vue 文件
   // 转换为数组格式
   const pagePath = import.meta.glob('@/views/page/**/*.vue')
@@ -44,15 +44,12 @@ export const generatorRouter = async (menu: MenuItem[]) => {
   }))
 
   menu.forEach((item) => {
-    const pagePath = pagePathList.find((pageItem) => pageItem.path === item.link) || {
-      path: item.link,
-      value: () => import('@/views/Test/index.vue')
-    }
+    const pagePath = pagePathList.find((pageItem) => pageItem.path === item.link)
 
     menuList.push({
       path: item.link,
       name: item.menuCode,
-      component: pagePath.value,
+      component: pagePath?.value || Test,
       meta: {
         id: item.id,
         parentId: item.parentId,
@@ -62,14 +59,9 @@ export const generatorRouter = async (menu: MenuItem[]) => {
     })
   })
   const layout = routes.find((item) => item.name === RouteNameEnum.LAYOUT)
-  const tree = resolveRouter(menuList) as RouteRecordRaw[]
-  console.log(tree, 'tree')
-  // 重置路由
+  layout.children = [...menuList, ...layout.children]
   resetRouter()
-
-  // 添加布局路由
-  const newLayout = { ...layout, children: [...tree] }
-  router.addRoute(newLayout)
+  router.addRoute(layout)
   console.log(router.getRoutes(), 'router.getRoutes()')
-  setRouteLen(tree)
+  setRouteLen(menuList)
 }

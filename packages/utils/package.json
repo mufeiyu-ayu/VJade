@@ -28,7 +28,7 @@
     "@ayu-mu/tsconfig": "workspace:^",
     "@ayu-mu/vite": "workspace:^",
     "@types/crypto-js": "^4.2.2",
-    "vite": "^5.1.6",
+    "vite": "^5.4.10",
     "vue-tsc": "^2.2.0"
   },
   "peerDependencies": {

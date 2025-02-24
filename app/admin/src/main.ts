@@ -1,5 +1,4 @@
 import { createApp } from 'vue'
-import 'element-plus/dist/index.css'
 import { setupStore } from '@/stores'
 import '@ayu-mu/core-common/style.css'
 import '@ayu-mu/common/style.css'

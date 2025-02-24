@@ -31,5 +31,26 @@ export default defineConfig({
         changeOrigin: true
       }
     }
+  },
+  build: {
+    minify: 'terser',
+    terserOptions: {
+      compress: {
+        drop_console: true,
+        drop_debugger: true
+      }
+    },
+    rollupOptions: {
+      external: ['vue', 'element-plus', 'vue-router', 'pinia'],
+      output: {
+        // 在 HTML 中注入外部化的依赖
+        globals: {
+          vue: 'Vue',
+          'vue-router': 'VueRouter',
+          'element-plus': 'ElementPlus',
+          pinia: 'Pinia'
+        }
+      }
+    }
   }
 })

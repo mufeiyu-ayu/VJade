@@ -34,8 +34,8 @@ import Menu from './components/menu.vue'
         <div class="h-10 bg-[#b1b1b1]">面包屑</div>
         <div class="flex-1">
           <!-- <el-button @click="getRoute">点击</el-button> -->
-          <el-button @click="$router.push('/hello')">link</el-button>
-          <router-view />
+          <!-- <el-button @click="$router.push('/hello')">link</el-button> -->
+          <router-view></router-view>
         </div>
       </div>
     </div>

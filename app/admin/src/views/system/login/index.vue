@@ -5,7 +5,7 @@ import { useRouter } from 'vue-router'
 import type { FormInstance, FormRules } from 'element-plus'
 import { ElMessage } from 'element-plus'
 import { useUserStore } from '@/stores/modules/user'
-import { RouteNameEnum } from '@/router/type'
+// import { RouteNameEnum } from '@/router/type'
 const userStore = useUserStore()
 const router = useRouter()
 const formRef = ref<FormInstance>()
@@ -33,7 +33,7 @@ const login = async (formEl: FormInstance | undefined) => {
         if (code !== 0) return
         ElMessage.success('登录成功')
         loading.value = false
-        router.push({ name: RouteNameEnum.LAYOUT })
+        router.push({ path: '/' })
       } catch (error) {
         loading.value = false
       }
