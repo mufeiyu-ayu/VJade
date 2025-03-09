@@ -1,5 +1,5 @@
 import type { MenuItem } from '@ayu-mu/model'
-
+import { faker } from '@faker-js/faker'
 export const MOCK_USERS: UserInfo[] = [
   {
     id: 0,
@@ -320,3 +320,24 @@ export const flatMenuList: MenuItem[] = [
     sort: 5
   }
 ]
+
+export const mockTableData = () => {
+  const data = Array.from({ length: 300 }, (_, index) => ({
+    id: index + 1,
+    userId: faker.number.int({ min: 1000, max: 9999 }),
+    product_name: faker.commerce.productName(),
+    product_code: faker.string.alphanumeric(8).toUpperCase(),
+    meno: faker.lorem.sentence(),
+    username: faker.person.fullName(),
+    user_code: `USR${faker.string.numeric(6)}`,
+    createTime: faker.date.past().toISOString(),
+    addTime: faker.date.recent().toISOString(),
+    order_id: faker.string.numeric(10),
+    order_name: `Order-${faker.string.alphanumeric(6)}`,
+    package_num: faker.number.int({ min: 1, max: 100 }),
+    weight: faker.number.float({ min: 0.1, max: 100, fractionDigits: 1 }),
+    total_weight: faker.number.float({ min: 100, max: 10000, fractionDigits: 1 })
+  }))
+
+  return data
+}
