@@ -322,7 +322,7 @@ export const flatMenuList: MenuItem[] = [
 ]
 
 export const mockTableData = () => {
-  const data = Array.from({ length: 300 }, (_, index) => ({
+  const data = Array.from({ length: 135 }, (_, index) => ({
     id: index + 1,
     userId: faker.number.int({ min: 1000, max: 9999 }),
     product_name: faker.commerce.productName(),
