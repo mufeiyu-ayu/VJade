@@ -321,23 +321,85 @@ export const flatMenuList: MenuItem[] = [
   }
 ]
 
+/**
+ * 生成模拟的表格数据，包含父子层级关系
+ * @returns {Array} 返回一个包含父子关系的一维数组
+ */
 export const mockTableData = () => {
-  const data = Array.from({ length: 135 }, (_, index) => ({
-    id: index + 1,
-    userId: faker.number.int({ min: 1000, max: 9999 }),
-    product_name: faker.commerce.productName(),
-    product_code: faker.string.alphanumeric(8).toUpperCase(),
-    meno: faker.lorem.sentence(),
-    username: faker.person.fullName(),
-    user_code: `USR${faker.string.numeric(6)}`,
-    createTime: faker.date.past().toISOString(),
-    addTime: faker.date.recent().toISOString(),
-    order_id: faker.string.numeric(10),
-    order_name: `Order-${faker.string.alphanumeric(6)}`,
-    package_num: faker.number.int({ min: 1, max: 100 }),
-    weight: faker.number.float({ min: 0.1, max: 100, fractionDigits: 1 }),
-    total_weight: faker.number.float({ min: 100, max: 10000, fractionDigits: 1 })
-  }))
+  const allData = []
+  let currentId = 1
 
-  return data
+  // 生成一级节点
+  const firstLevelCount = 15
+  for (let i = 0; i < firstLevelCount; i++) {
+    const firstLevelItem = {
+      id: currentId,
+      parentId: null,
+      userId: faker.number.int({ min: 1000, max: 9999 }),
+      product_name: faker.commerce.productName(),
+      product_code: faker.string.alphanumeric(8).toUpperCase(),
+      meno: faker.lorem.sentence(),
+      username: faker.person.fullName(),
+      user_code: `USR${faker.string.numeric(6)}`,
+      createTime: faker.date.past().toISOString(),
+      addTime: faker.date.recent().toISOString(),
+      order_id: faker.string.numeric(10),
+      order_name: `Order-${faker.string.alphanumeric(6)}`,
+      package_num: faker.number.int({ min: 1, max: 100 }),
+      weight: faker.number.float({ min: 0.1, max: 100, fractionDigits: 1 }),
+      total_weight: faker.number.float({ min: 100, max: 10000, fractionDigits: 1 })
+    }
+    allData.push(firstLevelItem)
+    currentId++
+
+    // 为每个一级节点生成二级节点
+    const secondLevelCount = faker.number.int({ min: 2, max: 5 })
+    for (let j = 0; j < secondLevelCount; j++) {
+      const secondLevelItem = {
+        id: currentId,
+        parentId: firstLevelItem.id,
+        userId: faker.number.int({ min: 1000, max: 9999 }),
+        product_name: `${firstLevelItem.product_name} - ${faker.commerce.productName()}`,
+        product_code: `${firstLevelItem.product_code}-${faker.string.alphanumeric(4)}`,
+        meno: faker.lorem.sentence(),
+        username: faker.person.fullName(),
+        user_code: `USR${faker.string.numeric(6)}`,
+        createTime: faker.date.past().toISOString(),
+        addTime: faker.date.recent().toISOString(),
+        order_id: faker.string.numeric(10),
+        order_name: `${firstLevelItem.order_name}-${faker.string.alphanumeric(4)}`,
+        package_num: faker.number.int({ min: 1, max: 50 }),
+        weight: faker.number.float({ min: 0.1, max: 50, fractionDigits: 1 }),
+        total_weight: faker.number.float({ min: 50, max: 5000, fractionDigits: 1 })
+      }
+      allData.push(secondLevelItem)
+      currentId++
+
+      // 为每个二级节点生成三级节点
+      const thirdLevelCount = faker.number.int({ min: 1, max: 3 })
+      for (let k = 0; k < thirdLevelCount; k++) {
+        const thirdLevelItem = {
+          id: currentId,
+          parentId: secondLevelItem.id,
+          userId: faker.number.int({ min: 1000, max: 9999 }),
+          product_name: `${secondLevelItem.product_name} - ${faker.commerce.productName()}`,
+          product_code: `${secondLevelItem.product_code}-${faker.string.alphanumeric(4)}`,
+          meno: faker.lorem.sentence(),
+          username: faker.person.fullName(),
+          user_code: `USR${faker.string.numeric(6)}`,
+          createTime: faker.date.past().toISOString(),
+          addTime: faker.date.recent().toISOString(),
+          order_id: faker.string.numeric(10),
+          order_name: `${secondLevelItem.order_name}-${faker.string.alphanumeric(4)}`,
+          package_num: faker.number.int({ min: 1, max: 20 }),
+          weight: faker.number.float({ min: 0.1, max: 20, fractionDigits: 1 }),
+          total_weight: faker.number.float({ min: 20, max: 2000, fractionDigits: 1 })
+        }
+        allData.push(thirdLevelItem)
+        currentId++
+      }
+    }
+  }
+
+  return allData
 }
