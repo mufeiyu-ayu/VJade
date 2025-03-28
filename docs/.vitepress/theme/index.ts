@@ -1,6 +1,5 @@
 import DefaultTheme from 'vitepress/theme'
-import ayuDesign from '@ayu-mu/ayu-design'
-import '@ayu-mu/ayu-design/dist/index.css'
+
 import { type App } from 'vue'
 import './style.css'
 import { AntDesignContainer } from '@vitepress-demo-preview/component'
@@ -10,6 +9,5 @@ export default {
   ...DefaultTheme,
   enhanceApp({ app }: { app: App }) {
     app.component('demo-preview', AntDesignContainer)
-    app.use(ayuDesign)
   }
 }
