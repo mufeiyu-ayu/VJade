@@ -1,12 +1,17 @@
 {
+  "name": "ayu",
+  "version": "1.0.0",
+  "private": false,
+  "packageManager": "pnpm@9.4.0",
+  "description": "",
+  "author": "",
+  "license": "ISC",
+  "keywords": [],
+  "main": "index.js",
   "engines": {
     "node": ">=18.20.3",
     "pnpm": ">=9.4.0"
   },
-  "name": "ayu",
-  "version": "1.0.0",
-  "private": false,
-  "main": "index.js",
   "scripts": {
     "build": "turbo build",
     "build:all": "cross-env VITE_MODE=prod turbo build:all",
@@ -19,8 +24,8 @@
     "dev:server": "pnpm -C server dev",
     "dev:all": "turbo dev",
     "doc": "pnpm -C docs docs:dev --open ",
-    "lint": "eslint . --ext ts,tsx,vue --report-unused-disable-directives --max-warnings 0",
-    "lint:fix": "eslint --fix --ext ts,tsx,vue --ignore-path .eslintignore .",
+    "lint": "eslint",
+    "lint:fix": "eslint --fix",
     "pge-init": "packages-init",
     "pge:format": "syncpack format",
     "precommit": "lint-staged",
@@ -53,20 +58,26 @@
     "vue": "^3.5.12"
   },
   "devDependencies": {
+    "@antfu/eslint-config": "^4.13.1",
     "@commitlint/cli": "^19.3.0",
     "@commitlint/config-conventional": "^19.2.2",
     "@configs/lint": "workspace:^",
+    "@eslint-react/eslint-plugin": "^1.49.0",
     "@iconify/vue": "^4.1.2",
     "@microsoft/api-documenter": "^7.25.21",
     "@types/lodash-es": "^4.17.12",
     "@types/node": "^20.11.28",
     "@vitejs/plugin-vue": "^5.1.4",
     "@vitejs/plugin-vue-jsx": "^3.1.0",
+    "@vue/eslint-config-typescript": "^14.5.0",
     "@vue/tsconfig": "^0.5.1",
     "commitizen": "^4.3.0",
     "cross-env": "^7.0.3",
     "cz-git": "^1.9.1",
     "eslint-plugin-import": "^2.29.1",
+    "eslint-plugin-react-hooks": "^5.2.0",
+    "eslint-plugin-react-refresh": "^0.4.20",
+    "eslint-plugin-vue": "^9.24.0",
     "husky": "^9.0.11",
     "install": "^0.13.0",
     "lint-staged": "^15.2.2",
@@ -81,16 +92,11 @@
     "vite-plugin-dts": "^3.9.1",
     "vite-plugin-sass": "^0.1.0"
   },
-  "author": "",
   "config": {
     "commitizen": {
       "path": "node_modules/cz-git"
     }
   },
-  "description": "",
-  "keywords": [],
-  "license": "ISC",
-  "packageManager": "pnpm@9.4.0",
   "publishConfig": {
     "registry": "https://registry.npmjs.org"
   }

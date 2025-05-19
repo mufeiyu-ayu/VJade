@@ -1,41 +1,35 @@
 <script lang="ts" setup>
-// import { useRouter } from 'vue-router'
+import { Expand, Fold } from '@element-plus/icons-vue'
+import { ref } from 'vue'
 import Menu from './components/menu.vue'
-// const router = useRouter()
 
-// const handleRoute = () => {
-//   // console.log(router.getRoutes(), 'router')
-//   router.push('/system')
-// }
+const isCollapse = ref(false)
 </script>
 
 <template>
   <div class="w-full h-screen flex theme">
     <!-- layoutsider -->
     <div class="w-[10vw] flex flex-col h-full bg-white">
-      <div class="w-full h-[70px] flex items-center justify-center">
-        <span
-          class="text-5xl font-extrabold italic bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 bg-clip-text text-transparent w-full text-center leading-[70px] flex items-center justify-center animate-gradient cursor-pointer tracking-wide drop-shadow-[0_0_15px_rgba(59,130,246,0.6)] before:content-[''] before:absolute before:inset-0 before:bg-gradient-to-r before:from-blue-500/20 before:via-purple-500/20 before:to-pink-500/20 before:animate-pulse"
-        >
-          VJade
-        </span>
-      </div>
-      <div class="flex-1">
-        <Menu />
+      <div class="flex-1 bg-[#f1f3f5]">
+        <Menu :is-collapse="isCollapse" />
       </div>
     </div>
     <!-- layout-right -->
-    <div class="flex-1 h-full">
-      <div class="flex h-full flex-col">
+    <div class="flex-1 w-full h-full bg-[#f1f3f5]">
+      <div class="flex h-full w-full flex-col">
         <div class="h-14 w-full bg-white flex items-center justify-between">
-          <div class="w-4/6">11</div>
-          <div class="flex-1">utils</div>
+          <ElIcon size="20px" class="cursor-pointer" @click="isCollapse = !isCollapse">
+            <Fold v-if="isCollapse" />
+            <Expand v-else />
+          </ElIcon>
         </div>
-        <div class="h-10 bg-[#b1b1b1]">面包屑</div>
-        <div class="flex-1">
-          <!-- <el-button @click="getRoute">点击</el-button> -->
-          <!-- <el-button @click="$router.push('/hello')">link</el-button> -->
-          <router-view></router-view>
+        <div class="h-10 w-full bg-[#b1b1b1]">
+          面包屑
+        </div>
+        <div class="flex-1 p-4">
+          <div class="w-full h-full p-4 rounded-lg bg-white">
+            <RouterView />
+          </div>
         </div>
       </div>
     </div>

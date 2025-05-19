@@ -2,7 +2,7 @@ module.exports = {
   env: {
     browser: true,
     es2021: true,
-    node: true
+    node: true,
   },
   globals: {
     defineEmits: true,
@@ -12,40 +12,42 @@ module.exports = {
     window: true,
     defineProps: true,
     defineExpose: true,
-    withDefaults: true
+    withDefaults: true,
   },
   extends: [
     'eslint:recommended',
     'plugin:@typescript-eslint/recommended',
-    'plugin:prettier/recommended' //
+    'plugin:prettier/recommended',
+    'plugin:vue/vue3-recommended',
+    '@vue/typescript/recommended',
   ],
   parserOptions: {
     ecmaVersion: 'latest',
     parser: '@typescript-eslint/parser',
-    sourceType: 'module'
+    sourceType: 'module',
   },
   ignorePatterns: ['dist', '.eslintrc.cjs', '**/*.json'],
   parser: 'vue-eslint-parser',
   plugins: ['@typescript-eslint', 'import'],
   rules: {
-    indent: [
+    'indent': [
       2,
       2,
       {
-        SwitchCase: 1
-      }
-    ], //缩进2个空格
-    quotes: 0, // 必须使用单引号
+        SwitchCase: 1,
+      },
+    ], // 缩进2个空格
+    'quotes': 0, // 必须使用单引号
     'no-plusplus': ['off'], // 禁止一元运算符
     'no-unused-vars': 'off', // 禁止未使用过的变量
     'no-console': 'off', // 禁止console
     'no-param-reassign': 'off', // 不允许重新分配 function 参数
-    includeInternal: 'off',
+    'includeInternal': 'off',
     'vue/setup-compiler-macros': 'off',
-    packageDir: 'off',
+    'packageDir': 'off',
     'import/no-extraneous-dependencies': [
       'off',
-      { devDependencies: false, optionalDependencies: false, peerDependencies: false }
+      { devDependencies: false, optionalDependencies: false, peerDependencies: false },
     ], // 禁止导入未在package.json中声明的依赖
     'no-shadow': 'off', // 禁止变量声明与外层作用域的变量同名
     'no-underscore-dangle': 'off', // 禁止标识符中的悬空下划线_
@@ -61,10 +63,28 @@ module.exports = {
     'new-cap': 'off', // 要求构造函数名称以大写字母开头
     'guard-for-in': 'off', // 要求 for-in 循环包含 if 语句
     'class-methods-use-this': 'off', // 强制类方法使用 this
-    camelcase: 'off', // 强制执行驼峰命名约定
-    eqeqeq: ['error'], // 必须使用 ===
     'prefer-arrow-callback': ['error'], // 回调函数必须使用箭头函数
     'object-shorthand': ['error'], // 对象属性简写
-    'max-params': [0, 3] // 函数最多只能有3个参数
-  }
+    'max-params': [0, 3], // 函数最多只能有3个参数
+    'vue/prop-name-casing': 'off',
+    'vue/component-name-in-template-casing': [
+      'error',
+      'PascalCase',
+      {
+        registeredComponentsOnly: false,
+        ignores: [],
+      },
+    ], // 组件名称在模板中使用帕斯卡命名法
+    'vue/max-attributes-per-line': [
+      'error',
+      {
+        singleline: {
+          max: 3,
+        },
+        multiline: {
+          max: 1,
+        },
+      },
+    ], // 单行属性最大3个，多行属性最大1个
+  },
 }
