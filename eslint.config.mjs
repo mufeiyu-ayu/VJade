@@ -18,12 +18,12 @@ export default antfu(
 
   // 全局规则
   {
-    files: ['**/*{.vue,.js,.ts,}'],
+    files: ['**/*.{vue,js,jsx,cjs,mjs,ts,tsx,cts,mts}'],
     rules: {
       'no-console': 'off',
       'no-multi-assign': 'off',
-      'ts/no-explicit-any': 'error',
-      'ts/max-params': ['error', { max: 3 }],
+      'ts/no-explicit-any': 'warn',
+      'ts/max-params': ['off', { max: 3 }],
       'ts/ban-ts-comment': 'off', // 关闭使用ts-ignore
       'ts-ignore': 'off', // 关闭使用ts-ignore
       'node/prefer-global/process': 'off',

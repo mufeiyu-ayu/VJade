@@ -15,6 +15,6 @@ export default defineComponent({
     })
 
     return () => null
-  }
+  },
 })
 </script>

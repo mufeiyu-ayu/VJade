@@ -1,6 +1,6 @@
-import { defineConfig } from 'vite'
 import { definePkgConfig } from '@ayu-mu/vite'
 import vue from '@vitejs/plugin-vue'
+import { defineConfig } from 'vite'
 // import { visualizer } from 'rollup-plugin-visualizer'
 
 // import terser from '@rollup/plugin-terser'
@@ -10,7 +10,7 @@ export default defineConfig(async () => {
     externalDeps: false,
     options: {
       plugins: [
-        vue()
+        vue(),
         // visualizer({
         //   open: false, // 自动打开分析页面
         //   filename: 'dist/stats.html', // 分析文件名
@@ -34,7 +34,7 @@ export default defineConfig(async () => {
         //     properties: false // 不压缩属性名
         //   }
         // })
-      ]
-    }
+      ],
+    },
   })
 })

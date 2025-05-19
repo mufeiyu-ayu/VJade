@@ -1,8 +1,9 @@
 <script lang="ts" setup>
-import { AyuForm, type GroupFormProps } from '@ayu-mu/core-common'
-import { ref, onMounted, reactive } from 'vue'
-import { postFormData } from '@/apis'
+import type { GroupFormProps } from '@ayu-mu/core-common'
+import { AyuForm } from '@ayu-mu/core-common'
 import { ElButton } from 'element-plus'
+import { onMounted, reactive, ref } from 'vue'
+import { postFormData } from '@/apis'
 // import { FormParams } from '@/apis/types.ts'
 const formRef = ref<InstanceType<typeof AyuForm>>()
 const formProps = reactive<GroupFormProps>({
@@ -15,8 +16,8 @@ const formProps = reactive<GroupFormProps>({
       colSize: 12,
       rules: [{ required: true, message: '请输入用户名', trigger: 'blur' }],
       componentProps: {
-        placeholder: '请输入用户名'
-      }
+        placeholder: '请输入用户名',
+      },
     },
     {
       label: '密码',
@@ -27,8 +28,8 @@ const formProps = reactive<GroupFormProps>({
       rules: [{ required: true, message: '请输入密码', trigger: 'blur' }],
       componentProps: {
         placeholder: '请输入密码',
-        showPassword: true
-      }
+        showPassword: true,
+      },
     },
     {
       label: '邮箱',
@@ -36,7 +37,7 @@ const formProps = reactive<GroupFormProps>({
       type: 'input',
       group: '基础信息',
       colSize: 24,
-      rules: [{ type: 'email', required: true, message: '请输入邮箱', trigger: 'blur' }]
+      rules: [{ type: 'email', required: true, message: '请输入邮箱', trigger: 'blur' }],
     },
     {
       label: '手机号',
@@ -44,7 +45,7 @@ const formProps = reactive<GroupFormProps>({
       type: 'input',
       group: '垃圾信息',
       colSize: 8,
-      rules: [{ required: true, message: '请输入手机号', trigger: 'blur' }]
+      rules: [{ required: true, message: '请输入手机号', trigger: 'blur' }],
     },
     {
       label: '手机号',
@@ -52,7 +53,7 @@ const formProps = reactive<GroupFormProps>({
       type: 'input',
       group: '垃圾信息',
       colSize: 8,
-      rules: [{ message: '请输入手机号', trigger: 'blur' }]
+      rules: [{ message: '请输入手机号', trigger: 'blur' }],
     },
     {
       label: '备注',
@@ -60,7 +61,7 @@ const formProps = reactive<GroupFormProps>({
       type: 'input',
       group: '垃圾信息',
       colSize: 8,
-      rules: [{ required: true, message: '请输入备注', trigger: 'blur' }]
+      rules: [{ required: true, message: '请输入备注', trigger: 'blur' }],
     },
     {
       label: '备注1',
@@ -68,7 +69,7 @@ const formProps = reactive<GroupFormProps>({
       type: 'input',
       group: '补充信息',
       colSize: 12,
-      rules: [{ required: true, message: '请输入备注', trigger: 'blur' }]
+      rules: [{ required: true, message: '请输入备注', trigger: 'blur' }],
     },
     {
       label: '备注2',
@@ -76,7 +77,7 @@ const formProps = reactive<GroupFormProps>({
       type: 'input',
       group: '补充信息',
       colSize: 12,
-      rules: [{ required: true, message: '请输入备注', trigger: 'blur' }]
+      rules: [{ required: true, message: '请输入备注', trigger: 'blur' }],
     },
     {
       label: '备注3',
@@ -84,20 +85,20 @@ const formProps = reactive<GroupFormProps>({
       type: 'input',
       group: '补充信息',
       colSize: 24,
-      rules: [{ required: true, message: '请输入备注', trigger: 'blur' }]
-    }
+      rules: [{ required: true, message: '请输入备注', trigger: 'blur' }],
+    },
   ],
   isGroup: true,
   // isExpand: false,
   groupType: 'default',
   // tabType: 'border-card',
   // maxPaneHeight: '200px',
-  onSubmit: async (params: any) => {
+  onSubmit: async (params: unknown) => {
     console.log('submit111111!', params)
-  }
+  },
 })
 
-const onClick = async () => {
+async function onClick() {
   const res = await postFormData({
     name: '张三',
     age: 18,
@@ -108,7 +109,7 @@ const onClick = async () => {
     sex: '男',
     status: '启用',
     remark: '备注',
-    isEnable: true
+    isEnable: true,
   })
   console.log(res, 'res')
 }
@@ -121,10 +122,12 @@ onMounted(() => {
 <template>
   <div class="w-screen flex justify-center items-center">
     <div class="w-[800px]">
-      <AyuForm ref="formRef" v-bind="formProps"></AyuForm>
+      <AyuForm ref="formRef" v-bind="formProps" />
     </div>
   </div>
-  <el-button @click="onClick" type="primary">发送请求</el-button>
+  <ElButton type="primary" @click="onClick">
+    发送请求
+  </ElButton>
 </template>
 
 <style lang="scss" scoped></style>

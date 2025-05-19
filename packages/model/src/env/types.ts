@@ -1,4 +1,4 @@
-import { EnvEnum, SystemArchEnum } from './enums'
+import type { EnvEnum, SystemArchEnum } from './enums'
 
 /**
  * 环境配置文件

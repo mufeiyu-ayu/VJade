@@ -1,11 +1,11 @@
-import { resolve } from 'path'
+import { resolve } from 'node:path'
 
-import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import vueJsx from '@vitejs/plugin-vue-jsx'
 import AutoImport from 'unplugin-auto-import/vite'
-import Components from 'unplugin-vue-components/vite'
 import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
+import Components from 'unplugin-vue-components/vite'
+import { defineConfig } from 'vite'
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -13,44 +13,44 @@ export default defineConfig({
     vue(),
     vueJsx(),
     Components({
-      resolvers: [ElementPlusResolver()]
+      resolvers: [ElementPlusResolver()],
     }),
     AutoImport({
-      resolvers: [ElementPlusResolver()]
-    })
+      resolvers: [ElementPlusResolver()],
+    }),
   ],
   resolve: {
     alias: {
-      '@': resolve(__dirname, './src')
-    }
+      '@': resolve(__dirname, './src'),
+    },
   },
   server: {
     proxy: {
       '/api': {
         target: 'http://localhost:5177',
-        changeOrigin: true
-      }
-    }
+        changeOrigin: true,
+      },
+    },
   },
   build: {
     minify: 'terser',
     terserOptions: {
       compress: {
         drop_console: true,
-        drop_debugger: true
-      }
+        drop_debugger: true,
+      },
     },
     rollupOptions: {
       external: ['vue', 'element-plus', 'vue-router', 'pinia'],
       output: {
         // 在 HTML 中注入外部化的依赖
         globals: {
-          vue: 'Vue',
+          'vue': 'Vue',
           'vue-router': 'VueRouter',
           'element-plus': 'ElementPlus',
-          pinia: 'Pinia'
-        }
-      }
-    }
-  }
+          'pinia': 'Pinia',
+        },
+      },
+    },
+  },
 })

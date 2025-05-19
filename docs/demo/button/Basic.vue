@@ -1,12 +1,21 @@
+<script setup lang="ts"></script>
+
 <template>
   <div class="btn">
-    <ayu-button>default</ayu-button>
-    <ayu-button type="primary">primary</ayu-button>
-    <ayu-button type="success">success</ayu-button>
-    <ayu-button type="warning">warning</ayu-button>
-    <ayu-button type="danger">danger</ayu-button>
+    <AyuButton>default</AyuButton>
+    <AyuButton type="primary">
+      primary
+    </AyuButton>
+    <AyuButton type="success">
+      success
+    </AyuButton>
+    <AyuButton type="warning">
+      warning
+    </AyuButton>
+    <AyuButton type="danger">
+      danger
+    </AyuButton>
   </div>
 </template>
-<script setup lang="ts"></script>
 
 <style></style>

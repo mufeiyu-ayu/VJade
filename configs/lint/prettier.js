@@ -14,8 +14,8 @@ module.exports = {
     {
       files: '*.html',
       options: {
-        parser: 'html'
-      }
-    }
-  ]
+        parser: 'html',
+      },
+    },
+  ],
 }

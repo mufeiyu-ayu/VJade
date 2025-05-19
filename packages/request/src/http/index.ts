@@ -1,4 +1,4 @@
-import { type CreateAxiosOptionsType } from '@ayu-mu/model'
+import type { CreateAxiosOptionsType } from '@ayu-mu/model'
 import { AyuAxios } from './Axios'
 
 // 全局请求默认配置
@@ -12,8 +12,8 @@ const defualtOptions: CreateAxiosOptionsType = {
     // 是否携带tenantId
     withTenantId: true,
     // 是否显示错误信息
-    isShowErrorMessage: true
-  }
+    isShowErrorMessage: true,
+  },
 }
 
 /**
@@ -21,10 +21,10 @@ const defualtOptions: CreateAxiosOptionsType = {
  * @param options 请求配置
  * @returns 请求实例
  */
-const createAxios = (options: Partial<CreateAxiosOptionsType> = {}) => {
+function createAxios(options: Partial<CreateAxiosOptionsType> = {}) {
   return new AyuAxios(Object.assign(defualtOptions, options))
 }
 
 const http = createAxios()
 
-export { http, createAxios }
+export { createAxios, http }

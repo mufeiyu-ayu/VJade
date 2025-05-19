@@ -1,15 +1,15 @@
-import { type Router, type RouteRecordNormalized } from 'vue-router'
-import NProgress from 'nprogress'
-import 'nprogress/nprogress.css'
-
-import { useUserStore } from '@/stores/modules/user'
+import type { Router, RouteRecordNormalized } from 'vue-router'
 import { webStorage } from '@ayu-mu/utils'
-
-import { RouteNameEnum, ROUTER_WHITE_LIST } from '@/router/type'
 import { ElMessage } from 'element-plus'
 
-const hasRouteName = (path: string, arr: RouteRecordNormalized[]) => {
-  const route = arr.find((item) => item.path === path)
+import NProgress from 'nprogress'
+import { RouteNameEnum, ROUTER_WHITE_LIST } from '@/router/type'
+
+import { useUserStore } from '@/stores/modules/user'
+import 'nprogress/nprogress.css'
+
+function hasRouteName(path: string, arr: RouteRecordNormalized[]) {
+  const route = arr.find(item => item.path === path)
   if (route) {
     return route
   }
@@ -19,8 +19,8 @@ const hasRouteName = (path: string, arr: RouteRecordNormalized[]) => {
  * 创建权限守卫
  * @param router 路由
  */
-export const createPermissionGuard = (router: Router) => {
-  //前置路由守卫
+export function createPermissionGuard(router: Router) {
+  // 前置路由守卫
   router.beforeEach(async (to, from, next) => {
     NProgress.start() // 开启进度条
     const { userMenu, initRouter, routeLen } = useUserStore()
@@ -32,12 +32,16 @@ export const createPermissionGuard = (router: Router) => {
       if (to.name === RouteNameEnum.LOGIN) {
         // 如果已登录，访问登录页则重定向到首页，并终止执行
         return next({ name: RouteNameEnum.LAYOUT })
-      } else {
+      }
+      else {
         const hasRoute = router.hasRoute(to.name)
         if (userMenu && userMenu.length === 0) {
           try {
             await initRouter()
-          } catch (error) {
+          }
+          catch (error) {
+            console.log(error, 'error')
+
             return next({ name: RouteNameEnum.LOGIN })
           }
 
@@ -59,11 +63,13 @@ export const createPermissionGuard = (router: Router) => {
         // console.log(to, 'to')
         return next()
       }
-    } else {
+    }
+    else {
       // 如果用户未登录，则只能跳转到白名单
       if (ROUTER_WHITE_LIST.includes(to.name as RouteNameEnum)) {
         return next()
-      } else {
+      }
+      else {
         ElMessage.warning('请先登录')
         return next({ name: RouteNameEnum.LOGIN })
       }

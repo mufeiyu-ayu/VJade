@@ -2,13 +2,13 @@
   "name": "@ayu-mu/theme-chalk",
   "version": "1.0.2",
   "private": false,
+  "description": "",
+  "author": "",
+  "license": "ISC",
+  "keywords": [],
   "main": "src/index.scss",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
-  "description": "",
-  "keywords": [],
-  "license": "ISC",
   "styles": "index.scss"
 }

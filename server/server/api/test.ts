@@ -1,5 +1,5 @@
 export default defineEventHandler(() => {
   return useResponseSuccess({
-    message: 'Hello World'
+    message: 'Hello World',
   })
 })

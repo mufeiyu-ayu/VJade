@@ -1,9 +1,9 @@
 {
   "name": "@ayu-mu/tsconfig",
   "version": "1.0.0",
+  "description": "element-plus for ai-lowcode",
   "files": [
     "tsconfig.base.json",
     "tsconfig.server.json"
-  ],
-  "description": "element-plus for ai-lowcode"
+  ]
 }

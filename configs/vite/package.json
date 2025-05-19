@@ -1,10 +1,10 @@
 {
   "name": "@ayu-mu/vite",
   "version": "1.0.0",
-  "main": "./dist/index.mjs",
-  "files": [
-    "dist"
-  ],
+  "description": "",
+  "author": "",
+  "license": "ISC",
+  "keywords": [],
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
@@ -12,6 +12,11 @@
       "require": "./dist/index.cjs"
     }
   },
+  "main": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "build": "pnpm unbuild --stub",
     "clean": "rimraf node_modules",
@@ -21,10 +26,5 @@
     "@ayu-mu/tsconfig": "workspace:^",
     "find-up": "^7.0.0",
     "unbuild": "^2.0.0"
-  },
-  "author": "",
-  "description": "",
-  "keywords": [],
-  "license": "ISC",
-  "types": "./dist/index.d.ts"
+  }
 }

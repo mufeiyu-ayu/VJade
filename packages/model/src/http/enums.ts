@@ -13,7 +13,7 @@ export enum ContentTypeEnum {
   /**
    * 文件上传
    */
-  FORM_DATA = 'multipar/form-data;charset=UTF-8'
+  FORM_DATA = 'multipar/form-data;charset=UTF-8',
 }
 
 /**
@@ -35,7 +35,7 @@ export enum RequestMethodEnum {
   /**
    * DELETE
    */
-  DELETE = 'DELETE'
+  DELETE = 'DELETE',
 }
 
 /**
@@ -57,5 +57,5 @@ export enum ResponseCodeEnum {
   /**
    * 权限过期
    */
-  EXPIRED = 2
+  EXPIRED = 2,
 }

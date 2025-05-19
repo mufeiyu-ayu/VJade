@@ -12,7 +12,7 @@ export const menuList: MenuItem[] = [
     routePath: 'dashboard',
     uri: '/dashboard',
     pageName: 'Dashboard',
-    sort: 1
+    sort: 1,
   },
   {
     menuTitle: '系统管理',
@@ -51,7 +51,7 @@ export const menuList: MenuItem[] = [
             routePath: 'system/user/list',
             uri: '/system/user/list',
             pageName: 'UserList',
-            sort: 1
+            sort: 1,
           },
           {
             menuTitle: '角色管理',
@@ -64,9 +64,9 @@ export const menuList: MenuItem[] = [
             routePath: 'system/user/role',
             uri: '/system/user/role',
             pageName: 'RoleManage',
-            sort: 2
-          }
-        ]
+            sort: 2,
+          },
+        ],
       },
       {
         menuTitle: '权限管理',
@@ -92,7 +92,7 @@ export const menuList: MenuItem[] = [
             routePath: 'system/permission/menu',
             uri: '/system/permission/menu',
             pageName: 'MenuPermission',
-            sort: 1
+            sort: 1,
           },
           {
             menuTitle: '接口权限',
@@ -105,11 +105,11 @@ export const menuList: MenuItem[] = [
             routePath: 'system/permission/api',
             uri: '/system/permission/api',
             pageName: 'ApiPermission',
-            sort: 2
-          }
-        ]
-      }
-    ]
+            sort: 2,
+          },
+        ],
+      },
+    ],
   },
   {
     menuTitle: '内容管理',
@@ -148,7 +148,7 @@ export const menuList: MenuItem[] = [
             routePath: 'content/article/list',
             uri: '/content/article/list',
             pageName: 'ArticleList',
-            sort: 1
+            sort: 1,
           },
           {
             menuTitle: '分类管理',
@@ -161,12 +161,12 @@ export const menuList: MenuItem[] = [
             routePath: 'content/article/category',
             uri: '/content/article/category',
             pageName: 'CategoryManage',
-            sort: 2
-          }
-        ]
-      }
-    ]
-  }
+            sort: 2,
+          },
+        ],
+      },
+    ],
+  },
 ]
 
 export default menuList

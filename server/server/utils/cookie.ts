@@ -6,7 +6,7 @@ export function setRefreshTokenCookie(event: H3Event<EventHandlerRequest>, refre
     httpOnly: true, // 禁止 JavaScript 访问 Cookie，增加安全性
     maxAge: 24 * 60 * 60 * 1000, // Cookie 有效期为 24 小时
     sameSite: 'none', // 允许跨站点请求
-    secure: true // 只在 HTTPS 连接中传输
+    secure: true, // 只在 HTTPS 连接中传输
   })
 }
 

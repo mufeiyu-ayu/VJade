@@ -1,13 +1,14 @@
-import { defineStore } from 'pinia'
-import { webStorage } from '@ayu-mu/utils'
-import { ref } from 'vue'
-import { generatorRouter } from '@/router/generator-router'
-import { router } from '@/router'
-import { login, getMenuList } from '@/apis'
 import type { MenuItem } from '@ayu-mu/model'
-import type { LoginResult } from '@/apis/types'
-import { ElMessage } from 'element-plus'
 import type { RouteRecordRaw } from 'vue-router'
+import type { LoginResult } from '@/apis/types'
+import { webStorage } from '@ayu-mu/utils'
+import { ElMessage } from 'element-plus'
+import { defineStore } from 'pinia'
+import { ref } from 'vue'
+import { getMenuList, login } from '@/apis'
+import { router } from '@/router'
+import { generatorRouter } from '@/router/generator-router'
+
 export const useUserStore = defineStore('user', () => {
   // 用户信息
   const userInfo = ref<LoginResult>()
@@ -17,6 +18,23 @@ export const useUserStore = defineStore('user', () => {
   const userMenu = ref<MenuItem[]>(webStorage.getStorageFromKey('menu') || [])
   const routeLen = ref(webStorage.getStorageFromKey('routeLen') || [])
   const menuList = ref<RouteRecordRaw[]>([])
+
+  const setAuthInfo = ({ clear, data }: { clear: boolean, data: any }) => {
+    if (!clear) {
+      webStorage.setStorage('token', data?.accessToken)
+      webStorage.setStorage('userInfo', data)
+      webStorage.setStorage('isLogin', !!data?.accessToken)
+    }
+    else {
+      webStorage.removeStorageFromKey('token')
+      webStorage.removeStorageFromKey('userInfo')
+      webStorage.removeStorageFromKey('isLogin')
+      webStorage.removeStorageFromKey('menu')
+    }
+    isLogin.value = !!data?.accessToken
+    userInfo.value = data
+  }
+
   /**
    * 用户登录
    * @param form 登录表单
@@ -67,20 +85,6 @@ export const useUserStore = defineStore('user', () => {
     }
   }
 
-  const setAuthInfo = ({ clear, data }: { clear: boolean; data: any }) => {
-    if (!clear) {
-      webStorage.setStorage('token', data?.accessToken)
-      webStorage.setStorage('userInfo', data)
-      webStorage.setStorage('isLogin', !!data?.accessToken)
-    } else {
-      webStorage.removeStorageFromKey('token')
-      webStorage.removeStorageFromKey('userInfo')
-      webStorage.removeStorageFromKey('isLogin')
-      webStorage.removeStorageFromKey('menu')
-    }
-    isLogin.value = data?.accessToken ? true : false
-    userInfo.value = data
-  }
   const setRouteLen = (arr: RouteRecordRaw[]) => {
     webStorage.setStorage('routeLen', router.getRoutes().length)
     routeLen.value = router.getRoutes().length
@@ -95,6 +99,6 @@ export const useUserStore = defineStore('user', () => {
     userMenu,
     setMenuList,
     routeLen,
-    setRouteLen
+    setRouteLen,
   }
 })

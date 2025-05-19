@@ -1,9 +1,9 @@
 import { http } from '@ayu-mu/request'
 
-export const getFormData = () => {
+export function getFormData() {
   return http.get('api/form')
 }
 
-export const postFormData = (data: any) => {
+export function postFormData(data: any) {
   return http.post('api/form', data)
 }

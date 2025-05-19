@@ -15,7 +15,7 @@
  * isJsonString('Hello World');                   // 返回 false
  * ```
  */
-export const isJsonString = (target: string): boolean => {
+export function isJsonString(target: string): boolean {
   return /^[\],:{}\s]*$/.test(target)
 }
 
@@ -36,12 +36,14 @@ export const isJsonString = (target: string): boolean => {
  * isJsonStringTryCatch('Hello World');                   // 返回 false
  * ```
  */
-export const isJsonStringTryCatch = (str: string): boolean => {
+export function isJsonStringTryCatch(str: string): boolean {
   try {
     if (typeof JSON.parse(str) === 'object') {
       return true
     }
-  } catch (e) {
+  }
+  catch (e) {
+    console.log(e, 'e---')
     return false
   }
   return false
@@ -64,6 +66,6 @@ export const isJsonStringTryCatch = (str: string): boolean => {
  * isFunction(123);       // 返回 false
  * ```
  */
-export const isFunction = (val: unknown): boolean => {
+export function isFunction(val: unknown): boolean {
   return typeof val === 'function'
 }

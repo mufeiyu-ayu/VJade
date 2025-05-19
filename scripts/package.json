@@ -1,9 +1,17 @@
 {
   "name": "@ayu-mu/scripts",
+  "type": "module",
   "version": "1.0.1",
   "private": false,
-  "type": "module",
+  "description": "",
+  "author": "",
+  "license": "ISC",
+  "keywords": [],
   "main": "index.js",
+  "bin": {
+    "packages-init": "package-init.js",
+    "rollup-dts": "rollup-dts.js"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -18,14 +26,6 @@
     "@microsoft/api-extractor": "^7.47.11",
     "execa": "^9.5.1"
   },
-  "author": "",
-  "bin": {
-    "packages-init": "package-init.js",
-    "rollup-dts": "rollup-dts.js"
-  },
-  "description": "",
-  "keywords": [],
-  "license": "ISC",
   "publishConfig": {
     "registry": "https://registry.npmjs.org"
   }

@@ -11,7 +11,7 @@ export default defineEventHandler(async (event) => {
     }
 
     // 验证邮箱格式
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+    const emailRegex = /^[^\s@]+@[^\s@][^\s.@]*\.[^\s@]+$/
     if (!emailRegex.test(body.email)) {
       return useResponseError('邮箱格式不正确')
     }
@@ -39,12 +39,13 @@ export default defineEventHandler(async (event) => {
       status: body.status,
       remark: body.remark || '',
       isDelete: false,
-      isEnable: body.isEnable
+      isEnable: body.isEnable,
     }
     console.log(savedForm, 'savedForm')
     // 返回成功响应
     return useResponseSuccess({})
-  } catch (error) {
+  }
+  catch (error) {
     // 捕获并处理错误
     console.error('保存表单失败:', error)
     return useResponseError('保存表单失败')

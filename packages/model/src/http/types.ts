@@ -1,5 +1,5 @@
 import type { AxiosRequestConfig, AxiosRequestHeaders, CreateAxiosDefaults } from 'axios'
-import { ResponseCodeEnum, SummaryParameter } from '.'
+import type { ResponseCodeEnum, SummaryParameter } from '.'
 import type { DataBaseType } from '../base'
 
 /**

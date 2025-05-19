@@ -1,9 +1,9 @@
 {
-  "extends":"@ayu-mu/tsconfig/tsconfig.base.json",
+  "extends": "@ayu-mu/tsconfig/tsconfig.base.json",
   "compilerOptions": {
-    "moduleResolution": "bundler",
     "baseUrl": ".",
     "rootDir": "src",
+    "moduleResolution": "bundler",
     "paths": {
       "@/*": [
         "src/*"

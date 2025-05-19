@@ -75,13 +75,13 @@ export interface GroupFormProps extends BaseFormProps {
    */
   groupType?: GroupType
 
-  /**分组类型为 collapse 时 分组是否展开 */
+  /** 分组类型为 collapse 时 分组是否展开 */
   isExpand?: boolean
 
-  /** 分组类型为 tab时指定的content 高度*/
+  /** 分组类型为 tab时指定的content 高度 */
   maxPaneHeight?: string
 
-  /** 分组类型为 tab时指定tabs 风格 类型*/
+  /** 分组类型为 tab时指定tabs 风格 类型 */
   tabType?: '' | 'card' | 'border-card'
 }
 
@@ -107,7 +107,7 @@ export interface NormalFormProps extends BaseFormProps {
    * 控制表单项占据的列数
    */
   colSize?: ColSize
-  /** 分组类型为 tab时指定的content 高度*/
+  /** 分组类型为 tab时指定的content 高度 */
   maxPaneHeight?: never
 
   tabType: never

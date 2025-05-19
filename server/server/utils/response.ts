@@ -10,7 +10,7 @@ export function useResponseSuccess<T = any>(data: T) {
     code: 0,
     ...data,
     error: null,
-    message: 'ok'
+    message: 'ok',
   }
 }
 
@@ -25,7 +25,7 @@ export function useResponseError(message: string, error: any = null) {
     code: -1,
     data: null,
     error,
-    message
+    message,
   }
 }
 
@@ -55,16 +55,16 @@ export function usePageResponseSuccess<T = any>(
   page: number | string,
   pageSize: number | string,
   list: T[],
-  { message = 'ok' } = {}
+  { message = 'ok' } = {},
 ) {
   const pageData = pagination(Number.parseInt(`${page}`), Number.parseInt(`${pageSize}`), list)
 
   return {
     ...useResponseSuccess({
       items: pageData,
-      total: list.length
+      total: list.length,
     }),
-    message
+    message,
   }
 }
 
@@ -78,7 +78,7 @@ export function usePageResponseError(message: string, error: any = null) {
   return {
     ...useResponseError(message, error),
     items: [],
-    total: 0
+    total: 0,
   }
 }
 
@@ -109,5 +109,5 @@ export function unAuthorizedResponse(event: H3Event<EventHandlerRequest>) {
  * @returns 睡眠响应对象
  */
 export function sleep(ms: number) {
-  return new Promise((resolve) => setTimeout(resolve, ms))
+  return new Promise(resolve => setTimeout(resolve, ms))
 }

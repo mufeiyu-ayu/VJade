@@ -1,6 +1,6 @@
-import { fn } from '@storybook/test'
 import type { Meta, StoryObj } from '@storybook/vue3'
 import { AyuButton } from '@ayu-mu/common'
+import { fn } from '@storybook/test'
 // import { http, HttpResponse, delay } from 'msw'
 // import { computed, onMounted, ref, watch } from 'vue'
 // 模拟异步获取按钮类型选项
@@ -18,8 +18,8 @@ const meta: Meta<typeof AyuButton> = {
       table: {
         type: { summary: 'string' },
         defaultValue: { summary: 'success' },
-        category: '外观'
-      }
+        category: '外观',
+      },
     },
     size: {
       description: '按钮尺寸',
@@ -28,88 +28,88 @@ const meta: Meta<typeof AyuButton> = {
       table: {
         type: { summary: 'string' },
         defaultValue: { summary: 'default' },
-        category: '外观'
-      }
+        category: '外观',
+      },
     },
     plain: {
       description: '是否为朴素按钮',
       control: 'boolean',
       table: {
         category: '外观',
-        defaultValue: { summary: 'false' }
-      }
+        defaultValue: { summary: 'false' },
+      },
     },
     bg: {
       description: '是否显示背景色',
       control: 'boolean',
       table: {
         category: '外观',
-        defaultValue: { summary: 'false' }
-      }
+        defaultValue: { summary: 'false' },
+      },
     },
     link: {
       description: '是否为链接按钮',
       control: 'boolean',
       table: {
         category: '外观',
-        defaultValue: { summary: 'false' }
-      }
+        defaultValue: { summary: 'false' },
+      },
     },
     round: {
       description: '是否为圆角按钮',
       control: 'boolean',
       table: {
         category: '外观',
-        defaultValue: { summary: 'false' }
-      }
+        defaultValue: { summary: 'false' },
+      },
     },
     circle: {
       description: '是否为圆形按钮',
       control: 'boolean',
       table: {
         category: '外观',
-        defaultValue: { summary: 'false' }
-      }
+        defaultValue: { summary: 'false' },
+      },
     },
     disabled: {
       description: '是否禁用',
       control: 'boolean',
       table: {
         category: '状态',
-        defaultValue: { summary: 'false' }
-      }
+        defaultValue: { summary: 'false' },
+      },
     },
     loading: {
       description: '是否显示加载状态',
       control: 'boolean',
       table: {
         category: '状态',
-        defaultValue: { summary: 'false' }
-      }
+        defaultValue: { summary: 'false' },
+      },
     },
     icon: {
       description: '图标类名',
       control: 'text',
       table: {
         category: '内容',
-        defaultValue: { summary: '' }
-      }
+        defaultValue: { summary: '' },
+      },
     },
     color: {
       description: '自定义颜色',
       control: 'color',
       table: {
         category: '外观',
-        defaultValue: { summary: '' }
-      }
+        defaultValue: { summary: '' },
+      },
     },
     tag: {
       description: '自定义元素标签',
       control: 'text',
       table: {
         category: '高级',
-        defaultValue: { summary: 'button' }
-      }
+        defaultValue: { summary: 'button' },
+      },
     },
     nativeType: {
       description: '原生 type 属性',
@@ -117,28 +117,28 @@ const meta: Meta<typeof AyuButton> = {
       options: ['button', 'submit', 'reset'],
       table: {
         category: '高级',
-        defaultValue: { summary: 'button' }
-      }
+        defaultValue: { summary: 'button' },
+      },
     },
     throttleDuration: {
       description: '节流时长(ms)',
       control: 'number',
       table: {
         category: '高级',
-        defaultValue: { summary: '300' }
-      }
+        defaultValue: { summary: '300' },
+      },
     },
     onClick: {
       description: '点击事件',
       action: 'clicked',
       table: {
-        category: '事件'
-      }
-    }
+        category: '事件',
+      },
+    },
   },
   args: {
     onClick: fn(),
-    type: 'success'
+    type: 'success',
   },
   // msw: {
   //   handlers: [
@@ -185,10 +185,10 @@ const meta: Meta<typeof AyuButton> = {
   parameters: {
     docs: {
       description: {
-        component: 'AyuButton 按钮组件，用于触发操作和事件。支持多种类型、尺寸和状态。'
-      }
-    }
-  }
+        component: 'AyuButton 按钮组件，用于触发操作和事件。支持多种类型、尺寸和状态。',
+      },
+    },
+  },
 }
 
 export default meta
@@ -196,29 +196,29 @@ type Story = StoryObj<typeof meta>
 
 export const Basic: Story = {
   args: {
-    type: 'error'
+    type: 'error',
   },
-  render: (args) => ({
+  render: args => ({
     components: { AyuButton },
     setup() {
       return { args }
     },
-    template: '<ayu-button  v-bind="args" >基础按钮</ayu-button>'
-  })
+    template: '<ayu-button  v-bind="args" >基础按钮</ayu-button>',
+  }),
 }
 
 // 按钮类型
 export const Types: Story = {
   args: {
-    type: 'primary' // 设置默认值
+    type: 'primary', // 设置默认值
   },
-  render: (args) => ({
+  render: args => ({
     components: { AyuButton },
     setup() {
       return { args }
     },
-    template: '<ayu-button v-bind="args">基础按钮</ayu-button>'
-  })
+    template: '<ayu-button v-bind="args">基础按钮</ayu-button>',
+  }),
 }
 // 按钮尺寸
 export const Sizes: Story = {
@@ -232,8 +232,8 @@ export const Sizes: Story = {
           <ayu-button size="large" type="primary">大号按钮</ayu-button>
         </div>
       </div>
-    `
-  })
+    `,
+  }),
 }
 
 // 朴素按钮
@@ -245,8 +245,8 @@ export const Plain: Story = {
         <ayu-button v-bind="$props">基础按钮</ayu-button>
         <ayu-button plain type="success">朴素按钮</ayu-button>
       </div>
-    `
-  })
+    `,
+  }),
 }
 
 // 圆角和圆形
@@ -258,8 +258,8 @@ export const Shapes: Story = {
         <ayu-button round type="primary">圆角按钮</ayu-button>
         <ayu-button circle type="success" icon="check"></ayu-button>
       </div>
-    `
-  })
+    `,
+  }),
 }
 
 // 禁用状态
@@ -271,8 +271,8 @@ export const Disabled: Story = {
         <ayu-button disabled>禁用按钮</ayu-button>
         <ayu-button disabled type="primary">禁用按钮</ayu-button>
       </div>
-    `
-  })
+    `,
+  }),
 }
 
 // 加载状态
@@ -284,6 +284,6 @@ export const Loading: Story = {
         <ayu-button loading>加载中</ayu-button>
         <ayu-button loading type="primary">加载中</ayu-button>
       </div>
-    `
-  })
+    `,
+  }),
 }

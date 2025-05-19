@@ -1,6 +1,6 @@
+import type { FormGroupConfig, FormProps, GroupFieldConfig, GroupFormProps, NormalFormProps } from '../types'
+import { ElCollapse, ElCollapseItem, ElTabPane, ElTabs } from 'element-plus'
 import { computed } from 'vue'
-import type { FormProps, NormalFormProps, GroupFormProps, FormGroupConfig, GroupFieldConfig } from '../types'
-import { ElCollapse, ElTabs, ElCollapseItem, ElTabPane } from 'element-plus'
 
 /**
  * 表单计算属性相关的 hook
@@ -73,15 +73,16 @@ export function useFormComputedHooks(props: FormProps) {
       groupListConfig = [...new Set(arr)].map((item) => {
         return {
           groupTitle: item,
-          fieldConfig: props.fieldConfig.filter((field) => field.group === item) as GroupFieldConfig[]
+          fieldConfig: props.fieldConfig.filter(field => field.group === item) as GroupFieldConfig[],
         }
       })
-    } else {
+    }
+    else {
       groupListConfig = [
         {
           groupTitle: null as unknown as string,
-          fieldConfig: props.fieldConfig as GroupFieldConfig[]
-        }
+          fieldConfig: props.fieldConfig as GroupFieldConfig[],
+        },
       ]
     }
     return groupListConfig
@@ -89,7 +90,7 @@ export function useFormComputedHooks(props: FormProps) {
 
   /** 计算所有展开的组名 */
   const allActiveName = computed(() => {
-    const activeName: string[] = formGroupConfig.value.map((item) => item.groupTitle)
+    const activeName: string[] = formGroupConfig.value.map(item => item.groupTitle)
     switch ((props as GroupFormProps).groupType) {
       case 'tab':
         return activeName[0]
@@ -113,6 +114,6 @@ export function useFormComputedHooks(props: FormProps) {
     groupItemConfig,
     formGroupConfig,
     allActiveName,
-    tabsOverflowY
+    tabsOverflowY,
   }
 }

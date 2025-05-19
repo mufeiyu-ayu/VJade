@@ -11,6 +11,6 @@ export function useFormRules(props: FormProps) {
     rules[item.field] = item.rules
   })
   return {
-    rules
+    rules,
   }
 }

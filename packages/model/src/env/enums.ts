@@ -13,7 +13,7 @@ export enum EnvEnum {
   /**
    * 测试环境
    */
-  TESTMODE = 'test'
+  TESTMODE = 'test',
 }
 
 /**
@@ -27,5 +27,5 @@ export enum SystemArchEnum {
   /**
    * 微服务
    */
-  MICRO = 'micro'
+  MICRO = 'micro',
 }

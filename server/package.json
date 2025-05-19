@@ -7,6 +7,9 @@
     "prepare": "nitro prepare",
     "preview": "node .output/server/index.mjs"
   },
+  "dependencies": {
+    "db0": "^0.2.4"
+  },
   "devDependencies": {
     "@ayu-mu/model": "workspace:^",
     "@faker-js/faker": "^9.4.0",
@@ -15,8 +18,5 @@
     "h3": "^1.14.0",
     "jsonwebtoken": "^9.0.2",
     "nitropack": "latest"
-  },
-  "dependencies": {
-    "db0": "^0.2.4"
   }
 }

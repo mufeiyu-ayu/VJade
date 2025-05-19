@@ -14,12 +14,12 @@
     },
     "build:dts": {
       "dependsOn": ["^build:dts"],
-      "outputs": ["dist/**","temp/**"],
+      "outputs": ["dist/**", "temp/**"],
       "cache": true
     },
     "build:all": {
       "dependsOn": ["^build:all"],
-      "outputs": ["dist/**","temp/**"],
+      "outputs": ["dist/**", "temp/**"],
       "cache": true
     },
     "check-types": {

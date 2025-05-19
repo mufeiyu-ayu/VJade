@@ -25,7 +25,7 @@ interface MessageMethods {
 type MessageInstance = ComponentPublicInstance & MessageMethods
 
 // 定义消息函数类型
-type MessageFn = {
+interface MessageFn {
   (options: MessageOptions): Promise<void>
   [key: string]: (options: MessageOptions) => Promise<void>
 }
@@ -44,13 +44,13 @@ Object.values(types).forEach((type) => {
   AyuMessage[type] = (options: MessageOptions): Promise<void> => {
     return AyuMessage({
       ...options,
-      type: type as keyof typeof types
+      type: type as keyof typeof types,
     })
   }
 })
 
 // 显示消息
-const showMessage = async (app: App, options: MessageOptions): Promise<void> => {
+async function showMessage(app: App, options: MessageOptions): Promise<void> {
   const container = document.createElement('div')
   const vm = app.mount(container) as MessageInstance
 
@@ -64,11 +64,11 @@ const showMessage = async (app: App, options: MessageOptions): Promise<void> => 
 }
 
 // 隐藏消息
-const hideMessage = (app: App, vm: MessageInstance, duration: number): void => {
+function hideMessage(app: App, vm: MessageInstance, duration: number): void {
   vm.timer = setTimeout(async () => {
     await vm.setVisibility(false)
     app.unmount()
-    messageArr.value = messageArr.value.filter((item) => item !== vm)
+    messageArr.value = messageArr.value.filter(item => item !== vm)
     if (vm.timer) {
       clearTimeout(vm.timer)
       vm.timer = null
@@ -77,9 +77,9 @@ const hideMessage = (app: App, vm: MessageInstance, duration: number): void => {
 }
 
 // 设置消息位置
-const setTop = (vm: MessageInstance): void => {
+function setTop(vm: MessageInstance): void {
   const { setTop: setPosition, height, margin } = vm
-  const currentIndex = messageArr.value.findIndex((item) => item === vm)
+  const currentIndex = messageArr.value.findIndex(item => item === vm)
   setPosition(margin * (currentIndex + 1) + height * currentIndex, currentIndex)
 }
 

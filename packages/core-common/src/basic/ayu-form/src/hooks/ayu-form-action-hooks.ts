@@ -1,6 +1,7 @@
 import type { FormInstance } from 'element-plus'
-import { ref, type Ref } from 'vue'
-import type { FormProps, FormGroupConfig } from '../types'
+import type { Ref } from 'vue'
+import type { FormGroupConfig, FormProps } from '../types'
+import { ref } from 'vue'
 
 /**
  * 表单操作相关的 hook
@@ -13,7 +14,7 @@ export function useFormActionHooks(
   formRef: Ref<FormInstance | undefined>,
   formData: Ref<Record<string, any>>,
   props: FormProps,
-  formGroupConfig: Ref<FormGroupConfig[]>
+  formGroupConfig: Ref<FormGroupConfig[]>,
 ) {
   const collapseIsExpand = ref<string[]>([])
 
@@ -22,7 +23,8 @@ export function useFormActionHooks(
    */
   const submitForm = async () => {
     console.log(formData.value)
-    if (!formRef.value) return
+    if (!formRef.value)
+      return
     await formRef.value.validate((valid: boolean) => {
       if (valid) {
         props.onSubmit?.(formData.value)
@@ -34,7 +36,8 @@ export function useFormActionHooks(
    * 重置表单
    */
   const resetForm = () => {
-    if (!formRef.value) return
+    if (!formRef.value)
+      return
     formRef.value.resetFields()
   }
 
@@ -44,8 +47,8 @@ export function useFormActionHooks(
    */
   const handleCollapseChange = (val: string[]) => {
     if (props.groupType === 'collapse') {
-      const groupSetTitle = formGroupConfig.value.map((item) => item.groupTitle)
-      collapseIsExpand.value = groupSetTitle.filter((item) => !val.includes(item))
+      const groupSetTitle = formGroupConfig.value.map(item => item.groupTitle)
+      collapseIsExpand.value = groupSetTitle.filter(item => !val.includes(item))
     }
   }
 
@@ -53,6 +56,6 @@ export function useFormActionHooks(
     collapseIsExpand,
     submitForm,
     resetForm,
-    handleCollapseChange
+    handleCollapseChange,
   }
 }

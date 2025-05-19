@@ -1,13 +1,13 @@
 import { createApp } from 'vue'
+import { setupIconComponents } from '@/init/setupCommonState'
+import { setupRouter } from '@/router'
 import { setupStore } from '@/stores'
+import App from './App.vue'
 import '@ayu-mu/core-common/style.css'
 import '@ayu-mu/common/style.css'
-import App from './App.vue'
-import { setupRouter } from '@/router'
 import './styles.css'
-import { setupIconComponents } from '@/init/setupCommonState'
 
-const setupApp = () => {
+function setupApp() {
   const app = createApp(App)
   // 初始化store
   setupStore(app)

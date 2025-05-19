@@ -1,6 +1,7 @@
 import type { EventHandlerRequest, H3Event } from 'h3'
 
 import jwt from 'jsonwebtoken'
+
 export interface UserPayload extends UserInfo {
   iat: number
   exp: number
@@ -26,7 +27,7 @@ export function generateAccessToken(user: UserInfo) {
  */
 export function generateRefreshToken(user: UserInfo) {
   return jwt.sign(user, REFRESH_TOKEN_SECRET, {
-    expiresIn: '30d'
+    expiresIn: '30d',
   })
 }
 
@@ -41,11 +42,11 @@ export function verifyAccessToken(event: H3Event<EventHandlerRequest>): null | O
     const decoded = jwt.verify(token, ACCESS_TOKEN_SECRET) as UserPayload
 
     const username = decoded.username
-    const user = MOCK_USERS.find((item) => item.username === username)
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    const user = MOCK_USERS.find(item => item.username === username)
     const { password: _pwd, ...userinfo } = user
     return userinfo
-  } catch {
+  }
+  catch {
     return null
   }
 }

@@ -1,13 +1,8 @@
 {
   "name": "@ayu-mu/utils",
+  "type": "module",
   "version": "2.1.15",
   "private": false,
-  "type": "module",
-  "module": "./dist/ayu-web-build-utils.js",
-  "main": "dist/ayu-web-build-utils.js",
-  "files": [
-    "dist"
-  ],
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
@@ -15,10 +10,19 @@
       "require": "./dist/ayu-web-build-utils.cjs"
     }
   },
+  "main": "dist/ayu-web-build-utils.js",
+  "module": "./dist/ayu-web-build-utils.js",
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "build": "vite build",
     "build:all": "vite build && pnpm build:dts",
     "build:dts": "rimraf temp && vue-tsc -p tsconfig.declaration.json && rollup-dts"
+  },
+  "peerDependencies": {
+    "crypto-js": "^4.2.0",
+    "vue": "^3.4.21"
   },
   "dependencies": {
     "@ayu-mu/model": "workspace:^"
@@ -30,10 +34,6 @@
     "@types/crypto-js": "^4.2.2",
     "vite": "^5.4.10",
     "vue-tsc": "^2.2.0"
-  },
-  "peerDependencies": {
-    "vue": "^3.4.21",
-    "crypto-js": "^4.2.0"
   },
   "publishConfig": {
     "registry": "https://registry.npmjs.org"

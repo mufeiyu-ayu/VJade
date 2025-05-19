@@ -1,6 +1,7 @@
 // import { lo } from '@ayu-mu/utils'
 import type { FormProps, FormType } from '../types'
 import { ElInput } from 'element-plus'
+
 export function useFormUtils() {
   /**
    * 初始化表单数据
@@ -33,6 +34,6 @@ export function useFormUtils() {
 
   return {
     initFormData,
-    componentRender
+    componentRender,
   }
 }

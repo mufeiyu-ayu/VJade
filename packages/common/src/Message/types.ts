@@ -4,7 +4,7 @@ const types = {
   SUCCESS: 'success',
   ERROR: 'error',
   WARNING: 'warning',
-  MESSAGE: 'message'
+  MESSAGE: 'message',
 }
 
 type MessageType = 'success' | 'error' | 'warning' | 'message'

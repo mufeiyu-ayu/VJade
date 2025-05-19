@@ -22,7 +22,7 @@ export interface ButtonProps {
   /** @description 是否为加载中状态 */
   loading?: boolean
   /** @description 加载中图标 */
-  loadingIcon?: String | Component
+  loadingIcon?: string | Component
   /** @description 是否为禁用状态 */
   disabled?: boolean
   /** @description 图标 */

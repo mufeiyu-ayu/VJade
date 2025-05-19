@@ -1,5 +1,5 @@
-import { defineConfig } from 'vitepress'
 import { componentPreview, containerPreview } from '@vitepress-demo-preview/plugin'
+import { defineConfig } from 'vitepress'
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
@@ -9,7 +9,7 @@ export default defineConfig({
   srcDir: '../',
   rewrites: {
     // 指南映射
-    'docs/index.md': 'index.md'
+    'docs/index.md': 'index.md',
   },
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
@@ -17,49 +17,49 @@ export default defineConfig({
       { text: '首页', link: '/docs' },
       { text: 'Docs', link: '/docs/docs/projectStart.md' },
       { text: '包文件', link: '/packages/utils/markdown/index.md' },
-      { text: 'components', link: '/components/button.md' }
+      { text: 'components', link: '/components/button.md' },
     ],
 
     sidebar: {
-      docs: [
+      'docs': [
         {
           text: 'start',
-          items: [{ text: '前言', link: '/docs/docs/projectStart' }]
-        }
+          items: [{ text: '前言', link: '/docs/docs/projectStart' }],
+        },
       ],
       '/components/': [
         {
           text: '基础组件',
-          items: [{ text: 'button', link: '/components/button.md' }]
-        }
+          items: [{ text: 'button', link: '/components/button.md' }],
+        },
       ],
-      packages: [
+      'packages': [
         {
           text: 'utils',
-          link: '/packages/utils/markdown/index.md'
+          link: '/packages/utils/markdown/index.md',
         },
         {
           text: 'common',
-          link: '/packages/common/markdown/index.md'
+          link: '/packages/common/markdown/index.md',
         },
         {
           text: 'core-common',
-          link: '/packages/core-common/markdown/index.md'
-        }
-      ]
+          link: '/packages/core-common/markdown/index.md',
+        },
+      ],
     },
-    socialLinks: [{ icon: 'github', link: 'https://github.com/mufeiyu-ayu/web-build' }]
+    socialLinks: [{ icon: 'github', link: 'https://github.com/mufeiyu-ayu/web-build' }],
   },
   vite: {
     server: {
-      port: 5179
+      port: 5179,
     },
-    plugins: []
+    plugins: [],
   },
   markdown: {
     config(md) {
       md.use(containerPreview)
       md.use(componentPreview)
-    }
-  }
+    },
+  },
 })

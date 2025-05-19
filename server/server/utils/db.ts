@@ -4,8 +4,8 @@ import sqlite from 'db0/connectors/better-sqlite3'
 // 创建数据库实例
 export const db = createDatabase(
   sqlite({
-    name: 'db' // 修改数据库文件名,
-  })
+    name: 'db', // 修改数据库文件名,
+  }),
 )
 
 // 初始化数据库表
@@ -70,14 +70,14 @@ export async function initDatabase() {
       username: 'ayu',
       password: '123456',
       realName: 'ayu',
-      roles: JSON.stringify(['super'])
+      roles: JSON.stringify(['super']),
     },
     {
       username: 'admin',
       password: '123456',
       realName: 'Admin',
-      roles: JSON.stringify(['admin'])
-    }
+      roles: JSON.stringify(['admin']),
+    },
   ]
 
   for (const user of defaultUsers) {

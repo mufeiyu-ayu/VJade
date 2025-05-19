@@ -17,7 +17,7 @@ export class QueryCondition {
     value?: any,
     andOr: 'and' | 'or' | '' = '',
     type?: string,
-    clazz?: string
+    clazz?: string,
   ) {
     this.field = field || ''
     this.operator = operator || ''

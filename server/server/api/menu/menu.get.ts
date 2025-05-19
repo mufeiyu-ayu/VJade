@@ -13,6 +13,6 @@ export default defineEventHandler(async (event) => {
   `
   console.log('rows', rows)
   return useResponseSuccess({
-    data: rows
+    data: rows,
   })
 })

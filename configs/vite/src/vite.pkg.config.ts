@@ -1,9 +1,9 @@
+import type { defineConfig, LibraryFormats, type UserConfig } from 'vite'
 import { readFile } from 'node:fs/promises'
-import { dirname, resolve, join } from 'node:path'
+import { dirname, join, resolve } from 'node:path'
 import { cwd, env } from 'node:process'
 import { findUp } from 'find-up'
-import { type UserConfig, defineConfig } from 'vite'
-import type { LibraryFormats } from 'vite'
+
 interface Options {
   name: string
   entry?: string
@@ -21,7 +21,7 @@ export async function definePkgConfig({
   defaultFormats = ['es'],
   externalDeps = true,
   options = {},
-  modifyExternal = []
+  modifyExternal = [],
 }: Options) {
   const formats = (env.FORMATS?.split(',') ?? defaultFormats) as LibraryFormats[]
   const { peerDependencies = {}, dependencies = {} } = await getPackageJson(resolvePath('package.json'))
@@ -36,7 +36,7 @@ export async function definePkgConfig({
         entry: resolvePath(entry),
         name,
         fileName: camelCaseToKebabCase(name),
-        formats
+        formats,
       },
       minify: envFile.isProd ? 'esbuild' : false,
       sourcemap: envFile.isProd ? false : 'inline',
@@ -50,19 +50,19 @@ export async function definePkgConfig({
           '@iconify/vue',
           /^@ayu-mu\/.*/,
           /^lodash-es/,
-          ...modifyExternal
+          ...modifyExternal,
         ],
         output: {
           globals: {
-            vue: 'Vue',
+            'vue': 'Vue',
             'element-plus': 'ElementPlus',
             'lodash-es': 'lodashEs',
-            '@iconify/vue': 'IconifyVue'
-          }
-        }
-      }
+            '@iconify/vue': 'IconifyVue',
+          },
+        },
+      },
     },
-    ...options
+    ...options,
   })
 }
 

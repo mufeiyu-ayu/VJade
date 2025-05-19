@@ -5,7 +5,7 @@
  * @param format - 目标格式的字符串，支持 yyyy, MM, dd, HH, mm, ss
  * @returns 格式化后的日期字符串
  */
-export const formatDate = (date: Date, format = 'yyyy-MM-dd HH:mm:ss'): string => {
+export function formatDate(date: Date, format = 'yyyy-MM-dd HH:mm:ss'): string {
   const year = date.getFullYear()
   const month = date.getMonth() + 1
   const day = date.getDate()
@@ -19,8 +19,8 @@ export const formatDate = (date: Date, format = 'yyyy-MM-dd HH:mm:ss'): string =
     dd: day.toString().padStart(2, '0'),
     HH: hour.toString().padStart(2, '0'),
     mm: minute.toString().padStart(2, '0'),
-    ss: second.toString().padStart(2, '0')
+    ss: second.toString().padStart(2, '0'),
   }
 
-  return format.replace(/yyyy|MM|dd|HH|mm|ss/g, (match) => formatMap[match])
+  return format.replace(/yyyy|MM|dd|HH|mm|ss/g, match => formatMap[match])
 }

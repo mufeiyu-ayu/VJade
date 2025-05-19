@@ -1,12 +1,13 @@
-import { createPinia } from 'pinia'
 import type { App } from 'vue'
+import { createPinia } from 'pinia'
+
 const store = createPinia()
 
 /**
  * 初始化store
  * @param app
  */
-const setupStore = (app: App) => {
+function setupStore(app: App) {
   app.use(store)
 }
 

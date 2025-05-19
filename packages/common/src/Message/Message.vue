@@ -1,11 +1,11 @@
 <script setup lang="ts">
-import { computed, ref } from 'vue'
-import { useNamespace } from '@ayu-mu/hooks'
 import type { MessageOptions } from './types'
+import { useNamespace } from '@ayu-mu/hooks'
+import { computed, ref } from 'vue'
 import AyuIcon from '../Icon/Icon.vue'
 
 defineOptions({
-  name: 'AyuMessage'
+  name: 'AyuMessage',
 })
 const props = withDefaults(defineProps<MessageOptions>(), {
   type: 'success',
@@ -13,7 +13,7 @@ const props = withDefaults(defineProps<MessageOptions>(), {
   dangerouslyUseHTMLString: false,
   duration: 3000,
   offset: 0,
-  appendTo: document.body as any
+  appendTo: document.body as unknown,
 })
 
 const ns = useNamespace('message')
@@ -23,7 +23,7 @@ console.log(top.value)
 const classStyle = computed(() => {
   return [ns.b(), ns.m(props.type), ns.is('message', props.type === 'message'), props.customClass]
 })
-const setVisibility = (val: boolean): Promise<string> => {
+function setVisibility(val: boolean): Promise<string> {
   return new Promise((resolve) => {
     visible.value = val
     setTimeout(() => {
@@ -34,7 +34,8 @@ const setVisibility = (val: boolean): Promise<string> => {
 
 const iconClass = computed(() => [ns.e('icon'), ns.bm('icon', props.type)])
 const iconName = computed(() => {
-  if (props.icon) return props.icon
+  if (props.icon)
+    return props.icon
   switch (props.type) {
     case 'success':
       return 'ep:success-filled'
@@ -48,7 +49,7 @@ const iconName = computed(() => {
       return ''
   }
 })
-const setTop = (val: number) => {
+function setTop(val: number) {
   top.value = val + props.offset
 }
 
@@ -57,20 +58,22 @@ defineExpose({
   setTop,
   height: 40,
   margin: 40,
-  appendTo: props.appendTo
+  appendTo: props.appendTo,
 })
 </script>
 
 <template>
-  <transition name="ayu-message-fade">
-    <div v-show="visible" :class="classStyle" :style="{ top: top + 'px' }">
-      <ayu-icon :class="iconClass" :icon="iconName"></ayu-icon>
+  <Transition name="ayu-message-fade">
+    <div v-show="visible" :class="classStyle" :style="{ top: `${top}px` }">
+      <AyuIcon :class="iconClass" :icon="iconName" />
       <slot>
-        <p v-if="!dangerouslyUseHTMLString" :class="ns.e('content')">{{ message }}</p>
+        <p v-if="!dangerouslyUseHTMLString" :class="ns.e('content')">
+          {{ message }}
+        </p>
         <p v-else :class="ns.e('content')" v-html="message" />
       </slot>
     </div>
-  </transition>
+  </Transition>
 </template>
 
 <style lang="scss">

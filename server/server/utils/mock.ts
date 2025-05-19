@@ -1,5 +1,6 @@
 import type { MenuItem } from '@ayu-mu/model'
 import { faker } from '@faker-js/faker'
+
 export const MOCK_USERS: UserInfo[] = [
   {
     id: 0,
@@ -8,7 +9,7 @@ export const MOCK_USERS: UserInfo[] = [
     roles: ['super'],
     username: 'ayu',
     createdAt: '2021-01-01 12:00:00',
-    updatedAt: '2021-01-01 12:00:00'
+    updatedAt: '2021-01-01 12:00:00',
   },
   {
     id: 1,
@@ -17,7 +18,7 @@ export const MOCK_USERS: UserInfo[] = [
     roles: ['admin'],
     username: 'admin',
     createdAt: '2021-01-01 12:00:00',
-    updatedAt: '2021-01-01 12:00:00'
+    updatedAt: '2021-01-01 12:00:00',
   },
   {
     id: 2,
@@ -26,8 +27,8 @@ export const MOCK_USERS: UserInfo[] = [
     roles: ['user'],
     username: 'jack',
     createdAt: '2021-01-01 12:00:00',
-    updatedAt: '2021-01-01 12:00:00'
-  }
+    updatedAt: '2021-01-01 12:00:00',
+  },
 ]
 
 export const mockFormData: MockFormData = {
@@ -44,7 +45,7 @@ export const mockFormData: MockFormData = {
   status: '启用',
   remark: '备注',
   isDelete: false,
-  isEnable: true
+  isEnable: true,
 }
 export const flatMenuList: MenuItem[] = [
   {
@@ -62,7 +63,7 @@ export const flatMenuList: MenuItem[] = [
     routePath: '/dashboard',
     uri: '/dashboard',
     pageName: 'Dashboard',
-    sort: 1
+    sort: 1,
   },
   {
     id: 10002,
@@ -79,7 +80,7 @@ export const flatMenuList: MenuItem[] = [
     routePath: 'system',
     uri: '/system',
     pageName: 'SystemManage',
-    sort: 2
+    sort: 2,
   },
   {
     id: 100001,
@@ -96,7 +97,7 @@ export const flatMenuList: MenuItem[] = [
     routePath: 'system/user',
     uri: '/system/user',
     pageName: 'UserManage',
-    sort: 1
+    sort: 1,
   },
   {
     id: 1000011,
@@ -113,7 +114,7 @@ export const flatMenuList: MenuItem[] = [
     routePath: 'system/user/list',
     uri: '/system/user/list',
     pageName: 'UserList',
-    sort: 1
+    sort: 1,
   },
   {
     id: 1000012,
@@ -130,7 +131,7 @@ export const flatMenuList: MenuItem[] = [
     routePath: 'system/user/role',
     uri: '/system/user/role',
     pageName: 'RoleManage',
-    sort: 2
+    sort: 2,
   },
   {
     id: 100012,
@@ -147,7 +148,7 @@ export const flatMenuList: MenuItem[] = [
     routePath: 'system/permission',
     uri: '/system/permission',
     pageName: 'PermissionManage',
-    sort: 2
+    sort: 2,
   },
   {
     id: 1000121,
@@ -164,7 +165,7 @@ export const flatMenuList: MenuItem[] = [
     routePath: 'system/permission/menu',
     uri: '/system/permission/menu',
     pageName: 'MenuPermission',
-    sort: 1
+    sort: 1,
   },
   {
     id: 1000122,
@@ -181,7 +182,7 @@ export const flatMenuList: MenuItem[] = [
     routePath: 'system/permission/api',
     uri: '/system/permission/api',
     pageName: 'ApiPermission',
-    sort: 2
+    sort: 2,
   },
   {
     id: 10003,
@@ -198,7 +199,7 @@ export const flatMenuList: MenuItem[] = [
     routePath: 'content',
     uri: '/content',
     pageName: 'ContentManage',
-    sort: 3
+    sort: 3,
   },
   {
     id: 1000131,
@@ -215,7 +216,7 @@ export const flatMenuList: MenuItem[] = [
     routePath: 'content/article1',
     uri: '/content/article1',
     pageName: 'ArticleManage',
-    sort: 1
+    sort: 1,
   },
   {
     id: 1000031,
@@ -232,7 +233,7 @@ export const flatMenuList: MenuItem[] = [
     routePath: 'content/article',
     uri: '/content/article',
     pageName: 'ArticleManage',
-    sort: 1
+    sort: 1,
   },
   {
     id: 10000311,
@@ -249,7 +250,7 @@ export const flatMenuList: MenuItem[] = [
     routePath: 'content/article/list',
     uri: '/content/article/list',
     pageName: 'ArticleList',
-    sort: 1
+    sort: 1,
   },
   {
     id: 10000312,
@@ -266,7 +267,7 @@ export const flatMenuList: MenuItem[] = [
     routePath: 'content/article/category',
     uri: '/content/article/category',
     pageName: 'CategoryManage',
-    sort: 2
+    sort: 2,
   },
   {
     id: 10000313,
@@ -283,7 +284,7 @@ export const flatMenuList: MenuItem[] = [
     routePath: 'content/article/common',
     uri: '/content/article/common',
     pageName: 'CommonPage1',
-    sort: 3
+    sort: 3,
   },
   {
     id: 10000314,
@@ -300,7 +301,7 @@ export const flatMenuList: MenuItem[] = [
     routePath: 'content/article/common2',
     uri: '/content/article/common2',
     pageName: 'CommonPage2',
-    sort: 4
+    sort: 4,
   },
   {
     id: 10000315,
@@ -317,15 +318,15 @@ export const flatMenuList: MenuItem[] = [
     routePath: 'content/article/common3',
     uri: '/content/article/common3',
     pageName: 'CommonPage3',
-    sort: 5
-  }
+    sort: 5,
+  },
 ]
 
 /**
  * 生成模拟的表格数据，包含父子层级关系
  * @returns {Array} 返回一个包含父子关系的一维数组
  */
-export const mockTableData = () => {
+export function mockTableData() {
   const allData = []
   let currentId = 1
 
@@ -347,7 +348,7 @@ export const mockTableData = () => {
       order_name: `Order-${faker.string.alphanumeric(6)}`,
       package_num: faker.number.int({ min: 1, max: 100 }),
       weight: faker.number.float({ min: 0.1, max: 100, fractionDigits: 1 }),
-      total_weight: faker.number.float({ min: 100, max: 10000, fractionDigits: 1 })
+      total_weight: faker.number.float({ min: 100, max: 10000, fractionDigits: 1 }),
     }
     allData.push(firstLevelItem)
     currentId++
@@ -370,7 +371,7 @@ export const mockTableData = () => {
         order_name: `${firstLevelItem.order_name}-${faker.string.alphanumeric(4)}`,
         package_num: faker.number.int({ min: 1, max: 50 }),
         weight: faker.number.float({ min: 0.1, max: 50, fractionDigits: 1 }),
-        total_weight: faker.number.float({ min: 50, max: 5000, fractionDigits: 1 })
+        total_weight: faker.number.float({ min: 50, max: 5000, fractionDigits: 1 }),
       }
       allData.push(secondLevelItem)
       currentId++
@@ -393,7 +394,7 @@ export const mockTableData = () => {
           order_name: `${secondLevelItem.order_name}-${faker.string.alphanumeric(4)}`,
           package_num: faker.number.int({ min: 1, max: 20 }),
           weight: faker.number.float({ min: 0.1, max: 20, fractionDigits: 1 }),
-          total_weight: faker.number.float({ min: 20, max: 2000, fractionDigits: 1 })
+          total_weight: faker.number.float({ min: 20, max: 2000, fractionDigits: 1 }),
         }
         allData.push(thirdLevelItem)
         currentId++

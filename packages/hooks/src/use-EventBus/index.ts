@@ -1,8 +1,9 @@
+import type { Emitter, EventType } from 'mitt'
+import mitt from 'mitt'
 import { onUnmounted } from 'vue'
-import mitt, { type Emitter, type EventType } from 'mitt'
 
 const emitter: Emitter<Record<EventType, unknown>> = mitt()
-export const useEventBus = (eventNames?: string[]) => {
+export function useEventBus(eventNames?: string[]) {
   /**
    * 触发器
    * @param { string} eventName 事件名称
@@ -34,13 +35,13 @@ export const useEventBus = (eventNames?: string[]) => {
   /* @description 取消所有事件总线 */
   onUnmounted(() => {
     if (eventNames && eventNames.length > 0) {
-      eventNames.forEach((eventName) => emitter.off(eventName))
+      eventNames.forEach(eventName => emitter.off(eventName))
     }
   })
 
   return {
     emit,
     on,
-    off
+    off,
   }
 }

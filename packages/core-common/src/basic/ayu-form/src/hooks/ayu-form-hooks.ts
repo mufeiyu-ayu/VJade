@@ -1,9 +1,10 @@
-import { getCurrentInstance, type ComponentInternalInstance, ref, onMounted } from 'vue'
 import type { FormInstance } from 'element-plus'
-import { useFormUtils } from './ayu-form-utils-hooks'
+import type { ComponentInternalInstance } from 'vue'
+import type { FormProps } from '../types'
+import { getCurrentInstance, onMounted, ref } from 'vue'
 import { useFormActionHooks } from './ayu-form-action-hooks'
 import { useFormComputedHooks } from './ayu-form-computed-hooks'
-import type { FormProps } from '../types'
+import { useFormUtils } from './ayu-form-utils-hooks'
 
 /**
  * 表单主要功能的 hook
@@ -16,14 +17,14 @@ export function useForm() {
   const formRef = ref<FormInstance>()
   const formData = ref<Record<string, any>>({})
 
-  const { formRules, colSize, groupComponent, groupItemConfig, formGroupConfig, allActiveName, tabsOverflowY } =
-    useFormComputedHooks(props)
+  const { formRules, colSize, groupComponent, groupItemConfig, formGroupConfig, allActiveName, tabsOverflowY }
+    = useFormComputedHooks(props)
 
   const { submitForm, resetForm, handleCollapseChange, collapseIsExpand } = useFormActionHooks(
     formRef,
     formData,
     props,
-    formGroupConfig
+    formGroupConfig,
   )
 
   onMounted(() => {
@@ -44,6 +45,6 @@ export function useForm() {
     allActiveName,
     collapseIsExpand,
     tabsOverflowY,
-    componentRender
+    componentRender,
   }
 }

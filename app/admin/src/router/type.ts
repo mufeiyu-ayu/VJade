@@ -30,7 +30,7 @@ export enum RouteNameEnum {
   /**
    * 子表
    */
-  CHILD_TABLE = 'childTable'
+  CHILD_TABLE = 'childTable',
 }
 
 export interface ResultRoute {
@@ -52,5 +52,5 @@ export const ROUTER_WHITE_LIST = [
   RouteNameEnum.FORBIDDEN,
   RouteNameEnum.NOT_FOUND,
   RouteNameEnum.REDIRECT,
-  RouteNameEnum.LOGIN
+  RouteNameEnum.LOGIN,
 ]

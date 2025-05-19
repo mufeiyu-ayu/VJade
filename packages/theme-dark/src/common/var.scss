@@ -23,7 +23,7 @@ $color-map: (
   warning: $warning,
   danger: $danger,
   info: $info,
-  error: $error
+  error: $error,
 );
 
 $color-active-map: (
@@ -32,7 +32,7 @@ $color-active-map: (
   warning: $warning-active,
   danger: $danger-active,
   info: $info-active,
-  error: $error-active
+  error: $error-active,
 );
 
 $size-map: (
@@ -40,17 +40,17 @@ $size-map: (
     padding: 5px 11px,
     font-size: 12px,
     border-radius: 4px,
-    height: 24px
+    height: 24px,
   ),
   default: (
     padding: 9px 15px,
     font-size: 14px,
-    border-radius: 4px
+    border-radius: 4px,
   ),
   large: (
     padding: 12px 19px,
     height: 40px,
     font-size: 16px,
-    border-radius: 4px
-  )
+    border-radius: 4px,
+  ),
 );

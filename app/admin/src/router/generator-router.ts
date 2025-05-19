@@ -1,14 +1,15 @@
 import type { MenuItem } from '@ayu-mu/model'
-import { RouteNameEnum, ResultRoute } from './type'
-import { resetRouter } from './index'
-import { routes } from './routes'
-import { router } from './index'
-import Test from '@/views/Test/index.vue'
 import type { RouteRecordRaw } from 'vue-router'
+import type { ResultRoute } from './type'
 import { useUserStore } from '@/stores/modules/user'
-export const resolveRouter = (routes: ResultRoute[], parentId: number | null = null) => {
+import Test from '@/views/Test/index.vue'
+import { resetRouter, router } from './index'
+import { routes } from './routes'
+import { RouteNameEnum } from './type'
+
+export function resolveRouter(routes: ResultRoute[], parentId: number | null = null) {
   // 过滤出当前 parentId 的所有路由
-  const currentRoutes = routes.filter((route) => route.meta.parentId === parentId)
+  const currentRoutes = routes.filter(route => route.meta.parentId === parentId)
 
   // 对每个路由项递归构建子路由
   return currentRoutes.map((route) => {
@@ -28,7 +29,7 @@ export const resolveRouter = (routes: ResultRoute[], parentId: number | null = n
  * 生成路由
  * @param menu 后端返回的路由表
  */
-export const generatorRouter = async (menu: MenuItem[]) => {
+export async function generatorRouter(menu: MenuItem[]) {
   const { setRouteLen } = useUserStore()
   const menuList: RouteRecordRaw[] = []
   // 获取 src/page/在所有文件路径以及 vue 文件
@@ -40,11 +41,11 @@ export const generatorRouter = async (menu: MenuItem[]) => {
       .replace('/src/views/page', '') // 移除前缀
       .replace('/index.vue', '') // 移除 /index.vue 后缀
       .replace('.vue', ''), // 移除其他 .vue 后缀
-    value: value as () => Promise<unknown>
+    value: value as () => Promise<unknown>,
   }))
 
   menu.forEach((item) => {
-    const pagePath = pagePathList.find((pageItem) => pageItem.path === item.link)
+    const pagePath = pagePathList.find(pageItem => pageItem.path === item.link)
 
     menuList.push({
       path: item.link,
@@ -54,11 +55,11 @@ export const generatorRouter = async (menu: MenuItem[]) => {
         id: item.id,
         parentId: item.parentId,
         icon: item.icon,
-        title: item.menuTitle
-      }
+        title: item.menuTitle,
+      },
     })
   })
-  const layout = routes.find((item) => item.name === RouteNameEnum.LAYOUT)
+  const layout = routes.find(item => item.name === RouteNameEnum.LAYOUT)
   layout.children = [...menuList, ...layout.children]
   resetRouter()
   router.addRoute(layout)

@@ -1,4 +1,5 @@
-import { encrypt, decrypt } from '../encry'
+// @ts-ignore
+import { decrypt, encrypt } from '../encry'
 
 interface StorageConfig {
   type: 'localStorage' | 'sessionStorage'
@@ -11,7 +12,7 @@ const config: StorageConfig = {
   type: 'localStorage',
   prefix: 'ayu-',
   expire: 24 * 60,
-  isEncrypt: true
+  isEncrypt: true,
 }
 /**
  * WebStorage 类用于封装对浏览器 Web 存储（如 localStorage 或 sessionStorage）的操作。
@@ -51,19 +52,19 @@ class WebStorage {
       value = null
     }
 
-    if (isNaN(expire) || expire < 0) {
+    if (Number.isNaN(expire) || expire < 0) {
       throw new Error('expire must be a number')
     }
     const data = {
       value,
       time: Date.now(),
-      expire: Date.now() + 1000 * 60 * expire
+      expire: Date.now() + 1000 * 60 * expire,
     }
 
     if (typeof window !== 'undefined') {
       window[config.type].setItem(
         this.autoAddPreFix(key),
-        config.isEncrypt ? encrypt(JSON.stringify(data)) : JSON.stringify(data)
+        config.isEncrypt ? encrypt(JSON.stringify(data)) : JSON.stringify(data),
       )
     }
     return true
@@ -122,7 +123,8 @@ class WebStorage {
     const now = Date.now()
     if (now > storageVal.expire) {
       this.removeStorageFromKey(key)
-    } else {
+    }
+    else {
       return storageVal.value
     }
   }
@@ -137,7 +139,8 @@ class WebStorage {
    * console.log(length);  // 3 (例如有 3 项存储数据)
    */
   getStorageLength = () => {
-    if (typeof window !== 'undefined') return window[config.type].length
+    if (typeof window !== 'undefined')
+      return window[config.type].length
   }
 
   /**
@@ -153,7 +156,8 @@ class WebStorage {
     if (config.prefix) {
       key = this.autoAddPreFix(key)
     }
-    if (typeof window !== 'undefined') window[config.type].removeItem(key)
+    if (typeof window !== 'undefined')
+      window[config.type].removeItem(key)
   }
 
   /**
@@ -163,7 +167,8 @@ class WebStorage {
    * storage.clearStorage();  // 清空所有存储
    */
   clearStorage = () => {
-    if (typeof window !== 'undefined') window[config.type].clear()
+    if (typeof window !== 'undefined')
+      window[config.type].clear()
   }
 
   /**

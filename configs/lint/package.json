@@ -2,10 +2,13 @@
   "name": "@configs/lint",
   "version": "1.0.1",
   "private": "true",
+  "author": "",
+  "license": "ISC",
+  "keywords": [],
   "files": [
     "eslint.js",
-    "prettier.js",
-    "lintstaged.js"
+    "lintstaged.js",
+    "prettier.js"
   ],
   "scripts": {
     "clean": "rd/s/q node_modules",
@@ -20,8 +23,5 @@
     "eslint-plugin-vue": "^9.24.0",
     "lint-staged": "^15.2.2",
     "prettier": "^3.2.5"
-  },
-  "author": "",
-  "keywords": [],
-  "license": "ISC"
+  }
 }

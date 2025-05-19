@@ -1,16 +1,16 @@
 {
-  "extends":"@ayu-mu/tsconfig/tsconfig.base.json",
+  "extends": "@ayu-mu/tsconfig/tsconfig.base.json",
   "compilerOptions": {
-    "outDir": "temp/src",
-    "rootDir": "src",
-    "declaration": true,
-    "emitDeclarationOnly": true,
     "composite": true,
-    "types": ["node"],
     "baseUrl": ".",
+    "rootDir": "src",
     "paths": {
       "@/*": ["src/*"]
-    }
+    },
+    "types": ["node"],
+    "declaration": true,
+    "emitDeclarationOnly": true,
+    "outDir": "temp/src"
   },
   "include": ["src/**/*.ts", "src/**/*.vue"],
   "exclude": ["dist", "node_modules", "**/*.test.ts", "**/__tests__/*"]

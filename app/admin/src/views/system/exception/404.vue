@@ -1,28 +1,33 @@
 <script lang="ts" setup>
 import { useRouter } from 'vue-router'
+
 const router = useRouter()
 
 /**
  * 返回上一页
  */
-const goBack = () => {
+function goBack() {
   router.go(-1)
 }
 
 /**
  * 回到首页
  */
-const goHome = () => {
+function goHome() {
   router.push('/')
 }
 </script>
 
 <template>
   <div>
-    <el-empty description="抱歉，您访问的页面不存在。" class="exception">
-      <el-button type="info" @click="goHome">首页</el-button>
-      <el-button type="primary" @click="goBack">返回</el-button>
-    </el-empty>
+    <ElEmpty description="抱歉，您访问的页面不存在。" class="exception">
+      <ElButton type="info" @click="goHome">
+        首页
+      </ElButton>
+      <ElButton type="primary" @click="goBack">
+        返回
+      </ElButton>
+    </ElEmpty>
   </div>
 </template>
 

@@ -1,8 +1,8 @@
-import { ElInput, ElSelect, ElCheckbox, ElRadio, ElSwitch, ElDatePicker, ElTimePicker, ElUpload } from 'element-plus'
-import { ExtractComponentProps } from '@ayu-mu/model'
+import type { ExtractComponentProps } from '@ayu-mu/model'
+import type { ElCheckbox, ElDatePicker, ElInput, ElRadio, ElSelect, ElSwitch, ElTimePicker, ElUpload } from 'element-plus'
 
 // 定义组件属性映射
-export type ComponentPropsMapping = {
+export interface ComponentPropsMapping {
   input: ExtractComponentProps<typeof ElInput>
   select: ExtractComponentProps<typeof ElSelect>
   checkbox: ExtractComponentProps<typeof ElCheckbox>

@@ -1,7 +1,7 @@
-import { RouteNameEnum } from '../type'
-import RedirectPage from '@/views/system/redurect/index.vue'
 import HomeLayout from '@/layout/home.vue'
 import HomePage from '@/views/system/home/index.vue'
+import RedirectPage from '@/views/system/redurect/index.vue'
+import { RouteNameEnum } from '../type'
 
 /**
  * 首页路由信息
@@ -11,8 +11,8 @@ export const HOME_ROUTE_INFO = {
   name: RouteNameEnum.HOME,
   component: HomePage,
   meta: {
-    title: '应用首页'
-  }
+    title: '应用首页',
+  },
 }
 
 /**
@@ -24,8 +24,8 @@ export const REDIRECT_ROUTE_INFO = {
   component: RedirectPage,
   meta: {
     title: 'Redirect',
-    hideMenu: true
-  }
+    hideMenu: true,
+  },
 }
 /**
  * LAYOUT路由
@@ -35,5 +35,5 @@ export const HOME_ROUTE = {
   name: RouteNameEnum.LAYOUT,
 
   component: HomeLayout,
-  children: [HOME_ROUTE_INFO, REDIRECT_ROUTE_INFO]
+  children: [HOME_ROUTE_INFO, REDIRECT_ROUTE_INFO],
 }

@@ -3,7 +3,9 @@
 <template>
   <div class="w-full h-full flex items-center justify-center">
     <div class="text-4xl font-bold">
-      <el-button type="primary">点击</el-button>
+      <ElButton type="primary">
+        点击
+      </ElButton>
     </div>
   </div>
 </template>

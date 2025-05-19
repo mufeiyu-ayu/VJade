@@ -7,11 +7,11 @@ export interface MenuItem {
   roles?: string[]
   /** 标题 */
   menuTitle: string
-  /** 图标*/
+  /** 图标 */
   icon: string
   /** 菜单索引 */
   menuIndex: string
-  /**路由 name */
+  /** 路由 name */
   menuCode: string
   /** 是否为管理员 */
   isAdmin?: boolean

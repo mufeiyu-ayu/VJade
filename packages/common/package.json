@@ -1,13 +1,9 @@
 {
   "name": "@ayu-mu/common",
+  "type": "module",
   "version": "0.0.5",
   "private": false,
-  "type": "module",
-  "module": "./dist/ayu-web-build-component.js",
-  "main": "./dist/ayu-web-build-component.js",
-  "files": [
-    "dist"
-  ],
+  "description": "A common package for Ayu",
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
@@ -19,6 +15,12 @@
       "require": "./dist/style.css"
     }
   },
+  "main": "./dist/ayu-web-build-component.js",
+  "module": "./dist/ayu-web-build-component.js",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "build": "vite build",
     "build:all": "vite build && pnpm build:dts",
@@ -26,10 +28,17 @@
     "build:watch": "vite build -w",
     "generate-attributes": "generate-attributes"
   },
-  "dependencies": {
+  "peerDependencies": {
+    "@element-plus/icons-vue": "^2.0.0",
     "@iconify/vue": "^4.1.2",
+    "element-plus": "^2.7.0",
+    "lodash-es": "^4.17.21",
+    "vue": "^3.4.21"
+  },
+  "dependencies": {
+    "@ayu-mu/hooks": "workspace:^",
     "@ayu-mu/utils": "workspace:^",
-    "@ayu-mu/hooks": "workspace:^"
+    "@iconify/vue": "^4.1.2"
   },
   "devDependencies": {
     "@ayu-mu/scripts": "workspace:^",
@@ -38,14 +47,5 @@
     "@vitejs/plugin-vue": "^5.1.4",
     "vite": "^5.4.10",
     "vue-tsc": "^2.2.0"
-  },
-  "peerDependencies": {
-    "vue": "^3.4.21",
-    "element-plus": "^2.7.0",
-    "lodash-es": "^4.17.21",
-    "@element-plus/icons-vue": "^2.0.0",
-    "@iconify/vue": "^4.1.2"
-  },
-  "description": "A common package for Ayu",
-  "types": "./dist/index.d.ts"
+  }
 }

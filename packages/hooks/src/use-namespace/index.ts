@@ -1,13 +1,12 @@
-// eslint-disable-next-line import/no-extraneous-dependencies
-import { getCurrentInstance, inject, ref, computed, unref } from 'vue'
 import type { InjectionKey, Ref } from 'vue'
+import { computed, getCurrentInstance, inject, ref, unref } from 'vue'
 
 export const defaultNamespace = 'ayu'
 const statePrefix = 'is-'
 
 export const namespaceContextKey: InjectionKey<Ref<string | undefined>> = Symbol('namespaceContextKey')
 
-const _bem = (namespace: string, block: string, blockSuffix: string, element: string, modifier: string) => {
+function _bem(namespace: string, block: string, blockSuffix: string, element: string, modifier: string) {
   let cls = `${namespace}-${block}`
   if (blockSuffix) {
     cls += `-${blockSuffix}`
@@ -21,10 +20,10 @@ const _bem = (namespace: string, block: string, blockSuffix: string, element: st
   return cls
 }
 
-const useGetDerivedNamespace = (namespaceOverrides?: Ref<string | undefined>) => {
-  const derivedNamespace =
-    namespaceOverrides ||
-    (getCurrentInstance() ? inject(namespaceContextKey, ref(defaultNamespace)) : ref(defaultNamespace))
+function useGetDerivedNamespace(namespaceOverrides?: Ref<string | undefined>) {
+  const derivedNamespace
+    = namespaceOverrides
+      || (getCurrentInstance() ? inject(namespaceContextKey, ref(defaultNamespace)) : ref(defaultNamespace))
   const namespace = computed(() => {
     return unref(derivedNamespace) || defaultNamespace
   })
@@ -37,7 +36,7 @@ const useGetDerivedNamespace = (namespaceOverrides?: Ref<string | undefined>) =>
  * @param namespaceOverrides 命名空间覆盖
  * @return: String
  */
-export const useNamespace = (block: string, namespaceOverrides?: Ref<string | undefined>) => {
+export function useNamespace(block: string, namespaceOverrides?: Ref<string | undefined>) {
   const namespace = useGetDerivedNamespace(namespaceOverrides)
 
   const b = (blockSuffix = '') => _bem(namespace.value, block, blockSuffix, '', '')
@@ -98,7 +97,7 @@ export const useNamespace = (block: string, namespaceOverrides?: Ref<string | un
     cssVar,
     cssVarName,
     cssVarBlock,
-    cssVarBlockName
+    cssVarBlockName,
   }
 }
 export type UseNamespaceReturn = ReturnType<typeof useNamespace>

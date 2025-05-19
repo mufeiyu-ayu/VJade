@@ -1,23 +1,22 @@
 <script setup lang="ts">
-import { useNamespace } from '@ayu-mu/hooks'
-import { computed, ref } from 'vue'
-import { throttle } from 'lodash-es'
 import type { ButtonEmits, ButtonInstance, ButtonProps } from './Button.ts'
+import { useNamespace } from '@ayu-mu/hooks'
 import { Icon } from '@iconify/vue'
+import { throttle } from 'lodash-es'
+import { computed, ref } from 'vue'
 
 defineOptions({
-  name: 'AyuButton'
+  name: 'AyuButton',
 })
-const _ref = ref<HTMLButtonElement>()
 const props = withDefaults(defineProps<ButtonProps>(), {
   tag: 'button',
   nativeType: 'button',
   throttleDuration: 1000,
-  useThrottle: false
+  useThrottle: false,
 })
-
 const emits = defineEmits<ButtonEmits>()
-const handleBtnClick = (e: MouseEvent) => {
+const _ref = ref<HTMLButtonElement>()
+function handleBtnClick(e: MouseEvent) {
   emits('click', e)
 }
 const handleBtnCLickThrottle = throttle(handleBtnClick, props.throttleDuration)
@@ -33,7 +32,7 @@ const buttonKls = computed(() => [
   ns.is('loading', props.loading),
   ns.is('plain', props.plain),
   ns.is('circle', props.circle),
-  ns.is('link', props.link)
+  ns.is('link', props.link),
 ])
 defineExpose<ButtonInstance>({
   /** @description  获取当前组件的ref */
@@ -43,9 +42,10 @@ defineExpose<ButtonInstance>({
   /** @description  获取当前组件的disabled */
   disabled,
   /** @description  获取当前组件的type */
-  type
+  type,
 })
 </script>
+
 <template>
   <component
     :is="tag"
@@ -58,7 +58,7 @@ defineExpose<ButtonInstance>({
       <Icon v-else icon="line-md:loading-loop" :class="ns.is('loading')" />
     </template>
     <template v-else-if="icon">
-      <Icon :icon="icon"></Icon>
+      <Icon :icon="icon" />
     </template>
     <span v-if="$slots.default" :class="ns.em('text')">
       <slot />

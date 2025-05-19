@@ -1,15 +1,15 @@
-//https://nitro.unjs.io/config
+// https://nitro.unjs.io/config
 export default defineNitroConfig({
   srcDir: 'server',
   experimental: {
     asyncContext: true,
-    database: true
+    database: true,
   },
   database: {
     default: {
       connector: 'sqlite',
-      options: { name: 'db' }
-    }
+      options: { name: 'db' },
+    },
   },
   compatibilityDate: '2025-02-04',
   // 路由配置
@@ -29,8 +29,8 @@ export default defineNitroConfig({
         // 允许所有源访问
         'Access-Control-Allow-Origin': '*',
         // 允许客户端访问所有响应头
-        'Access-Control-Expose-Headers': '*'
-      }
-    }
-  }
+        'Access-Control-Expose-Headers': '*',
+      },
+    },
+  },
 })
