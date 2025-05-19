@@ -1,24 +1,25 @@
 <script setup lang="ts">
-import { MenuItem } from '@ayu-mu/model'
-import { ref, onMounted } from 'vue'
+import type { MenuItem } from '@ayu-mu/model'
+import { onMounted, ref } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
-const router = useRouter()
+
 const props = defineProps<{
   menuList: MenuItem[]
 }>()
-
+const router = useRouter()
 const route = useRoute()
 const activeIndex = ref('')
 
 // 根据路由查找对应的菜单项
-const findMenuByRoute = (menus: MenuItem[], path: string): string => {
+function findMenuByRoute(menus: MenuItem[], path: string): string {
   for (const menu of menus) {
     if (menu.routePath === path) {
       return menu.menuIndex
     }
     if (menu.children) {
       const found = findMenuByRoute(menu.children, path)
-      if (found) return found
+      if (found)
+        return found
     }
   }
   return ''
@@ -30,7 +31,8 @@ onMounted(() => {
   const savedIndex = localStorage.getItem('activeMenuIndex')
   if (savedIndex) {
     activeIndex.value = savedIndex
-  } else {
+  }
+  else {
     // 如果没有保存的状态，则根据当前路由设置
     const currentPath = route.path.replace(/^\//, '') // 移除开头的斜杠
     const menuIndex = findMenuByRoute(props.menuList, currentPath)
@@ -42,7 +44,7 @@ onMounted(() => {
 })
 
 // 处理菜单选中
-const handleSelect = (item: MenuItem) => {
+function handleSelect(item: MenuItem) {
   activeIndex.value = item.menuIndex
   localStorage.setItem('activeMenuIndex', item.menuIndex)
   router.push(item.link)
@@ -51,25 +53,25 @@ const handleSelect = (item: MenuItem) => {
 
 <template>
   <template v-for="item in menuList" :key="item.menuIndex">
-    <el-sub-menu
+    <ElSubMenu
       v-if="item.children.length > 0"
       :index="item.menuIndex"
       :class="{ 'is-active': activeIndex === item.menuIndex }"
     >
       <template #title>
-        <el-icon>
+        <ElIcon>
           <component :is="item.icon" />
-        </el-icon>
+        </ElIcon>
         <span>{{ item.menuTitle }}</span>
       </template>
-      <subMenu :menuList="item.children" />
-    </el-sub-menu>
-    <el-menu-item v-else :index="item.menuIndex" @click="handleSelect(item)">
-      <el-icon>
+      <SubMenu :menu-list="item.children" />
+    </ElSubMenu>
+    <ElMenuItem v-else :index="item.menuIndex" @click="handleSelect(item)">
+      <ElIcon>
         <component :is="item.icon" />
-      </el-icon>
+      </ElIcon>
       <span>{{ item.menuTitle }}</span>
-    </el-menu-item>
+    </ElMenuItem>
   </template>
 </template>
 
