@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import type { MenuItem } from '@ayu-mu/model'
 import { useUserStore } from '@/stores/modules/user'
+import SubMenu from './appMenu/subMenu.vue'
 
 defineProps<{
   isCollapse: boolean
@@ -51,7 +52,7 @@ const treeData = sortTree(arrayToTree(menuList))
 <template>
   <div class="w-full h-full">
     <ElMenu default-active="2" :collapse="isCollapse" class="el-menu-vertical-demo">
-      <ElMenuItem>
+      <ElMenuItem class="hello">
         <div class="w-full h-[70px] flex items-center justify-center">
           <span
             class="text-5xl font-extrabold italic bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 bg-clip-text text-transparent w-full text-center leading-[70px] flex items-center justify-center animate-gradient cursor-pointer tracking-wide drop-shadow-[0_0_15px_rgba(59,130,246,0.6)] before:content-[''] before:absolute before:inset-0 before:bg-gradient-to-r before:from-blue-500/20 before:via-purple-500/20 before:to-pink-500/20 before:animate-pulse"
@@ -66,6 +67,9 @@ const treeData = sortTree(arrayToTree(menuList))
 </template>
 
 <style lang="scss" scoped>
+.hello {
+  padding: 0 !important;
+}
 .el-menu-vertical-demo {
   height: 100%;
 }
