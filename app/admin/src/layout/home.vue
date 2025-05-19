@@ -9,13 +9,13 @@ const isCollapse = ref(false)
 <template>
   <div class="w-full h-screen flex theme">
     <!-- layoutsider -->
-    <div class="w-[10vw] flex flex-col h-full bg-white">
+    <div class=" flex flex-col h-full bg-white">
       <div class="flex-1 bg-[#f1f3f5]">
         <Menu :is-collapse="isCollapse" />
       </div>
     </div>
     <!-- layout-right -->
-    <div class="flex-1 w-full h-full bg-[#f1f3f5]">
+    <div class="flex-1 h-full bg-[#f1f3f5]">
       <div class="flex h-full w-full flex-col">
         <div class="h-14 w-full bg-white flex items-center justify-between">
           <ElIcon size="20px" class="cursor-pointer" @click="isCollapse = !isCollapse">

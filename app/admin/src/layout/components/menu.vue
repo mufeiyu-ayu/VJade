@@ -67,6 +67,19 @@ const treeData = sortTree(arrayToTree(menuList))
 </template>
 
 <style lang="scss" scoped>
+:deep(.el-menu-vertical-demo) {
+  width: 280px !important;
+  transition: all 0.3s ease-in-out;
+
+  &.el-menu--collapse {
+    width: 64px !important;
+  }
+
+  .el-menu-item,
+  .el-sub-menu__title {
+    transition: all 0.3s ease-in-out;
+  }
+}
 .hello {
   padding: 0 !important;
 }

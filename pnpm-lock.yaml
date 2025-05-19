@@ -35,9 +35,6 @@ importers:
       '@ayu-mu/utils':
         specifier: workspace:^
         version: link:packages/utils
-      '@ayu-mu/workflow':
-        specifier: workspace:^
-        version: link:packages/workflow
       '@changesets/cli':
         specifier: ^2.27.6
         version: 2.27.12
@@ -529,12 +526,6 @@ importers:
       vue-tsc:
         specifier: ^2.2.0
         version: 2.2.0(typescript@5.7.2)
-
-  packages/workflow:
-    dependencies:
-      vue:
-        specifier: ^3.4.21
-        version: 3.5.13(typescript@5.7.2)
 
   scripts:
     dependencies:
