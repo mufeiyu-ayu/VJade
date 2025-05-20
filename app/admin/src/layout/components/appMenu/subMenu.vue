@@ -70,7 +70,7 @@ function handleSelect(item: MenuItem) {
       <ElIcon>
         <component :is="item.icon" />
       </ElIcon>
-      <span>{{ item.menuTitle }}</span>
+      <span class="w-[100px]">{{ item.menuTitle }}</span>
     </ElMenuItem>
   </template>
 </template>
