@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import { ref, computed, watch } from 'vue'
-
 import type { DraggableEvent } from 'vue-draggable-plus'
+
+import { computed, watch } from 'vue'
 import RecursiveContainer from './RecursiveContainer.vue'
 
 const props = defineProps<{
@@ -9,18 +9,18 @@ const props = defineProps<{
   selectedComponent: any | null
 }>()
 
+const emit = defineEmits(['update:formComponents', 'update:selectedComponent', 'add', 'update'])
+
 watch(() => props.formComponents, (newVal) => {
   console.log('watch------------------- 被触发 newVal:', newVal)
 }, { deep: true })
-
-const emit = defineEmits(['update:formComponents', 'update:selectedComponent', 'add', 'update'])
 
 // 本地响应式数据，用于接收拖拽项目
 const localFormComponents = computed({
   get: () => props.formComponents,
   set: (value) => {
     emit('update:formComponents', value)
-  }
+  },
 })
 
 // 本地选中组件
@@ -28,7 +28,7 @@ const localSelectedComponent = computed({
   get: () => props.selectedComponent,
   set: (value) => {
     emit('update:selectedComponent', value)
-  }
+  },
 })
 
 function handleAdd(e: DraggableEvent) {
@@ -44,8 +44,6 @@ function handleUpdate(e: DraggableEvent) {
 function handleSelectComponent(component: any) {
   localSelectedComponent.value = component
 }
-
-
 </script>
 
 <template>
@@ -57,6 +55,7 @@ function handleSelectComponent(component: any) {
       <RecursiveContainer
         v-model="localFormComponents"
         :selected-component="localSelectedComponent"
+        :type="localSelectedComponent?.type"
         @select="handleSelectComponent"
         @add="handleAdd"
         @update="handleUpdate"

@@ -1,25 +1,24 @@
 <script setup lang="ts">
 import type { DraggableEvent } from 'vue-draggable-plus'
-import { VueDraggable } from 'vue-draggable-plus'
 import { computed } from 'vue'
+import { VueDraggable } from 'vue-draggable-plus'
 
 const props = defineProps<{
   componentList: any[]
 }>()
 
+const emit = defineEmits(['start', 'end'])
+
 // 使用computed创建本地引用
 const localComponentList = computed(() => props.componentList)
-
-const emit = defineEmits(['start', 'end'])
 
 // 复制组件方法，用于从左侧拖动到右侧时
 function cloneComponent(original: any): any {
   return {
     ...original,
     id: Date.now(),
-    children: [] // 确保新组件有 children 数组
   }
-}1
+}
 
 function handleStart(e: DraggableEvent) {
   // console.log('handleStart 被触发 e:', e)
