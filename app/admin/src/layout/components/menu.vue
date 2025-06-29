@@ -74,7 +74,8 @@ const treeData = sortTree(arrayToTree(menuList))
   padding: 0 !important;
 }
 :deep(.el-menu) {
-  transition: width 0.3s ease-in-out !important;
+  // transition: width 0.3s ease-in-out !important;
+  transition: all 0.3s ease-in-out !important;
 }
 
 .el-menu-vertical-demo {
