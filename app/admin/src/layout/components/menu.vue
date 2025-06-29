@@ -1,5 +1,7 @@
 <script setup lang="ts">
 import type { MenuItem } from '@ayu-mu/model'
+import { lo } from '@ayu-mu/utils'
+import { onMounted, ref } from 'vue'
 import { useUserStore } from '@/stores/modules/user'
 import SubMenu from './appMenu/subMenu.vue'
 
@@ -8,7 +10,7 @@ defineProps<{
 }>()
 const userStore = useUserStore()
 const menuList = userStore.userMenu
-
+const treeData = ref<MenuItem[]>([])
 function arrayToTree(items: MenuItem[]): MenuItem[] {
   const map: Record<string | number, MenuItem> = {}
   const roots: MenuItem[] = []
@@ -46,12 +48,20 @@ function sortTree(tree: MenuItem[]): MenuItem[] {
     }))
 }
 
-const treeData = sortTree(arrayToTree(menuList))
+onMounted(() => {
+  treeData.value = sortTree(arrayToTree(menuList))
+  lo(treeData.value)
+})
 </script>
 
 <template>
   <div class="w-full h-full">
-    <ElMenu default-active="2" :collapse="isCollapse" class="el-menu-vertical-demo">
+    <ElMenu
+      default-active="2"
+      :collapse="isCollapse"
+      class="el-menu-vertical-demo"
+      style="width: 100%;"
+    >
       <ElMenuItem v-if="!isCollapse" class="logo" @click="$router.push('/')">
         <div class="w-full h-[70px] flex items-center justify-center">
           <span
@@ -67,15 +77,13 @@ const treeData = sortTree(arrayToTree(menuList))
 </template>
 
 <style lang="scss" scoped>
-:deep(.el-menu-item) {
-  min-width: 230px !important;
-}
 .logo {
   padding: 0 !important;
 }
 :deep(.el-menu) {
-  // transition: width 0.3s ease-in-out !important;
-  transition: all 0.3s ease-in-out !important;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  width: 100% !important;
+  min-width: 0 !important;
 }
 
 .el-menu-vertical-demo {

@@ -67,10 +67,13 @@ function handleSelect(item: MenuItem) {
       <SubMenu :menu-list="item.children" />
     </ElSubMenu>
     <ElMenuItem v-else :index="item.menuIndex" @click="handleSelect(item)">
+      <template #title>
+        <span>{{ item.menuTitle }}</span>
+      </template>
       <ElIcon>
         <component :is="item.icon" />
       </ElIcon>
-      <span class="w-[100px]">{{ item.menuTitle }}</span>
+      <!-- <span class="w-[100px]">{{ item.menuTitle }}</span> -->
     </ElMenuItem>
   </template>
 </template>

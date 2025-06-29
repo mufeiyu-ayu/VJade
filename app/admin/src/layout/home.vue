@@ -24,13 +24,16 @@ function refresh() {
 <template>
   <div class="w-full h-screen flex theme">
     <!-- layoutsider -->
-    <div class=" flex flex-col h-full bg-white">
-      <div class="flex-1 bg-[#f1f3f5]">
+    <div
+      class="flex flex-col h-full bg-white transition-all duration-300"
+      :style="{ width: isCollapse ? '64px' : '230px' }"
+    >
+      <div class="flex-1 bg-[#ffffff]">
         <Menu :is-collapse="isCollapse" />
       </div>
     </div>
     <!-- layout-right -->
-    <div class="flex-1 h-full bg-[#f1f3f5]">
+    <div class="flex-1 shrink-0 h-full bg-[#f1f3f5]">
       <div class="flex h-full w-full flex-col">
         <div class="h-14 px-4 space-x-2 w-full bg-white flex items-center ">
           <ElIcon
