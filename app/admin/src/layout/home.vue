@@ -1,21 +1,21 @@
 <script lang="ts" setup>
 import { Expand, Fold } from '@element-plus/icons-vue'
 import { ref } from 'vue'
-import Menu from './components/menu.vue'
 import { useRouter } from 'vue-router'
 import { RouteNameEnum } from '@/router/type'
-import { lo } from '@ayu-mu/utils'
+import Menu from './components/menu.vue'
+
 const router = useRouter()
 const isCollapse = ref(false)
 
-const refresh = () => {
+function refresh() {
   const fullPath = router.currentRoute.value.fullPath.slice(1)
   console.log(fullPath)
   // return
   router.push({
     name: RouteNameEnum.REDIRECT,
     params: {
-      path:fullPath,
+      path: fullPath,
     },
   })
 }
@@ -33,24 +33,34 @@ const refresh = () => {
     <div class="flex-1 h-full bg-[#f1f3f5]">
       <div class="flex h-full w-full flex-col">
         <div class="h-14 px-4 space-x-2 w-full bg-white flex items-center ">
-          <ElIcon size="20px" color="#b2b2b2" class="cursor-pointer" @click="isCollapse = !isCollapse">
+          <ElIcon
+            size="20px"
+            color="#b2b2b2"
+            class="cursor-pointer"
+            @click="isCollapse = !isCollapse"
+          >
             <Fold v-if="!isCollapse" />
             <Expand v-else />
           </ElIcon>
 
           <!-- 刷新 -->
-          <ElIcon size="20px" color="#b2b2b2" class="cursor-pointer" @click="refresh">
+          <ElIcon
+            size="20px"
+            color="#b2b2b2"
+            class="cursor-pointer"
+            @click="refresh"
+          >
             <Refresh />
           </ElIcon>
         </div>
         <div class="h-10 w-full bg-[#b1b1b1]">
           面包屑
         </div>
-        <div class="flex-1 p-4">
-          <div class="w-full h-full p-4 rounded-lg bg-white">
-            <transition name="fade-slide" mode="out-in">
+        <div class="flex-1 p-3">
+          <div class="w-full h-full p-2 rounded-lg bg-white">
+            <Transition name="fade-slide" mode="out-in">
               <RouterView />
-            </transition>
+            </Transition>
           </div>
         </div>
       </div>
