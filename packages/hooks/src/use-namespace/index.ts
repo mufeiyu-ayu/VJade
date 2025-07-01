@@ -44,7 +44,7 @@ function getDerivedNamespace(namespaceOverrides?: Ref<string | undefined>) {
  * @param namespaceOverrides 命名空间覆盖
  * @return: String
  */
-export function createNamespace(block: string, namespaceOverrides?: Ref<string | undefined>) {
+export function useNamespace(block: string, namespaceOverrides?: Ref<string | undefined>) {
   const namespace = getDerivedNamespace(namespaceOverrides)
 
   const b = (blockSuffix = '') => bem({ namespace: namespace.value, block, blockSuffix })
@@ -108,4 +108,4 @@ export function createNamespace(block: string, namespaceOverrides?: Ref<string |
     cssVarBlockName,
   }
 }
-export type UseNamespaceReturn = ReturnType<typeof createNamespace>
+export type UseNamespaceReturn = ReturnType<typeof useNamespace>

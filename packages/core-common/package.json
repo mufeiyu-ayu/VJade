@@ -30,10 +30,7 @@
   ],
   "scripts": {
     "build": "vite build",
-    "build:all": "pnpm build && pnpm build:dts",
-    "build:dts": "rimraf temp && vue-tsc -p tsconfig.declaration.json && rollup-dts",
-    "build:watch": "vite build -w",
-    "generate-attributes": "generate-attributes"
+    "build:watch": "vite build -w"
   },
   "peerDependencies": {
     "@ayu-mu/model": "workspace:^",

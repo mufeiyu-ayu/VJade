@@ -1,8 +1,9 @@
-import type { defineConfig, LibraryFormats, type UserConfig } from 'vite'
+import type { LibraryFormats, UserConfig } from 'vite'
 import { readFile } from 'node:fs/promises'
 import { dirname, join, resolve } from 'node:path'
 import { cwd, env } from 'node:process'
 import { findUp } from 'find-up'
+import { defineConfig } from 'vite'
 
 interface Options {
   name: string

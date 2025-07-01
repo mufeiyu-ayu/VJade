@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import type { IconifyIcon } from '@iconify/vue'
 import type { ButtonEmits, ButtonInstance, ButtonProps } from './Button.ts'
 import { useNamespace } from '@ayu-mu/hooks'
 import { Icon } from '@iconify/vue'
@@ -58,7 +59,7 @@ defineExpose<ButtonInstance>({
       <Icon v-else icon="line-md:loading-loop" :class="ns.is('loading')" />
     </template>
     <template v-else-if="icon">
-      <Icon :icon="icon" />
+      <Icon :icon="icon as IconifyIcon" />
     </template>
     <span v-if="$slots.default" :class="ns.em('text')">
       <slot />
