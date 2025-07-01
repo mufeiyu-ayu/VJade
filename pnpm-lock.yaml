@@ -503,6 +503,9 @@ importers:
       '@ayu-mu/model':
         specifier: workspace:^
         version: link:../model
+      '@ayu-mu/tsconfig':
+        specifier: workspace:^
+        version: link:../../configs/tsconfig
 
   packages/theme-dark: {}
 

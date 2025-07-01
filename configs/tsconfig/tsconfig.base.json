@@ -2,6 +2,8 @@
   "compilerOptions": {
     // 目标语言的版本
     "target": "esnext",
+    "jsx": "preserve",
+    "jsxImportSource": "vue",
     // TS需要引用的库，即声明文件，es5 默认引用dom、es5、scripthost
     "lib": ["DOM", "ESNext", "DOM.Iterable"],
     // 用于解析非绝对模块名的基本目录
@@ -13,7 +15,7 @@
     "moduleResolution": "Bundler",
     // 是否解析 JSON 模块
     "resolveJsonModule": true,
-    "types": ["vite/client", "node"],
+    "types": ["vite/client", "node", "vue"],
     "allowImportingTsExtensions": true,
 
     // 是否启动所有严格检查的总开关
@@ -27,7 +29,7 @@
     // 生成声明文件，开启后会自动生成声明文件
     "declaration": true,
     // 为声明文件生成sourceMap
-    "declarationMap": true,
+    "declarationMap": false,
     // 只生成声明文件，而不会生成js文件
     "emitDeclarationOnly": true,
     // 发送错误时不输出任何文件
@@ -36,10 +38,10 @@
     "sourceMap": true,
     // 是否允许从没有默认导出的模块中默认导入
     "allowSyntheticDefaultImports": true,
-    // 是否将每个文件转换为单独的模块
-    // "isolatedModules": true,
     // 允许export=导出，由import from 导入
     "esModuleInterop": true,
+    // 是否将每个文件转换为单独的模块
+    "isolatedModules": true,
     // 是否跳过声明文件的类型检查
     "skipLibCheck": true
   },

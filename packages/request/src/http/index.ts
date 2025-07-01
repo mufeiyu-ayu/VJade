@@ -3,7 +3,7 @@ import { AyuAxios } from './Axios'
 
 // 全局请求默认配置
 
-const defualtOptions: CreateAxiosOptionsType = {
+const defaultOptions: CreateAxiosOptionsType = {
   timeout: 100000,
   requestOptions: {
     withXAppId: false,
@@ -22,7 +22,7 @@ const defualtOptions: CreateAxiosOptionsType = {
  * @returns 请求实例
  */
 function createAxios(options: Partial<CreateAxiosOptionsType> = {}) {
-  return new AyuAxios(Object.assign(defualtOptions, options))
+  return new AyuAxios(Object.assign(defaultOptions, options))
 }
 
 const http = createAxios()

@@ -17,6 +17,7 @@
     "vue-request": "^2.0.4"
   },
   "devDependencies": {
-    "@ayu-mu/model": "workspace:^"
+    "@ayu-mu/model": "workspace:^",
+    "@ayu-mu/tsconfig": "workspace:^"
   }
 }
