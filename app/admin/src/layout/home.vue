@@ -10,7 +10,7 @@ const isCollapse = ref(false)
 
 function refresh() {
   const fullPath = router.currentRoute.value.fullPath.slice(1)
-  console.log(fullPath)
+  console.log(fullPath, 'fullPath')
   // return
   router.push({
     name: RouteNameEnum.REDIRECT,
