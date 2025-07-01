@@ -33,5 +33,5 @@ coverage
 
 *storybook.log
 .turbo/**
-
+**/.nitro/**
 packages/*/markdown/

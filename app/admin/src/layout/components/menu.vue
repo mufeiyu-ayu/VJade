@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import type { MenuItem } from '@ayu-mu/model'
-import { lo } from '@ayu-mu/utils'
 import { onMounted, ref } from 'vue'
 import { useUserStore } from '@/stores/modules/user'
 import SubMenu from './appMenu/subMenu.vue'
@@ -50,7 +49,6 @@ function sortTree(tree: MenuItem[]): MenuItem[] {
 
 onMounted(() => {
   treeData.value = sortTree(arrayToTree(menuList))
-  lo(treeData.value)
 })
 </script>
 
