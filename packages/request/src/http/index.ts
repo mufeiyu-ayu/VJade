@@ -1,5 +1,6 @@
 import type { CreateAxiosOptionsType } from '@ayu-mu/model'
 import { AyuAxios } from './Axios'
+
 // 全局请求默认配置
 const defaultOptions: CreateAxiosOptionsType = {
   timeout: 100000,
