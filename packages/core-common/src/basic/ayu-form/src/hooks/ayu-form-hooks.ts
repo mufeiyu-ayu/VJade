@@ -15,17 +15,17 @@ export function useForm() {
   const props = instance.props as unknown as FormProps
   const { initFormData, componentRender } = useFormUtils()
   const formRef = ref<FormInstance>()
-  const formData = ref<Record<string, any>>({})
+  const formData = ref<Record<string, unknown>>({})
 
   const { formRules, colSize, groupComponent, groupItemConfig, formGroupConfig, allActiveName, tabsOverflowY }
     = useFormComputedHooks(props)
 
-  const { submitForm, resetForm, handleCollapseChange, collapseIsExpand } = useFormActionHooks(
+  const { submitForm, resetForm, handleCollapseChange, collapseIsExpand } = useFormActionHooks({
     formRef,
     formData,
     props,
     formGroupConfig,
-  )
+  })
 
   onMounted(() => {
     formData.value = initFormData(props)

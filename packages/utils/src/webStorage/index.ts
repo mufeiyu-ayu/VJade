@@ -8,6 +8,16 @@ interface StorageConfig {
   isEncrypt: boolean // 是否加密
 }
 
+interface StorageData {
+  value: unknown
+  time: number
+  expire: number
+}
+
+interface StorageList {
+  [key: string]: unknown
+}
+
 const config: StorageConfig = {
   type: 'localStorage',
   prefix: 'ayu-',
@@ -47,7 +57,7 @@ class WebStorage {
    * @example
    * storage.setStorage('user', { name: 'Alice' }, 60);
    */
-  setStorage = (key: any, value: any, expire: number = 24 * 60): boolean => {
+  setStorage = (key: string, value: unknown, expire: number = 24 * 60): boolean => {
     if (value === '' || value === null || value === undefined) {
       value = null
     }
@@ -55,7 +65,7 @@ class WebStorage {
     if (Number.isNaN(expire) || expire < 0) {
       throw new Error('expire must be a number')
     }
-    const data = {
+    const data: StorageData = {
       value,
       time: Date.now(),
       expire: Date.now() + 1000 * 60 * expire,
@@ -80,8 +90,8 @@ class WebStorage {
    * const allData = storage.getAllStorage();
    * console.log(allData);  // { user: { name: 'John' }, ... }
    */
-  getAllStorage = () => {
-    const storageList: any = {}
+  getAllStorage = (): StorageList | undefined => {
+    const storageList: StorageList = {}
     if (typeof window !== 'undefined') {
       const keys = Object.keys(window[config.type])
       keys.forEach((key) => {
@@ -106,7 +116,7 @@ class WebStorage {
    * const user = storage.getStorageFromKey('user');
    * console.log(user);  // { name: 'John', age: 30 }
    */
-  getStorageFromKey = (key: any) => {
+  getStorageFromKey = (key: string): unknown => {
     if (config.prefix) {
       key = this.autoAddPreFix(key)
     }
@@ -117,7 +127,7 @@ class WebStorage {
       }
     }
 
-    const storageVal = config.isEncrypt
+    const storageVal: StorageData = config.isEncrypt
       ? JSON.parse(decrypt(window[config.type].getItem(key) as string))
       : JSON.parse(window[config.type].getItem(key) as string)
     const now = Date.now()
@@ -138,7 +148,7 @@ class WebStorage {
    * const length = storage.getStorageLength();
    * console.log(length);  // 3 (例如有 3 项存储数据)
    */
-  getStorageLength = () => {
+  getStorageLength = (): number | undefined => {
     if (typeof window !== 'undefined')
       return window[config.type].length
   }
@@ -152,7 +162,7 @@ class WebStorage {
    * storage.removeStorageFromKey('user');
    * console.log(storage.getStorageFromKey('user'));  // null
    */
-  removeStorageFromKey = (key: any) => {
+  removeStorageFromKey = (key: string): void => {
     if (config.prefix) {
       key = this.autoAddPreFix(key)
     }
@@ -166,7 +176,7 @@ class WebStorage {
    * @example
    * storage.clearStorage();  // 清空所有存储
    */
-  clearStorage = () => {
+  clearStorage = (): void => {
     if (typeof window !== 'undefined')
       window[config.type].clear()
   }
@@ -198,7 +208,7 @@ class WebStorage {
    * const keyWithoutPrefix = storage.autoRemovePreFix('ayu_user');
    * console.log(keyWithoutPrefix);  // 'user' (假设 prefix 为 'ayu-')
    */
-  autoRemovePreFix = (key: string): any => {
+  autoRemovePreFix = (key: string): string => {
     const lineIndex = config.prefix.length + 1
     return key.substr(lineIndex)
   }

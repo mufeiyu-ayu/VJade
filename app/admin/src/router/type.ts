@@ -1,3 +1,5 @@
+import type { Component } from 'vue'
+
 /**
  * 路由枚举常量
  */
@@ -36,7 +38,7 @@ export enum RouteNameEnum {
 export interface ResultRoute {
   path: string
   name: string
-  component: any
+  component: Component
   meta: {
     id: number
     parentId: number

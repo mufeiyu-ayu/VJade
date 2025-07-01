@@ -3,19 +3,19 @@ import type { Ref } from 'vue'
 import type { FormGroupConfig, FormProps } from '../types'
 import { ref } from 'vue'
 
+interface FormActionHooksParams {
+  formRef: Ref<FormInstance | undefined>
+  formData: Ref<Record<string, unknown>>
+  props: FormProps
+  formGroupConfig: Ref<FormGroupConfig[]>
+}
+
 /**
  * 表单操作相关的 hook
- * @param formRef - 表单实例引用
- * @param formData - 表单数据引用
- * @param props - 表单属性
- * @param formGroupConfig - 表单分组配置引用
+ * @param params - 表单操作参数
  */
-export function useFormActionHooks(
-  formRef: Ref<FormInstance | undefined>,
-  formData: Ref<Record<string, any>>,
-  props: FormProps,
-  formGroupConfig: Ref<FormGroupConfig[]>,
-) {
+export function useFormActionHooks(params: FormActionHooksParams) {
+  const { formRef, formData, props, formGroupConfig } = params
   const collapseIsExpand = ref<string[]>([])
 
   /**

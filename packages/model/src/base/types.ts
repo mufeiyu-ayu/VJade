@@ -24,5 +24,5 @@ export interface DataBaseType {
   id: string
 }
 
-export type Nullable<T = any> = T | null | undefined
+export type Nullable<T = unknown> = T | null | undefined
 export type Recordable<T = unknown> = Record<string, T>

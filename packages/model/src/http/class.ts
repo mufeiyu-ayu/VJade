@@ -3,28 +3,29 @@ import type { QueryOperator, SumType } from '.'
 /**
  * 查询条件类
  */
+export interface QueryConditionOptions {
+  field?: string
+  operator?: QueryOperator | ''
+  value?: unknown
+  andOr?: 'and' | 'or' | ''
+  type?: string
+  clazz?: string
+}
 export class QueryCondition {
   field?: string
   operator?: QueryOperator | ''
-  value?: any
+  value?: unknown
   andOr?: string
   type?: string
   clazz?: string
   subCondition?: QueryCondition[]
-  constructor(
-    field?: string,
-    operator?: QueryOperator | '',
-    value?: any,
-    andOr: 'and' | 'or' | '' = '',
-    type?: string,
-    clazz?: string,
-  ) {
-    this.field = field || ''
-    this.operator = operator || ''
-    this.value = value || ''
-    this.andOr = andOr || ''
-    this.type = type || 'string'
-    this.clazz = clazz || ''
+  constructor(options: QueryConditionOptions = {}) {
+    this.field = options.field || ''
+    this.operator = options.operator || ''
+    this.value = options.value || ''
+    this.andOr = options.andOr || ''
+    this.type = options.type || 'string'
+    this.clazz = options.clazz || ''
     this.subCondition = []
   }
 }
@@ -62,9 +63,9 @@ export class PageParameter {
  */
 export class QueryAttribute {
   key: string
-  value: any
+  value: unknown
   type?: string
-  constructor(key: string, value: any, type?: string) {
+  constructor(key: string, value: unknown, type?: string) {
     this.key = key
     this.value = value
     this.type = type
@@ -78,7 +79,7 @@ export class SummaryParameter {
   fieldName: string
   sumType: SumType
   sumName?: string
-  sumValue?: any
+  sumValue?: unknown
   sumTitle?: string
 
   constructor(fieldName: string, sumName: string, sumType: SumType) {
@@ -97,7 +98,7 @@ export class QueryParameter {
   queryAttributes: QueryAttribute[]
   summaryParameters: SummaryParameter[]
   groups: SummaryParameter[]
-  groupSummary: any[]
+  groupSummary: unknown[]
   constructor() {
     this.queryConditions = []
     this.pageParameter = { pageIndex: 1, pageSize: 20, sort: [] }

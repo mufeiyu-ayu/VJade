@@ -41,6 +41,8 @@ export default antfu(
       '.npmignore',
       '.syncpackrc',
       '.npmrc',
+      '**/*.mdx',
+      '**/*.sqlite3',
     ],
   },
 
@@ -57,6 +59,8 @@ export default antfu(
       'node/prefer-global/process': 'off',
       'react-hooks/rules-of-hooks': 'off',
       'vue/prop-name-casing': 'off',
+      'jsdoc/check-alignment': 'off',
+      'react-hooks-extra/no-unnecessary-use-prefix': 'off',
       'vue/component-name-in-template-casing': [
         'error',
         'PascalCase',

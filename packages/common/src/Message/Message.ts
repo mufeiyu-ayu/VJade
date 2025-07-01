@@ -35,7 +35,7 @@ const messageArr = ref<MessageInstance[]>([])
 
 // 创建消息函数
 const AyuMessage = ((options: MessageOptions) => {
-  const messageApp = createApp(MessageComponent, options as any)
+  const messageApp = createApp(MessageComponent, options as Record<string, unknown>)
   return showMessage(messageApp, options)
 }) as MessageFn
 

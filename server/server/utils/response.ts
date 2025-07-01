@@ -1,11 +1,38 @@
 import type { EventHandlerRequest, H3Event } from 'h3'
+import { setResponseStatus } from 'h3'
+
+/**
+ * 响应数据接口
+ */
+interface ResponseData<T = unknown> {
+  [key: string]: T
+}
+
+/**
+ * 错误信息接口
+ */
+interface ErrorInfo {
+  message?: string
+  stack?: string
+  [key: string]: unknown
+}
+
+/**
+ * 分页响应参数接口
+ */
+interface PageResponseParams<T = unknown> {
+  page: number | string
+  pageSize: number | string
+  list: T[]
+  message?: string
+}
 
 /**
  * 响应成功
  * @param data 响应数据
  * @returns 响应对象
  */
-export function useResponseSuccess<T = any>(data: T) {
+export function responseSuccess<T extends ResponseData = ResponseData>(data: T) {
   return {
     code: 0,
     ...data,
@@ -20,7 +47,7 @@ export function useResponseSuccess<T = any>(data: T) {
  * @param error 错误对象
  * @returns 响应对象
  */
-export function useResponseError(message: string, error: any = null) {
+export function responseError(message: string, error: ErrorInfo | null = null) {
   return {
     code: -1,
     data: null,
@@ -36,7 +63,7 @@ export function useResponseError(message: string, error: any = null) {
  * @param array 数据源
  * @returns 分页数据
  */
-export function pagination<T = any>(pageNo: number, pageSize: number, array: T[]): T[] {
+export function pagination<T = unknown>(pageNo: number, pageSize: number, array: T[]): T[] {
   const offset = (pageNo - 1) * Number(pageSize)
   return offset + Number(pageSize) >= array.length
     ? array.slice(offset)
@@ -45,22 +72,19 @@ export function pagination<T = any>(pageNo: number, pageSize: number, array: T[]
 
 /**
  * 分页响应成功
- * @param page 页码
- * @param pageSize 每页条数
- * @param list 数据源
- * @param message 消息
+ * @param params 分页参数
+ * @param params.page 页码
+ * @param params.pageSize 每页条数
+ * @param params.list 数据源
+ * @param params.message 消息
  * @returns 分页响应对象
  */
-export function usePageResponseSuccess<T = any>(
-  page: number | string,
-  pageSize: number | string,
-  list: T[],
-  { message = 'ok' } = {},
-) {
+export function pageResponseSuccess<T = unknown>(params: PageResponseParams<T>) {
+  const { page, pageSize, list, message = 'ok' } = params
   const pageData = pagination(Number.parseInt(`${page}`), Number.parseInt(`${pageSize}`), list)
 
   return {
-    ...useResponseSuccess({
+    ...responseSuccess({
       items: pageData,
       total: list.length,
     }),
@@ -74,9 +98,9 @@ export function usePageResponseSuccess<T = any>(
  * @param error 错误对象
  * @returns 分页响应对象
  */
-export function usePageResponseError(message: string, error: any = null) {
+export function pageResponseError(message: string, error: ErrorInfo | null = null) {
   return {
-    ...useResponseError(message, error),
+    ...responseError(message, error),
     items: [],
     total: 0,
   }
@@ -90,7 +114,7 @@ export function usePageResponseError(message: string, error: any = null) {
  */
 export function forbiddenResponse(event: H3Event<EventHandlerRequest>, message = 'Forbidden Exception') {
   setResponseStatus(event, 403)
-  return useResponseError(message, message)
+  return responseError(message, { message })
 }
 
 /**
@@ -100,14 +124,14 @@ export function forbiddenResponse(event: H3Event<EventHandlerRequest>, message =
  */
 export function unAuthorizedResponse(event: H3Event<EventHandlerRequest>) {
   setResponseStatus(event, 401)
-  return useResponseError('Unauthorized Exception', 'Unauthorized Exception')
+  return responseError('Unauthorized Exception', { message: 'Unauthorized Exception' })
 }
 
 /**
  * 睡眠
  * @param ms 睡眠时间
- * @returns 睡眠响应对象
+ * @returns Promise<void>
  */
-export function sleep(ms: number) {
+export function sleep(ms: number): Promise<void> {
   return new Promise(resolve => setTimeout(resolve, ms))
 }

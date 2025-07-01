@@ -9,7 +9,7 @@ export function useEventBus(eventNames?: string[]) {
    * @param { string} eventName 事件名称
    * @param { *[]} args 参数
    */
-  const emit = <T = any>(eventName: string, ...args: T[]) => {
+  const emit = <T = unknown>(eventName: string, ...args: T[]) => {
     emitter.emit(eventName, args)
   }
 
@@ -19,7 +19,7 @@ export function useEventBus(eventNames?: string[]) {
    * @param {CustomEventBusCallbackType} callback 回调函数
    */
 
-  const on = (eventName: string, callback: (...args: any[]) => void) => {
+  const on = (eventName: string, callback: (...args: unknown[]) => void) => {
     emitter.on(eventName, callback)
   }
 

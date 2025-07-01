@@ -6,6 +6,7 @@
   "description": "",
   "author": "",
   "license": "ISC",
+  "type": "module",
   "keywords": [],
   "main": "index.js",
   "engines": {

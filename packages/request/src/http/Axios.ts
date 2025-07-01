@@ -1,20 +1,13 @@
-/* eslint-disable */
-// @ts-nocheck
-import axios from 'axios'
+import type { CommonResultType, CreateAxiosOptionsType, RequestConfigType, RequestOptionsType } from '@ayu-mu/model'
 import type { AxiosInstance, AxiosResponse, InternalAxiosRequestConfig } from 'axios'
 import {
-  type CreateAxiosOptionsType,
-  type RequestOptionsType,
-  type RequestConfigType,
-  type CommonResultType,
   RequestMethodEnum,
-  type UploadFileParamsType,
   ResponseCodeEnum,
-  SystemArchEnum
 } from '@ayu-mu/model'
-import { ElMessage, ElLoadingService, type UploadRawFile } from 'element-plus'
-import { webStorage } from '@ayu-mu/utils'
 
+import { webStorage } from '@ayu-mu/utils'
+import axios from 'axios'
+import { ElLoadingService, ElMessage } from 'element-plus'
 /**
  * 请求类
  */
@@ -36,6 +29,7 @@ export class AyuAxios {
     this.options = options
     this.setupInterceptors()
   }
+
   /**
    * 获取 Axios 实例
    */
@@ -54,23 +48,24 @@ export class AyuAxios {
   // 拦截器配置
   private setupInterceptors() {
     const requestOptions = this.getTransform()
-    if (!requestOptions) return
+    if (!requestOptions)
+      return
 
     try {
       // 请求拦截器配置处理
       this.axiosInstance.interceptors.request.use((config: InternalAxiosRequestConfig & RequestConfigType) => {
         // 合并请求选项
-        const { withToken, withTenantId, withXAppId, isShowLoading, loadingMessageText, joinParamsToUrl, headers } = {
+        const { withToken, isShowLoading, loadingMessageText, joinParamsToUrl, headers } = {
           ...requestOptions,
-          ...config.requestOptions
+          ...config.requestOptions,
         }
         // 处理loading
-        isShowLoading &&
-          (this.loading = ElLoadingService({
-            lock: true,
-            text: loadingMessageText || '加载中...',
-            background: 'rgba(0, 0, 0, 0.7)'
-          }))
+        isShowLoading
+        && (this.loading = ElLoadingService({
+          lock: true,
+          text: loadingMessageText || '加载中...',
+          background: 'rgba(0, 0, 0, 0.7)',
+        }))
 
         // `timeout` 指定请求超时的毫秒数。
         // 如果请求时间超过 `timeout` 的值，则请求会被中断
@@ -103,7 +98,7 @@ export class AyuAxios {
         //   (config.headers['Authorization'] =
         //     config.headers['Authorization'] ||
         //     `Bearer ${IsSingle && envConfig.TENANT_ID !== 'application' ? appConfig?.token || webStorage.getStorageFromKey('token') : webStorage.getStorageFromKey('token')}`)
-        withToken && (config.headers['Authorization'] = `Bearer ${webStorage.getStorageFromKey('token')}`)
+        withToken && (config.headers.Authorization = `Bearer ${webStorage.getStorageFromKey('token')}`)
         // // 处理 X-App-Id
         // withXAppId &&
         //   (config.headers['X-App-Id'] =
@@ -123,7 +118,7 @@ export class AyuAxios {
       }, undefined)
 
       // 响应拦截器配置处理
-      this.axiosInstance.interceptors.response.use((response: AxiosResponse<CommonResultType<any>>) => {
+      this.axiosInstance.interceptors.response.use((response: AxiosResponse<CommonResultType<unknown>>) => {
         const { isShowSuccessMessage, isShowErrorMessage, successMessageText, errorMessageText } = this.currentOptions
 
         // 关闭loading
@@ -131,19 +126,20 @@ export class AyuAxios {
 
         if (response.data?.code === ResponseCodeEnum.SUCCESS) {
           // 处理请求成功的消息提醒
-          isShowSuccessMessage &&
-            (successMessageText ? ElMessage.success(successMessageText) : ElMessage.success('请求成功'))
+          isShowSuccessMessage
+          && (successMessageText ? ElMessage.success(successMessageText) : ElMessage.success('请求成功'))
         }
 
         if (response.data?.code !== ResponseCodeEnum.SUCCESS) {
           // 处理请求失败的消息提醒
-          isShowErrorMessage &&
-            (errorMessageText ? ElMessage.error(errorMessageText) : ElMessage.error(response.data?.message))
+          isShowErrorMessage
+          && (errorMessageText ? ElMessage.error(errorMessageText) : ElMessage.error(response.data?.message))
         }
 
         return response
       }, undefined)
-    } catch (e) {
+    }
+    catch (e) {
       console.log(e)
       ElMessage.error('接口请求失败')
     }
@@ -155,7 +151,7 @@ export class AyuAxios {
    * @param {RequestOptionsType} options 请求选项
    * @returns 请求结果
    */
-  request<T = any>(config: RequestConfigType, options?: RequestOptionsType): Promise<CommonResultType<T>> {
+  request<T = unknown>(config: RequestConfigType, options?: RequestOptionsType): Promise<CommonResultType<T>> {
     try {
       // 深拷贝对象
       const conf: RequestConfigType = config
@@ -168,13 +164,14 @@ export class AyuAxios {
 
       return new Promise((resolve, reject) => {
         this.axiosInstance
-          .request<any, AxiosResponse<CommonResultType<T>>>(conf)
+          .request<unknown, AxiosResponse<CommonResultType<T>>>(conf)
           .then((response: AxiosResponse<CommonResultType<T>>) => {
             resolve(response.data as unknown as Promise<CommonResultType<T>>)
           })
-          .catch((error) => reject(error))
+          .catch(error => reject(error))
       })
-    } catch (e) {
+    }
+    catch {
       ElMessage.error('接口请求失败')
       return new Promise(() => {})
     }
@@ -182,117 +179,55 @@ export class AyuAxios {
 
   /**
    * GET请求
-   * @param {String} url 请求路径
+   * @param {string} url 请求路径
    * @param {*} data 请求参数（可插入查询条件）
    * @param {RequestOptionsType} options 请求选项
    * @returns 请求结果
    */
-  get<T = any>(url: string, data?: any, options?: RequestOptionsType): Promise<CommonResultType<T>> {
+  get<T = unknown>(url: string, data?: unknown, options?: RequestOptionsType): Promise<CommonResultType<T>> {
     return this.request<T>(
       {
         url,
         data,
-        method: RequestMethodEnum.GET
+        method: RequestMethodEnum.GET,
       },
-      options
+      options,
     )
   }
 
   /**
    * POST请求
-   * @param {String} url 请求路径
+   * @param {string} url 请求路径
    * @param {*} data 请求参数（可插入查询条件）
    * @param {RequestOptionsType} options 请求选项
    * @returns 请求结果
    */
-  post<T = any>(url: string, data: any, options?: RequestOptionsType): Promise<CommonResultType<T>> {
+  post<T = unknown>(url: string, data: unknown, options?: RequestOptionsType): Promise<CommonResultType<T>> {
     return this.request<T>(
       {
         url,
         data,
-        method: RequestMethodEnum.POST
+        method: RequestMethodEnum.POST,
       },
-      options
+      options,
     )
   }
 
   /**
    * DELETE请求
-   * @param {String} url 请求路径
+   * @param {string} url 请求路径
    * @param {*} data 请求参数
    * @param {RequestOptionsType} options 请求选项
    * @returns 请求结果
    */
-  remove<T = any>(url: string, data: any, options?: RequestOptionsType): Promise<CommonResultType<T>> {
+  remove<T = unknown>(url: string, data: unknown, options?: RequestOptionsType): Promise<CommonResultType<T>> {
     return this.request<T>(
       {
         url,
         data,
-        method: RequestMethodEnum.DELETE
+        method: RequestMethodEnum.DELETE,
       },
-      options
+      options,
     )
-  }
-
-  /**
-   * 文件上传
-   * @param {RequestConfigType} config 请求配置
-   * @param {UploadFileParamsType} params 请求参数
-   * @param {RequestOptionsType} options 请求选项
-   * @returns 请求结果
-   */
-  uploadFile<T = any>(
-    config: RequestConfigType,
-    params: UploadFileParamsType,
-    options?: RequestOptionsType
-  ): Promise<CommonResultType<T>> {
-    return this.request<T>(
-      {
-        ...config,
-        method: RequestMethodEnum.POST,
-        data: {
-          dto: params.data
-        },
-        headers: {
-          'Content-Type': 'application/json'
-        }
-      },
-      options
-    )
-  }
-
-  /**
-   * 文件上传
-   * @param {RequestConfigType} config 请求配置
-   * @param {UploadFileParamsType} params 请求参数
-   * @param {RequestOptionsType} options 请求选项
-   * @returns 请求结果
-   */
-
-  uploadFileData<T = any>(
-    config: RequestConfigType,
-    params: UploadFileParamsType,
-    options?: RequestOptionsType
-  ): Promise<CommonResultType<T>> {
-    if (typeof window !== 'undefined') {
-      const formData = new window.FormData()
-      const customFilename = 'files'
-      if (params.files) {
-        params.files.forEach((item: UploadRawFile) => {
-          formData.append(customFilename, item)
-        })
-      }
-      return this.request<T>(
-        {
-          ...config,
-          method: RequestMethodEnum.POST,
-          data: formData,
-          headers: {
-            'Content-Type': 'multipart/form-data'
-          }
-        },
-        options
-      )
-    }
   }
 }

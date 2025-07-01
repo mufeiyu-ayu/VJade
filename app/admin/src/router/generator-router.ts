@@ -36,7 +36,7 @@ export async function generatorRouter(menu: MenuItem[]) {
   // 转换为数组格式
   const pagePath = import.meta.glob('@/views/page/**/*.vue')
 
-  const pagePathList: any[] = Object.entries(pagePath).map(([path, value]) => ({
+  const pagePathList: unknown[] = Object.entries(pagePath).map(([path, value]) => ({
     path: path
       .replace('/src/views/page', '') // 移除前缀
       .replace('/index.vue', '') // 移除 /index.vue 后缀

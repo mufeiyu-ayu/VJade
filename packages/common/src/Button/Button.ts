@@ -26,7 +26,7 @@ export interface ButtonProps {
   /** @description 是否为禁用状态 */
   disabled?: boolean
   /** @description 图标 */
-  icon?: any
+  icon?: string | Component
   /** @description 自定义按钮颜色 */
   color?: string
   /** @description 自定义按钮标签 */

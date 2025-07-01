@@ -6,7 +6,7 @@ import type { FormProps } from '../types'
  * @returns 包含验证规则的对象
  */
 export function useFormRules(props: FormProps) {
-  const rules: Record<string, any> = {}
+  const rules: Record<string, unknown> = {}
   props.fieldConfig.forEach((item) => {
     rules[item.field] = item.rules
   })

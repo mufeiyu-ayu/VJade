@@ -5,7 +5,7 @@ type SFCWithInstall<T> = T & Plugin
 
 export function withInstall<T>(component: T) {
   ;(component as SFCWithInstall<T>).install = (app: App) => {
-    const name = (component as any)?.name || 'UnnamedComponent'
+    const name = (component as { name?: string })?.name || 'UnnamedComponent'
     app.component(name, component as SFCWithInstall<T>)
   }
   return component as SFCWithInstall<T>

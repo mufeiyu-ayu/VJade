@@ -11,7 +11,7 @@ export type FieldConfigMap = {
     label: string
     field: string
     type: K
-    defaultValue?: any
+    defaultValue?: unknown
     rules?: FormItemRule[]
     componentProps?: ComponentPropsMapping[K]
   }
@@ -48,13 +48,13 @@ interface BaseFormProps {
    * 表单提交回调函数
    * @param params - 表单数据
    */
-  onSubmit?: (params: any) => void
+  onSubmit?: (params: Record<string, unknown>) => void
 
   /**
    * 表单重置回调函数
    * @param params - 表单数据
    */
-  onReset?: (params: any) => void
+  onReset?: (params: Record<string, unknown>) => void
 }
 
 /**

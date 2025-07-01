@@ -97,7 +97,7 @@ export interface DataSourceResultType<T> {
 /**
  * 文件上传参数类型
  */
-export interface UploadFileParamsType<T = any> {
+export interface UploadFileParamsType<T = unknown> {
   /**
    * 请求参数
    */
@@ -121,7 +121,7 @@ export interface UploadFileParamsType<T = any> {
   /**
    * 其它参数
    */
-  [key: string]: any
+  [key: string]: unknown
 }
 
 /**

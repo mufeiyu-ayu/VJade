@@ -9,7 +9,7 @@ export function useFormUtils() {
    * @returns 初始化后的表单数据对象
    */
   function initFormData(props: FormProps) {
-    const formData: Record<string, any> = {}
+    const formData: Record<string, unknown> = {}
     props.fieldConfig.forEach((field) => {
       formData[field.field] = field.defaultValue || '' // 初始化每个字段为空字符串
     })

@@ -9,6 +9,12 @@ import { getMenuList, login } from '@/apis'
 import { router } from '@/router'
 import { generatorRouter } from '@/router/generator-router'
 
+interface LoginForm {
+  username: string
+  password: string
+  [key: string]: unknown
+}
+
 export const useUserStore = defineStore('user', () => {
   // 用户信息
   const userInfo = ref<LoginResult>()
@@ -19,7 +25,7 @@ export const useUserStore = defineStore('user', () => {
   const routeLen = ref(webStorage.getStorageFromKey('routeLen') || [])
   const menuList = ref<RouteRecordRaw[]>([])
 
-  const setAuthInfo = ({ clear, data }: { clear: boolean, data: any }) => {
+  const setAuthInfo = ({ clear, data }: { clear: boolean, data: LoginResult | null }) => {
     if (!clear) {
       webStorage.setStorage('token', data?.accessToken)
       webStorage.setStorage('userInfo', data)
@@ -38,9 +44,9 @@ export const useUserStore = defineStore('user', () => {
   /**
    * 用户登录
    * @param form 登录表单
-   * @returns
+   * @returns 登录结果代码
    */
-  const userLogin = async (form) => {
+  const userLogin = async (form: LoginForm) => {
     const { code, data } = await login(form)
     if (code !== 0) {
       return
@@ -53,7 +59,7 @@ export const useUserStore = defineStore('user', () => {
    * 设置菜单值
    * @param menu
    */
-  const setMenuList = (menu?: Array<MenuItem | any>) => {
+  const setMenuList = (menu?: MenuItem[]) => {
     webStorage.setStorage('menu', menu ?? null)
     userMenu.value = menu ?? []
   }

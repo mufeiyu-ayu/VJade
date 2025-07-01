@@ -9,7 +9,7 @@ import { computed } from 'vue'
 export function useFormComputedHooks(props: FormProps) {
   /** 计算表单验证规则 */
   const formRules = computed(() => {
-    const rules: Record<string, any> = {}
+    const rules: Record<string, unknown> = {}
     props.fieldConfig.forEach((item) => {
       rules[item.field] = item.rules
     })

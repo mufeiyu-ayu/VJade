@@ -6,7 +6,15 @@ const statePrefix = 'is-'
 
 export const namespaceContextKey: InjectionKey<Ref<string | undefined>> = Symbol('namespaceContextKey')
 
-function _bem(namespace: string, block: string, blockSuffix: string, element: string, modifier: string) {
+interface BemOptions {
+  namespace: string
+  block: string
+  blockSuffix?: string
+  element?: string
+  modifier?: string
+}
+
+function bem({ namespace, block, blockSuffix = '', element = '', modifier = '' }: BemOptions) {
   let cls = `${namespace}-${block}`
   if (blockSuffix) {
     cls += `-${blockSuffix}`
@@ -20,7 +28,7 @@ function _bem(namespace: string, block: string, blockSuffix: string, element: st
   return cls
 }
 
-function useGetDerivedNamespace(namespaceOverrides?: Ref<string | undefined>) {
+function getDerivedNamespace(namespaceOverrides?: Ref<string | undefined>) {
   const derivedNamespace
     = namespaceOverrides
       || (getCurrentInstance() ? inject(namespaceContextKey, ref(defaultNamespace)) : ref(defaultNamespace))
@@ -36,20 +44,20 @@ function useGetDerivedNamespace(namespaceOverrides?: Ref<string | undefined>) {
  * @param namespaceOverrides 命名空间覆盖
  * @return: String
  */
-export function useNamespace(block: string, namespaceOverrides?: Ref<string | undefined>) {
-  const namespace = useGetDerivedNamespace(namespaceOverrides)
+export function createNamespace(block: string, namespaceOverrides?: Ref<string | undefined>) {
+  const namespace = getDerivedNamespace(namespaceOverrides)
 
-  const b = (blockSuffix = '') => _bem(namespace.value, block, blockSuffix, '', '')
-  const e = (element?: string) => (element ? _bem(namespace.value, block, '', element, '') : '')
-  const m = (modifier?: string) => (modifier ? _bem(namespace.value, block, '', '', modifier) : '')
+  const b = (blockSuffix = '') => bem({ namespace: namespace.value, block, blockSuffix })
+  const e = (element?: string) => (element ? bem({ namespace: namespace.value, block, element }) : '')
+  const m = (modifier?: string) => (modifier ? bem({ namespace: namespace.value, block, modifier }) : '')
   const be = (blockSuffix?: string, element?: string) =>
-    blockSuffix && element ? _bem(namespace.value, block, blockSuffix, element, '') : ''
+    blockSuffix && element ? bem({ namespace: namespace.value, block, blockSuffix, element }) : ''
   const em = (element?: string, modifier?: string) =>
-    element && modifier ? _bem(namespace.value, block, '', element, modifier) : ''
+    element && modifier ? bem({ namespace: namespace.value, block, element, modifier }) : ''
   const bm = (blockSuffix?: string, modifier?: string) =>
-    blockSuffix && modifier ? _bem(namespace.value, block, blockSuffix, '', modifier) : ''
-  const bem = (blockSuffix?: string, element?: string, modifier?: string) =>
-    blockSuffix && element && modifier ? _bem(namespace.value, block, blockSuffix, element, modifier) : ''
+    blockSuffix && modifier ? bem({ namespace: namespace.value, block, blockSuffix, modifier }) : ''
+  const bemFn = (blockSuffix?: string, element?: string, modifier?: string) =>
+    blockSuffix && element && modifier ? bem({ namespace: namespace.value, block, blockSuffix, element, modifier }) : ''
   const is: {
     (name: string, state: boolean | undefined): string
     (name: string): string
@@ -91,7 +99,7 @@ export function useNamespace(block: string, namespaceOverrides?: Ref<string | un
     be,
     em,
     bm,
-    bem,
+    bem: bemFn,
     is,
     // css
     cssVar,
@@ -100,4 +108,4 @@ export function useNamespace(block: string, namespaceOverrides?: Ref<string | un
     cssVarBlockName,
   }
 }
-export type UseNamespaceReturn = ReturnType<typeof useNamespace>
+export type UseNamespaceReturn = ReturnType<typeof createNamespace>
