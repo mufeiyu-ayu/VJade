@@ -19,7 +19,6 @@ function refresh() {
     },
   })
 }
-// const a = 1
 </script>
 
 <template>
