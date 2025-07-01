@@ -6,9 +6,9 @@
   "description": "",
   "author": "",
   "license": "ISC",
-  "type": "module",
   "keywords": [],
   "main": "index.js",
+  "type": "module",
   "engines": {
     "node": ">=18.20.3",
     "pnpm": ">=9.4.0"
