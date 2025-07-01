@@ -23,7 +23,7 @@ function refresh() {
 
 <template>
   <div class="w-full h-screen flex theme">
-    <!-- layoutsider -->
+    <!--    layout-slider -->
     <div
       class="flex flex-col h-full bg-white transition-all duration-300"
       :style="{ width: isCollapse ? '64px' : '230px' }"
