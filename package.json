@@ -99,6 +99,10 @@
       "path": "node_modules/cz-git"
     }
   },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx}": ["pnpm eslint --fix"],
+    "*.vue": ["pnpm eslint --fix"]
+  },
   "publishConfig": {
     "registry": "https://registry.npmjs.org"
   }
