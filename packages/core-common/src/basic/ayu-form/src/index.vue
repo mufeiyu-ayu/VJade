@@ -53,7 +53,10 @@ defineExpose({
             :title="group.groupTitle"
             :name="group.groupTitle"
           >
-            <div v-if="groupComponent === 'div' && isGroup" class="flex justify-start items-center p-4 mb-[10px]">
+            <div
+              v-if="groupComponent === 'div' && isGroup"
+              class="flex justify-start items-center p-4 mb-[10px]"
+            >
               <div class="w-[5px] h-[20px] bg-[#409EFF]" />
               <div class="text-[18px] font-bold ml-[15px]">
                 {{ group.groupTitle }}
@@ -62,14 +65,24 @@ defineExpose({
             <!-- todo collapse-item icon -->
             <template v-if="groupType === 'collapse'" #icon>
               <div class="ml-1" />
-              <AyuIcon :icon="collapseIsExpand.includes(group.groupTitle) ? 'mdi:chevron-down' : 'mdi:chevron-up'" />
+              <AyuIcon
+                :icon="
+                  collapseIsExpand.includes(group.groupTitle)
+                    ? 'mdi:chevron-down'
+                    : 'mdi:chevron-up'
+                "
+              />
             </template>
             <div :class="tabsOverflowY">
               <ElRow>
                 <ElCol
                   v-for="field in group.fieldConfig"
                   :key="field.field"
-                  :span="isGroup ? field.colSize : (props as NormalFormProps).colSize || field.colSize"
+                  :span="
+                    isGroup
+                      ? field.colSize
+                      : (props as NormalFormProps).colSize || field.colSize
+                  "
                 >
                   <ElFormItem :label="field.label" :prop="field.field">
                     <component

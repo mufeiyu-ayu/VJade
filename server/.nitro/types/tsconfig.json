@@ -1,0 +1,38 @@
+{
+  "compilerOptions": {
+    "target": "ESNext",
+    "jsx": "preserve",
+    "jsxFactory": "h",
+    "jsxFragmentFactory": "Fragment",
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
+    "paths": {
+      "#imports": [
+        "./nitro-imports"
+      ],
+      "~/*": [
+        "../../server/*"
+      ],
+      "@/*": [
+        "../../server/*"
+      ],
+      "~~/*": [
+        "../../*"
+      ],
+      "@@/*": [
+        "../../*"
+      ]
+    },
+    "resolveJsonModule": true,
+    "allowJs": true,
+    "strict": false,
+    "noEmit": true,
+    "allowSyntheticDefaultImports": true,
+    "forceConsistentCasingInFileNames": true
+  },
+  "include": [
+    "./nitro.d.ts",
+    "../../**/*",
+    "../../server/**/*"
+  ]
+}

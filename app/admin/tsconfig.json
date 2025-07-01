@@ -24,12 +24,12 @@
     "strict": false,
     "noFallthroughCasesInSwitch": false,
     "noImplicitAny": false,
-    "sourceMap": true, //生成目标文件的sourceMap文件
-    "skipLibCheck": true, //跳过库文件的类型检查。
     "noUnusedLocals": false,
     "noUnusedParameters": false,
+    "sourceMap": true, // 生成目标文件的sourceMap文件
     "allowSyntheticDefaultImports": true, // 允许从没有默认导出的模块中导入类型。
     "isolatedModules": true, // 是否将每个模块单独编译。
+    "skipLibCheck": true, // 跳过库文件的类型检查。
     "suppressImplicitAnyIndexErrors": false
   },
   // 指定要包含或排除的文件或文件夹。
