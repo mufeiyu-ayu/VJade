@@ -9,7 +9,7 @@ const defaultOptions: CreateAxiosOptionsType = {
     // 是否携带token
     withToken: true,
     // 是否携带tenantId
-    withTenantId: true,
+    withTenantId: false,
     // 是否显示错误信息
     isShowErrorMessage: true,
   },

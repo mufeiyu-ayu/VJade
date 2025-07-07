@@ -1448,6 +1448,27 @@ parentPort?.on("message", async (msg) => {
   }
 });
 
+function useResponseSuccess(data) {
+  return {
+    code: 0,
+    ...data,
+    error: null,
+    message: "ok"
+  };
+}
+function useResponseError(message, error = null) {
+  return {
+    code: -1,
+    data: null,
+    error,
+    message
+  };
+}
+function unAuthorizedResponse(event) {
+  setResponseStatus(event, 401);
+  return useResponseError("Unauthorized Exception", { message: "Unauthorized Exception" });
+}
+
 const ACCESS_TOKEN_SECRET = "access_token_secret";
 function generateAccessToken(user) {
   return jwt.sign(user, ACCESS_TOKEN_SECRET, { expiresIn: "7d" });
@@ -1552,19 +1573,6 @@ const form_post$1 = /*#__PURE__*/Object.freeze({
   __proto__: null,
   default: form_post
 });
-
-function responseError(message, error = null) {
-  return {
-    code: -1,
-    data: null,
-    error,
-    message
-  };
-}
-function unAuthorizedResponse(event) {
-  setResponseStatus(event, 401);
-  return responseError("Unauthorized Exception", { message: "Unauthorized Exception" });
-}
 
 const menu_get = defineEventHandler(async (event) => {
   const userinfo = verifyAccessToken(event);

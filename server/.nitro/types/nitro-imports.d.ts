@@ -99,8 +99,6 @@ declare global {
   const readRawBody: typeof import('../../../node_modules/.pnpm/h3@1.14.0/node_modules/h3')['readRawBody']
   const readValidatedBody: typeof import('../../../node_modules/.pnpm/h3@1.14.0/node_modules/h3')['readValidatedBody']
   const removeResponseHeader: typeof import('../../../node_modules/.pnpm/h3@1.14.0/node_modules/h3')['removeResponseHeader']
-  const responseError: typeof import('../../server/utils/response')['responseError']
-  const responseSuccess: typeof import('../../server/utils/response')['responseSuccess']
   const runTask: typeof import('../../../node_modules/.pnpm/nitropack@2.10.4_better-sqlite3@11.8.1_typescript@5.7.2/node_modules/nitropack/dist/runtime/internal/task')['runTask']
   const sanitizeStatusCode: typeof import('../../../node_modules/.pnpm/h3@1.14.0/node_modules/h3')['sanitizeStatusCode']
   const sanitizeStatusMessage: typeof import('../../../node_modules/.pnpm/h3@1.14.0/node_modules/h3')['sanitizeStatusMessage']
@@ -136,6 +134,8 @@ declare global {
   const useDatabase: typeof import('../../../node_modules/.pnpm/nitropack@2.10.4_better-sqlite3@11.8.1_typescript@5.7.2/node_modules/nitropack/dist/runtime/internal/database')['useDatabase']
   const useEvent: typeof import('../../../node_modules/.pnpm/nitropack@2.10.4_better-sqlite3@11.8.1_typescript@5.7.2/node_modules/nitropack/dist/runtime/internal/context')['useEvent']
   const useNitroApp: typeof import('../../../node_modules/.pnpm/nitropack@2.10.4_better-sqlite3@11.8.1_typescript@5.7.2/node_modules/nitropack/dist/runtime/internal/app')['useNitroApp']
+  const useResponseError: typeof import('../../server/utils/response')['useResponseError']
+  const useResponseSuccess: typeof import('../../server/utils/response')['useResponseSuccess']
   const useRuntimeConfig: typeof import('../../../node_modules/.pnpm/nitropack@2.10.4_better-sqlite3@11.8.1_typescript@5.7.2/node_modules/nitropack/dist/runtime/internal/config')['useRuntimeConfig']
   const useSession: typeof import('../../../node_modules/.pnpm/h3@1.14.0/node_modules/h3')['useSession']
   const useStorage: typeof import('../../../node_modules/.pnpm/nitropack@2.10.4_better-sqlite3@11.8.1_typescript@5.7.2/node_modules/nitropack/dist/runtime/internal/storage')['useStorage']
@@ -168,4 +168,4 @@ export { setRefreshTokenCookie, getRefreshTokenFromCookie } from '../../server/u
 export { db, initDatabase } from '../../server/utils/db';
 export { generateAccessToken, generateRefreshToken, verifyAccessToken } from '../../server/utils/jwt-utils';
 export { MOCK_USERS, mockFormData, flatMenuList, mockTableData } from '../../server/utils/mock';
-export { responseSuccess, responseError, pagination, pageResponseSuccess, pageResponseError, forbiddenResponse, unAuthorizedResponse, sleep } from '../../server/utils/response';
+export { useResponseSuccess, useResponseError, pagination, pageResponseSuccess, pageResponseError, forbiddenResponse, unAuthorizedResponse, sleep } from '../../server/utils/response';

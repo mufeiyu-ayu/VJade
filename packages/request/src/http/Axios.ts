@@ -55,7 +55,7 @@ export class AyuAxios {
       // 请求拦截器配置处理
       this.axiosInstance.interceptors.request.use((config: InternalAxiosRequestConfig & RequestConfigType) => {
         // 合并请求选项
-        const { withToken, isShowLoading, loadingMessageText, joinParamsToUrl, headers } = {
+        const { withToken, isShowLoading, loadingMessageText, headers } = {
           ...requestOptions,
           ...config.requestOptions,
         }
@@ -87,33 +87,13 @@ export class AyuAxios {
         //     : envConfig.BASE_URL + config.url
 
         // 将请求参数处理成为params形式
-        if (joinParamsToUrl) {
-          for (const key in config.data) {
-            config.url += `/${config.data[key]}`
-          }
-          delete config.data
-        }
+
         // // 处理token
         // withToken &&
         //   (config.headers['Authorization'] =
         //     config.headers['Authorization'] ||
         //     `Bearer ${IsSingle && envConfig.TENANT_ID !== 'application' ? appConfig?.token || webStorage.getStorageFromKey('token') : webStorage.getStorageFromKey('token')}`)
         withToken && (config.headers.Authorization = `Bearer ${webStorage.getStorageFromKey('token')}`)
-        // // 处理 X-App-Id
-        // withXAppId &&
-        //   (config.headers['X-App-Id'] =
-        //     config.headers['X-App-Id'] ||
-        //     (IsSingle && envConfig.TENANT_ID !== 'application'
-        //       ? appConfig?.code || envConfig.APP_ID
-        //       : envConfig.APP_ID))
-        // // 处理 X-Tenant-Id
-        // withTenantId &&
-        //   (config.headers['X-Tenant-Id'] =
-        //     config.headers['X-Tenant-Id'] ||
-        //     (IsSingle && envConfig.TENANT_ID !== 'application'
-        //       ? appConfig?.code || envConfig.TENANT_ID
-        //       : envConfig.TENANT_ID))
-
         return config
       }, undefined)
 

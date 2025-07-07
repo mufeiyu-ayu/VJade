@@ -32,7 +32,7 @@ interface PageResponseParams<T = unknown> {
  * @param data 响应数据
  * @returns 响应对象
  */
-export function responseSuccess<T extends ResponseData = ResponseData>(data: T) {
+export function useResponseSuccess<T extends ResponseData = ResponseData>(data: T) {
   return {
     code: 0,
     ...data,
@@ -47,7 +47,7 @@ export function responseSuccess<T extends ResponseData = ResponseData>(data: T) 
  * @param error 错误对象
  * @returns 响应对象
  */
-export function responseError(message: string, error: ErrorInfo | null = null) {
+export function useResponseError(message: string, error: ErrorInfo | null = null) {
   return {
     code: -1,
     data: null,
@@ -84,7 +84,7 @@ export function pageResponseSuccess<T = unknown>(params: PageResponseParams<T>) 
   const pageData = pagination(Number.parseInt(`${page}`), Number.parseInt(`${pageSize}`), list)
 
   return {
-    ...responseSuccess({
+    ...useResponseSuccess({
       items: pageData,
       total: list.length,
     }),
@@ -100,7 +100,7 @@ export function pageResponseSuccess<T = unknown>(params: PageResponseParams<T>) 
  */
 export function pageResponseError(message: string, error: ErrorInfo | null = null) {
   return {
-    ...responseError(message, error),
+    ...useResponseError(message, error),
     items: [],
     total: 0,
   }
@@ -114,7 +114,7 @@ export function pageResponseError(message: string, error: ErrorInfo | null = nul
  */
 export function forbiddenResponse(event: H3Event<EventHandlerRequest>, message = 'Forbidden Exception') {
   setResponseStatus(event, 403)
-  return responseError(message, { message })
+  return useResponseError(message, { message })
 }
 
 /**
@@ -124,7 +124,7 @@ export function forbiddenResponse(event: H3Event<EventHandlerRequest>, message =
  */
 export function unAuthorizedResponse(event: H3Event<EventHandlerRequest>) {
   setResponseStatus(event, 401)
-  return responseError('Unauthorized Exception', { message: 'Unauthorized Exception' })
+  return useResponseError('Unauthorized Exception', { message: 'Unauthorized Exception' })
 }
 
 /**
