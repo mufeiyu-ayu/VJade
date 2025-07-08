@@ -9,9 +9,8 @@ export default defineComponent({
     const router = useRouter()
 
     onMounted(() => {
-      const path = route.params.path as string
-      console.log(path, 'path')
-      router.replace({ path: `/${path}` })
+      const path = route.params.path
+      router.replace({ path: `${path}` })
     })
 
     return () => null

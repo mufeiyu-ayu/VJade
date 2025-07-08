@@ -9,9 +9,8 @@ const router = useRouter()
 const isCollapse = ref(false)
 
 function refresh() {
-  const fullPath = router.currentRoute.value.fullPath.slice(1)
-  console.log(fullPath, 'fullPath')
-
+  // 获取当前路由的完整路径
+  const fullPath = router.currentRoute.value.fullPath || '/'
   router.push({
     name: RouteNameEnum.REDIRECT,
     params: {
@@ -49,6 +48,7 @@ function refresh() {
           <!-- 刷新 -->
           <ElIcon
             size="20px"
+            title="刷新"
             color="#b2b2b2"
             class="cursor-pointer"
             @click="refresh"
