@@ -1,5 +1,5 @@
 import { createApp } from 'vue'
-import { setupIconComponents } from '@/init/setupCommonState'
+import { setuGlobalComponents } from '@/init/setupCommonState'
 import { setupRouter } from '@/router'
 import { setupStore } from '@/stores'
 import App from './App.vue'
@@ -12,7 +12,7 @@ function setupApp() {
   // 初始化store
   setupStore(app)
   // 初始化组件
-  setupIconComponents(app)
+  setuGlobalComponents(app)
   // 初始化路由
   setupRouter(app)
   // 挂载

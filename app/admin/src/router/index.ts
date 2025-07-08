@@ -1,4 +1,5 @@
 import type { App } from 'vue'
+import type { RouteNameEnum } from './type'
 import { createRouter, createWebHistory } from 'vue-router'
 import { createPermissionGuard } from './guard'
 import { routes } from './routes'
@@ -29,7 +30,7 @@ function setupRouter(app: App) {
 export function resetRouter() {
   router.getRoutes().forEach((route) => {
     const { name } = route
-    if (name && !ROUTER_WHITE_LIST.includes(name)) {
+    if (name && !ROUTER_WHITE_LIST.includes(name as RouteNameEnum)) {
       router.hasRoute(name) && router.removeRoute(name)
     }
   })
