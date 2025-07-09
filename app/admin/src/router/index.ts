@@ -24,7 +24,7 @@ function setupRouter(app: App) {
 }
 
 /**
- * 重置路由信息
+ * 重置路由信息 只保存白名单内的路由
  * 遍历当前路由表，若路由名称存在且不在白名单内，则移除该路由。
  */
 export function resetRouter() {

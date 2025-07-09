@@ -2,7 +2,7 @@ import type { MenuItem } from '@ayu-mu/model'
 import type { RouteRecordRaw } from 'vue-router'
 import type { ResultRoute } from './type'
 import { useUserStore } from '@/stores/modules/user'
-import Test from '@/views/Test/index.vue'
+import NotFound from '@/views/notFound/index.vue'
 import { resetRouter, router } from './index'
 import { routes } from './routes'
 import { RouteNameEnum } from './type'
@@ -25,6 +25,10 @@ export function resolveRouter(routes: ResultRoute[], parentId: number | null = n
   })
 }
 
+interface PagePath {
+  path: string
+  value: () => Promise<unknown>
+}
 /**
  * 生成路由
  * @param menu 后端返回的路由表
@@ -36,21 +40,21 @@ export async function generatorRouter(menu: MenuItem[]) {
   // 转换为数组格式
   const pagePath = import.meta.glob('@/views/page/**/*.vue')
 
-  const pagePathList: unknown[] = Object.entries(pagePath).map(([path, value]) => ({
+  const pagePathList: PagePath[] = Object.entries(pagePath).map(([path, value]) => ({
     path: path
       .replace('/src/views/page', '') // 移除前缀
       .replace('/index.vue', '') // 移除 /index.vue 后缀
       .replace('.vue', ''), // 移除其他 .vue 后缀
     value: value as () => Promise<unknown>,
   }))
-
   menu.forEach((item) => {
     const pagePath = pagePathList.find(pageItem => pageItem.path === item.link)
-
+    // 渲染菜单组和菜单组件
     menuList.push({
       path: item.link,
       name: item.menuCode,
-      component: pagePath?.value || Test,
+      // 当在 page目录下创建页面失败时，会渲染当前组件
+      component: pagePath?.value || NotFound,
       meta: {
         id: item.id,
         parentId: item.parentId,
@@ -59,10 +63,10 @@ export async function generatorRouter(menu: MenuItem[]) {
       },
     })
   })
+
   const layout = routes.find(item => item.name === RouteNameEnum.LAYOUT)
   layout.children = [...menuList, ...layout.children]
   resetRouter()
   router.addRoute(layout)
-  console.log(router.getRoutes(), 'router.getRoutes()')
   setRouteLen(menuList)
 }

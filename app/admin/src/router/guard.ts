@@ -34,17 +34,16 @@ export function createPermissionGuard(router: Router) {
         return next({ name: RouteNameEnum.LAYOUT })
       }
       else {
-        const hasRoute = router.hasRoute(to.name)
+        const hasRoute: boolean = router.hasRoute(to.name)
+        // 如果用户菜单为空，则初始化菜单
         if (userMenu && userMenu.length === 0) {
           try {
             await initRouter()
           }
           catch (error) {
             console.log(error, 'error')
-
             return next({ name: RouteNameEnum.LOGIN })
           }
-
           return next()
         }
         // 主要针对的是在浏览器地址栏输入地址的情况，此时动态添加的路由会消失
@@ -60,7 +59,6 @@ export function createPermissionGuard(router: Router) {
           // 导航到 404
           return next({ name: RouteNameEnum.NOT_FOUND, replace: true })
         }
-        // console.log(to, 'to')
         return next()
       }
     }

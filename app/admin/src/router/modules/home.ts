@@ -33,7 +33,6 @@ export const REDIRECT_ROUTE_INFO = {
 export const HOME_ROUTE = {
   path: '/',
   name: RouteNameEnum.LAYOUT,
-
   component: HomeLayout,
   children: [HOME_ROUTE_INFO, REDIRECT_ROUTE_INFO],
 }
