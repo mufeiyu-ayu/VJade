@@ -7,48 +7,48 @@ import SubMenu from './appMenu/subMenu.vue'
 defineProps<{
   isCollapse: boolean
 }>()
+
 const userStore = useUserStore()
 const menuList = userStore.userMenu
 const treeData = ref<MenuItem[]>([])
-function arrayToTree(items: MenuItem[]): MenuItem[] {
-  const map: Record<string | number, MenuItem> = {}
-  const roots: MenuItem[] = []
 
-  try {
-    // 构建映射表
-    items.forEach((item) => {
-      map[item.id] = { ...item, children: [] }
-    })
+/**
+ * 将扁平数组转换为树形结构
+ * @param items - 扁平菜单数组
+ * @returns 树形菜单结构
+ */
+console.log(menuList)
+function buildMenuTree(items: MenuItem[]): MenuItem[] {
+  // 创建 ID 到菜单项的映射
+  const menuMap = new Map<number, MenuItem>()
 
-    // 构建树结构
-    items.forEach((item) => {
-      if (item.parentId && map[item.parentId]) {
-        map[item.parentId].children?.push(map[item.id])
-      }
-      else {
-        roots.push(map[item.id])
-      }
-    })
+  // 初始化所有菜单项，添加空的 children 数组
+  items.forEach((item) => {
+    menuMap.set(item.id, { ...item, children: [] })
+  })
 
-    return roots
-  }
-  catch (error) {
-    console.error('构建菜单树结构时出错:', error)
-    return []
-  }
-}
+  console.log(menuMap)
+  // 构建树形结构
+  const rootMenus: MenuItem[] = []
 
-function sortTree(tree: MenuItem[]): MenuItem[] {
-  return tree
-    .sort((a, b) => (a.sort ?? 0) - (b.sort ?? 0))
-    .map(node => ({
-      ...node,
-      children: node.children?.length ? sortTree(node.children) : [],
-    }))
+  items.forEach((item) => {
+    const menuItem = menuMap.get(item.id)!
+    // {id:1001,parentId:1002}
+    if (item.parentId && menuMap.has(item.parentId)) {
+      // 有父级，添加到父级的 children 中
+      menuMap.get(item.parentId)!.children!.push(menuItem)
+    }
+    else {
+      // 没有父级或父级不存在，作为根节点
+      rootMenus.push(menuItem)
+    }
+  })
+
+  return rootMenus
 }
 
 onMounted(() => {
-  treeData.value = sortTree(arrayToTree(menuList))
+  treeData.value = buildMenuTree(menuList)
 })
 </script>
 
