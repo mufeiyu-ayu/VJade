@@ -22,24 +22,12 @@
       "outputs": ["dist/**", "temp/**"],
       "cache": true
     },
-    "check-types": {
-      "dependsOn": ["^check-types"]
+    "type-check": {
+      "dependsOn": ["^type-check"]
     },
     "dev": {
       "persistent": true,
       "cache": false
-    },
-    "check": {
-      "dependsOn": ["^build"],
-      "inputs": [
-        "src/**",
-        "tsconfig.json"
-      ]
-    },
-    "format:check": {
-      "inputs": [
-        "src/**/*.{ts,tsx,.vue}"
-      ]
     }
   }
 }

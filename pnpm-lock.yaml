@@ -487,6 +487,9 @@ importers:
 
   packages/request:
     dependencies:
+      '@ayu-mu/utils':
+        specifier: workspace:^
+        version: link:../utils
       axios:
         specifier: ^1.7.2
         version: 1.7.9

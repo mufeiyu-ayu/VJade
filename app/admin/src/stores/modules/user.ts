@@ -21,10 +21,16 @@ export const useUserStore = defineStore('user', () => {
   // 是否登录
   const isLogin = ref(webStorage.getStorageFromKey('isLogin') || false)
   // 从 localStorage 初始化 userMenu
-  const userMenu = ref<MenuItem[]>(webStorage.getStorageFromKey('menu') || [])
-  const routeLen = ref(webStorage.getStorageFromKey('routeLen') || [])
+  const userMenu = ref<MenuItem[]>(webStorage.getStorageFromKey('menu') as MenuItem[] || [])
+  const routeLen = ref<number>(webStorage.getStorageFromKey('routeLen') as number || 0)
+  // 菜单列表
   const menuList = ref<RouteRecordRaw[]>([])
 
+  /**
+   * 设置用户信息
+   * @param param0
+   * @returns
+   */
   const setAuthInfo = ({ clear, data }: { clear: boolean, data: LoginResult | null }) => {
     if (!clear) {
       webStorage.setStorage('token', data?.accessToken)
@@ -44,7 +50,7 @@ export const useUserStore = defineStore('user', () => {
   /**
    * 用户登录
    * @param form 登录表单
-   * @returns 登录结果代码
+   * @returns
    */
   const userLogin = async (form: LoginForm) => {
     const { code, data } = await login(form)

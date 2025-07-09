@@ -28,6 +28,7 @@
     "element-plus": "^2.9.3"
   },
   "dependencies": {
+    "@ayu-mu/utils": "workspace:^",
     "axios": "^1.7.2",
     "lodash-es": "^4.17.21",
     "vue-request": "^2.0.4"
