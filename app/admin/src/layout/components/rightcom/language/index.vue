@@ -11,8 +11,9 @@ const instance: ComponentInternalInstance | null = getCurrentInstance()
 <template>
   <ElDropdown trigger="click">
     <span class="el-dropdown-link">
-      <Icon icon="ic:sharp-translate" width="24" height="24" />
-
+      <TipIcon :content="$t('language')">
+        <Icon icon="ic:sharp-translate" width="24" height="24" />
+      </TipIcon>
     </span>
     <template #dropdown>
       <ElDropdownMenu>

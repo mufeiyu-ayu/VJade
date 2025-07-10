@@ -1,24 +1,10 @@
 <script lang="ts" setup>
-import { Expand, Fold } from '@element-plus/icons-vue'
 import { ref } from 'vue'
-import { useRouter } from 'vue-router'
-import { RouteNameEnum } from '@/router/type'
+import LeftCom from './components/leftcom/index.vue'
 import Menu from './components/menu.vue'
-import Setting from './components/setting/index.vue'
+import RightCom from './components/rightcom/index.vue'
 
-const router = useRouter()
 const isCollapse = ref(false)
-
-function refresh() {
-  // 获取当前路由的完整路径
-  const fullPath = router.currentRoute.value.fullPath || '/'
-  router.push({
-    name: RouteNameEnum.REDIRECT,
-    params: {
-      path: fullPath,
-    },
-  })
-}
 </script>
 
 <template>
@@ -36,27 +22,8 @@ function refresh() {
     <div class="flex-1 shrink-0 h-full bg-[#f1f3f5]">
       <div class="flex h-full w-full flex-col">
         <div class="h-14 px-4 space-x-2 w-full bg-white flex items-center ">
-          <ElIcon
-            size="20px"
-            color="#b2b2b2"
-            class="cursor-pointer"
-            @click="isCollapse = !isCollapse"
-          >
-            <Fold v-if="!isCollapse" />
-            <Expand v-else />
-          </ElIcon>
-
-          <!-- 刷新 -->
-          <ElIcon
-            size="20px"
-            title="刷新"
-            color="#b2b2b2"
-            class="cursor-pointer"
-            @click="refresh"
-          >
-            <Refresh />
-          </ElIcon>
-          <Setting />
+          <LeftCom v-model:is-collapse="isCollapse" />
+          <RightCom />
         </div>
         <div class="h-10 w-full bg-[#b1b1b1]">
           面包屑
