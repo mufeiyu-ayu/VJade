@@ -148,8 +148,8 @@ declare global {
   export type { UserPayload } from '../../server/utils/jwt-utils'
   import('../../server/utils/jwt-utils')
   // @ts-ignore
-  export type { UserInfo, MockFormData } from '/Users/lihaoran/ayu/web-build/server/server/utils/types.ts'
-  import('/Users/lihaoran/ayu/web-build/server/server/utils/types.ts')
+  export type { UserInfo, MockFormData } from '/Users/ayu/Learn/VJade/server/server/utils/types.ts'
+  import('/Users/ayu/Learn/VJade/server/server/utils/types.ts')
 }
 export { useNitroApp } from 'nitropack/runtime/internal/app';
 export { useRuntimeConfig, useAppConfig } from 'nitropack/runtime/internal/config';

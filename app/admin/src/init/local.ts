@@ -1,6 +1,5 @@
 import type { App } from 'vue'
 import { createI18n } from 'vue-i18n'
-import { setI18nInstance } from '@/stores/modules/language'
 
 // 注册 i18n
 export function setupI18n(app: App) {
@@ -11,15 +10,15 @@ export function setupI18n(app: App) {
     messages: {
       zh: {
         message: '你好',
+        logout: '退出登录',
+        github: 'Github',
       },
       en: {
         message: 'Hello',
+        logout: 'Logout',
+        github: 'Github',
       },
     },
   })
-
-  // 设置 i18n 实例到 store
-  setI18nInstance(i18n)
-
   app.use(i18n)
 }

@@ -8,6 +8,7 @@ import { ref } from 'vue'
 import { getMenuList, login } from '@/apis'
 import { router } from '@/router'
 import { generatorRouter } from '@/router/generator-router'
+import { RouteNameEnum } from '@/router/type'
 
 interface LoginForm {
   username: string
@@ -76,6 +77,7 @@ export const useUserStore = defineStore('user', () => {
   const loginOut = () => {
     setAuthInfo({ clear: true, data: null })
     setMenuList()
+    router.push({ name: RouteNameEnum.LOGIN })
   }
   /**
    * 初始化路由

@@ -6,7 +6,6 @@ import NProgress from 'nprogress'
 import { RouteNameEnum, ROUTER_WHITE_LIST } from '@/router/type'
 
 import { useUserStore } from '@/stores/modules/user'
-import 'nprogress/nprogress.css'
 
 function hasRouteName(path: string, arr: RouteRecordNormalized[]) {
   const route = arr.find(item => item.path === path)

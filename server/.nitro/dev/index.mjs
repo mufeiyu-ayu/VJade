@@ -1,28 +1,28 @@
-import process from 'node:process';globalThis._importMeta_={url:import.meta.url,env:process.env};import destr from 'file:///Users/lihaoran/ayu/web-build/node_modules/.pnpm/destr@2.0.3/node_modules/destr/dist/index.mjs';
-import { splitCookiesString, getRequestHeader, setResponseHeader, setResponseStatus, send, defineEventHandler, handleCacheHeaders, createEvent, fetchWithEvent, isEvent, eventHandler, setHeaders, sendRedirect, proxyRequest, createApp, createRouter as createRouter$1, toNodeListener, lazyEventHandler, createError, getRouterParam, readBody, getQuery as getQuery$1, getHeader } from 'file:///Users/lihaoran/ayu/web-build/node_modules/.pnpm/h3@1.14.0/node_modules/h3/dist/index.mjs';
-import { createHooks } from 'file:///Users/lihaoran/ayu/web-build/node_modules/.pnpm/hookable@5.5.3/node_modules/hookable/dist/index.mjs';
-import { createFetch as createFetch$1, Headers as Headers$1 } from 'file:///Users/lihaoran/ayu/web-build/node_modules/.pnpm/ofetch@1.4.1/node_modules/ofetch/dist/node.mjs';
-import { createCall, createFetch } from 'file:///Users/lihaoran/ayu/web-build/node_modules/.pnpm/unenv@1.10.0/node_modules/unenv/runtime/fetch/index.mjs';
-import { hash } from 'file:///Users/lihaoran/ayu/web-build/node_modules/.pnpm/ohash@1.1.4/node_modules/ohash/dist/index.mjs';
-import { parseURL, withoutBase, joinURL, getQuery, withQuery } from 'file:///Users/lihaoran/ayu/web-build/node_modules/.pnpm/ufo@1.5.4/node_modules/ufo/dist/index.mjs';
-import { createStorage, prefixStorage } from 'file:///Users/lihaoran/ayu/web-build/node_modules/.pnpm/unstorage@1.14.4_db0@0.2.4_better-sqlite3@11.8.1__ioredis@5.4.2/node_modules/unstorage/dist/index.mjs';
-import unstorage_47drivers_47fs from 'file:///Users/lihaoran/ayu/web-build/node_modules/.pnpm/unstorage@1.14.4_db0@0.2.4_better-sqlite3@11.8.1__ioredis@5.4.2/node_modules/unstorage/drivers/fs.mjs';
-import { klona } from 'file:///Users/lihaoran/ayu/web-build/node_modules/.pnpm/klona@2.0.6/node_modules/klona/dist/index.mjs';
-import defu, { defuFn } from 'file:///Users/lihaoran/ayu/web-build/node_modules/.pnpm/defu@6.1.4/node_modules/defu/dist/defu.mjs';
-import { snakeCase } from 'file:///Users/lihaoran/ayu/web-build/node_modules/.pnpm/scule@1.3.0/node_modules/scule/dist/index.mjs';
+import process from 'node:process';globalThis._importMeta_={url:import.meta.url,env:process.env};import destr from 'file:///Users/ayu/Learn/VJade/node_modules/.pnpm/destr@2.0.3/node_modules/destr/dist/index.mjs';
+import { splitCookiesString, getRequestHeader, setResponseHeader, setResponseStatus, send, defineEventHandler, handleCacheHeaders, createEvent, fetchWithEvent, isEvent, eventHandler, setHeaders, sendRedirect, proxyRequest, createApp, createRouter as createRouter$1, toNodeListener, lazyEventHandler, createError, getRouterParam, readBody, getQuery as getQuery$1, getHeader } from 'file:///Users/ayu/Learn/VJade/node_modules/.pnpm/h3@1.14.0/node_modules/h3/dist/index.mjs';
+import { createHooks } from 'file:///Users/ayu/Learn/VJade/node_modules/.pnpm/hookable@5.5.3/node_modules/hookable/dist/index.mjs';
+import { createFetch as createFetch$1, Headers as Headers$1 } from 'file:///Users/ayu/Learn/VJade/node_modules/.pnpm/ofetch@1.4.1/node_modules/ofetch/dist/node.mjs';
+import { createCall, createFetch } from 'file:///Users/ayu/Learn/VJade/node_modules/.pnpm/unenv@1.10.0/node_modules/unenv/runtime/fetch/index.mjs';
+import { hash } from 'file:///Users/ayu/Learn/VJade/node_modules/.pnpm/ohash@1.1.4/node_modules/ohash/dist/index.mjs';
+import { parseURL, withoutBase, joinURL, getQuery, withQuery } from 'file:///Users/ayu/Learn/VJade/node_modules/.pnpm/ufo@1.5.4/node_modules/ufo/dist/index.mjs';
+import { createStorage, prefixStorage } from 'file:///Users/ayu/Learn/VJade/node_modules/.pnpm/unstorage@1.14.4_db0@0.2.4_better-sqlite3@11.8.1__ioredis@5.4.2/node_modules/unstorage/dist/index.mjs';
+import unstorage_47drivers_47fs from 'file:///Users/ayu/Learn/VJade/node_modules/.pnpm/unstorage@1.14.4_db0@0.2.4_better-sqlite3@11.8.1__ioredis@5.4.2/node_modules/unstorage/drivers/fs.mjs';
+import { klona } from 'file:///Users/ayu/Learn/VJade/node_modules/.pnpm/klona@2.0.6/node_modules/klona/dist/index.mjs';
+import defu, { defuFn } from 'file:///Users/ayu/Learn/VJade/node_modules/.pnpm/defu@6.1.4/node_modules/defu/dist/defu.mjs';
+import { snakeCase } from 'file:///Users/ayu/Learn/VJade/node_modules/.pnpm/scule@1.3.0/node_modules/scule/dist/index.mjs';
 import { AsyncLocalStorage } from 'node:async_hooks';
-import { getContext } from 'file:///Users/lihaoran/ayu/web-build/node_modules/.pnpm/unctx@2.4.1/node_modules/unctx/dist/index.mjs';
-import { toRouteMatcher, createRouter } from 'file:///Users/lihaoran/ayu/web-build/node_modules/.pnpm/radix3@1.1.2/node_modules/radix3/dist/index.mjs';
+import { getContext } from 'file:///Users/ayu/Learn/VJade/node_modules/.pnpm/unctx@2.4.1/node_modules/unctx/dist/index.mjs';
+import { toRouteMatcher, createRouter } from 'file:///Users/ayu/Learn/VJade/node_modules/.pnpm/radix3@1.1.2/node_modules/radix3/dist/index.mjs';
 import { Server } from 'node:http';
 import { mkdirSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { parentPort, threadId } from 'node:worker_threads';
-import { provider, isWindows } from 'file:///Users/lihaoran/ayu/web-build/node_modules/.pnpm/std-env@3.8.0/node_modules/std-env/dist/index.mjs';
-import jwt from 'file:///Users/lihaoran/ayu/web-build/node_modules/.pnpm/jsonwebtoken@9.0.2/node_modules/jsonwebtoken/index.js';
-import { createDatabase } from 'file:///Users/lihaoran/ayu/web-build/node_modules/.pnpm/db0@0.2.4_better-sqlite3@11.8.1/node_modules/db0/dist/index.mjs';
-import sqlite from 'file:///Users/lihaoran/ayu/web-build/node_modules/.pnpm/db0@0.2.4_better-sqlite3@11.8.1/node_modules/db0/connectors/better-sqlite3.mjs';
-import { faker } from 'file:///Users/lihaoran/ayu/web-build/node_modules/.pnpm/@faker-js+faker@9.4.0/node_modules/@faker-js/faker/dist/index.js';
+import { provider, isWindows } from 'file:///Users/ayu/Learn/VJade/node_modules/.pnpm/std-env@3.8.0/node_modules/std-env/dist/index.mjs';
+import jwt from 'file:///Users/ayu/Learn/VJade/node_modules/.pnpm/jsonwebtoken@9.0.2/node_modules/jsonwebtoken/index.js';
+import { createDatabase } from 'file:///Users/ayu/Learn/VJade/node_modules/.pnpm/db0@0.2.4_better-sqlite3@11.8.1/node_modules/db0/dist/index.mjs';
+import sqlite from 'file:///Users/ayu/Learn/VJade/node_modules/.pnpm/db0@0.2.4_better-sqlite3@11.8.1/node_modules/db0/connectors/better-sqlite3.mjs';
+import { faker } from 'file:///Users/ayu/Learn/VJade/node_modules/.pnpm/@faker-js+faker@9.4.0/node_modules/@faker-js/faker/dist/index.js';
 
 function hasReqHeader(event, name, includes) {
   const value = getRequestHeader(event, name);
@@ -667,35 +667,35 @@ async function initDatabase() {
   }
 }
 
-const _ro35ep7zZ2 = defineNitroPlugin(async (nitroApp) => {
+const _UsBujjWhV7 = defineNitroPlugin(async (nitroApp) => {
   await initDatabase();
   nitroApp.hooks.hook("request", async () => {
   });
 });
 
 const plugins = [
-  _ro35ep7zZ2
+  _UsBujjWhV7
 ];
 
-const _lazy_XD21mC = () => Promise.resolve().then(function () { return login_post$1; });
-const _lazy_Me7Sjj = () => Promise.resolve().then(function () { return form_get$1; });
-const _lazy_9j4ond = () => Promise.resolve().then(function () { return form_post$1; });
-const _lazy_kBZtVT = () => Promise.resolve().then(function () { return menu_get$1; });
-const _lazy_BwWzaI = () => Promise.resolve().then(function () { return index_post$1; });
-const _lazy_Tm4FON = () => Promise.resolve().then(function () { return test$1; });
-const _lazy_GIo87M = () => Promise.resolve().then(function () { return _____$1; });
+const _lazy_Yvr8C9 = () => Promise.resolve().then(function () { return login_post$1; });
+const _lazy_55Nlkk = () => Promise.resolve().then(function () { return form_get$1; });
+const _lazy_kBol0z = () => Promise.resolve().then(function () { return form_post$1; });
+const _lazy_lyGrlQ = () => Promise.resolve().then(function () { return menu_get$1; });
+const _lazy_XS2n0Q = () => Promise.resolve().then(function () { return index_post$1; });
+const _lazy_eVnZF5 = () => Promise.resolve().then(function () { return test$1; });
+const _lazy_y5V6Vz = () => Promise.resolve().then(function () { return _____$1; });
 
 const handlers = [
-  { route: '/api/auth/login', handler: _lazy_XD21mC, lazy: true, middleware: false, method: "post" },
-  { route: '/api/form', handler: _lazy_Me7Sjj, lazy: true, middleware: false, method: "get" },
-  { route: '/api/form', handler: _lazy_9j4ond, lazy: true, middleware: false, method: "post" },
-  { route: '/api/menu/menu', handler: _lazy_kBZtVT, lazy: true, middleware: false, method: "get" },
-  { route: '/api/table', handler: _lazy_BwWzaI, lazy: true, middleware: false, method: "post" },
-  { route: '/api/test', handler: _lazy_Tm4FON, lazy: true, middleware: false, method: undefined },
-  { route: '/**', handler: _lazy_GIo87M, lazy: true, middleware: false, method: undefined }
+  { route: '/api/auth/login', handler: _lazy_Yvr8C9, lazy: true, middleware: false, method: "post" },
+  { route: '/api/form', handler: _lazy_55Nlkk, lazy: true, middleware: false, method: "get" },
+  { route: '/api/form', handler: _lazy_kBol0z, lazy: true, middleware: false, method: "post" },
+  { route: '/api/menu/menu', handler: _lazy_lyGrlQ, lazy: true, middleware: false, method: "get" },
+  { route: '/api/table', handler: _lazy_XS2n0Q, lazy: true, middleware: false, method: "post" },
+  { route: '/api/test', handler: _lazy_eVnZF5, lazy: true, middleware: false, method: undefined },
+  { route: '/**', handler: _lazy_y5V6Vz, lazy: true, middleware: false, method: undefined }
 ];
 
-const serverAssets = [{"baseName":"server","dir":"/Users/lihaoran/ayu/web-build/server/server/assets"}];
+const serverAssets = [{"baseName":"server","dir":"/Users/ayu/Learn/VJade/server/server/assets"}];
 
 const assets = createStorage();
 
@@ -707,11 +707,11 @@ const storage = createStorage({});
 
 storage.mount('/assets', assets);
 
-storage.mount('root', unstorage_47drivers_47fs({"driver":"fs","readOnly":true,"base":"/Users/lihaoran/ayu/web-build/server","ignore":["**/node_modules/**","**/.git/**"]}));
-storage.mount('src', unstorage_47drivers_47fs({"driver":"fs","readOnly":true,"base":"/Users/lihaoran/ayu/web-build/server/server","ignore":["**/node_modules/**","**/.git/**"]}));
-storage.mount('build', unstorage_47drivers_47fs({"driver":"fs","readOnly":false,"base":"/Users/lihaoran/ayu/web-build/server/.nitro","ignore":["**/node_modules/**","**/.git/**"]}));
-storage.mount('cache', unstorage_47drivers_47fs({"driver":"fs","readOnly":false,"base":"/Users/lihaoran/ayu/web-build/server/.nitro/cache","ignore":["**/node_modules/**","**/.git/**"]}));
-storage.mount('data', unstorage_47drivers_47fs({"driver":"fs","base":"/Users/lihaoran/ayu/web-build/server/.data/kv","ignore":["**/node_modules/**","**/.git/**"]}));
+storage.mount('root', unstorage_47drivers_47fs({"driver":"fs","readOnly":true,"base":"/Users/ayu/Learn/VJade/server","ignore":["**/node_modules/**","**/.git/**"]}));
+storage.mount('src', unstorage_47drivers_47fs({"driver":"fs","readOnly":true,"base":"/Users/ayu/Learn/VJade/server/server","ignore":["**/node_modules/**","**/.git/**"]}));
+storage.mount('build', unstorage_47drivers_47fs({"driver":"fs","readOnly":false,"base":"/Users/ayu/Learn/VJade/server/.nitro","ignore":["**/node_modules/**","**/.git/**"]}));
+storage.mount('cache', unstorage_47drivers_47fs({"driver":"fs","readOnly":false,"base":"/Users/ayu/Learn/VJade/server/.nitro/cache","ignore":["**/node_modules/**","**/.git/**"]}));
+storage.mount('data', unstorage_47drivers_47fs({"driver":"fs","base":"/Users/ayu/Learn/VJade/server/.data/kv","ignore":["**/node_modules/**","**/.git/**"]}));
 
 function useStorage(base = "") {
   return base ? prefixStorage(storage, base) : storage;

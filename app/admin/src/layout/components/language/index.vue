@@ -1,8 +1,11 @@
 <script lang="ts" setup>
+import type { ComponentInternalInstance } from 'vue'
 import { Icon } from '@iconify/vue'
+import { getCurrentInstance } from 'vue'
 import { languageList, useLanguageStory } from '@/stores/modules/language'
 
 const languageStore = useLanguageStory()
+const instance: ComponentInternalInstance | null = getCurrentInstance()
 </script>
 
 <template>
@@ -17,7 +20,7 @@ const languageStore = useLanguageStory()
           v-for="language in languageList"
           :key="language.code"
           :class="{ 'is-active': language.code === languageStore.currentLanguage }"
-          @click="languageStore.setLanguage(language.code)"
+          @click="languageStore.setLanguage(language.code, instance)"
         >
           <div class="flex items-center px-2">
             <!-- <span class="mr-2 text-lg">{{ language.code }}</span> -->

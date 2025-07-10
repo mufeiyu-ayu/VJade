@@ -1,3 +1,7 @@
+@import 'nprogress/nprogress.css';
+@import '@ayu-mu/core-common/style.css';
+@import '@ayu-mu/common/style.css';
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -18,10 +22,3 @@ button:focus,
 [tabindex]:focus {
   outline: none !important;
 }
-
-/* @import 'nprogress/nprogress.css';
-
-#nprogress .bar {
-  height: 1px;
-  background: var(--el-color-primary);
-} */

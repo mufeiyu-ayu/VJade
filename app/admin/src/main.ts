@@ -4,16 +4,12 @@ import { setupGlobalComponents } from '@/init/setupComponent'
 import { setupRouter } from '@/router'
 import { setupStore } from '@/stores'
 import App from './App.vue'
-import '@ayu-mu/core-common/style.css'
-import '@ayu-mu/common/style.css'
-import './styles.css'
+import '@/styles/global.scss'
 
 function setupApp() {
   const app = createApp(App)
-
-  // 初始化 i18n（必须在 store 之前）
+  // 初始化 i18n
   setupI18n(app)
-
   // 初始化store
   setupStore(app)
   // 初始化组件

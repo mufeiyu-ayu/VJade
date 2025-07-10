@@ -1,6 +1,6 @@
-import type { Ref } from 'vue'
-import type { I18n } from 'vue-i18n'
+import type { ComponentInternalInstance } from 'vue'
 import { webStorage } from '@ayu-mu/utils'
+import NProgress from 'nprogress'
 import { defineStore } from 'pinia'
 import { ref } from 'vue'
 
@@ -9,17 +9,9 @@ export const languageList = [
   { code: 'en', name: 'English', label: 'English' },
 ]
 
-// 全局 i18n 实例
-let i18nInstance: I18n | null = null
-
-// 设置 i18n 实例
-export function setI18nInstance(i18n: I18n) {
-  i18nInstance = i18n
-}
-
 export const useLanguageStory = defineStore('language', () => {
   // 当前语言代码
-  const currentLanguage = ref<string>(webStorage.getStorageFromKey('language') as string)
+  const currentLanguage = ref<string | null>(webStorage.getStorageFromKey('language') as string | null)
 
   // 初始化语言设置
   const initLanguage = () => {
@@ -35,22 +27,20 @@ export const useLanguageStory = defineStore('language', () => {
       currentLanguage.value = supportedLanguage ? browserLanguage : 'zh'
       webStorage.setStorage('language', currentLanguage.value)
     }
-
-    // 同步到 i18n
-    if (i18nInstance) {
-      i18nInstance.global.locale = currentLanguage.value
-    }
   }
 
   // 切换语言
-  const setLanguage = (languageCode: string) => {
+  const setLanguage = (languageCode: string, instance: ComponentInternalInstance | null) => {
     if (languageList.some(lang => lang.code === languageCode)) {
+      NProgress.start()
       currentLanguage.value = languageCode
       webStorage.setStorage('language', languageCode)
       // 直接更新 i18n 的 locale
-      if (i18nInstance) {
-        (i18nInstance.global.locale as Ref<string>).value = languageCode
+      const i18n = instance?.appContext.config.globalProperties.$i18n
+      if (i18n) {
+        i18n.locale = languageCode
       }
+      NProgress.done()
     }
   }
 
