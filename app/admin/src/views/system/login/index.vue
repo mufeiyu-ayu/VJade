@@ -2,11 +2,13 @@
 import type { FormInstance, FormRules } from 'element-plus'
 import { Hide, View } from '@element-plus/icons-vue'
 import { ElMessage } from 'element-plus'
-import { reactive, ref } from 'vue'
+import { onMounted, reactive, ref } from 'vue'
 import { useRouter } from 'vue-router'
+import { useLanguageStory } from '@/stores/modules/language'
 import { useUserStore } from '@/stores/modules/user'
 // import { RouteNameEnum } from '@/router/type'
 const userStore = useUserStore()
+const languageStore = useLanguageStory()
 const router = useRouter()
 const formRef = ref<FormInstance>()
 const form = reactive({
@@ -48,6 +50,10 @@ async function login(formEl: FormInstance | undefined) {
 async function register() {
   console.log('注册')
 }
+
+onMounted(() => {
+  languageStore.initLanguage()
+})
 </script>
 
 <template>

@@ -1,5 +1,6 @@
 import { createApp } from 'vue'
-import { setuGlobalComponents } from '@/init/setupCommonState'
+import { setupI18n } from '@/init/local'
+import { setupGlobalComponents } from '@/init/setupComponent'
 import { setupRouter } from '@/router'
 import { setupStore } from '@/stores'
 import App from './App.vue'
@@ -9,10 +10,14 @@ import './styles.css'
 
 function setupApp() {
   const app = createApp(App)
+
+  // 初始化 i18n（必须在 store 之前）
+  setupI18n(app)
+
   // 初始化store
   setupStore(app)
   // 初始化组件
-  setuGlobalComponents(app)
+  setupGlobalComponents(app)
   // 初始化路由
   setupRouter(app)
   // 挂载

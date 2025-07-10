@@ -25,7 +25,7 @@
     "build:dts": "rimraf temp && vue-tsc -p tsconfig.declaration.json && rollup-dts"
   },
   "peerDependencies": {
-    "element-plus": "^2.9.3"
+    "element-plus": "^2.9.7"
   },
   "dependencies": {
     "@ayu-mu/utils": "workspace:^",

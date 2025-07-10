@@ -14,13 +14,13 @@
     "@ayu-mu/request": "workspace:^",
     "@ayu-mu/utils": "workspace:^",
     "@configs/css": "workspace:^",
-    "element-plus": "^2.9.3",
+    "element-plus": "^2.9.7",
     "nprogress": "^0.2.0",
     "pinia": "3",
     "sass": "^1.76.0",
     "vue": "^3.5.12",
     "vue-draggable-plus": "^0.6.0",
-    "vue-i18n": "9",
+    "vue-i18n": "11",
     "vue-router": "^4.3.0"
   },
   "devDependencies": {
