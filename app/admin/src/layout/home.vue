@@ -4,6 +4,7 @@ import { ref } from 'vue'
 import { useRouter } from 'vue-router'
 import { RouteNameEnum } from '@/router/type'
 import Menu from './components/menu.vue'
+import Setting from './components/setting/index.vue'
 
 const router = useRouter()
 const isCollapse = ref(false)
@@ -55,6 +56,7 @@ function refresh() {
           >
             <Refresh />
           </ElIcon>
+          <Setting />
         </div>
         <div class="h-10 w-full bg-[#b1b1b1]">
           面包屑

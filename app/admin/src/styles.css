@@ -2,6 +2,23 @@
 @tailwind components;
 @tailwind utilities;
 
+/* 移除所有可点击元素的焦点边框 */
+.cursor-pointer:focus {
+  outline: none !important;
+}
+
+/* 移除所有图标的焦点边框 */
+svg:focus {
+  outline: none !important;
+}
+
+/* 移除所有按钮和可交互元素的焦点边框 */
+button:focus,
+[role='button']:focus,
+[tabindex]:focus {
+  outline: none !important;
+}
+
 /* @import 'nprogress/nprogress.css';
 
 #nprogress .bar {

@@ -20,11 +20,13 @@
     "sass": "^1.76.0",
     "vue": "^3.5.12",
     "vue-draggable-plus": "^0.6.0",
+    "vue-i18n": "9",
     "vue-router": "^4.3.0"
   },
   "devDependencies": {
     "@ayu-mu/model": "workspace:^",
     "@configs/lint": "workspace:^",
+    "@iconify/vue": "^4.1.2",
     "@tsconfig/node20": "^20.1.2",
     "@types/node": "^20.11.28",
     "@vitejs/plugin-vue": "^5.1.4",
