@@ -13,24 +13,26 @@
   ],
   "exports": {
     ".": {
-      "types": "./dist/index.d.ts",
-      "import": "./dist/ayu-basic-component.mjs",
-      "require": "./dist/ayu-basic-component.mjs"
+      "types": "./src/index.ts",
+      "import": "./src/index.ts",
+      "require": "./src/index.ts"
     },
     "./style.css": {
       "import": "./dist/style.css",
       "require": "./dist/style.css"
     }
   },
-  "main": "./dist/ayu-basic-component.mjs",
-  "module": "./dist/ayu-basic-component.mjs",
-  "types": "./dist/types/index.d.ts",
+  "main": "./dist/ayu-core-component.mjs",
+  "module": "./dist/ayu-core-component.mjs",
+  "types": "./dist/index.d.ts",
   "files": [
     "dist"
   ],
   "scripts": {
-    "build": "vite build",
-    "build:watch": "vite build -w"
+    "type-check": "vue-tsc --noEmit",
+    "build": "pnpm run type-check && vite build",
+    "build:all": "pnpm run type-check && cross-env VITE_MODE=prod vite build",
+    "clean": "rimraf node_modules"
   },
   "peerDependencies": {
     "@ayu-mu/model": "workspace:^",
@@ -43,7 +45,12 @@
   "dependencies": {
     "@ayu-mu/common": "workspace:^",
     "@ayu-mu/model": "workspace:^",
-    "@ayu-mu/utils": "workspace:^"
+    "@ayu-mu/utils": "workspace:^",
+    "jsoneditor": "^10.2.0",
+    "sass": "^1.76.0",
+    "uuid": "^11.1.0",
+    "vxe-pc-ui": "^4.5.10",
+    "vxe-table": "^4.12.5"
   },
   "devDependencies": {
     "@ayu-mu/scripts": "workspace:^",
@@ -51,13 +58,20 @@
     "@ayu-mu/vite": "workspace:^",
     "@configs/css": "workspace:^",
     "@rollup/plugin-terser": "^0.4.4",
-    "@vitejs/plugin-vue": "^5.1.4",
+    "@types/jsoneditor": "^9.9.5",
+    "@vitejs/plugin-vue": "^5.2.1",
+    "@vitejs/plugin-vue-jsx": "^3.1.0",
     "autoprefixer": "^10.4.19",
+    "cross-env": "^7.0.3",
     "postcss": "^8.4.38",
     "rollup-plugin-visualizer": "^5.14.0",
     "tailwindcss": "^3.4.3",
     "terser": "^5.37.0",
+    "unplugin-auto-import": "^19.0.0",
+    "unplugin-vue-components": "^28.0.0",
     "vite": "^5.4.10",
+    "vite-plugin-dts": "4.5.4",
+    "vite-plugin-lazy-import": "^1.0.7",
     "vue-tsc": "^2.2.0"
   },
   "publishConfig": {
