@@ -1,6 +1,8 @@
 <script lang="ts" setup>
+import { useI18n } from 'vue-i18n'
 import { useRouter } from 'vue-router'
 
+const { t } = useI18n()
 const router = useRouter()
 
 /**
@@ -20,12 +22,12 @@ function goHome() {
 
 <template>
   <div>
-    <ElEmpty description="抱歉，你无权访问这个页面。" class="exception">
+    <ElEmpty :description="t('error.forbidden')" class="exception">
       <ElButton type="info" @click="goHome">
-        首页
+        {{ t('error.home') }}
       </ElButton>
       <ElButton type="primary" @click="goBack">
-        返回
+        {{ t('error.back') }}
       </ElButton>
     </ElEmpty>
   </div>

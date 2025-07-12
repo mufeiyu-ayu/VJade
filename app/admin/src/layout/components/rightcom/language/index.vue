@@ -2,7 +2,8 @@
 import type { ComponentInternalInstance } from 'vue'
 import { Icon } from '@iconify/vue'
 import { getCurrentInstance } from 'vue'
-import { languageList, useLanguageStory } from '@/stores/modules/language'
+import { LanguageList } from '@/contants'
+import { useLanguageStory } from '@/stores/modules/language'
 
 const languageStore = useLanguageStory()
 const instance: ComponentInternalInstance | null = getCurrentInstance()
@@ -18,7 +19,7 @@ const instance: ComponentInternalInstance | null = getCurrentInstance()
     <template #dropdown>
       <ElDropdownMenu>
         <ElDropdownItem
-          v-for="language in languageList"
+          v-for="language in LanguageList"
           :key="language.code"
           :class="{ 'is-active': language.code === languageStore.currentLanguage }"
           @click="languageStore.setLanguage(language.code, instance)"

@@ -1,15 +1,23 @@
 <script lang="ts" setup>
 import type { FormInstance, FormRules } from 'element-plus'
-import { Hide, View } from '@element-plus/icons-vue'
+import type { ComponentInternalInstance } from 'vue'
+import { Check, Hide, View } from '@element-plus/icons-vue'
+import { Icon } from '@iconify/vue'
 import { ElMessage } from 'element-plus'
-import { onMounted, reactive, ref } from 'vue'
+import { getCurrentInstance, onBeforeMount, reactive, ref } from 'vue'
+import { useI18n } from 'vue-i18n'
 import { useRouter } from 'vue-router'
+import TipIcon from '@/components/tipIcon/index.vue'
+import { LanguageList } from '@/contants'
 import { useLanguageStory } from '@/stores/modules/language'
 import { useUserStore } from '@/stores/modules/user'
 // import { RouteNameEnum } from '@/router/type'
+
+const { t } = useI18n()
 const userStore = useUserStore()
 const languageStore = useLanguageStory()
 const router = useRouter()
+const instance: ComponentInternalInstance | null = getCurrentInstance()
 const formRef = ref<FormInstance>()
 const form = reactive({
   username: 'admin',
@@ -17,8 +25,8 @@ const form = reactive({
 })
 const loading = ref(false)
 const rules = reactive<FormRules>({
-  username: [{ required: true, message: '请输入用户名', trigger: 'blur' }],
-  password: [{ required: true, message: '请输入密码', trigger: 'blur' }],
+  username: [{ required: true, message: t('loginPage.username'), trigger: 'blur' }],
+  password: [{ required: true, message: t('loginPage.password'), trigger: 'blur' }],
 })
 
 const passwordVisible = ref(false)
@@ -35,7 +43,7 @@ async function login(formEl: FormInstance | undefined) {
 
         if (code !== 0)
           return
-        ElMessage.success('登录成功')
+        ElMessage.success(t('loginPage.loginSuccess'))
         loading.value = false
         router.push({ path: '/' })
       }
@@ -48,24 +56,63 @@ async function login(formEl: FormInstance | undefined) {
 }
 
 async function register() {
-  console.log('注册')
+  console.log(t('loginPage.register'))
 }
 
-onMounted(() => {
+onBeforeMount(() => {
   languageStore.initLanguage()
 })
 </script>
 
 <template>
   <div class="w-screen flex h-screen">
+    <!-- 语言切换组件 - 右上角 -->
+    <div class="absolute top-4 right-4 z-10">
+      <ElDropdown trigger="click">
+        <span class="el-dropdown-link">
+          <TipIcon :content="$t('language')">
+            <Icon
+              icon="ic:sharp-translate"
+              width="24"
+              height="24"
+              class="text-gray-600 hover:text-gray-800"
+            />
+          </TipIcon>
+        </span>
+        <template #dropdown>
+          <ElDropdownMenu>
+            <ElDropdownItem
+              v-for="language in LanguageList"
+              :key="language.code"
+              :class="{ 'is-active': language.code === languageStore.currentLanguage }"
+              @click="languageStore.setLanguage(language.code, instance)"
+            >
+              <div class="flex items-center px-2">
+                <div class="flex flex-col">
+                  <span class="text-sm font-medium">{{ language.name }}</span>
+                </div>
+                <div class="w-2" />
+                <ElIcon
+                  v-if="language.code === languageStore.currentLanguage"
+                  class="ml-2"
+                >
+                  <Check />
+                </ElIcon>
+              </div>
+            </ElDropdownItem>
+          </ElDropdownMenu>
+        </template>
+      </ElDropdown>
+    </div>
+
     <div class="w-[70vw] h-full relative bg-login">
       <div class="absolute inset-0 bg-gradient-overlay">
         <div class="flex flex-col items-center justify-center h-full">
           <h1 class="text-4xl mb-4 text-red-950">
-            开箱即用的后台管理系统框架
+            {{ $t('loginPage.frameworkTitle') }}
           </h1>
           <p class="text-xl text-red-950 max-w-lg text-center">
-            高效管理・安全可靠・简约优雅
+            {{ $t('loginPage.frameworkSubtitle') }}
           </p>
         </div>
       </div>
@@ -74,10 +121,10 @@ onMounted(() => {
       <div class="w-3/5 space-y-5">
         <div class="mb-6">
           <h2 class="text-2xl font-medium text-gray-800">
-            账号登录
+            {{ $t('loginPage.title') }}
           </h2>
           <p class="text-gray-500 text-sm mt-2">
-            欢迎回来！请输入您的账号信息
+            {{ $t('loginPage.subtitle') }}
           </p>
         </div>
 
@@ -90,7 +137,7 @@ onMounted(() => {
           <ElFormItem prop="username">
             <ElInput
               v-model="form.username"
-              placeholder="请输入用户名"
+              :placeholder="$t('loginPage.username')"
               prefix-icon="User"
               class="h-9"
             />
@@ -100,7 +147,7 @@ onMounted(() => {
             <ElInput
               v-model="form.password"
               :type="passwordVisible ? 'text' : 'password'"
-              placeholder="请输入密码"
+              :placeholder="$t('loginPage.password')"
               class="h-9"
             >
               <template #suffix>
@@ -114,10 +161,10 @@ onMounted(() => {
 
           <div class="flex items-center justify-between text-sm">
             <ElCheckbox v-model="rememberPassword" class="text-gray-600">
-              记住密码
+              {{ $t('loginPage.rememberPassword') }}
             </ElCheckbox>
             <ElLink type="primary" :underline="false">
-              忘记密码？
+              {{ $t('loginPage.forgotPassword') }}
             </ElLink>
           </div>
 
@@ -128,10 +175,10 @@ onMounted(() => {
               class="w-full h-10"
               @click="login(formRef)"
             >
-              登 录
+              {{ $t('loginPage.loginButton') }}
             </ElButton>
             <ElButton type="danger" class="w-full h-10" @click="register">
-              注 册
+              {{ $t('loginPage.registerButton') }}
             </ElButton>
           </div>
         </ElForm>
@@ -167,5 +214,44 @@ onMounted(() => {
 
 :deep(.el-button) {
   height: 40px;
+}
+
+/* 语言切换组件样式 */
+.el-dropdown-link {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  padding: 8px;
+  border-radius: 6px;
+  background-color: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  transition: all 0.3s ease;
+}
+
+.el-dropdown-link:hover {
+  background-color: rgba(255, 255, 255, 1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transform: translateY(-1px);
+}
+
+:deep(.el-dropdown-menu) {
+  border-radius: 8px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+}
+
+:deep(.el-dropdown-item) {
+  padding: 8px 16px;
+  border-radius: 4px;
+  margin: 2px 4px;
+}
+
+:deep(.el-dropdown-item:hover) {
+  background-color: #f5f7fa;
+}
+
+:deep(.el-dropdown-item.is-active) {
+  background-color: #e6f7ff;
+  color: #1890ff;
 }
 </style>

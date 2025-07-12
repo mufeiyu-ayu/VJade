@@ -3,11 +3,8 @@ import { webStorage } from '@ayu-mu/utils'
 import NProgress from 'nprogress'
 import { defineStore } from 'pinia'
 import { ref } from 'vue'
-
-export const languageList = [
-  { code: 'zh', name: '中文', label: '简体中文' },
-  { code: 'en', name: 'English', label: 'English' },
-]
+import { LanguageList } from '@/contants'
+import { getBrowserLanguage } from '@/utils/getBrowerLanguage'
 
 export const useLanguageStory = defineStore('language', () => {
   // 当前语言代码
@@ -16,22 +13,22 @@ export const useLanguageStory = defineStore('language', () => {
   // 初始化语言设置
   const initLanguage = () => {
     const savedLanguageCode = webStorage.getStorageFromKey('language') as string
+    console.log('savedLanguageCode', savedLanguageCode)
     if (savedLanguageCode) {
       currentLanguage.value = savedLanguageCode
     }
     else {
       // 如果没有保存的语言设置，则使用浏览器语言
-      const browserLanguage = navigator.language.split('-')[0]
-      // 检查浏览器语言是否在支持的语言列表中
-      const supportedLanguage = languageList.find(lang => lang.code === browserLanguage)
-      currentLanguage.value = supportedLanguage ? browserLanguage : 'zh'
+      const browserLanguage = getBrowserLanguage()
+      currentLanguage.value = browserLanguage
       webStorage.setStorage('language', currentLanguage.value)
     }
+    console.log('currentLanguage', currentLanguage.value)
   }
 
   // 切换语言
   const setLanguage = (languageCode: string, instance: ComponentInternalInstance | null) => {
-    if (languageList.some(lang => lang.code === languageCode)) {
+    if (LanguageList.some(lang => lang.code === languageCode)) {
       NProgress.start()
       currentLanguage.value = languageCode
       webStorage.setStorage('language', languageCode)
