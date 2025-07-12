@@ -18,7 +18,7 @@
       "require": "./src/index.ts"
     },
     "./style.css": {
-      "import": "./dist/style.css",
+      "import": "./src/tailwind.css",
       "require": "./dist/style.css"
     }
   },

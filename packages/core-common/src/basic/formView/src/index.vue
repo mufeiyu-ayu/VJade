@@ -1,14 +1,20 @@
 <script setup lang="ts">
-import type { FormViewProps } from './types'
+import type { FormProps } from './types'
+import FormViewContent from './components/FormViewContent.vue'
+import { useFormHooks } from './hooks/useForm'
 
-const props = defineProps<FormViewProps>()
+defineProps<FormProps>()
+const { formContainerType, formContainerProps, formContentRef, handleOpen, handleClose } = useFormHooks()
 
-console.log(props)
+defineExpose({
+  handleOpen,
+  handleClose,
+  formContentRef,
+})
 </script>
 
 <template>
-  <div class=" bg-red-500">
-    this is formview component11112121
-    {{ props }}
-  </div>
+  <component :is="formContainerType" v-bind="formContainerProps" ref="formContentRef">
+    <FormViewContent ref="formContentRef" />
+  </component>
 </template>

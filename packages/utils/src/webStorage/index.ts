@@ -1,5 +1,5 @@
 // @ts-ignore
-import { decrypt, encrypt } from '../encry'
+import { decrypt, encrypt } from './encry'
 
 interface StorageConfig {
   type: 'localStorage' | 'sessionStorage'

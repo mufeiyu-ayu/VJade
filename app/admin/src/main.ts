@@ -1,5 +1,6 @@
 import { createApp } from 'vue'
 import { setupI18n } from '@/init/local'
+
 import { setupGlobalComponents } from '@/init/setupComponent'
 import { setupRouter } from '@/router'
 import { setupStore } from '@/stores'

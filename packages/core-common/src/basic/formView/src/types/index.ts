@@ -1,4 +1,2 @@
-export interface FormViewProps {
-  a?: number
-  b?: number
-}
+export * from './enum'
+export * from './form'
