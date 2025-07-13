@@ -1,8 +1,11 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+defineProps<{
+  visible: boolean
+}>()
+</script>
 
 <template>
-  <div>
-    this is a div form
+  <div v-if="visible">
     <slot />
   </div>
 </template>

@@ -14,7 +14,11 @@ defineExpose({
 </script>
 
 <template>
+  <!-- @vue-ignore -->
   <component :is="formContainerType" v-bind="formContainerProps" ref="formContentRef">
-    <FormViewContent ref="formContentRef" />
+    <FormViewContent
+      ref="formContentRef"
+      :field-config
+    />
   </component>
 </template>

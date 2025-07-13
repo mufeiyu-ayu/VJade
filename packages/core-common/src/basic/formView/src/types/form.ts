@@ -1,4 +1,4 @@
-import type { FormRules } from 'element-plus'
+import type { FormItemRule } from 'element-plus'
 import type { ComponentType, FieldType } from './enum'
 
 export interface FormProps {
@@ -19,7 +19,7 @@ export interface FormProps {
   /**   多语言配置 */
   languageList?: Record<string, unknown>[]
   /**   表单项配置 */
-  fieldList: FieldItemConfig[]
+  fieldConfig: FieldItemConfig[]
   /**   表单提交回调 */
   onSubmit?: (data: Record<string, unknown>) => void
 }
@@ -35,11 +35,10 @@ export interface FieldItemConfig {
   defaultValue?: string | number | unknown []
   /**   提示音 */
   placeholder: string
+  /**   表单验证规则 */
+  rules?: FormItemRule[]
   /**   多语言配置 */
-  rules?: FormRules[]
   languageList?: Record<string, unknown>[]
-  /**   表单项宽度 */
-  width?: number
   /**   表单项布局宽度 */
   colSize?: number
   /**   自定义属性 */

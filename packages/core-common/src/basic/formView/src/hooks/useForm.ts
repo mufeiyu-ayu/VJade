@@ -8,19 +8,27 @@ import FormDiv from '../components/FormDiv.vue'
 export function useFormHooks() {
   const instance = getCurrentInstance()
   const props = instance?.props as unknown as FormProps
+  console.log(props, '----------')
   const modelVisivle = ref(props?.visible || false)
   const formContentRef = ref<InstanceType<typeof FormViewContent>>()
 
-  /**   打开弹窗/抽屉 */
+  /**
+   * @description 打开弹窗/抽屉
+   */
   function handleOpen() {
     modelVisivle.value = true
   }
 
-  /**   关闭弹窗/抽屉 */
+  /**
+   * @description 关闭弹窗/抽屉
+   */
   function handleClose() {
     modelVisivle.value = false
   }
 
+  /**
+   * @description 根据表单类型渲染表单类型组件
+   */
   /**   根据表单类型渲染表单类型组件 */
   const formContainerType = computed(() => {
     switch (props.componentType) {
@@ -35,12 +43,15 @@ export function useFormHooks() {
     }
   })
 
+  /**
+   * @description 根据表单类型渲染表单类型组件的属性
+   */
   const formContainerProps = computed(() => {
     switch (props.componentType) {
       case 'dialog':
       case 'drawer':
         return {
-          modelValue: modelVisivle.value,
+          visible: modelVisivle.value,
           width: isMobile() ? '80vw' : props.width,
           title: props.title,
           cancelText: props.cancelText,
@@ -50,10 +61,11 @@ export function useFormHooks() {
           onSubmit: props.onSubmit,
           handleOpen,
           handleClose,
+          formContentRef,
         }
       case 'div':
         return {
-          modelValue: modelVisivle.value,
+          visible: modelVisivle.value,
         }
       default:
         return {}
