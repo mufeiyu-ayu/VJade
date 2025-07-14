@@ -5,9 +5,14 @@ import { ref } from 'vue'
 import { useI18n } from 'vue-i18n'
 
 const { t } = useI18n()
-const formBind = ref<FormProps>({
+interface FormData {
+  name: string
+  hobby: string
+}
+const formRef = ref()
+
+const formBind = ref<FormProps<FormData>>({
   componentType: 'dialog',
-  visible: true,
   title: '表单',
   fieldConfig: [
     {
@@ -29,11 +34,27 @@ const formBind = ref<FormProps>({
       placeholder: '请输入爱好',
       custom: {},
     },
+    {
+      label: '年龄',
+      field: 'age',
+      type: 'inputNumber',
+      colSize: 12,
+      rules: [{ required: true, message: '请输入年龄', trigger: 'blur' }],
+      custom: {
+        min: 1,
+        max: 100,
+        precision: 2,
+      },
+    },
   ],
   onSubmit: (data) => {
-    console.log(data, '2222')
+    console.log(data.name, data.hobby, '2222')
   },
 })
+
+function handleOpen() {
+  formRef.value.handleOpen()
+}
 </script>
 
 <template>
@@ -42,7 +63,10 @@ const formBind = ref<FormProps>({
       {{ t('common.home') }} {{ $t('message') }}
     </div>
     <div class="w-full">
-      <FormView v-bind="formBind" />
+      <FormView ref="formRef" v-bind="formBind" />
+      <ElButton type="primary" @click="handleOpen">
+        打开表单
+      </ElButton>
     </div>
     <RouterView />
   </div>

@@ -1,6 +1,6 @@
 import type { Component } from 'vue'
 import type { FieldType } from '../basic/formView/src/types'
-import { ElInput } from 'element-plus'
+import { ElInput, ElInputNumber } from 'element-plus'
 import { h } from 'vue'
 
 export interface ComponentProps {
@@ -16,6 +16,8 @@ export function useComponentRender() {
       switch (type) {
         case 'input':
           return ElInput
+        case 'inputNumber':
+          return ElInputNumber
         default:
           return ElInput
       }

@@ -4,6 +4,7 @@ import { isMobile } from '@ayu-mu/utils'
 import { computed, getCurrentInstance, ref } from 'vue'
 import FormDialog from '../components/FormDialog.vue'
 import FormDiv from '../components/FormDiv.vue'
+import FormDrawer from '../components/FormDrawer.vue'
 
 export function useFormHooks() {
   const instance = getCurrentInstance()
@@ -35,7 +36,7 @@ export function useFormHooks() {
       case 'dialog':
         return FormDialog
       case 'drawer':
-        return FormDialog
+        return FormDrawer
       case 'div':
         return FormDiv
       default:
