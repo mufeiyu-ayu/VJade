@@ -1,1 +1,1 @@
-export { default as InputNumber } from './inputNumber/index.vue'
+export * from './select'

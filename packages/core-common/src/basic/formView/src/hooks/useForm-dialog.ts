@@ -10,11 +10,12 @@ export function useFormDialog() {
    */
   const handleSubmit = () => {
     const formRef = props.formContentRef.value?.formRef
-    formRef?.validate((valid) => {
+    formRef?.validate((_valid) => {
       const formData = props.formContentRef.value?.getFormData()
-      if (valid) {
-        props?.onSubmit?.(formData || {})
-      }
+      props?.onSubmit?.(formData || {})
+      // if (valid) {
+      //   props?.onSubmit?.(formData || {})
+      // }
     })
   }
 

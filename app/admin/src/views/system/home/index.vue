@@ -19,6 +19,7 @@ const formBind = ref<FormProps<FormData>>({
       label: '姓名',
       field: 'name',
       type: 'input',
+      defaultValue: '张三',
       colSize: 12,
       rules: [{ required: true, message: '请输入姓名', trigger: 'blur' }],
       placeholder: '请输入姓名',
@@ -28,6 +29,7 @@ const formBind = ref<FormProps<FormData>>({
     {
       label: '爱好',
       field: 'hobby',
+      defaultValue: '篮球',
       type: 'input',
       colSize: 12,
       rules: [{ required: true, message: '请输入爱好', trigger: 'blur' }],
@@ -38,6 +40,7 @@ const formBind = ref<FormProps<FormData>>({
       label: '年龄',
       field: 'age',
       type: 'inputNumber',
+      defaultValue: 18,
       colSize: 12,
       rules: [{ required: true, message: '请输入年龄', trigger: 'blur' }],
       custom: {
@@ -46,9 +49,55 @@ const formBind = ref<FormProps<FormData>>({
         precision: 2,
       },
     },
+    {
+      label: '科目',
+      field: 'subject',
+      type: 'select',
+
+      colSize: 12,
+      rules: [{ required: true, message: '请选择爱好', trigger: 'change' }],
+      custom: {
+        // options: [
+        //   {
+        //     label: '语文',
+        //     value: 'chinese',
+        //   },
+        //   {
+        //     label: '数学',
+        //     value: 'math',
+        //   },
+        //   {
+        //     label: '英语',
+        //     value: 'english',
+        //   },
+        // ],
+        getOptions: () => {
+          return new Promise((resolve) => {
+            resolve({
+              code: 0,
+              message: 'success',
+              data: [
+                {
+                  label: '语文',
+                  value: 'chinese',
+                },
+                {
+                  label: '数学',
+                  value: 'math',
+                },
+                {
+                  label: '英语',
+                  value: 'english',
+                },
+              ],
+            })
+          })
+        },
+      },
+    },
   ],
   onSubmit: (data) => {
-    console.log(data.name, data.hobby, '2222')
+    console.log(data, 'formData')
   },
 })
 
