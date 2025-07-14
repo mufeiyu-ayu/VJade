@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import type { CommonResultType } from '@ayu-mu/model'
 import { useSelect } from './hooks'
 
 export interface SelectProps {
@@ -8,7 +9,7 @@ export interface SelectProps {
   /**   选项 */
   options?: unknown[]
   /**   获取选项 */
-  getOptions?: (queryContion?: Record<string, unknown>) => Promise<unknown>
+  getOptions?: (queryContion?: Record<string, unknown>) => Promise<CommonResultType>
   /**   映射 */
   map?: Record<string, string>
   /**   查询推荐 */

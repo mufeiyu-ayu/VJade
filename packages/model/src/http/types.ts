@@ -69,7 +69,7 @@ export interface RequestOptionsType {
 /**
  * 通用请求返回值类型
  */
-export interface CommonResultType<T> {
+export interface CommonResultType<T = object> {
   code: ResponseCodeEnum
   message: string
   data: T

@@ -14,9 +14,9 @@ export function useSelect() {
     }
 
     if (props?.getOptions) {
-      const { code, data } = await props.getOptions() as { code: number, data: Record<string, unknown>[] }
+      const { code, data } = await props.getOptions()
       if (!code) {
-        selectOptions.value = data.map((item) => {
+        selectOptions.value = (data as Record<string, unknown>[]).map((item) => {
           return {
             label: item[props.map?.label || 'label'] as string,
             value: item[props.map?.value || 'value'] as string,
@@ -26,11 +26,14 @@ export function useSelect() {
     }
   }
 
+  /**  监听modelValue */
   watch(() => props.modelValue, (value) => {
     if (value) {
       selectValue.value = value
     }
   }, { immediate: true })
+
+  /**  监听options */
   watch(
     () => props.options,
     (val) => {
