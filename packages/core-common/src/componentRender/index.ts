@@ -2,7 +2,7 @@ import type { Component } from 'vue'
 import type { FieldType } from '../basic/formView/src/types'
 import { ElInput, ElInputNumber } from 'element-plus'
 import { h } from 'vue'
-import { AyuSelect } from '../basic'
+import { AyuSelect, AyuUploadImg } from '../basic'
 
 export interface ComponentProps {
   'modelValue'?: unknown
@@ -21,6 +21,8 @@ export function useComponentRender() {
           return ElInputNumber
         case 'select':
           return AyuSelect
+        case 'uploadImg':
+          return AyuUploadImg
         default:
           return ElInput
       }

@@ -18,7 +18,7 @@
       "require": "./dist/ayu-core-components.mjs"
     },
     "./style.css": {
-      "import": "./src/tailwind.css",
+      "import": "./dist/style.css",
       "require": "./dist/style.css"
     }
   },

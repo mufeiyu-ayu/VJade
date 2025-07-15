@@ -95,6 +95,14 @@ const formBind = ref<FormProps<FormData>>({
         },
       },
     },
+    {
+      label: '上传图片',
+      field: 'uploadImg',
+      type: 'uploadImg',
+      colSize: 24,
+      rules: [{ required: true, message: '请上传图片', trigger: 'blur' }],
+      custom: {},
+    },
   ],
   onSubmit: (data) => {
     console.log(data, 'formData')

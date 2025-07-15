@@ -1,10 +1,10 @@
 import { createApp } from 'vue'
 import { setupI18n } from '@/init/local'
-
 import { setupGlobalComponents } from '@/init/setupComponent'
 import { setupRouter } from '@/router'
 import { setupStore } from '@/stores'
 import App from './App.vue'
+import '@ayu-mu/core-common/style.css'
 import '@/styles/global.scss'
 
 function setupApp() {
