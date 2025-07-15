@@ -4,8 +4,6 @@ import type { UploadImageProps } from '../index.vue'
 import { ElLoading, ElMessage } from 'element-plus'
 import { computed, getCurrentInstance, onMounted, onUnmounted, ref, watch } from 'vue'
 
-export function useUpload() {}
-
 export function useUpLoadImg() {
   const instance = getCurrentInstance() as ComponentInternalInstance
   const props = instance.props as unknown as UploadImageProps
@@ -17,11 +15,6 @@ export function useUpLoadImg() {
   const imgNum = props.imgNum || 4
   const isSelected = ref(false)
 
-  // 🔥 预览相关状态
-  const previewVisible = ref(false)
-  const previewImage = ref('')
-  const previewTitle = ref('')
-
   // 处理选中状态
   const handleSelect = () => {
     isSelected.value = true
@@ -30,30 +23,6 @@ export function useUpLoadImg() {
   // 处理失焦状态
   const handleBlur = () => {
     isSelected.value = false
-  }
-
-  // 🔥 预览图片
-  const handlePreview = (file: UploadFile) => {
-    previewImage.value = file.url || ''
-    previewTitle.value = file.name || '图片预览'
-    previewVisible.value = true
-  }
-
-  // 🔥 关闭预览
-  const handlePreviewClose = () => {
-    previewVisible.value = false
-    previewImage.value = ''
-    previewTitle.value = ''
-  }
-
-  // 🔥 下载图片
-  const handleDownload = () => {
-    if (previewImage.value) {
-      const link = document.createElement('a')
-      link.href = previewImage.value
-      link.download = previewTitle.value
-      link.click()
-    }
   }
 
   // 🔥 提取 emit 函数，传递 file 对象集合
@@ -295,12 +264,6 @@ export function useUpLoadImg() {
     handleSelect,
     handleBlur,
     placeholderComp,
-    previewVisible,
-    previewImage,
-    previewTitle,
-    handlePreview,
-    handlePreviewClose,
-    handleDownload,
     accept,
     uploadRef,
   }

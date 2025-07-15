@@ -1,13 +1,20 @@
 <script setup lang="ts">
 import type { FormItemRule, UploadRawFile } from 'element-plus'
 import { useUpLoadImg } from './hooks/upload-hooks'
+import { usePreview } from './hooks/use-preview'
 
 export interface UploadImageProps {
+  /** 图片列表 */
   modelValue: unknown[]
+  /** 上传函数 */
   uploadFn?: (file: UploadRawFile) => Promise<string>
+  /** 最大大小 */
   maxSize?: number
+  /** 接受类型 */
   accept?: string
+  /** 图片数量 */
   imgNum: number
+  /** 语言列表 */
   languageList?: {
     language: string
     label: string
@@ -19,11 +26,15 @@ export interface UploadImageProps {
       disabled?: boolean
     }[]
   }[]
+  /** 提示语 */
   prompt?: string
+  /** 大小 */
   size?: 'small' | 'medium' | 'large' | number
 }
 defineProps<UploadImageProps>()
 defineEmits(['update:modelValue'])
+
+// 🔥 使用上传 Hook
 const {
   fileList,
   uploadRef,
@@ -34,14 +45,18 @@ const {
   handleSelect,
   handleBlur,
   placeholderComp,
+  accept,
+} = useUpLoadImg()
+
+// 🔥 使用预览 Hook
+const {
   previewVisible,
   previewImage,
   previewTitle,
   handlePreview,
   handlePreviewClose,
   handleDownload,
-  accept,
-} = useUpLoadImg()
+} = usePreview()
 </script>
 
 <template>
