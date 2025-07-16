@@ -9,9 +9,9 @@ export interface FormProps<T = object> {
   /**   表单标题 */
   title?: string
   /**   表单宽度 */
-  width?: number
+  width?: string
   /**   表单高度 */
-  height?: number
+  height?: string
   /**   表单取消按钮文字 */
   cancelText?: string
   /**  确认表单按钮文字 */
@@ -33,6 +33,8 @@ export interface FieldItemConfig {
   label: string
   /**   默认值 */
   defaultValue?: string | number | unknown []
+  /**   表单是否隐藏 */
+  unVisible?: boolean
   /**   提示音 */
   placeholder?: string
   /**   表单验证规则 */

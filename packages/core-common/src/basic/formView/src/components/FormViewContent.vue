@@ -7,7 +7,7 @@ defineProps<{
   fieldConfig: FieldItemConfig[]
 }>()
 
-const { formRef, formList, formData, formRules, handleColSize, handleSetFormData, lookupChange } = useFormContent()
+const { formRef, formList, formData, formRules, handleColSize, handleSetFormData, lookupChange, fieldConfig } = useFormContent()
 const { componentRender } = useComponentRender()
 
 defineExpose({
@@ -17,6 +17,8 @@ defineExpose({
   getFormData: () => formData.value,
   /**  设置表单数据 */
   setFormData: handleSetFormData,
+  /**  获取表单配置 */
+  getFieldConfig: () => fieldConfig.value,
 })
 </script>
 
@@ -29,34 +31,38 @@ defineExpose({
       :model="formData"
       scroll-to-error
       label-position="right"
+      require-asterisk-position="right"
       label-width="auto"
       :rules="formRules"
     >
       <ElRow :gutter="20">
-        <ElCol v-for="item in formList" :key="item.field" :span="handleColSize(item.colSize || 24)">
-          <ElFormItem :label="item.label" :prop="item.field">
-            <slot
-              :name="item.field"
-              v-bind="{
-                ...item.custom,
-                formData,
-              }"
-            >
-              <component
-                :is="componentRender(item.type!)"
-                v-model="formData[item.field]"
-                :placeholder="`${item.placeholder}`"
+        <template v-for="item in formList" :key="item.field">
+          <ElCol v-if="!item.unVisible" :span="handleColSize(item.colSize || 24)">
+            <ElFormItem :label="item.label" :prop="item.field">
+              <slot
+                :name="item.field"
                 v-bind="{
-                  gsName: item.label,
                   ...item.custom,
-                  languageList: item.languageList,
-                  field: item.field,
+                  formData,
                 }"
-                @lookup-change="lookupChange"
-              />
-            </slot>
-          </ElFormItem>
-        </ElCol>
+              >
+                <component
+                  :is="componentRender(item.type!)"
+                  v-model="formData[item.field]"
+                  :placeholder="`${item.placeholder}`"
+                  v-bind="{
+                    gsName: item.label,
+                    ...item.custom,
+                    field: item.field,
+                    formRef,
+                    languageList: item.languageList,
+                  }"
+                  @lookup-change="lookupChange"
+                />
+              </slot>
+            </ElFormItem>
+          </ElCol>
+        </template>
       </ElRow>
     </ElForm>
   </div>

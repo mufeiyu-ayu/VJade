@@ -14,7 +14,7 @@
     "@ayu-mu/request": "workspace:^",
     "@ayu-mu/utils": "workspace:^",
     "@configs/css": "workspace:^",
-    "element-plus": "^2.9.7",
+    "element-plus": "^2.7.2",
     "nprogress": "^0.2.0",
     "pinia": "3",
     "sass": "^1.76.0",

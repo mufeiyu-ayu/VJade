@@ -1,7 +1,7 @@
 import type { FormInstance, FormRules } from 'element-plus'
 import type { FieldItemConfig } from '../types'
 import { isMobile } from '@ayu-mu/utils'
-import { computed, getCurrentInstance, onBeforeMount, ref, toRefs } from 'vue'
+import { computed, getCurrentInstance, onBeforeMount, ref, toRefs, watch } from 'vue'
 
 export function useFormContent() {
   const instance = getCurrentInstance()
@@ -63,6 +63,19 @@ export function useFormContent() {
       formData.value[formKey] = data[key] as string
     }
   }
+
+  watch(
+    () => fieldConfig.value,
+    (_newVal) => {
+      const fieldList = fieldConfig.value.filter(item => item.unVisible).map(item => item.field)
+      fieldList.forEach((field) => {
+        formData.value[field] = null
+      })
+    },
+    {
+      deep: true,
+    },
+  )
   onBeforeMount(() => {
     initFormData()
     initFormRules()
@@ -76,5 +89,6 @@ export function useFormContent() {
     handleColSize,
     handleSetFormData,
     lookupChange,
+    fieldConfig,
   }
 }

@@ -36,9 +36,7 @@
   },
   "peerDependencies": {
     "@ayu-mu/model": "workspace:^",
-    "@element-plus/icons-vue": "^2.0.0",
     "@iconify/vue": "^4.1.2",
-    "element-plus": "^2.7.2",
     "lodash-es": "^4.17.21",
     "vue": "^3.4.21"
   },
@@ -46,6 +44,8 @@
     "@ayu-mu/common": "workspace:^",
     "@ayu-mu/model": "workspace:^",
     "@ayu-mu/utils": "workspace:^",
+    "@element-plus/icons-vue": "^2.0.0",
+    "element-plus": "^2.7.2",
     "jsoneditor": "^10.2.0",
     "sass": "^1.76.0",
     "uuid": "^11.1.0",

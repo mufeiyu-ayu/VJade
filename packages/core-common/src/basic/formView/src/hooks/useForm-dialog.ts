@@ -10,12 +10,17 @@ export function useFormDialog() {
    */
   const handleSubmit = () => {
     const formRef = props.formContentRef.value?.formRef
-    formRef?.validate((_valid) => {
+
+    formRef?.validate((valid) => {
       const formData = props.formContentRef.value?.getFormData()
-      props?.onSubmit?.(formData || {})
-      // if (valid) {
-      //   props?.onSubmit?.(formData || {})
-      // }
+      const fieldList = props.formContentRef.value?.getFieldConfig().filter(item => item.unVisible).map(item => item.field)
+      if (valid) {
+        const data = { ...formData }
+        fieldList?.forEach((field) => {
+          delete data[field]
+        })
+        props.onSubmit?.(data || {})
+      }
     })
   }
 
