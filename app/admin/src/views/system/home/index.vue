@@ -46,6 +46,25 @@ const formProps = ref<FormProps>({
       colSize: 12,
       rules: [{ required: true, message: '请输入年龄' }],
     },
+    {
+      field: 'sex',
+      type: 'radio',
+      label: '性别',
+      colSize: 12,
+      rules: [{ required: true, message: '请选择性别' }],
+      custom: {
+        options: [
+          {
+            label: '男',
+            value: 'male',
+          },
+          {
+            label: '女',
+            value: 'female',
+          },
+        ],
+      },
+    },
   ],
   onSubmit: (value) => {
     console.log(value, '表单提交函数')
