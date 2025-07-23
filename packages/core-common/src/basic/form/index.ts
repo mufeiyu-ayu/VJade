@@ -1,4 +1,5 @@
 export * from './Input'
+export * from './jsoneditor'
 export * from './radio'
 export * from './select'
 export * from './uploadImg'

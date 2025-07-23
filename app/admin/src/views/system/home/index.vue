@@ -1,11 +1,11 @@
 <script setup lang="ts">
 import type { FormProps } from '@ayu-mu/core-common'
-import { FormView } from '@ayu-mu/core-common'
+import { FormView, JsonEditor } from '@ayu-mu/core-common'
 import { ref, watch } from 'vue'
 // 引用 LynxSelect 这个组件
 
 const formViewRef = ref<InstanceType<typeof FormView>>()
-
+const jsonData = ref({})
 const formProps = ref<FormProps>({
   title: '表单',
   width: '30vw',
@@ -70,6 +70,7 @@ const formProps = ref<FormProps>({
     console.log(value, '表单提交函数')
   },
 })
+const jsonEditorRef = ref<InstanceType<typeof JsonEditor>>()
 watch(() => formViewRef.value?.formContentRef?.getFormData()?.hobby, (newVal) => {
   formProps.value.fieldConfig[1].unVisible = newVal === 'football'
 }, {
@@ -94,6 +95,17 @@ function onClick2() {
     <ElButton @click="onClick2">
       提交表单
     </ElButton>
+    <div class="flex items-center gap-2">
+      <div>jsonData:{{ jsonData }}</div>
+      <JsonEditor ref="jsonEditorRef" v-model="jsonData">
+        <ElButton @click="jsonEditorRef.open(jsonData)">
+          编辑数据
+        </ElButton>
+        <ElButton @click="() => console.log(jsonData, 'jsonData')">
+          查看数据
+        </ElButton>
+      </JsonEditor>
+    </div>
   </div>
 </template>
 
