@@ -1,0 +1,16 @@
+@import 'element-plus/theme-chalk/el-message.css';
+
+.vxe-table .vxe-table--body {
+  /* height: 100% !important; */
+}
+
+/* .vxe-table .vxe-cell--wrapper {
+  height: 100% !important;
+  display: flex !important;
+  align-items: center !important;
+} */
+
+.vxe-table .vxe-cell {
+  height: 100% !important;
+  overflow: visible !important;
+}

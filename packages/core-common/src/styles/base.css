@@ -1,0 +1,6 @@
+/* 您的自定义样式 */
+@import 'vxe-table/lib/style.css';
+@import 'vxe-pc-ui/lib/style.css';
+@import 'element-plus/theme-chalk/el-pagination.css';
+@import 'element-plus/theme-chalk/el-loading.css';
+@import 'element-plus/theme-chalk/el-divider.css';
