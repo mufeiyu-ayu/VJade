@@ -2,7 +2,7 @@ import type { Component } from 'vue'
 import type { FieldType } from '../basic/formView/src/types'
 import { ElInputNumber } from 'element-plus'
 import { h } from 'vue'
-import { AyuInput, AyuRadio, AyuSelect, AyuUploadImg, JsonEditor } from '../basic'
+import { AyuDate, AyuInput, AyuRadio, AyuSelect, AyuUploadImg, JsonEditor } from '../form'
 
 export interface ComponentProps {
   'modelValue'?: unknown
@@ -27,6 +27,8 @@ export function useComponentRender() {
           return AyuRadio
         case 'jsoneditor':
           return JsonEditor
+        case 'date':
+          return AyuDate
         default:
           return AyuInput
       }
