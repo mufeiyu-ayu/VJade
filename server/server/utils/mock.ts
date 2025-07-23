@@ -404,3 +404,47 @@ export function mockTableData() {
 
   return allData
 }
+interface FoundManageItem {
+  id: string // 数据项 ID
+  businessId: string // 业务 ID
+  employeeAccount: string // 员工账户
+  type: 10 | 20 | 30 | 40 // 类型 (10订单扣款，20订单退款，30充值，40提现)
+  price: number // 价格
+  beforeBalance: number // 变动前金额
+  afterBalance: number // 变动后金额
+  remark: string // 备注
+  [key: string]: string | number // 索引签名，兼容 TableRecord 类型
+}
+export function mockTableData2() {
+  // 帮我生成 45 条FoundManageItem的数组随机数据
+  const data: FoundManageItem[] = []
+  const types: (10 | 20 | 30 | 40)[] = [10, 20, 30, 40]
+  const typeNames = ['订单扣款', '订单退款', '充值', '提现']
+
+  for (let i = 1; i <= 45; i++) {
+    const type = types[Math.floor(Math.random() * types.length)]
+    const price = Math.floor(Math.random() * 10000) + 100 // 100-10100之间的随机价格
+    const beforeBalance = Math.floor(Math.random() * 50000) + 1000 // 1000-51000之间的余额
+
+    // 根据类型计算变动后金额
+    let afterBalance: number
+    if (type === 10 || type === 40) { // 订单扣款或提现，减少余额
+      afterBalance = beforeBalance - price
+    }
+    else { // 订单退款或充值，增加余额
+      afterBalance = beforeBalance + price
+    }
+
+    data.push({
+      id: i.toString(),
+      businessId: `BUS${i.toString().padStart(6, '0')}`,
+      employeeAccount: `emp${i.toString().padStart(3, '0')}`,
+      type,
+      price,
+      beforeBalance,
+      afterBalance,
+      remark: `${typeNames[types.indexOf(type)]}记录${i}`,
+    })
+  }
+  return data
+}

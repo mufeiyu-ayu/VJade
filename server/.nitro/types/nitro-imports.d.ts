@@ -85,6 +85,7 @@ declare global {
   const isWebResponse: typeof import('../../../node_modules/.pnpm/h3@1.14.0/node_modules/h3')['isWebResponse']
   const lazyEventHandler: typeof import('../../../node_modules/.pnpm/h3@1.14.0/node_modules/h3')['lazyEventHandler']
   const mockFormData: typeof import('../../server/utils/mock')['mockFormData']
+  const mockTableData2: typeof import('../../server/utils/mock')['mockTableData2']
   const mockTableData: typeof import('../../server/utils/mock')['mockTableData']
   const nitroPlugin: typeof import('../../../node_modules/.pnpm/nitropack@2.10.4_better-sqlite3@11.8.1_typescript@5.8.2/node_modules/nitropack/dist/runtime/internal/plugin')['nitroPlugin']
   const pageResponseError: typeof import('../../server/utils/response')['pageResponseError']
@@ -167,5 +168,5 @@ export { useDatabase } from 'nitropack/runtime/internal/database';
 export { setRefreshTokenCookie, getRefreshTokenFromCookie } from '../../server/utils/cookie';
 export { db, initDatabase } from '../../server/utils/db';
 export { generateAccessToken, generateRefreshToken, verifyAccessToken } from '../../server/utils/jwt-utils';
-export { MOCK_USERS, mockFormData, flatMenuList, mockTableData } from '../../server/utils/mock';
+export { MOCK_USERS, mockFormData, flatMenuList, mockTableData, mockTableData2 } from '../../server/utils/mock';
 export { useResponseSuccess, useResponseError, pagination, pageResponseSuccess, pageResponseError, forbiddenResponse, unAuthorizedResponse, sleep } from '../../server/utils/response';

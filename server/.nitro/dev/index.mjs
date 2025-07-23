@@ -563,6 +563,33 @@ function mockTableData() {
   }
   return allData;
 }
+function mockTableData2() {
+  const data = [];
+  const types = [10, 20, 30, 40];
+  const typeNames = ["\u8BA2\u5355\u6263\u6B3E", "\u8BA2\u5355\u9000\u6B3E", "\u5145\u503C", "\u63D0\u73B0"];
+  for (let i = 1; i <= 45; i++) {
+    const type = types[Math.floor(Math.random() * types.length)];
+    const price = Math.floor(Math.random() * 1e4) + 100;
+    const beforeBalance = Math.floor(Math.random() * 5e4) + 1e3;
+    let afterBalance;
+    if (type === 10 || type === 40) {
+      afterBalance = beforeBalance - price;
+    } else {
+      afterBalance = beforeBalance + price;
+    }
+    data.push({
+      id: i.toString(),
+      businessId: `BUS${i.toString().padStart(6, "0")}`,
+      employeeAccount: `emp${i.toString().padStart(3, "0")}`,
+      type,
+      price,
+      beforeBalance,
+      afterBalance,
+      remark: `${typeNames[types.indexOf(type)]}\u8BB0\u5F55${i}`
+    });
+  }
+  return data;
+}
 
 const db = createDatabase(
   sqlite({
@@ -678,6 +705,7 @@ const plugins = [
 ];
 
 const _lazy_XD21mC = () => Promise.resolve().then(function () { return login_post$1; });
+const _lazy_f1w9Im = () => Promise.resolve().then(function () { return index_post$3; });
 const _lazy_Me7Sjj = () => Promise.resolve().then(function () { return form_get$1; });
 const _lazy_9j4ond = () => Promise.resolve().then(function () { return form_post$1; });
 const _lazy_kBZtVT = () => Promise.resolve().then(function () { return menu_get$1; });
@@ -687,6 +715,7 @@ const _lazy_GIo87M = () => Promise.resolve().then(function () { return _____$1; 
 
 const handlers = [
   { route: '/api/auth/login', handler: _lazy_XD21mC, lazy: true, middleware: false, method: "post" },
+  { route: '/api/datagrid', handler: _lazy_f1w9Im, lazy: true, middleware: false, method: "post" },
   { route: '/api/form', handler: _lazy_Me7Sjj, lazy: true, middleware: false, method: "get" },
   { route: '/api/form', handler: _lazy_9j4ond, lazy: true, middleware: false, method: "post" },
   { route: '/api/menu/menu', handler: _lazy_kBZtVT, lazy: true, middleware: false, method: "get" },
@@ -1516,6 +1545,29 @@ const login_post = defineEventHandler(async (event) => {
 const login_post$1 = /*#__PURE__*/Object.freeze({
   __proto__: null,
   default: login_post
+});
+
+const index_post$2 = defineEventHandler(async (event) => {
+  const body = await readBody(event);
+  const pageNum = body.pageNum || 1;
+  const pageSize = body.pageSize || 10;
+  const allData = mockTableData2();
+  const start = (pageNum - 1) * pageSize;
+  const end = start + pageSize;
+  await new Promise((resolve) => setTimeout(resolve, 500));
+  return useResponseSuccess({
+    data: {
+      record: allData.slice(start, end),
+      total: allData.length,
+      pageNum,
+      pageSize
+    }
+  });
+});
+
+const index_post$3 = /*#__PURE__*/Object.freeze({
+  __proto__: null,
+  default: index_post$2
 });
 
 const form_get = defineEventHandler((event) => {

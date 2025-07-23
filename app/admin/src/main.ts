@@ -1,3 +1,4 @@
+import { VXEPlugin } from '@ayu-mu/core-common'
 import { createApp } from 'vue'
 import { setupI18n } from '@/init/local'
 import { setupGlobalComponents } from '@/init/setupComponent'
@@ -17,6 +18,7 @@ function setupApp() {
   setupGlobalComponents(app)
   // 初始化路由
   setupRouter(app)
+  app.use(VXEPlugin)
   // 挂载
   app.mount('#app')
 }

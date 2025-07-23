@@ -1,5 +1,7 @@
-<script lang="ts" setup>
-import zhCn from 'element-plus/es/locale/lang/zh-cn'
+<script setup lang="ts">
+import zhCn from 'element-plus/dist/locale/zh-cn.mjs'
+// 使用 ele 语言组件
+import { RouterView } from 'vue-router'
 </script>
 
 <template>
@@ -7,3 +9,5 @@ import zhCn from 'element-plus/es/locale/lang/zh-cn'
     <RouterView />
   </ElConfigProvider>
 </template>
+
+<style scoped></style>
