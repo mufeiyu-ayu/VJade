@@ -75,6 +75,13 @@ const formProps = ref<FormProps>({
       //   type: 'month',
       // },
     },
+    {
+      field: 'datetime',
+      type: 'dateTime',
+      label: '日期时间',
+      rules: [{ required: true, message: '请选择日期时间' }],
+      colSize: 12,
+    },
   ],
   onSubmit: (value) => {
     console.log(value, '表单提交函数')
