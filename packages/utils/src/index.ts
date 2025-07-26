@@ -1,4 +1,5 @@
-export * from './install/install'
+export * from './install'
 export * from './is'
 export * from './isMobile'
+export * from './useThrottle'
 export * from './webStorage'

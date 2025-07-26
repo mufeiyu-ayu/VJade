@@ -68,6 +68,7 @@ export function useDataGrid({ uid }: DataGridParams): { tableBind: Ref<TableProp
     ],
     getTableData: getTableDataApi,
     showOperation: false,
+    hideCheckbox: false,
   })
   return { tableBind }
 }
