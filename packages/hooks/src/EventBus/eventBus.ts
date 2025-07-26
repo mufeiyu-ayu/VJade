@@ -1,5 +1,5 @@
 import type { Emitter } from 'mitt'
-import type { CustomEventBusCallbackType, CustomEventType, EventBusType } from './types/types'
+import type { CustomEventBusCallbackType, CustomEventType, EventBusType } from './types'
 import mitt from 'mitt'
 import { onUnmounted } from 'vue'
 

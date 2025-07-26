@@ -2,7 +2,7 @@
   "extends": "@ayu-mu/tsconfig/tsconfig.base.json",
   "compilerOptions": {
     "baseUrl": ".",
-    "rootDir": "src",
+    "rootDir": ".",
     "moduleResolution": "bundler",
     "paths": {
       "@/*": [
@@ -11,9 +11,8 @@
     },
     "declaration": true,
     "emitDeclarationOnly": true,
-    "outDir": "temp/src",
+    "outDir": "temp",
     "stripInternal": true
   },
-  "include": ["src/**/*.ts", "src/**/*.vue"],
-  "exclude": ["dist", "node_modules", "**/*.test.ts", "**/__tests__/*"]
+  "include": ["./**/.vue", "./src/**/*.ts"]
 }
