@@ -1,6 +1,6 @@
 import type { TableProps } from '@ayu-mu/core-common'
-
 import type { Ref } from 'vue'
+import { ElButton } from 'element-plus'
 import { ref } from 'vue'
 import { getTableDataApi } from '@/apis'
 
@@ -67,7 +67,30 @@ export function useDataGrid({ uid }: DataGridParams): { tableBind: Ref<TableProp
       },
     ],
     getTableData: getTableDataApi,
-    showOperation: false,
+    operationConfig: {
+      render: ({ row }) => {
+        return (
+          <div>
+            <ElButton
+              type="primary" size="small" onClick={() => {
+                console.log(row)
+              }}
+            >
+              编辑
+            </ElButton>
+            <ElButton
+              type="danger" size="small" onClick={() => {
+                console.log(row)
+              }}
+            >
+              删除
+            </ElButton>
+          </div>
+        )
+      },
+      hideDelete: true,
+    },
+    showOperation: true,
     hideCheckbox: false,
   })
   return { tableBind }
