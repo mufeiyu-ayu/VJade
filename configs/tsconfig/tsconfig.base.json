@@ -15,7 +15,7 @@
     "moduleResolution": "Bundler",
     // 是否解析 JSON 模块
     "resolveJsonModule": true,
-    "types": ["vite/client", "node", "vue"],
+    "types": ["vite/client", "node", "vue", "vitest/globals"],
     "allowImportingTsExtensions": true,
 
     // 是否启动所有严格检查的总开关

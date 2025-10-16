@@ -56,5 +56,6 @@
   "cSpell.words": [
     "autodocs",
     "uuidv"
-  ]
+  ],
+  "vitest.disableWorkspaceWarning": true
 }

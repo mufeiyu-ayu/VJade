@@ -86,6 +86,9 @@ export default defineConfig(async () => {
         //   },
         // }),
       ],
+      test: {
+        globals: true,
+      },
     },
   })
 })
