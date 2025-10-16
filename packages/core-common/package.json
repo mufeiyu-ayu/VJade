@@ -32,6 +32,7 @@
     "type-check": "vue-tsc --noEmit",
     "build": "pnpm run type-check && vite build",
     "build:all": "pnpm run type-check && cross-env VITE_MODE=prod vite build",
+    "test": "vitest",
     "clean": "rimraf node_modules"
   },
   "peerDependencies": {
